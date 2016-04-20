@@ -21,7 +21,7 @@ install:
   - ps: $CONTENT='#include "ace/config-win32.h"'
   - ps: $CONTENT > ext\ACE_TAO\ACE\ace\config.h
   - call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
-  - call perl %ACE_ROOT%\bin\mwc.pl -type vc14 %CIAO_ROOT%\CIAO_TAO_DAnCE.mwc
+  - call perl %ACE_ROOT%\bin\mwc.pl -type vc14 %DANCE_ROOT%\DAnCE_TAO.mwc
 
 platform:
   - x64
@@ -31,6 +31,6 @@ configuration:
 
 build:
   parallel: true
-  project: CIAO_TAO_DAnCE.sln
+  project: DAnCE_TAO.sln
 
 test: off
