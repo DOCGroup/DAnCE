@@ -19,7 +19,7 @@ master: [![Build Status](https://snap-ci.com/DOCGroup/DAnCE/branch/master/build_
 AppVeyor status
 ================
 
-master: [![Build Status](https://ci.appveyor.com/api/projects/status/uxnvychqk0tmy3sh/branch/master?svg=true)](https://ci.appveyor.com/project/jwillemsen/atcd)
+master: [![Build Status](https://ci.appveyor.com/api/projects/status/2v1dv1gy3xrd404u/branch/master?svg=true)](https://ci.appveyor.com/project/jwillemsen/dance)
 
 Coverity Scan status
 ====================
