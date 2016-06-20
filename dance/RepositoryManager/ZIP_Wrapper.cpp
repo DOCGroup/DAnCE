@@ -18,6 +18,8 @@
 #include "ace/OS_NS_sys_stat.h"    //for stat
 #include "ace/OS_NS_sys_stat.h"    //for filesize and mkdir
 #include "ace/OS_Memory.h"         //for ACE_NEW* macros
+#include "ace/Auto_Ptr.h"
+
 #include "dance/Logger/Log_Macros.h"
 
 #include <string>
