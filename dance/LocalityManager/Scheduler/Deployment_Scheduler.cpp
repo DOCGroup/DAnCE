@@ -1,6 +1,8 @@
 #include "Deployment_Scheduler.h"
 #include "dance/Logger/Log_Macros.h"
 
+#include "ace/Auto_Ptr.h"
+
 #if !defined (__ACE_INLINE__)
 #include "dance/LocalityManager/Scheduler/Deployment_Scheduler.inl"
 #endif
