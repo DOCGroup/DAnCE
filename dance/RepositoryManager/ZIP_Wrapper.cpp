@@ -162,7 +162,6 @@ bool ZIP_Wrapper::get_file (char* archive_path, char* filename,
                 {
                   ACE_Message_Block* next = 0;
                   ACE_NEW_RETURN (next, ACE_Message_Block (BUFSIZ), false);
-                  head->cont ();
                   head = head->cont ();
                 }
               num_read = unzReadCurrentFile(archive_path, head->wr_ptr(),
