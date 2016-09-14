@@ -73,8 +73,6 @@ namespace DAnCE
           }
       }
 
-    ACE_OS::free (affinity);
-
     pid_t const pid = ACE_OS::getpid ();
 
     int retval = ::sched_setaffinity (pid,
@@ -98,6 +96,8 @@ namespace DAnCE
         throw ::Deployment::StartError (prop.name.in (),
                                         message.c_str ());
       }
+
+    ACE_OS::free (affinity);
 #else
     throw ::Deployment::StartError (prop.name.in (),
                                     "CPU Affinity not supported on this platform");

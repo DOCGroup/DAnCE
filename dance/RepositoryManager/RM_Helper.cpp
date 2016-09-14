@@ -97,10 +97,14 @@ RM_Helper::copy_from_disk_to_disk (const char* from_path, const char* to_path)
     mb = new ACE_Message_Block (length);
 
     if (ACE_OS::read_n (from_handle, mb->wr_ptr (), length) == -1)
+      {
+        ACE_OS::close (from_handle);
+        ACE_OS::close (to_handle);
         DANCE_ERROR_RETURN (1, (LM_ERROR,
                             ACE_TEXT ("%p\n"),
                             ACE_TEXT ("[RM::copy_from_disk_to_disk] file read error")),
                             0);
+      }
 
     ++number;
 
@@ -110,6 +114,8 @@ RM_Helper::copy_from_disk_to_disk (const char* from_path, const char* to_path)
       if (ACE_OS::write_n (to_handle, curr->rd_ptr (), curr->length ()) == -1)
       {
         mb->release ();
+        ACE_OS::close (from_handle);
+        ACE_OS::close (to_handle);
         DANCE_ERROR_RETURN (1, (LM_ERROR,
                             ACE_TEXT ("%p\n"),
                             ACE_TEXT ("[RM::copy_from_disk_to_disk] file write error")),
