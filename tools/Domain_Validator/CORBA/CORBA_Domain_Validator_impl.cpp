@@ -10,7 +10,8 @@
 
 // Implementation skeleton constructor
 DAnCE_Domain_Validator_i::DAnCE_Domain_Validator_i (CORBA::ORB_ptr orb)
-  : orb_ (CORBA::ORB::_duplicate (orb))
+  : orb_ (CORBA::ORB::_duplicate (orb)),
+    domain_ (0)
 {
 }
 

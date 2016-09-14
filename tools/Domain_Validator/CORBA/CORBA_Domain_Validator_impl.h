@@ -61,9 +61,7 @@ public:
   const ::DAnCE::Time_Value & max_block_time,
   ::CORBA::StringSeq_out late_nodes);
 
-
-
- private:
+private:
   typedef std::list < std::string > NODE_LIST;
 
   ACE_Time_Value convert_time_value (const ::DAnCE::Time_Value &time_value);
