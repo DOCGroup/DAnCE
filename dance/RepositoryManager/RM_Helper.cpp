@@ -72,10 +72,13 @@ RM_Helper::copy_from_disk_to_disk (const char* from_path, const char* to_path)
 
   ACE_HANDLE to_handle = ACE_OS::open (to_path, O_CREAT | O_TRUNC | O_WRONLY);
   if (to_handle == ACE_INVALID_HANDLE)
+    {
+      ACE_OS::close (from_handle);
       DANCE_ERROR_RETURN (1, (LM_ERROR,
                           ACE_TEXT ("%p\n"),
                           ACE_TEXT ("[RM::copy_from_disk_to_disk] file creation error")),
                           0);
+    }
 
 
   // Read the contents of the file into the buffer and write the data to another file
