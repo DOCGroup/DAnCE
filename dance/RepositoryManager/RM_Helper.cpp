@@ -145,8 +145,7 @@ RM_Helper::copy_from_disk_to_disk (const char* from_path, const char* to_path)
 bool RM_Helper::write_to_disk (
                  const char* full_path,
                  ACE_Message_Block& mb,
-                 bool replace
-                )
+                 bool replace)
 {
   ACE_stat stat;
 
@@ -186,8 +185,7 @@ bool RM_Helper::write_to_disk (
 bool RM_Helper::write_pc_to_disk (
                   const char* full_path,
                   ACE_Message_Block& mb,
-                  bool replace
-                 )
+                  bool replace)
 {
   ACE_stat stat;
 
@@ -223,8 +221,7 @@ bool RM_Helper::write_pc_to_disk (
 ACE_Message_Block*
 RM_Helper::read_pc_from_disk (
                            const char* full_path,
-                           size_t &length
-                          )
+                           size_t &length)
 {
   length = 0;
 
