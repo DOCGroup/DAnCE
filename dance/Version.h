@@ -4,7 +4,7 @@
 
 #define DAnCE_MAJOR_VERSION 1
 #define DAnCE_MINOR_VERSION 3
-#define DAnCE_MICRO_VERSION 3
-#define DAnCE_VERSION "1.3.3"
+#define DAnCE_MICRO_VERSION 4
+#define DAnCE_VERSION "1.3.4"
 #define DAnCE_VERSION_CODE 66308
 #define DAnCE_MAKE_VERSION_CODE(a,b,c) (((a) << 16) + ((b) << 8) + (c))
