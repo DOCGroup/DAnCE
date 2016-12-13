@@ -2,7 +2,7 @@
 
 #----------------------------------------------------------------------------
 #
-#       
+#
 #
 #       Common Makefile rules for all of DAnCE
 #
@@ -34,11 +34,11 @@ endif
 ifeq (cmd,$(findstring cmd,$(SHELL)))
 DANCE_MAJOR_VERSION := $(shell awk "/DAnCE_MAJOR_VERSION/ { print $$3}" ${DANCE_ROOT}/dance/Version.h)
 DANCE_MINOR_VERSION := $(shell awk "/DAnCE_MINOR_VERSION/ { print $$3}" ${DANCE_ROOT}/dance/Version.h)
-DANCE_BETA_VERSION := $(shell awk "/DAnCE_BETA_VERSION/ { print $$3}" ${DANCE_ROOT}/dance/Version.h)
+DANCE_MICRO_VERSION := $(shell awk "/DAnCE_MICRO_VERSION/ { print $$3}" ${DANCE_ROOT}/dance/Version.h)
 else
 DANCE_MAJOR_VERSION := $(shell awk '/DAnCE_MAJOR_VERSION/ { print $$3}' ${DANCE_ROOT}/dance/Version.h)
 DANCE_MINOR_VERSION := $(shell awk '/DAnCE_MINOR_VERSION/ { print $$3}' ${DANCE_ROOT}/dance/Version.h)
-DANCE_BETA_VERSION := $(shell awk '/DAnCE_BETA_VERSION/ { print $$3}' ${DANCE_ROOT}/dance/Version.h)
+DANCE_MICRO_VERSION := $(shell awk '/DAnCE_MICRO_VERSION/ { print $$3}' ${DANCE_ROOT}/dance/Version.h)
 endif
 
-GNUACE_PROJECT_VERSION ?= $(DANCE_MAJOR_VERSION).$(DANCE_MINOR_VERSION).$(DANCE_BETA_VERSION)
+GNUACE_PROJECT_VERSION ?= $(DANCE_MAJOR_VERSION).$(DANCE_MINOR_VERSION).$(DANCE_MICRO_VERSION)
