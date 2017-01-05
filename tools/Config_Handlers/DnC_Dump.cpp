@@ -734,7 +734,7 @@ namespace Deployment
 
     dump ("portName", spe.portName);
     int value = spe.instanceRef;
-    ::Deployment::ComponentAssemblyDescription *v;
+    const ::Deployment::ComponentAssemblyDescription *v = 0;
     const CORBA::Any &a =
       Dump_Obj::desc ("ComponentAssemblyDescription");
 
@@ -767,7 +767,7 @@ namespace Deployment
     dump ("propertyName", spr.propertyName);
     int value = spr.instanceRef;
 
-    ::Deployment::ComponentAssemblyDescription *v;
+    const ::Deployment::ComponentAssemblyDescription *v = 0;
 
     const CORBA::Any &a =
       Dump_Obj::desc ("ComponentAssemblyDescription");
