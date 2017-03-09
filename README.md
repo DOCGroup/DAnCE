@@ -11,11 +11,6 @@ Travis-CI status
 
 master: [![Build Status](https://travis-ci.org/DOCGroup/DAnCE.svg?branch=master)](https://travis-ci.org/DOCGroup/DAnCE)
 
-Snap-CI status
-================
-
-master: [![Build Status](https://snap-ci.com/DOCGroup/DAnCE/branch/master/build_image)](https://snap-ci.com/DOCGroup/DAnCE/branch/master)
-
 AppVeyor status
 ================
 
