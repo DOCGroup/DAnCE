@@ -1,25 +1,13 @@
+[![Build Status](https://travis-ci.org/DOCGroup/DAnCE.svg?branch=master)](https://travis-ci.org/DOCGroup/DAnCE)
+[![Build Status](https://ci.appveyor.com/api/projects/status/2v1dv1gy3xrd404u/branch/master?svg=true)](https://ci.appveyor.com/project/jwillemsen/dance)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/1/badge.svg)](https://scan.coverity.com/projects/1)
+
 DAnCE
 ==================
 
 See [Douglas C. Schmidt website](http://www.dre.vanderbilt.edu/~schmidt)  for more information about DAnCE
 
 The quality of DAnCE is monitored through our distributed [scoreboard](http://www.dre.vanderbilt.edu/scoreboard/)
-
-
-Travis-CI status
-================
-
-master: [![Build Status](https://travis-ci.org/DOCGroup/DAnCE.svg?branch=master)](https://travis-ci.org/DOCGroup/DAnCE)
-
-AppVeyor status
-================
-
-master: [![Build Status](https://ci.appveyor.com/api/projects/status/2v1dv1gy3xrd404u/branch/master?svg=true)](https://ci.appveyor.com/project/jwillemsen/dance)
-
-Coverity Scan status
-====================
-
-master: [![Coverity Scan Build Status](https://scan.coverity.com/projects/1/badge.svg)](https://scan.coverity.com/projects/1)
 
 # DAnCE #
 
