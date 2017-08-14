@@ -1,0 +1,297 @@
+commit 5fe5793e68a91e94acbc974aa5a881a3e8214b01
+Merge: 23fb2664a79 1031998b9e5
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Aug 12 15:20:33 2017 +0200
+
+    Merge pull request #32 from jwillemsen/master
+    
+    List major changes
+
+commit 1031998b9e509cfb916da64e5597d57e5a9f76d0
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Aug 12 15:20:05 2017 +0200
+
+    List major changes
+    
+        * NEWS:
+
+commit 23fb2664a79ccf68fe8270a5e9f593cf4c688718
+Merge: 68d09f421a7 4fbb41bedf1
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Aug 9 13:02:06 2017 +0200
+
+    Merge pull request #31 from jwillemsen/jwi-zapid
+    
+    Remove left over id tags
+
+commit 4fbb41bedf1d809f0785eb450f5a36759ef809a0
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Aug 9 13:01:03 2017 +0200
+
+    Remove left over id tags
+    
+        * bin/dance_tests.lst:
+
+commit 68d09f421a7f66da9ce08e8119554d8d39bdd64e
+Merge: 18cddf316d8 aadd8ecd50b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Apr 20 12:08:33 2017 +0200
+
+    Merge pull request #30 from jwillemsen/master
+    
+    No need to use call to invoke perl
+
+commit aadd8ecd50bc588d6306a877d546efa79e897f29
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Apr 20 11:10:05 2017 +0200
+
+    No need to use call to invoke perl
+
+commit 18cddf316d8c06f59188b409117791301499167a
+Merge: 58b49062848 d013bd8953f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Apr 10 22:26:33 2017 +0200
+
+    Merge pull request #29 from jwillemsen/master
+    
+    Use Visual Studio 2017
+
+commit d013bd8953fb514864d747e2933781043c7613a0
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Apr 10 20:02:27 2017 +0200
+
+    Use Visual Studio 2017
+    
+        * appveyor.yml:
+
+commit 58b4906284879673ef455d4bc523db28adc90288
+Merge: 894d39ed19c 8a7df12a759
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 27 20:17:41 2017 +0200
+
+    Merge pull request #28 from jwillemsen/master
+    
+    Removed instructions for how to use github, there are much better pla…
+
+commit 8a7df12a7593c4d61c9a24378f51f3dc82327bd4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 27 13:57:28 2017 +0200
+
+    Removed instructions for how to use github, there are much better places for that kind of information, just let us focus on this project
+
+commit 894d39ed19cc8ac6abaa6967577b3b9f5543b61b
+Merge: 858af792827 a7438346354
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Mar 14 19:04:30 2017 +0100
+
+    Merge pull request #27 from jwillemsen/master
+    
+    Reduced header
+
+commit a74383463549433e91407492233528c283c18707
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Mar 14 19:03:46 2017 +0100
+
+    Reduced header
+    
+        * README.md:
+
+commit 312f6266186e0ff4f65ef082be28d714fc786f83
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Mar 14 19:01:15 2017 +0100
+
+    just list the CI badges at the top
+    
+        * README.md:
+
+commit 858af79282700f86cb0d8abd90421937d54fd5d0
+Merge: 24c0fe1ab57 f3b1ae56c80
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Thu Mar 9 20:43:36 2017 +0100
+
+    Merge pull request #26 from jwillemsen/master
+    
+    Remove snap-ci because it is end of life
+
+commit f3b1ae56c804d9714c0147dd266c69901ff11030
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Mar 9 20:37:03 2017 +0100
+
+    Remove snap-ci because it is end of life
+
+commit 24c0fe1ab57f10bf9481c0130869f0290ffd0d4b
+Merge: 8ce481eb138 d8e9be01adb
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Thu Feb 16 12:51:29 2017 +0100
+
+    Merge pull request #25 from jwillemsen/master
+    
+    Removed left over text
+
+commit d8e9be01adb017022bcd1e3529dbbc12f757871c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Feb 16 12:50:51 2017 +0100
+
+    Removed left over text
+    
+        * README.md:
+
+commit 8ce481eb138d06042f35047e29353a2d4db13fea
+Merge: c59683edb1c 4ddbb320192
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Thu Feb 16 12:30:05 2017 +0100
+
+    Merge pull request #24 from jwillemsen/master
+    
+    Different icon
+
+commit 4ddbb320192b3d0361c7f6a91a6d70e923e55a71
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Feb 16 12:29:17 2017 +0100
+
+    Different icon
+    
+        * README.md:
+
+commit c59683edb1c5c7ba535a37ee6f5484751eadb9bd
+Merge: 8b346d08819 ee4313db067
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Thu Feb 16 12:21:56 2017 +0100
+
+    Merge pull request #23 from jwillemsen/master
+    
+    Updated example commands now that DAnCE has its own tag
+
+commit ee4313db0679916cfef64fb93716d34bc6f1cd42
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Feb 16 12:21:25 2017 +0100
+
+    Updated example commands now that DAnCE has its own tag
+    
+        * README.md:
+
+commit 8b346d088199896177713b7564fb0e7dd7ce8a46
+Merge: 7fb4a30be98 bf3ceaced21
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Thu Feb 16 12:16:42 2017 +0100
+
+    Merge pull request #22 from jwillemsen/master
+    
+    Use github icons instead of custom ones
+
+commit bf3ceaced21fec275d51c8a5b9fabf5ba832b687
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Feb 16 12:13:50 2017 +0100
+
+    Use github icons
+    
+        * README.md:
+
+commit 7fb4a30be9870e595f2e543fa63a7e4a924e6da2
+Merge: dee0cf258b7 f672644087e
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Wed Jan 25 14:50:51 2017 +0100
+
+    Merge pull request #21 from jwillemsen/master
+    
+    Enable clang as compiler
+
+commit f672644087e88f502f7bd3b51a8055df1cc04bc2
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 25 10:21:49 2017 +0100
+
+    Simplified
+    
+        * .travis.yml:
+
+commit 1f6d47631577b5c4eb17d696acf39a6d13eb710a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 25 10:04:25 2017 +0100
+
+    g++6 and clang3.9
+    
+        * .travis.yml:
+
+commit 064ef734887c339827e1ce0d52e5da1faa59af9c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 25 09:39:10 2017 +0100
+
+    Rework clang
+    
+        * .travis.yml:
+
+commit c1abffc70d620aea89c424fab6a2c3da052e67bc
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 25 09:32:40 2017 +0100
+
+    Enable clang as compiler
+    
+        * .travis.yml:
+
+commit dee0cf258b7657fdbf22291853ffa94c3bdb5e75
+Merge: e2216c86e01 f2e9c280f1e
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Thu Jan 5 18:40:50 2017 +0100
+
+    Merge pull request #20 from jwillemsen/master
+    
+    Use const any extraction
+
+commit f2e9c280f1e7c3a183b3a1582b489bea16b09669
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jan 5 18:09:53 2017 +0100
+
+    Use const any extraction
+    
+        * tools/Config_Handlers/DnC_Dump.cpp:
+
+commit e2216c86e01e4b15fa4700da6acc80266e001d06
+Merge: afda48c1646 8ae4397a4cb
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Mon Jan 2 12:42:43 2017 +0100
+
+    Merge pull request #19 from jwillemsen/master
+    
+    Fixed typo
+
+commit 8ae4397a4cb6a92f21ce0e2e6b53b3ddd45711b4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Jan 2 12:37:42 2017 +0100
+
+    Fixed typo
+    
+        * tests/NameServiceTest/srv_main.cpp:
+
+commit afda48c16461316a4e08a8259864fc79fd22b185
+Merge: 4d1266861c5 12d87f69313
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Sun Jan 1 19:41:01 2017 +0100
+
+    Merge pull request #18 from jwillemsen/master
+    
+    Updated copyright year
+
+commit 12d87f693134537d453c9ce367f8c18c099a04cc
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sun Jan 1 19:40:38 2017 +0100
+
+    Updated copyright year
+    
+        * COPYING:
+
+commit 4d1266861c5f31c2d820864f4baf85e42486b507
+Merge: 8bb7af98686 5a3beed9316
+Author: Johnny Willemsen <jwillemsen@users.noreply.github.com>
+Date:   Tue Dec 13 12:30:49 2016 +0100
+
+    Merge pull request #17 from jwillemsen/master
+    
+    Prepare for next release
+
+commit 5a3beed931665018a473bcf2292bb1e25842c30f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Dec 13 12:30:20 2016 +0100
+
+    Prepare for next release
+    
+        * NEWS:
