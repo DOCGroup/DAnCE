@@ -17,7 +17,7 @@ env:
     - DANCE_ROOT=$TRAVIS_BUILD_DIR
     - MPC_ROOT=$TRAVIS_BUILD_DIR/ext/MPC
     - LD_LIBRARY_PATH=$ACE_ROOT/lib:$LD_LIBRARY_PATH
-    - COMPILER=g++-6
+    - COMPILER=g++-7
 
 matrix:
   include:
@@ -26,12 +26,12 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.9
+            - llvm-toolchain-trusty-5.0
           packages:
             - libxerces-c-dev
             - libssl-dev
-            - clang++-3.9
-      env: COMPILER=clang++-3.9 CCMLW=0 CCMNOEVENT=0
+            - clang++-5.0
+      env: COMPILER=clang++-5.0 CCMLW=0 CCMNOEVENT=0
 
 addons:
   apt:
@@ -40,7 +40,7 @@ addons:
     packages:
       - libssl-dev
       - libxerces-c-dev
-      - g++-6
+      - g++-7
 
 before_install:
   - mkdir ext
