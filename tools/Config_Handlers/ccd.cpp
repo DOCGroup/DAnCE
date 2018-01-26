@@ -8,13 +8,6 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #include "ccd.hpp"
 
 namespace DAnCE
@@ -22,20 +15,15 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // ComponentInterfaceDescription
-    //
 
-    ComponentInterfaceDescription::
-    ComponentInterfaceDescription ()
-    :
+    ComponentInterfaceDescription::ComponentInterfaceDescription () :
     ::XSCRT::Type (),
     regulator__ ()
     {
     }
 
-    ComponentInterfaceDescription::
-    ComponentInterfaceDescription (ComponentInterfaceDescription const& s)
-    :
-    ::XSCRT::Type (),
+    ComponentInterfaceDescription::ComponentInterfaceDescription (ComponentInterfaceDescription const& s) :
+    ::XSCRT::Type (s),
     label_ (s.label_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.label_) : 0),
     UUID_ (s.UUID_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.UUID_) : 0),
     specificType_ (s.specificType_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.specificType_) : 0),
@@ -56,50 +44,52 @@ namespace DAnCE
       if (href_.get ()) href_->container (this);
     }
 
-    ComponentInterfaceDescription& ComponentInterfaceDescription::
-    operator= (ComponentInterfaceDescription const& s)
+    ComponentInterfaceDescription&
+    ComponentInterfaceDescription::operator= (ComponentInterfaceDescription const& s)
     {
-      if (s.label_.get ())
-        label (*(s.label_));
-      else
-        label_.reset (0);
+      if (&s != this)
+      {
+        if (s.label_.get ())
+          label (*(s.label_));
+        else
+          label_.reset (0);
 
-      if (s.UUID_.get ())
-        UUID (*(s.UUID_));
-      else
-        UUID_.reset (0);
+        if (s.UUID_.get ())
+          UUID (*(s.UUID_));
+        else
+          UUID_.reset (0);
 
-      if (s.specificType_.get ())
-        specificType (*(s.specificType_));
-      else
-        specificType_.reset (0);
+        if (s.specificType_.get ())
+          specificType (*(s.specificType_));
+        else
+          specificType_.reset (0);
 
-      supportedType_ = s.supportedType_;
+        supportedType_ = s.supportedType_;
 
-      idlFile_ = s.idlFile_;
+        idlFile_ = s.idlFile_;
 
-      configProperty_ = s.configProperty_;
+        configProperty_ = s.configProperty_;
 
-      port_ = s.port_;
+        port_ = s.port_;
 
-      property_ = s.property_;
+        property_ = s.property_;
 
-      infoProperty_ = s.infoProperty_;
+        infoProperty_ = s.infoProperty_;
 
-      if (s.contentLocation_.get ())
-        contentLocation (*(s.contentLocation_));
-      else
-        contentLocation_.reset (0);
+        if (s.contentLocation_.get ())
+          contentLocation (*(s.contentLocation_));
+        else
+          contentLocation_.reset (0);
 
-      if (s.href_.get ()) href (*(s.href_));
-      else href_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+        if (s.href_.get ()) href (*(s.href_));
+        else href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+      }
 
       return *this;
     }
 
 
     // ComponentInterfaceDescription
-    //
     bool ComponentInterfaceDescription::
     label_p () const
     {
@@ -122,13 +112,12 @@ namespace DAnCE
 
       else
       {
-        label_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        label_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
         label_->container (this);
       }
     }
 
     // ComponentInterfaceDescription
-    //
     bool ComponentInterfaceDescription::
     UUID_p () const
     {
@@ -151,13 +140,12 @@ namespace DAnCE
 
       else
       {
-        UUID_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        UUID_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
         UUID_->container (this);
       }
     }
 
     // ComponentInterfaceDescription
-    //
     bool ComponentInterfaceDescription::
     specificType_p () const
     {
@@ -180,13 +168,12 @@ namespace DAnCE
 
       else
       {
-        specificType_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        specificType_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
         specificType_->container (this);
       }
     }
 
     // ComponentInterfaceDescription
-    //
     ComponentInterfaceDescription::supportedType_iterator ComponentInterfaceDescription::
     begin_supportedType ()
     {
@@ -224,7 +211,6 @@ namespace DAnCE
     }
 
     // ComponentInterfaceDescription
-    //
     ComponentInterfaceDescription::idlFile_iterator ComponentInterfaceDescription::
     begin_idlFile ()
     {
@@ -262,7 +248,6 @@ namespace DAnCE
     }
 
     // ComponentInterfaceDescription
-    //
     ComponentInterfaceDescription::configProperty_iterator ComponentInterfaceDescription::
     begin_configProperty ()
     {
@@ -300,7 +285,6 @@ namespace DAnCE
     }
 
     // ComponentInterfaceDescription
-    //
     ComponentInterfaceDescription::port_iterator ComponentInterfaceDescription::
     begin_port ()
     {
@@ -338,7 +322,6 @@ namespace DAnCE
     }
 
     // ComponentInterfaceDescription
-    //
     ComponentInterfaceDescription::property_iterator ComponentInterfaceDescription::
     begin_property ()
     {
@@ -376,7 +359,6 @@ namespace DAnCE
     }
 
     // ComponentInterfaceDescription
-    //
     ComponentInterfaceDescription::infoProperty_iterator ComponentInterfaceDescription::
     begin_infoProperty ()
     {
@@ -414,7 +396,6 @@ namespace DAnCE
     }
 
     // ComponentInterfaceDescription
-    //
     bool ComponentInterfaceDescription::
     contentLocation_p () const
     {
@@ -437,13 +418,12 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        contentLocation_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
         contentLocation_->container (this);
       }
     }
 
     // ComponentInterfaceDescription
-    //
     bool ComponentInterfaceDescription::
     href_p () const
     {
@@ -472,7 +452,7 @@ namespace DAnCE
 
       else
       {
-        href_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
         href_->container (this);
       }
     }
@@ -484,7 +464,6 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // ComponentInterfaceDescription
-    //
 
     ComponentInterfaceDescription::
     ComponentInterfaceDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -496,7 +475,7 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -566,7 +545,7 @@ namespace DAnCE
       while (p.more_attributes ())
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
           ::XMLSchema::string< ACE_TCHAR > t (a);
@@ -606,7 +585,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -622,8 +601,6 @@ namespace DAnCE
     namespace Traversal
     {
       // ComponentInterfaceDescription
-      //
-      //
 
       void ComponentInterfaceDescription::
       traverse (Type& o)
@@ -751,7 +728,6 @@ namespace DAnCE
       supportedType (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::supportedType_iterator b (o.begin_supportedType()), e (o.end_supportedType());
 
         if (b != e)
@@ -773,7 +749,6 @@ namespace DAnCE
       supportedType (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::supportedType_const_iterator b (o.begin_supportedType()), e (o.end_supportedType());
 
         if (b != e)
@@ -835,7 +810,6 @@ namespace DAnCE
       idlFile (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::idlFile_iterator b (o.begin_idlFile()), e (o.end_idlFile());
 
         if (b != e)
@@ -857,7 +831,6 @@ namespace DAnCE
       idlFile (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::idlFile_const_iterator b (o.begin_idlFile()), e (o.end_idlFile());
 
         if (b != e)
@@ -919,7 +892,6 @@ namespace DAnCE
       configProperty (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::configProperty_iterator b (o.begin_configProperty()), e (o.end_configProperty());
 
         if (b != e)
@@ -941,7 +913,6 @@ namespace DAnCE
       configProperty (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::configProperty_const_iterator b (o.begin_configProperty()), e (o.end_configProperty());
 
         if (b != e)
@@ -1003,7 +974,6 @@ namespace DAnCE
       port (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::port_iterator b (o.begin_port()), e (o.end_port());
 
         if (b != e)
@@ -1025,7 +995,6 @@ namespace DAnCE
       port (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::port_const_iterator b (o.begin_port()), e (o.end_port());
 
         if (b != e)
@@ -1087,7 +1056,6 @@ namespace DAnCE
       property (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::property_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -1109,7 +1077,6 @@ namespace DAnCE
       property (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::property_const_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -1171,7 +1138,6 @@ namespace DAnCE
       infoProperty (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::infoProperty_iterator b (o.begin_infoProperty()), e (o.end_infoProperty());
 
         if (b != e)
@@ -1193,7 +1159,6 @@ namespace DAnCE
       infoProperty (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentInterfaceDescription::infoProperty_const_iterator b (o.begin_infoProperty()), e (o.end_infoProperty());
 
         if (b != e)
@@ -1315,9 +1280,6 @@ namespace DAnCE
     namespace Writer
     {
       // ComponentInterfaceDescription
-      //
-      //
-
       ComponentInterfaceDescription::
       ComponentInterfaceDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -1338,7 +1300,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("label"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
         Traversal::ComponentInterfaceDescription::label (o);
         pop_ ();
       }
@@ -1346,7 +1308,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
         Traversal::ComponentInterfaceDescription::UUID (o);
         pop_ ();
       }
@@ -1354,7 +1316,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       specificType (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("specificType"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("specificType"), top_ ()));
         Traversal::ComponentInterfaceDescription::specificType (o);
         pop_ ();
       }
@@ -1362,7 +1324,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       supportedType_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("supportedType"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("supportedType"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1381,7 +1343,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       idlFile_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("idlFile"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("idlFile"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1400,7 +1362,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       configProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("configProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("configProperty"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1419,7 +1381,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       port_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("port"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("port"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1438,7 +1400,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       property_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("property"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("property"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1457,7 +1419,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1476,7 +1438,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       contentLocation (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("contentLocation"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("contentLocation"), top_ ()));
         Traversal::ComponentInterfaceDescription::contentLocation (o);
         pop_ ();
       }
@@ -1485,7 +1447,7 @@ namespace DAnCE
       href (Type const& o)
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
-        attr_ (&a);
+        attr_ (&(a));
         Traversal::ComponentInterfaceDescription::href (o);
         attr_ (0);
       }

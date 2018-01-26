@@ -8,13 +8,6 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #include "Deployment.hpp"
 
 namespace DAnCE
@@ -40,12 +33,18 @@ namespace DAnCE
       ::DAnCE::Config_Handlers::Domain
       domain (xercesc::DOMDocument const* d)
       {
-        //Initiate our Singleton as an ACE_TSS object (ensures thread
-        //specific storage
+        // Initiate our Singleton as an ACE_TSS object (ensures thread
+        // specific storage
         ID_Map::TSS_ID_Map* TSS_ID_Map (ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance());
 
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () == ACE_TEXT("domain"))
         {
           ::DAnCE::Config_Handlers::Domain r (e);
@@ -67,12 +66,18 @@ namespace DAnCE
       ::DAnCE::Config_Handlers::deploymentPlan
       DeploymentPlan (xercesc::DOMDocument const* d)
       {
-        //Initiate our Singleton as an ACE_TSS object (ensures thread
-        //specific storage
+        // Initiate our Singleton as an ACE_TSS object (ensures thread
+        // specific storage
         ID_Map::TSS_ID_Map* TSS_ID_Map (ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance());
 
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () == ACE_TEXT("DeploymentPlan"))
         {
           ::DAnCE::Config_Handlers::deploymentPlan r (e);
@@ -94,12 +99,18 @@ namespace DAnCE
       ::DAnCE::Config_Handlers::ImplementationArtifactDescription
       implementationArtifactDescription (xercesc::DOMDocument const* d)
       {
-        //Initiate our Singleton as an ACE_TSS object (ensures thread
-        //specific storage
+        // Initiate our Singleton as an ACE_TSS object (ensures thread
+        // specific storage
         ID_Map::TSS_ID_Map* TSS_ID_Map (ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance());
 
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () == ACE_TEXT("implementationArtifactDescription"))
         {
           ::DAnCE::Config_Handlers::ImplementationArtifactDescription r (e);
@@ -121,12 +132,18 @@ namespace DAnCE
       ::DAnCE::Config_Handlers::ComponentInterfaceDescription
       componentInterfaceDescription (xercesc::DOMDocument const* d)
       {
-        //Initiate our Singleton as an ACE_TSS object (ensures thread
-        //specific storage
+        // Initiate our Singleton as an ACE_TSS object (ensures thread
+        // specific storage
         ID_Map::TSS_ID_Map* TSS_ID_Map (ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance());
 
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () == ACE_TEXT("componentInterfaceDescription"))
         {
           ::DAnCE::Config_Handlers::ComponentInterfaceDescription r (e);
@@ -148,12 +165,18 @@ namespace DAnCE
       ::DAnCE::Config_Handlers::ComponentImplementationDescription
       componentImplementationDescription (xercesc::DOMDocument const* d)
       {
-        //Initiate our Singleton as an ACE_TSS object (ensures thread
-        //specific storage
+        // Initiate our Singleton as an ACE_TSS object (ensures thread
+        // specific storage
         ID_Map::TSS_ID_Map* TSS_ID_Map (ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance());
 
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () == ACE_TEXT("componentImplementationDescription"))
         {
           ::DAnCE::Config_Handlers::ComponentImplementationDescription r (e);
@@ -175,12 +198,18 @@ namespace DAnCE
       ::DAnCE::Config_Handlers::ComponentPackageDescription
       componentPackageDescription (xercesc::DOMDocument const* d)
       {
-        //Initiate our Singleton as an ACE_TSS object (ensures thread
-        //specific storage
+        // Initiate our Singleton as an ACE_TSS object (ensures thread
+        // specific storage
         ID_Map::TSS_ID_Map* TSS_ID_Map (ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance());
 
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () == ACE_TEXT("componentPackageDescription"))
         {
           ::DAnCE::Config_Handlers::ComponentPackageDescription r (e);
@@ -202,12 +231,18 @@ namespace DAnCE
       ::DAnCE::Config_Handlers::PackageConfiguration
       packageConfiguration (xercesc::DOMDocument const* d)
       {
-        //Initiate our Singleton as an ACE_TSS object (ensures thread
-        //specific storage
+        // Initiate our Singleton as an ACE_TSS object (ensures thread
+        // specific storage
         ID_Map::TSS_ID_Map* TSS_ID_Map (ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance());
 
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () == ACE_TEXT("packageConfiguration"))
         {
           ::DAnCE::Config_Handlers::PackageConfiguration r (e);
@@ -229,12 +264,18 @@ namespace DAnCE
       ::DAnCE::Config_Handlers::TopLevelPackageDescription
       topLevelPackageDescription (xercesc::DOMDocument const* d)
       {
-        //Initiate our Singleton as an ACE_TSS object (ensures thread
-        //specific storage
+        // Initiate our Singleton as an ACE_TSS object (ensures thread
+        // specific storage
         ID_Map::TSS_ID_Map* TSS_ID_Map (ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance());
 
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () == ACE_TEXT("topLevelPackageDescription"))
         {
           ::DAnCE::Config_Handlers::TopLevelPackageDescription r (e);
@@ -295,7 +336,13 @@ namespace DAnCE
       void
       domain (::DAnCE::Config_Handlers::Domain const& s, xercesc::DOMDocument* d)
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () != ACE_TEXT ("domain"))
         {
           throw 1;
@@ -321,6 +368,8 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SequenceType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::unsignedInt, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::AliasType,
+        virtual ::DAnCE::Config_Handlers::Writer::ArrayType,
+        virtual ::DAnCE::Config_Handlers::Writer::BoundedStringType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::DataValue,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::short_, ACE_TCHAR >,
@@ -352,7 +401,13 @@ namespace DAnCE
       void
       DeploymentPlan (::DAnCE::Config_Handlers::deploymentPlan const& s, xercesc::DOMDocument* d)
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () != ACE_TEXT ("DeploymentPlan"))
         {
           throw 1;
@@ -373,6 +428,8 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SequenceType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::unsignedInt, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::AliasType,
+        virtual ::DAnCE::Config_Handlers::Writer::ArrayType,
+        virtual ::DAnCE::Config_Handlers::Writer::BoundedStringType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::DataValue,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::short_, ACE_TCHAR >,
@@ -425,7 +482,13 @@ namespace DAnCE
       void
       implementationArtifactDescription (::DAnCE::Config_Handlers::ImplementationArtifactDescription const& s, xercesc::DOMDocument* d)
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () != ACE_TEXT ("implementationArtifactDescription"))
         {
           throw 1;
@@ -446,6 +509,8 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SequenceType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::unsignedInt, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::AliasType,
+        virtual ::DAnCE::Config_Handlers::Writer::ArrayType,
+        virtual ::DAnCE::Config_Handlers::Writer::BoundedStringType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::DataValue,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::short_, ACE_TCHAR >,
@@ -477,7 +542,13 @@ namespace DAnCE
       void
       componentInterfaceDescription (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& s, xercesc::DOMDocument* d)
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () != ACE_TEXT ("componentInterfaceDescription"))
         {
           throw 1;
@@ -497,6 +568,8 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SequenceType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::unsignedInt, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::AliasType,
+        virtual ::DAnCE::Config_Handlers::Writer::ArrayType,
+        virtual ::DAnCE::Config_Handlers::Writer::BoundedStringType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::DataValue,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::short_, ACE_TCHAR >,
@@ -530,7 +603,13 @@ namespace DAnCE
       void
       componentImplementationDescription (::DAnCE::Config_Handlers::ComponentImplementationDescription const& s, xercesc::DOMDocument* d)
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () != ACE_TEXT ("componentImplementationDescription"))
         {
           throw 1;
@@ -551,6 +630,8 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SequenceType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::unsignedInt, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::AliasType,
+        virtual ::DAnCE::Config_Handlers::Writer::ArrayType,
+        virtual ::DAnCE::Config_Handlers::Writer::BoundedStringType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::DataValue,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::short_, ACE_TCHAR >,
@@ -611,7 +692,13 @@ namespace DAnCE
       void
       componentPackageDescription (::DAnCE::Config_Handlers::ComponentPackageDescription const& s, xercesc::DOMDocument* d)
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () != ACE_TEXT ("componentPackageDescription"))
         {
           throw 1;
@@ -632,6 +719,8 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SequenceType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::unsignedInt, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::AliasType,
+        virtual ::DAnCE::Config_Handlers::Writer::ArrayType,
+        virtual ::DAnCE::Config_Handlers::Writer::BoundedStringType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::DataValue,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::short_, ACE_TCHAR >,
@@ -692,7 +781,13 @@ namespace DAnCE
       void
       packageConfiguration (::DAnCE::Config_Handlers::PackageConfiguration const& s, xercesc::DOMDocument* d)
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () != ACE_TEXT ("packageConfiguration"))
         {
           throw 1;
@@ -714,6 +809,8 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SequenceType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::unsignedInt, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::AliasType,
+        virtual ::DAnCE::Config_Handlers::Writer::ArrayType,
+        virtual ::DAnCE::Config_Handlers::Writer::BoundedStringType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::DataValue,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::short_, ACE_TCHAR >,
@@ -773,7 +870,13 @@ namespace DAnCE
       void
       topLevelPackageDescription (::DAnCE::Config_Handlers::TopLevelPackageDescription const& s, xercesc::DOMDocument* d)
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (d->getDocumentElement ());
+        xercesc::DOMElement* dom_element = d->getDocumentElement ();
+        if (!dom_element)
+        {
+          throw 1;
+        }
+
+        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
         if (e.name () != ACE_TEXT ("topLevelPackageDescription"))
         {
           throw 1;
@@ -796,6 +899,8 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SequenceType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::unsignedInt, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::AliasType,
+        virtual ::DAnCE::Config_Handlers::Writer::ArrayType,
+        virtual ::DAnCE::Config_Handlers::Writer::BoundedStringType,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::DataValue,
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::short_, ACE_TCHAR >,

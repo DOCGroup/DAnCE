@@ -8,19 +8,11 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #ifndef XMI_HPP
 #define XMI_HPP
 
 #include "XSC_XML_Handlers_Export.h"
 // Forward declarations.
-//
 namespace XMI
 {
   class Extension;
@@ -44,10 +36,9 @@ namespace XMI
     typedef ::XSCRT::Type Base;
 
     public:
-    typedef ACE_Refcounted_Auto_Ptr < Extension, ACE_Null_Mutex > _ptr;
+    typedef ACE_Refcounted_Auto_Ptr < ::XMI::Extension, ACE_Null_Mutex > _ptr;
 
     // id
-    //
     public:
     bool id_p () const;
     ::XMLSchema::ID< ACE_TCHAR > const& id () const;
@@ -55,10 +46,9 @@ namespace XMI
     void id (::XMLSchema::ID< ACE_TCHAR > const& );
 
     protected:
-    ::std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > id_;
+    std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > id_;
 
     // label
-    //
     public:
     bool label_p () const;
     ::XMLSchema::string< ACE_TCHAR > const& label () const;
@@ -66,10 +56,9 @@ namespace XMI
     void label (::XMLSchema::string< ACE_TCHAR > const& );
 
     protected:
-    ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
 
     // uuid
-    //
     public:
     bool uuid_p () const;
     ::XMLSchema::string< ACE_TCHAR > const& uuid () const;
@@ -77,10 +66,9 @@ namespace XMI
     void uuid (::XMLSchema::string< ACE_TCHAR > const& );
 
     protected:
-    ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > uuid_;
+    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > uuid_;
 
     // href
-    //
     public:
     bool href_p () const;
     ::XMLSchema::string< ACE_TCHAR > const& href () const;
@@ -88,23 +76,22 @@ namespace XMI
     void href (::XMLSchema::string< ACE_TCHAR > const& );
 
     protected:
-    ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > href_;
+    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > href_;
 
     // idref
-    //
     public:
     bool idref_p () const;
     ::XMLSchema::IDREF< ACE_TCHAR > const& idref () const;
     ::XMLSchema::IDREF< ACE_TCHAR >& idref ();
     void idref (::XMLSchema::IDREF< ACE_TCHAR > const& );
-    ::XSCRT::Type* idref_ptr ();
+    ::XSCRT::Type* get_idref_ptr ();
 
+    void set_idref_ptr (std::basic_string<ACE_TCHAR> idref );
 
     protected:
-    ::std::auto_ptr< ::XMLSchema::IDREF< ACE_TCHAR > > idref_;
+    std::auto_ptr< ::XMLSchema::IDREF< ACE_TCHAR > > idref_;
 
     // version
-    //
     public:
     bool version_p () const;
     ::XMLSchema::string< ACE_TCHAR > const& version () const;
@@ -112,10 +99,9 @@ namespace XMI
     void version (::XMLSchema::string< ACE_TCHAR > const& );
 
     protected:
-    ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > version_;
+    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > version_;
 
     // extender
-    //
     public:
     bool extender_p () const;
     ::XMLSchema::string< ACE_TCHAR > const& extender () const;
@@ -123,10 +109,9 @@ namespace XMI
     void extender (::XMLSchema::string< ACE_TCHAR > const& );
 
     protected:
-    ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > extender_;
+    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > extender_;
 
     // extenderID
-    //
     public:
     bool extenderID_p () const;
     ::XMLSchema::string< ACE_TCHAR > const& extenderID () const;
@@ -134,7 +119,7 @@ namespace XMI
     void extenderID (::XMLSchema::string< ACE_TCHAR > const& );
 
     protected:
-    ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > extenderID_;
+    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > extenderID_;
 
     public:
     Extension ();
@@ -142,8 +127,7 @@ namespace XMI
     Extension (::XSCRT::XML::Element< ACE_TCHAR > const&);
     Extension (Extension const& s);
 
-    Extension&
-    operator= (Extension const& s);
+    Extension& operator= (Extension const& s);
 
     private:
     char regulator__;

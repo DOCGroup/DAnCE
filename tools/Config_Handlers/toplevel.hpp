@@ -8,19 +8,11 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #ifndef TOPLEVEL_HPP
 #define TOPLEVEL_HPP
 
 #include "XSC_XML_Handlers_Export.h"
 // Forward declarations.
-//
 namespace DAnCE
 {
   namespace Config_Handlers
@@ -51,23 +43,23 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < TopLevelPackageDescription, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::TopLevelPackageDescription, ACE_Null_Mutex > _ptr;
 
       // package
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex > >::iterator package_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex > >::const_iterator package_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex > >::iterator package_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex > >::const_iterator package_const_iterator;
       package_iterator begin_package ();
       package_iterator end_package ();
       package_const_iterator begin_package () const;
       package_const_iterator end_package () const;
       void add_package ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex > const& );
-      XSCRT::Type* package_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_package_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_package_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_package (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex > > package_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex > > package_;
 
       public:
       TopLevelPackageDescription ();
@@ -75,8 +67,7 @@ namespace DAnCE
       TopLevelPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
       TopLevelPackageDescription (TopLevelPackageDescription const& s);
 
-      TopLevelPackageDescription&
-      operator= (TopLevelPackageDescription const& s);
+      TopLevelPackageDescription& operator= (TopLevelPackageDescription const& s);
 
       private:
       char regulator__;

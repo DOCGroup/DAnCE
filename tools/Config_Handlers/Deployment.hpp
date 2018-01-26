@@ -8,19 +8,11 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #ifndef DEPLOYMENT_HPP
 #define DEPLOYMENT_HPP
 
 #include "XSC_XML_Handlers_Export.h"
 // Forward declarations.
-//
 namespace DAnCE
 {
   namespace Config_Handlers

@@ -8,13 +8,6 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #include "iad.hpp"
 
 namespace DAnCE
@@ -22,12 +15,9 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // NamedImplementationArtifact
-    //
 
-    NamedImplementationArtifact::
-    NamedImplementationArtifact (::XMLSchema::string< ACE_TCHAR > const& name__,
-                                 ::DAnCE::Config_Handlers::ImplementationArtifactDescription const& referencedArtifact__)
-    :
+    NamedImplementationArtifact::NamedImplementationArtifact (::XMLSchema::string< ACE_TCHAR > const& name__,
+                                                              ::DAnCE::Config_Handlers::ImplementationArtifactDescription const& referencedArtifact__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
     referencedArtifact_ (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (referencedArtifact__)),
@@ -37,10 +27,8 @@ namespace DAnCE
       referencedArtifact_->container (this);
     }
 
-    NamedImplementationArtifact::
-    NamedImplementationArtifact (NamedImplementationArtifact const& s)
-    :
-    ::XSCRT::Type (),
+    NamedImplementationArtifact::NamedImplementationArtifact (NamedImplementationArtifact const& s) :
+    ::XSCRT::Type (s),
     name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
     referencedArtifact_ (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (*s.referencedArtifact_)),
     regulator__ ()
@@ -49,19 +37,21 @@ namespace DAnCE
       referencedArtifact_->container (this);
     }
 
-    NamedImplementationArtifact& NamedImplementationArtifact::
-    operator= (NamedImplementationArtifact const& s)
+    NamedImplementationArtifact&
+    NamedImplementationArtifact::operator= (NamedImplementationArtifact const& s)
     {
-      name (*s.name_);
+      if (&s != this)
+      {
+        name (*s.name_);
 
-      referencedArtifact (*s.referencedArtifact_);
+        referencedArtifact (*s.referencedArtifact_);
+      }
 
       return *this;
     }
 
 
     // NamedImplementationArtifact
-    //
     ::XMLSchema::string< ACE_TCHAR > const& NamedImplementationArtifact::
     name () const
     {
@@ -75,7 +65,6 @@ namespace DAnCE
     }
 
     // NamedImplementationArtifact
-    //
     ::DAnCE::Config_Handlers::ImplementationArtifactDescription const& NamedImplementationArtifact::
     referencedArtifact () const
     {
@@ -90,19 +79,15 @@ namespace DAnCE
 
 
     // ImplementationArtifactDescription
-    //
 
-    ImplementationArtifactDescription::
-    ImplementationArtifactDescription ()
-    :
+    ImplementationArtifactDescription::ImplementationArtifactDescription () :
+    ::XSCRT::Type (),
     regulator__ ()
     {
     }
 
-    ImplementationArtifactDescription::
-    ImplementationArtifactDescription (ImplementationArtifactDescription const& s)
-    :
-    ::XSCRT::Type (),
+    ImplementationArtifactDescription::ImplementationArtifactDescription (ImplementationArtifactDescription const& s) :
+    ::XSCRT::Type (s),
     label_ (s.label_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.label_) : 0),
     UUID_ (s.UUID_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.UUID_) : 0),
     location_ (s.location_),
@@ -120,43 +105,45 @@ namespace DAnCE
       if (href_.get ()) href_->container (this);
     }
 
-    ImplementationArtifactDescription& ImplementationArtifactDescription::
-    operator= (ImplementationArtifactDescription const& s)
+    ImplementationArtifactDescription&
+    ImplementationArtifactDescription::operator= (ImplementationArtifactDescription const& s)
     {
-      if (s.label_.get ())
-        label (*(s.label_));
-      else
-        label_.reset (0);
+      if (&s != this)
+      {
+        if (s.label_.get ())
+          label (*(s.label_));
+        else
+          label_.reset (0);
 
-      if (s.UUID_.get ())
-        UUID (*(s.UUID_));
-      else
-        UUID_.reset (0);
+        if (s.UUID_.get ())
+          UUID (*(s.UUID_));
+        else
+          UUID_.reset (0);
 
-      location_ = s.location_;
+        location_ = s.location_;
 
-      dependsOn_ = s.dependsOn_;
+        dependsOn_ = s.dependsOn_;
 
-      execParameter_ = s.execParameter_;
+        execParameter_ = s.execParameter_;
 
-      infoProperty_ = s.infoProperty_;
+        infoProperty_ = s.infoProperty_;
 
-      deployRequirement_ = s.deployRequirement_;
+        deployRequirement_ = s.deployRequirement_;
 
-      if (s.contentLocation_.get ())
-        contentLocation (*(s.contentLocation_));
-      else
-        contentLocation_.reset (0);
+        if (s.contentLocation_.get ())
+          contentLocation (*(s.contentLocation_));
+        else
+          contentLocation_.reset (0);
 
-      if (s.href_.get ()) href (*(s.href_));
-      else href_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+        if (s.href_.get ()) href (*(s.href_));
+        else href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+      }
 
       return *this;
     }
 
 
     // ImplementationArtifactDescription
-    //
     bool ImplementationArtifactDescription::
     label_p () const
     {
@@ -179,13 +166,12 @@ namespace DAnCE
 
       else
       {
-        label_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        label_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
         label_->container (this);
       }
     }
 
     // ImplementationArtifactDescription
-    //
     bool ImplementationArtifactDescription::
     UUID_p () const
     {
@@ -208,13 +194,12 @@ namespace DAnCE
 
       else
       {
-        UUID_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        UUID_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
         UUID_->container (this);
       }
     }
 
     // ImplementationArtifactDescription
-    //
     ImplementationArtifactDescription::location_iterator ImplementationArtifactDescription::
     begin_location ()
     {
@@ -252,7 +237,6 @@ namespace DAnCE
     }
 
     // ImplementationArtifactDescription
-    //
     ImplementationArtifactDescription::dependsOn_iterator ImplementationArtifactDescription::
     begin_dependsOn ()
     {
@@ -290,7 +274,6 @@ namespace DAnCE
     }
 
     // ImplementationArtifactDescription
-    //
     ImplementationArtifactDescription::execParameter_iterator ImplementationArtifactDescription::
     begin_execParameter ()
     {
@@ -328,7 +311,6 @@ namespace DAnCE
     }
 
     // ImplementationArtifactDescription
-    //
     ImplementationArtifactDescription::infoProperty_iterator ImplementationArtifactDescription::
     begin_infoProperty ()
     {
@@ -366,7 +348,6 @@ namespace DAnCE
     }
 
     // ImplementationArtifactDescription
-    //
     ImplementationArtifactDescription::deployRequirement_iterator ImplementationArtifactDescription::
     begin_deployRequirement ()
     {
@@ -404,7 +385,6 @@ namespace DAnCE
     }
 
     // ImplementationArtifactDescription
-    //
     bool ImplementationArtifactDescription::
     contentLocation_p () const
     {
@@ -427,13 +407,12 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        contentLocation_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
         contentLocation_->container (this);
       }
     }
 
     // ImplementationArtifactDescription
-    //
     bool ImplementationArtifactDescription::
     href_p () const
     {
@@ -462,7 +441,7 @@ namespace DAnCE
 
       else
       {
-        href_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
         href_->container (this);
       }
     }
@@ -474,7 +453,6 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // NamedImplementationArtifact
-    //
 
     NamedImplementationArtifact::
     NamedImplementationArtifact (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -486,17 +464,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("referencedArtifact"))
         {
-          referencedArtifact_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::ImplementationArtifactDescription > (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (e));
+          referencedArtifact_ = std::auto_ptr< ::DAnCE::Config_Handlers::ImplementationArtifactDescription > (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (e));
           referencedArtifact_->container (this);
         }
 
@@ -507,7 +485,6 @@ namespace DAnCE
     }
 
     // ImplementationArtifactDescription
-    //
 
     ImplementationArtifactDescription::
     ImplementationArtifactDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -519,7 +496,7 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -577,7 +554,7 @@ namespace DAnCE
       while (p.more_attributes ())
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
           ::XMLSchema::string< ACE_TCHAR > t (a);
@@ -617,7 +594,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -631,7 +608,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -647,8 +624,6 @@ namespace DAnCE
     namespace Traversal
     {
       // NamedImplementationArtifact
-      //
-      //
 
       void NamedImplementationArtifact::
       traverse (Type& o)
@@ -713,8 +688,6 @@ namespace DAnCE
       }
 
       // ImplementationArtifactDescription
-      //
-      //
 
       void ImplementationArtifactDescription::
       traverse (Type& o)
@@ -814,7 +787,6 @@ namespace DAnCE
       location (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::location_iterator b (o.begin_location()), e (o.end_location());
 
         if (b != e)
@@ -836,7 +808,6 @@ namespace DAnCE
       location (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::location_const_iterator b (o.begin_location()), e (o.end_location());
 
         if (b != e)
@@ -898,7 +869,6 @@ namespace DAnCE
       dependsOn (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::dependsOn_iterator b (o.begin_dependsOn()), e (o.end_dependsOn());
 
         if (b != e)
@@ -920,7 +890,6 @@ namespace DAnCE
       dependsOn (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::dependsOn_const_iterator b (o.begin_dependsOn()), e (o.end_dependsOn());
 
         if (b != e)
@@ -982,7 +951,6 @@ namespace DAnCE
       execParameter (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::execParameter_iterator b (o.begin_execParameter()), e (o.end_execParameter());
 
         if (b != e)
@@ -1004,7 +972,6 @@ namespace DAnCE
       execParameter (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::execParameter_const_iterator b (o.begin_execParameter()), e (o.end_execParameter());
 
         if (b != e)
@@ -1066,7 +1033,6 @@ namespace DAnCE
       infoProperty (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::infoProperty_iterator b (o.begin_infoProperty()), e (o.end_infoProperty());
 
         if (b != e)
@@ -1088,7 +1054,6 @@ namespace DAnCE
       infoProperty (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::infoProperty_const_iterator b (o.begin_infoProperty()), e (o.end_infoProperty());
 
         if (b != e)
@@ -1150,7 +1115,6 @@ namespace DAnCE
       deployRequirement (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::deployRequirement_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -1172,7 +1136,6 @@ namespace DAnCE
       deployRequirement (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationArtifactDescription::deployRequirement_const_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -1294,9 +1257,6 @@ namespace DAnCE
     namespace Writer
     {
       // NamedImplementationArtifact
-      //
-      //
-
       NamedImplementationArtifact::
       NamedImplementationArtifact (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -1317,7 +1277,7 @@ namespace DAnCE
       void NamedImplementationArtifact::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("name"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
         Traversal::NamedImplementationArtifact::name (o);
         pop_ ();
       }
@@ -1325,15 +1285,12 @@ namespace DAnCE
       void NamedImplementationArtifact::
       referencedArtifact (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("referencedArtifact"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("referencedArtifact"), top_ ()));
         Traversal::NamedImplementationArtifact::referencedArtifact (o);
         pop_ ();
       }
 
       // ImplementationArtifactDescription
-      //
-      //
-
       ImplementationArtifactDescription::
       ImplementationArtifactDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -1354,7 +1311,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("label"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
         Traversal::ImplementationArtifactDescription::label (o);
         pop_ ();
       }
@@ -1362,7 +1319,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
         Traversal::ImplementationArtifactDescription::UUID (o);
         pop_ ();
       }
@@ -1370,7 +1327,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       location_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("location"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("location"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1389,7 +1346,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       dependsOn_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("dependsOn"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("dependsOn"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1408,7 +1365,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       execParameter_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("execParameter"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("execParameter"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1427,7 +1384,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1446,7 +1403,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       deployRequirement_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("deployRequirement"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("deployRequirement"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1465,7 +1422,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       contentLocation (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("contentLocation"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("contentLocation"), top_ ()));
         Traversal::ImplementationArtifactDescription::contentLocation (o);
         pop_ ();
       }
@@ -1474,7 +1431,7 @@ namespace DAnCE
       href (Type const& o)
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
-        attr_ (&a);
+        attr_ (&(a));
         Traversal::ImplementationArtifactDescription::href (o);
         attr_ (0);
       }
