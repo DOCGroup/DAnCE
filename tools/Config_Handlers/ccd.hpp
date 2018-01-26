@@ -48,61 +48,61 @@ namespace DAnCE
       // label
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // UUID
       public:
       bool UUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& UUID () const;
-      void UUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& UUID () const;
+      void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > UUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
 
       // specificType
       public:
       bool specificType_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& specificType () const;
-      void specificType (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& specificType () const;
+      void specificType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > specificType_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > specificType_;
 
       // supportedType
       public:
-      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::iterator supportedType_iterator;
-      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::const_iterator supportedType_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::iterator supportedType_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::const_iterator supportedType_const_iterator;
       supportedType_iterator begin_supportedType ();
       supportedType_iterator end_supportedType ();
       supportedType_const_iterator begin_supportedType () const;
       supportedType_const_iterator end_supportedType () const;
-      void add_supportedType ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > const& );
+      void add_supportedType ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
       XSCRT::Type* get_supportedType_ptr ( std::basic_string<ACE_TCHAR> idref );
       void set_supportedType_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_supportedType (void) const;
 
       protected:
-      std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > > supportedType_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > supportedType_;
 
       // idlFile
       public:
-      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::iterator idlFile_iterator;
-      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::const_iterator idlFile_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::iterator idlFile_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::const_iterator idlFile_const_iterator;
       idlFile_iterator begin_idlFile ();
       idlFile_iterator end_idlFile ();
       idlFile_const_iterator begin_idlFile () const;
       idlFile_const_iterator end_idlFile () const;
-      void add_idlFile ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > const& );
+      void add_idlFile ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
       XSCRT::Type* get_idlFile_ptr ( std::basic_string<ACE_TCHAR> idref );
       void set_idlFile_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_idlFile (void) const;
 
       protected:
-      std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > > idlFile_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > idlFile_;
 
       // configProperty
       public:
@@ -171,21 +171,21 @@ namespace DAnCE
       // contentLocation
       public:
       bool contentLocation_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& contentLocation () const;
-      void contentLocation (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& contentLocation () const;
+      void contentLocation (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > contentLocation_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_;
 
       // href
       public:
       bool href_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& href () const;
-      ::XMLSchema::string< ACE_TCHAR >& href ();
-      void href (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& href () const;
+      ::XMLSchema::string<ACE_TCHAR>& href ();
+      void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > href_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
 
       public:
       ComponentInterfaceDescription ();

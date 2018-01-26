@@ -41,85 +41,85 @@ namespace XMI
     // id
     public:
     bool id_p () const;
-    ::XMLSchema::ID< ACE_TCHAR > const& id () const;
-    ::XMLSchema::ID< ACE_TCHAR >& id ();
-    void id (::XMLSchema::ID< ACE_TCHAR > const& );
+    ::XMLSchema::ID<ACE_TCHAR> const& id () const;
+    ::XMLSchema::ID<ACE_TCHAR>& id ();
+    void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > id_;
+    std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_;
 
     // label
     public:
     bool label_p () const;
-    ::XMLSchema::string< ACE_TCHAR > const& label () const;
-    ::XMLSchema::string< ACE_TCHAR >& label ();
-    void label (::XMLSchema::string< ACE_TCHAR > const& );
+    ::XMLSchema::string<ACE_TCHAR> const& label () const;
+    ::XMLSchema::string<ACE_TCHAR>& label ();
+    void label (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
     // uuid
     public:
     bool uuid_p () const;
-    ::XMLSchema::string< ACE_TCHAR > const& uuid () const;
-    ::XMLSchema::string< ACE_TCHAR >& uuid ();
-    void uuid (::XMLSchema::string< ACE_TCHAR > const& );
+    ::XMLSchema::string<ACE_TCHAR> const& uuid () const;
+    ::XMLSchema::string<ACE_TCHAR>& uuid ();
+    void uuid (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > uuid_;
+    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > uuid_;
 
     // href
     public:
     bool href_p () const;
-    ::XMLSchema::string< ACE_TCHAR > const& href () const;
-    ::XMLSchema::string< ACE_TCHAR >& href ();
-    void href (::XMLSchema::string< ACE_TCHAR > const& );
+    ::XMLSchema::string<ACE_TCHAR> const& href () const;
+    ::XMLSchema::string<ACE_TCHAR>& href ();
+    void href (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > href_;
+    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
 
     // idref
     public:
     bool idref_p () const;
-    ::XMLSchema::IDREF< ACE_TCHAR > const& idref () const;
-    ::XMLSchema::IDREF< ACE_TCHAR >& idref ();
-    void idref (::XMLSchema::IDREF< ACE_TCHAR > const& );
+    ::XMLSchema::IDREF<ACE_TCHAR> const& idref () const;
+    ::XMLSchema::IDREF<ACE_TCHAR>& idref ();
+    void idref (::XMLSchema::IDREF<ACE_TCHAR> const& );
     ::XSCRT::Type* get_idref_ptr ();
 
     void set_idref_ptr (std::basic_string<ACE_TCHAR> idref );
 
     protected:
-    std::auto_ptr< ::XMLSchema::IDREF< ACE_TCHAR > > idref_;
+    std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_;
 
     // version
     public:
     bool version_p () const;
-    ::XMLSchema::string< ACE_TCHAR > const& version () const;
-    ::XMLSchema::string< ACE_TCHAR >& version ();
-    void version (::XMLSchema::string< ACE_TCHAR > const& );
+    ::XMLSchema::string<ACE_TCHAR> const& version () const;
+    ::XMLSchema::string<ACE_TCHAR>& version ();
+    void version (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > version_;
+    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > version_;
 
     // extender
     public:
     bool extender_p () const;
-    ::XMLSchema::string< ACE_TCHAR > const& extender () const;
-    ::XMLSchema::string< ACE_TCHAR >& extender ();
-    void extender (::XMLSchema::string< ACE_TCHAR > const& );
+    ::XMLSchema::string<ACE_TCHAR> const& extender () const;
+    ::XMLSchema::string<ACE_TCHAR>& extender ();
+    void extender (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > extender_;
+    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > extender_;
 
     // extenderID
     public:
     bool extenderID_p () const;
-    ::XMLSchema::string< ACE_TCHAR > const& extenderID () const;
-    ::XMLSchema::string< ACE_TCHAR >& extenderID ();
-    void extenderID (::XMLSchema::string< ACE_TCHAR > const& );
+    ::XMLSchema::string<ACE_TCHAR> const& extenderID () const;
+    ::XMLSchema::string<ACE_TCHAR>& extenderID ();
+    void extenderID (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > extenderID_;
+    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > extenderID_;
 
     public:
     Extension ();

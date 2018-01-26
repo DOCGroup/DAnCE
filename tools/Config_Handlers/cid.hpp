@@ -63,20 +63,20 @@ namespace DAnCE
       // requiredUUID
       public:
       bool requiredUUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& requiredUUID () const;
-      void requiredUUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& requiredUUID () const;
+      void requiredUUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > requiredUUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requiredUUID_;
 
       // requiredName
       public:
       bool requiredName_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& requiredName () const;
-      void requiredName (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& requiredName () const;
+      void requiredName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > requiredName_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requiredName_;
 
       // requiredType
       public:
@@ -108,11 +108,11 @@ namespace DAnCE
 
       // name
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // basePackage
       public:
@@ -185,15 +185,15 @@ namespace DAnCE
       // id
       public:
       bool id_p () const;
-      ::XMLSchema::ID< ACE_TCHAR > const& id () const;
-      ::XMLSchema::ID< ACE_TCHAR >& id ();
-      void id (::XMLSchema::ID< ACE_TCHAR > const& );
+      ::XMLSchema::ID<ACE_TCHAR> const& id () const;
+      ::XMLSchema::ID<ACE_TCHAR>& id ();
+      void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > id_;
+      std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_;
 
       public:
-      SubcomponentInstantiationDescription (::XMLSchema::string< ACE_TCHAR > const& name__);
+      SubcomponentInstantiationDescription (::XMLSchema::string<ACE_TCHAR> const& name__);
 
       SubcomponentInstantiationDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
       SubcomponentInstantiationDescription (SubcomponentInstantiationDescription const& s);
@@ -214,11 +214,11 @@ namespace DAnCE
 
       // propertyName
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& propertyName () const;
-      void propertyName (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& propertyName () const;
+      void propertyName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > propertyName_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > propertyName_;
 
       // instance
       public:
@@ -229,7 +229,7 @@ namespace DAnCE
       std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > instance_;
 
       public:
-      SubcomponentPropertyReference (::XMLSchema::string< ACE_TCHAR > const& propertyName__,
+      SubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
                                      ::DAnCE::Config_Handlers::IdRef const& instance__);
 
       SubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR > const&);
@@ -251,19 +251,19 @@ namespace DAnCE
 
       // name
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // externalName
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& externalName () const;
-      void externalName (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& externalName () const;
+      void externalName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > externalName_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > externalName_;
 
       // delegatesTo
       public:
@@ -282,8 +282,8 @@ namespace DAnCE
       std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPropertyReference, ACE_Null_Mutex > > delegatesTo_;
 
       public:
-      AssemblyPropertyMapping (::XMLSchema::string< ACE_TCHAR > const& name__,
-                               ::XMLSchema::string< ACE_TCHAR > const& externalName__);
+      AssemblyPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
+                               ::XMLSchema::string<ACE_TCHAR> const& externalName__);
 
       AssemblyPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR > const&);
       AssemblyPropertyMapping (AssemblyPropertyMapping const& s);
@@ -549,20 +549,20 @@ namespace DAnCE
       // label
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // UUID
       public:
       bool UUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& UUID () const;
-      void UUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& UUID () const;
+      void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > UUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
 
       // implements
       public:
@@ -658,12 +658,12 @@ namespace DAnCE
       // href
       public:
       bool href_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& href () const;
-      ::XMLSchema::string< ACE_TCHAR >& href ();
-      void href (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& href () const;
+      ::XMLSchema::string<ACE_TCHAR>& href ();
+      void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > href_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
 
       public:
       ComponentImplementationDescription ();
@@ -688,20 +688,20 @@ namespace DAnCE
       // label
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // UUID
       public:
       bool UUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& UUID () const;
-      void UUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& UUID () const;
+      void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > UUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
 
       // implements
       public:
@@ -797,12 +797,12 @@ namespace DAnCE
       // href
       public:
       bool href_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& href () const;
-      ::XMLSchema::string< ACE_TCHAR >& href ();
-      void href (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& href () const;
+      ::XMLSchema::string<ACE_TCHAR>& href ();
+      void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > href_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
 
       public:
       ConnectorImplementationDescription ();

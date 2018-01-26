@@ -21,14 +21,14 @@ namespace XMI
 
   Extension::Extension (Extension const& s) :
   ::XSCRT::Type (s),
-  id_ (s.id_.get () ? new ::XMLSchema::ID< ACE_TCHAR > (*s.id_) : 0),
-  label_ (s.label_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.label_) : 0),
-  uuid_ (s.uuid_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.uuid_) : 0),
-  href_ (s.href_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.href_) : 0),
-  idref_ (s.idref_.get () ? new ::XMLSchema::IDREF< ACE_TCHAR > (*s.idref_) : 0),
-  version_ (s.version_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.version_) : 0),
-  extender_ (s.extender_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.extender_) : 0),
-  extenderID_ (s.extenderID_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.extenderID_) : 0),
+  id_ (s.id_.get () ? new ::XMLSchema::ID<ACE_TCHAR> (*s.id_) : 0),
+  label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
+  uuid_ (s.uuid_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.uuid_) : 0),
+  href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0),
+  idref_ (s.idref_.get () ? new ::XMLSchema::IDREF<ACE_TCHAR> (*s.idref_) : 0),
+  version_ (s.version_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.version_) : 0),
+  extender_ (s.extender_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.extender_) : 0),
+  extenderID_ (s.extenderID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.extenderID_) : 0),
   regulator__ ()
   {
     if (id_.get ()) id_->container (this);
@@ -47,28 +47,28 @@ namespace XMI
     if (&s != this)
     {
       if (s.id_.get ()) id (*(s.id_));
-      else id_ = std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (0);
+      else id_.reset (0);
 
       if (s.label_.get ()) label (*(s.label_));
-      else label_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+      else label_.reset (0);
 
       if (s.uuid_.get ()) uuid (*(s.uuid_));
-      else uuid_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+      else uuid_.reset (0);
 
       if (s.href_.get ()) href (*(s.href_));
-      else href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+      else href_.reset (0);
 
       if (s.idref_.get ()) idref (*(s.idref_));
-      else idref_ = std::auto_ptr< ::XMLSchema::IDREF< ACE_TCHAR > > (0);
+      else idref_.reset (0);
 
       if (s.version_.get ()) version (*(s.version_));
-      else version_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+      else version_.reset (0);
 
       if (s.extender_.get ()) extender (*(s.extender_));
-      else extender_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+      else extender_.reset (0);
 
       if (s.extenderID_.get ()) extenderID (*(s.extenderID_));
-      else extenderID_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+      else extenderID_.reset (0);
     }
 
     return *this;
@@ -82,20 +82,20 @@ namespace XMI
     return id_.get () != 0;
   }
 
-  ::XMLSchema::ID< ACE_TCHAR > const& Extension::
+  ::XMLSchema::ID<ACE_TCHAR> const& Extension::
   id () const
   {
     return *id_;
   }
 
-  ::XMLSchema::ID< ACE_TCHAR >& Extension::
+  ::XMLSchema::ID<ACE_TCHAR>& Extension::
   id ()
   {
     return *id_;
   }
 
   void Extension::
-  id (::XMLSchema::ID< ACE_TCHAR > const& e)
+  id (::XMLSchema::ID<ACE_TCHAR> const& e)
   {
     if (id_.get ())
     {
@@ -104,7 +104,7 @@ namespace XMI
 
     else
     {
-      id_ = std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (new ::XMLSchema::ID< ACE_TCHAR > (e));
+      id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
       id_->container (this);
     }
   }
@@ -116,20 +116,20 @@ namespace XMI
     return label_.get () != 0;
   }
 
-  ::XMLSchema::string< ACE_TCHAR > const& Extension::
+  ::XMLSchema::string<ACE_TCHAR> const& Extension::
   label () const
   {
     return *label_;
   }
 
-  ::XMLSchema::string< ACE_TCHAR >& Extension::
+  ::XMLSchema::string<ACE_TCHAR>& Extension::
   label ()
   {
     return *label_;
   }
 
   void Extension::
-  label (::XMLSchema::string< ACE_TCHAR > const& e)
+  label (::XMLSchema::string<ACE_TCHAR> const& e)
   {
     if (label_.get ())
     {
@@ -138,7 +138,7 @@ namespace XMI
 
     else
     {
-      label_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+      label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
       label_->container (this);
     }
   }
@@ -150,20 +150,20 @@ namespace XMI
     return uuid_.get () != 0;
   }
 
-  ::XMLSchema::string< ACE_TCHAR > const& Extension::
+  ::XMLSchema::string<ACE_TCHAR> const& Extension::
   uuid () const
   {
     return *uuid_;
   }
 
-  ::XMLSchema::string< ACE_TCHAR >& Extension::
+  ::XMLSchema::string<ACE_TCHAR>& Extension::
   uuid ()
   {
     return *uuid_;
   }
 
   void Extension::
-  uuid (::XMLSchema::string< ACE_TCHAR > const& e)
+  uuid (::XMLSchema::string<ACE_TCHAR> const& e)
   {
     if (uuid_.get ())
     {
@@ -172,7 +172,7 @@ namespace XMI
 
     else
     {
-      uuid_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+      uuid_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
       uuid_->container (this);
     }
   }
@@ -184,20 +184,20 @@ namespace XMI
     return href_.get () != 0;
   }
 
-  ::XMLSchema::string< ACE_TCHAR > const& Extension::
+  ::XMLSchema::string<ACE_TCHAR> const& Extension::
   href () const
   {
     return *href_;
   }
 
-  ::XMLSchema::string< ACE_TCHAR >& Extension::
+  ::XMLSchema::string<ACE_TCHAR>& Extension::
   href ()
   {
     return *href_;
   }
 
   void Extension::
-  href (::XMLSchema::string< ACE_TCHAR > const& e)
+  href (::XMLSchema::string<ACE_TCHAR> const& e)
   {
     if (href_.get ())
     {
@@ -206,7 +206,7 @@ namespace XMI
 
     else
     {
-      href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+      href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
       href_->container (this);
     }
   }
@@ -218,13 +218,13 @@ namespace XMI
     return idref_.get () != 0;
   }
 
-  ::XMLSchema::IDREF< ACE_TCHAR > const& Extension::
+  ::XMLSchema::IDREF<ACE_TCHAR> const& Extension::
   idref () const
   {
     return *idref_;
   }
 
-  ::XMLSchema::IDREF< ACE_TCHAR >& Extension::
+  ::XMLSchema::IDREF<ACE_TCHAR>& Extension::
   idref ()
   {
     return *idref_;
@@ -245,7 +245,7 @@ namespace XMI
 
 
   void Extension::
-  idref (::XMLSchema::IDREF< ACE_TCHAR > const& e)
+  idref (::XMLSchema::IDREF<ACE_TCHAR> const& e)
   {
     if (idref_.get ())
     {
@@ -254,7 +254,7 @@ namespace XMI
 
     else
     {
-      idref_ = std::auto_ptr< ::XMLSchema::IDREF< ACE_TCHAR > > (new ::XMLSchema::IDREF< ACE_TCHAR > (e));
+      idref_ = std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > (new ::XMLSchema::IDREF<ACE_TCHAR> (e));
       idref_->container (this);
     }
   }
@@ -266,20 +266,20 @@ namespace XMI
     return version_.get () != 0;
   }
 
-  ::XMLSchema::string< ACE_TCHAR > const& Extension::
+  ::XMLSchema::string<ACE_TCHAR> const& Extension::
   version () const
   {
     return *version_;
   }
 
-  ::XMLSchema::string< ACE_TCHAR >& Extension::
+  ::XMLSchema::string<ACE_TCHAR>& Extension::
   version ()
   {
     return *version_;
   }
 
   void Extension::
-  version (::XMLSchema::string< ACE_TCHAR > const& e)
+  version (::XMLSchema::string<ACE_TCHAR> const& e)
   {
     if (version_.get ())
     {
@@ -288,7 +288,7 @@ namespace XMI
 
     else
     {
-      version_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+      version_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
       version_->container (this);
     }
   }
@@ -300,20 +300,20 @@ namespace XMI
     return extender_.get () != 0;
   }
 
-  ::XMLSchema::string< ACE_TCHAR > const& Extension::
+  ::XMLSchema::string<ACE_TCHAR> const& Extension::
   extender () const
   {
     return *extender_;
   }
 
-  ::XMLSchema::string< ACE_TCHAR >& Extension::
+  ::XMLSchema::string<ACE_TCHAR>& Extension::
   extender ()
   {
     return *extender_;
   }
 
   void Extension::
-  extender (::XMLSchema::string< ACE_TCHAR > const& e)
+  extender (::XMLSchema::string<ACE_TCHAR> const& e)
   {
     if (extender_.get ())
     {
@@ -322,7 +322,7 @@ namespace XMI
 
     else
     {
-      extender_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+      extender_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
       extender_->container (this);
     }
   }
@@ -334,20 +334,20 @@ namespace XMI
     return extenderID_.get () != 0;
   }
 
-  ::XMLSchema::string< ACE_TCHAR > const& Extension::
+  ::XMLSchema::string<ACE_TCHAR> const& Extension::
   extenderID () const
   {
     return *extenderID_;
   }
 
-  ::XMLSchema::string< ACE_TCHAR >& Extension::
+  ::XMLSchema::string<ACE_TCHAR>& Extension::
   extenderID ()
   {
     return *extenderID_;
   }
 
   void Extension::
-  extenderID (::XMLSchema::string< ACE_TCHAR > const& e)
+  extenderID (::XMLSchema::string<ACE_TCHAR> const& e)
   {
     if (extenderID_.get ())
     {
@@ -356,7 +356,7 @@ namespace XMI
 
     else
     {
-      extenderID_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+      extenderID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
       extenderID_->container (this);
     }
   }
@@ -379,7 +379,7 @@ namespace XMI
       std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
       if (n == ACE_TEXT ("id"))
       {
-        ::XMLSchema::ID< ACE_TCHAR > t (a);
+        ::XMLSchema::ID<ACE_TCHAR> t (a);
         id (t);
         std::basic_string<ACE_TCHAR> temp ((*id_).c_str());
         (*ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance())->
@@ -388,25 +388,25 @@ namespace XMI
 
       else if (n == ACE_TEXT ("label"))
       {
-        ::XMLSchema::string< ACE_TCHAR > t (a);
+        ::XMLSchema::string<ACE_TCHAR> t (a);
         label (t);
       }
 
       else if (n == ACE_TEXT ("uuid"))
       {
-        ::XMLSchema::string< ACE_TCHAR > t (a);
+        ::XMLSchema::string<ACE_TCHAR> t (a);
         uuid (t);
       }
 
       else if (n == ACE_TEXT ("href"))
       {
-        ::XMLSchema::string< ACE_TCHAR > t (a);
+        ::XMLSchema::string<ACE_TCHAR> t (a);
         href (t);
       }
 
       else if (n == ACE_TEXT ("idref"))
       {
-        ::XMLSchema::IDREF< ACE_TCHAR > t (a);
+        ::XMLSchema::IDREF<ACE_TCHAR> t (a);
         idref (t);
         std::basic_string<ACE_TCHAR> temp ((*idref_).id().c_str());
 
@@ -416,19 +416,19 @@ namespace XMI
 
       else if (n == ACE_TEXT ("version"))
       {
-        ::XMLSchema::string< ACE_TCHAR > t (a);
+        ::XMLSchema::string<ACE_TCHAR> t (a);
         version (t);
       }
 
       else if (n == ACE_TEXT ("extender"))
       {
-        ::XMLSchema::string< ACE_TCHAR > t (a);
+        ::XMLSchema::string<ACE_TCHAR> t (a);
         extender (t);
       }
 
       else if (n == ACE_TEXT ("extenderID"))
       {
-        ::XMLSchema::string< ACE_TCHAR > t (a);
+        ::XMLSchema::string<ACE_TCHAR> t (a);
         extenderID (t);
       }
 
@@ -775,7 +775,7 @@ namespace XMI
     id (Type const& o)
     {
       ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("id"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
-      attr_ (&(a));
+      attr_ (&a);
       Traversal::Extension::id (o);
       attr_ (0);
     }
@@ -784,7 +784,7 @@ namespace XMI
     label (Type const& o)
     {
       ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("label"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
-      attr_ (&(a));
+      attr_ (&a);
       Traversal::Extension::label (o);
       attr_ (0);
     }
@@ -793,7 +793,7 @@ namespace XMI
     uuid (Type const& o)
     {
       ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("uuid"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
-      attr_ (&(a));
+      attr_ (&a);
       Traversal::Extension::uuid (o);
       attr_ (0);
     }
@@ -802,7 +802,7 @@ namespace XMI
     href (Type const& o)
     {
       ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
-      attr_ (&(a));
+      attr_ (&a);
       Traversal::Extension::href (o);
       attr_ (0);
     }
@@ -811,7 +811,7 @@ namespace XMI
     idref (Type const& o)
     {
       ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("idref"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
-      attr_ (&(a));
+      attr_ (&a);
       Traversal::Extension::idref (o);
       attr_ (0);
     }
@@ -820,7 +820,7 @@ namespace XMI
     version (Type const& o)
     {
       ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("version"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
-      attr_ (&(a));
+      attr_ (&a);
       Traversal::Extension::version (o);
       attr_ (0);
     }
@@ -829,7 +829,7 @@ namespace XMI
     extender (Type const& o)
     {
       ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("extender"), ACE_TEXT (""), top_ ());
-      attr_ (&(a));
+      attr_ (&a);
       Traversal::Extension::extender (o);
       attr_ (0);
     }
@@ -838,7 +838,7 @@ namespace XMI
     extenderID (Type const& o)
     {
       ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("extenderID"), ACE_TEXT (""), top_ ());
-      attr_ (&(a));
+      attr_ (&a);
       Traversal::Extension::extenderID (o);
       attr_ (0);
     }
@@ -867,7 +867,7 @@ namespace XMI
       struct W : virtual ::XMI::Writer::Extension,
       virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
       virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::string< ACE_TCHAR >, ACE_TCHAR >,
-      virtual ::XMLSchema::Writer::IDREF< ACE_TCHAR >,
+      virtual ::XMLSchema::Writer::IDREF<ACE_TCHAR>,
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         W (::XSCRT::XML::Element< ACE_TCHAR >& e)

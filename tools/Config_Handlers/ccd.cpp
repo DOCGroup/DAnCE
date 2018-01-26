@@ -24,17 +24,17 @@ namespace DAnCE
 
     ComponentInterfaceDescription::ComponentInterfaceDescription (ComponentInterfaceDescription const& s) :
     ::XSCRT::Type (s),
-    label_ (s.label_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.UUID_) : 0),
-    specificType_ (s.specificType_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.specificType_) : 0),
+    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
+    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
+    specificType_ (s.specificType_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.specificType_) : 0),
     supportedType_ (s.supportedType_),
     idlFile_ (s.idlFile_),
     configProperty_ (s.configProperty_),
     port_ (s.port_),
     property_ (s.property_),
     infoProperty_ (s.infoProperty_),
-    contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.contentLocation_) : 0),
-    href_ (s.href_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.href_) : 0),
+    contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.contentLocation_) : 0),
+    href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0),
     regulator__ ()
     {
       if (label_.get ()) label_->container (this);
@@ -82,7 +82,7 @@ namespace DAnCE
           contentLocation_.reset (0);
 
         if (s.href_.get ()) href (*(s.href_));
-        else href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+        else href_.reset (0);
       }
 
       return *this;
@@ -96,14 +96,14 @@ namespace DAnCE
       return label_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentInterfaceDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentInterfaceDescription::
     label () const
     {
       return *label_;
     }
 
     void ComponentInterfaceDescription::
-    label (::XMLSchema::string< ACE_TCHAR > const& e)
+    label (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (label_.get ())
       {
@@ -112,7 +112,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -124,14 +124,14 @@ namespace DAnCE
       return UUID_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentInterfaceDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentInterfaceDescription::
     UUID () const
     {
       return *UUID_;
     }
 
     void ComponentInterfaceDescription::
-    UUID (::XMLSchema::string< ACE_TCHAR > const& e)
+    UUID (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (UUID_.get ())
       {
@@ -140,7 +140,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -152,14 +152,14 @@ namespace DAnCE
       return specificType_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentInterfaceDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentInterfaceDescription::
     specificType () const
     {
       return *specificType_;
     }
 
     void ComponentInterfaceDescription::
-    specificType (::XMLSchema::string< ACE_TCHAR > const& e)
+    specificType (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (specificType_.get ())
       {
@@ -168,7 +168,7 @@ namespace DAnCE
 
       else
       {
-        specificType_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        specificType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         specificType_->container (this);
       }
     }
@@ -199,7 +199,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       supportedType_.push_back (e);
     }
@@ -236,7 +236,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_idlFile (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_idlFile (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       idlFile_.push_back (e);
     }
@@ -402,14 +402,14 @@ namespace DAnCE
       return contentLocation_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentInterfaceDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentInterfaceDescription::
     contentLocation () const
     {
       return *contentLocation_;
     }
 
     void ComponentInterfaceDescription::
-    contentLocation (::XMLSchema::string< ACE_TCHAR > const& e)
+    contentLocation (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (contentLocation_.get ())
       {
@@ -418,7 +418,7 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        contentLocation_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         contentLocation_->container (this);
       }
     }
@@ -430,20 +430,20 @@ namespace DAnCE
       return href_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentInterfaceDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentInterfaceDescription::
     href () const
     {
       return *href_;
     }
 
-    ::XMLSchema::string< ACE_TCHAR >& ComponentInterfaceDescription::
+    ::XMLSchema::string<ACE_TCHAR>& ComponentInterfaceDescription::
     href ()
     {
       return *href_;
     }
 
     void ComponentInterfaceDescription::
-    href (::XMLSchema::string< ACE_TCHAR > const& e)
+    href (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (href_.get ())
       {
@@ -452,7 +452,7 @@ namespace DAnCE
 
       else
       {
-        href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -479,31 +479,31 @@ namespace DAnCE
 
         if (n == ACE_TEXT("label"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           label (t);
         }
 
         else if (n == ACE_TEXT("UUID"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           UUID (t);
         }
 
         else if (n == ACE_TEXT("specificType"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           specificType (t);
         }
 
         else if (n == ACE_TEXT("supportedType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_supportedType (t);
         }
 
         else if (n == ACE_TEXT("idlFile"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_idlFile (t);
         }
 
@@ -533,7 +533,7 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("contentLocation"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           contentLocation (t);
         }
 
@@ -548,7 +548,7 @@ namespace DAnCE
         std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (a);
+          ::XMLSchema::string<ACE_TCHAR> t (a);
           href (t);
         }
 
@@ -1447,7 +1447,7 @@ namespace DAnCE
       href (Type const& o)
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
-        attr_ (&(a));
+        attr_ (&a);
         Traversal::ComponentInterfaceDescription::href (o);
         attr_ (0);
       }

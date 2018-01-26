@@ -52,20 +52,20 @@ namespace DAnCE
       // UUID
       public:
       bool UUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& UUID () const;
-      void UUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& UUID () const;
+      void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > UUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
 
       // label
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // node
       public:
@@ -169,20 +169,20 @@ namespace DAnCE
 
       // name
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // label
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // connect
       public:
@@ -217,7 +217,7 @@ namespace DAnCE
       std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex > > resource_;
 
       public:
-      Bridge (::XMLSchema::string< ACE_TCHAR > const& name__,
+      Bridge (::XMLSchema::string<ACE_TCHAR> const& name__,
               std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex > > const& connect__);
 
       Bridge (::XSCRT::XML::Element< ACE_TCHAR > const&);
@@ -239,20 +239,20 @@ namespace DAnCE
 
       // name
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // label
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // connection
       public:
@@ -303,7 +303,7 @@ namespace DAnCE
       std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex > > resource_;
 
       public:
-      Interconnect (::XMLSchema::string< ACE_TCHAR > const& name__,
+      Interconnect (::XMLSchema::string<ACE_TCHAR> const& name__,
                     std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& connect__);
 
       Interconnect (::XSCRT::XML::Element< ACE_TCHAR > const&);
@@ -325,20 +325,20 @@ namespace DAnCE
 
       // name
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // label
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // connection
       public:
@@ -389,7 +389,7 @@ namespace DAnCE
       std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex > > resource_;
 
       public:
-      Node (::XMLSchema::string< ACE_TCHAR > const& name__);
+      Node (::XMLSchema::string<ACE_TCHAR> const& name__);
 
       Node (::XSCRT::XML::Element< ACE_TCHAR > const&);
       Node (Node const& s);
@@ -410,19 +410,19 @@ namespace DAnCE
 
       // name
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // resourceType
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& resourceType () const;
-      void resourceType (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& resourceType () const;
+      void resourceType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > resourceType_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_;
 
       // node
       public:
@@ -441,8 +441,8 @@ namespace DAnCE
       std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierProperty > property_;
 
       public:
-      SharedResource (::XMLSchema::string< ACE_TCHAR > const& name__,
-                      ::XMLSchema::string< ACE_TCHAR > const& resourceType__,
+      SharedResource (::XMLSchema::string<ACE_TCHAR> const& name__,
+                      ::XMLSchema::string<ACE_TCHAR> const& resourceType__,
                       ::DAnCE::Config_Handlers::Node const& node__,
                       ::DAnCE::Config_Handlers::SatisfierProperty const& property__);
 

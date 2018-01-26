@@ -49,11 +49,11 @@ namespace DAnCE
 
       // propertyName
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& propertyName () const;
-      void propertyName (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& propertyName () const;
+      void propertyName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > propertyName_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > propertyName_;
 
       // instance
       public:
@@ -64,7 +64,7 @@ namespace DAnCE
       std::auto_ptr< ::DAnCE::Config_Handlers::InstanceDeploymentDescription > instance_;
 
       public:
-      PlanSubcomponentPropertyReference (::XMLSchema::string< ACE_TCHAR > const& propertyName__,
+      PlanSubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
                                          ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& instance__);
 
       PlanSubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR > const&);
@@ -86,35 +86,35 @@ namespace DAnCE
 
       // name
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // source
       public:
-      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::iterator source_iterator;
-      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::const_iterator source_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::iterator source_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::const_iterator source_const_iterator;
       source_iterator begin_source ();
       source_iterator end_source ();
       source_const_iterator begin_source () const;
       source_const_iterator end_source () const;
-      void add_source ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > const& );
+      void add_source ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
       XSCRT::Type* get_source_ptr ( std::basic_string<ACE_TCHAR> idref );
       void set_source_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_source (void) const;
 
       protected:
-      std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > > source_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > source_;
 
       // externalName
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& externalName () const;
-      void externalName (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& externalName () const;
+      void externalName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > externalName_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > externalName_;
 
       // delegatesTo
       public:
@@ -133,8 +133,8 @@ namespace DAnCE
       std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > delegatesTo_;
 
       public:
-      PlanPropertyMapping (::XMLSchema::string< ACE_TCHAR > const& name__,
-                           ::XMLSchema::string< ACE_TCHAR > const& externalName__,
+      PlanPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
+                           ::XMLSchema::string<ACE_TCHAR> const& externalName__,
                            std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__);
 
       PlanPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR > const&);
@@ -157,20 +157,20 @@ namespace DAnCE
       // label
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // UUID
       public:
       bool UUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& UUID () const;
-      void UUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& UUID () const;
+      void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > UUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
 
       // realizes
       public:

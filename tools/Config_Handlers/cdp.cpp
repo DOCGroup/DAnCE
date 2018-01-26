@@ -16,10 +16,10 @@ namespace DAnCE
   {
     // PlanSubcomponentPropertyReference
 
-    PlanSubcomponentPropertyReference::PlanSubcomponentPropertyReference (::XMLSchema::string< ACE_TCHAR > const& propertyName__,
+    PlanSubcomponentPropertyReference::PlanSubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
                                                                           ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& instance__) :
     ::XSCRT::Type (),
-    propertyName_ (new ::XMLSchema::string< ACE_TCHAR > (propertyName__)),
+    propertyName_ (new ::XMLSchema::string<ACE_TCHAR> (propertyName__)),
     instance_ (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (instance__)),
     regulator__ ()
     {
@@ -29,7 +29,7 @@ namespace DAnCE
 
     PlanSubcomponentPropertyReference::PlanSubcomponentPropertyReference (PlanSubcomponentPropertyReference const& s) :
     ::XSCRT::Type (s),
-    propertyName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.propertyName_)),
+    propertyName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.propertyName_)),
     instance_ (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (*s.instance_)),
     regulator__ ()
     {
@@ -52,14 +52,14 @@ namespace DAnCE
 
 
     // PlanSubcomponentPropertyReference
-    ::XMLSchema::string< ACE_TCHAR > const& PlanSubcomponentPropertyReference::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanSubcomponentPropertyReference::
     propertyName () const
     {
       return *propertyName_;
     }
 
     void PlanSubcomponentPropertyReference::
-    propertyName (::XMLSchema::string< ACE_TCHAR > const& e)
+    propertyName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *propertyName_ = e;
     }
@@ -80,12 +80,12 @@ namespace DAnCE
 
     // PlanPropertyMapping
 
-    PlanPropertyMapping::PlanPropertyMapping (::XMLSchema::string< ACE_TCHAR > const& name__,
-                                              ::XMLSchema::string< ACE_TCHAR > const& externalName__,
+    PlanPropertyMapping::PlanPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
+                                              ::XMLSchema::string<ACE_TCHAR> const& externalName__,
                                               std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__) :
     ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    externalName_ (new ::XMLSchema::string< ACE_TCHAR > (externalName__)),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    externalName_ (new ::XMLSchema::string<ACE_TCHAR> (externalName__)),
     delegatesTo_ (delegatesTo__),
     regulator__ ()
     {
@@ -95,9 +95,9 @@ namespace DAnCE
 
     PlanPropertyMapping::PlanPropertyMapping (PlanPropertyMapping const& s) :
     ::XSCRT::Type (s),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     source_ (s.source_),
-    externalName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.externalName_)),
+    externalName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.externalName_)),
     delegatesTo_ (s.delegatesTo_),
     regulator__ ()
     {
@@ -124,14 +124,14 @@ namespace DAnCE
 
 
     // PlanPropertyMapping
-    ::XMLSchema::string< ACE_TCHAR > const& PlanPropertyMapping::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanPropertyMapping::
     name () const
     {
       return *name_;
     }
 
     void PlanPropertyMapping::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
@@ -162,7 +162,7 @@ namespace DAnCE
     }
 
     void PlanPropertyMapping::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       source_.push_back (e);
     }
@@ -174,14 +174,14 @@ namespace DAnCE
     }
 
     // PlanPropertyMapping
-    ::XMLSchema::string< ACE_TCHAR > const& PlanPropertyMapping::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanPropertyMapping::
     externalName () const
     {
       return *externalName_;
     }
 
     void PlanPropertyMapping::
-    externalName (::XMLSchema::string< ACE_TCHAR > const& e)
+    externalName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *externalName_ = e;
     }
@@ -234,8 +234,8 @@ namespace DAnCE
 
     deploymentPlan::deploymentPlan (deploymentPlan const& s) :
     ::XSCRT::Type (s),
-    label_ (s.label_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.UUID_) : 0),
+    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
+    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
     realizes_ (s.realizes_.get () ? new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (*s.realizes_) : 0),
     implementation_ (s.implementation_),
     instance_ (s.instance_),
@@ -300,14 +300,14 @@ namespace DAnCE
       return label_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& deploymentPlan::
+    ::XMLSchema::string<ACE_TCHAR> const& deploymentPlan::
     label () const
     {
       return *label_;
     }
 
     void deploymentPlan::
-    label (::XMLSchema::string< ACE_TCHAR > const& e)
+    label (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (label_.get ())
       {
@@ -316,7 +316,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -328,14 +328,14 @@ namespace DAnCE
       return UUID_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& deploymentPlan::
+    ::XMLSchema::string<ACE_TCHAR> const& deploymentPlan::
     UUID () const
     {
       return *UUID_;
     }
 
     void deploymentPlan::
-    UUID (::XMLSchema::string< ACE_TCHAR > const& e)
+    UUID (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (UUID_.get ())
       {
@@ -344,7 +344,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -695,7 +695,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("propertyName"))
         {
-          propertyName_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          propertyName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           propertyName_->container (this);
         }
 
@@ -727,19 +727,19 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_source (t);
         }
 
         else if (n == ACE_TEXT("externalName"))
         {
-          externalName_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          externalName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           externalName_->container (this);
         }
 
@@ -771,13 +771,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("label"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           label (t);
         }
 
         else if (n == ACE_TEXT("UUID"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           UUID (t);
         }
 

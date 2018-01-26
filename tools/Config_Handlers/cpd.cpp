@@ -16,10 +16,10 @@ namespace DAnCE
   {
     // PackagedComponentImplementation
 
-    PackagedComponentImplementation::PackagedComponentImplementation (::XMLSchema::string< ACE_TCHAR > const& name__,
+    PackagedComponentImplementation::PackagedComponentImplementation (::XMLSchema::string<ACE_TCHAR> const& name__,
                                                                       ::DAnCE::Config_Handlers::ComponentImplementationDescription const& referencedImplementation__) :
     ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     referencedImplementation_ (new ::DAnCE::Config_Handlers::ComponentImplementationDescription (referencedImplementation__)),
     regulator__ ()
     {
@@ -29,7 +29,7 @@ namespace DAnCE
 
     PackagedComponentImplementation::PackagedComponentImplementation (PackagedComponentImplementation const& s) :
     ::XSCRT::Type (s),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     referencedImplementation_ (new ::DAnCE::Config_Handlers::ComponentImplementationDescription (*s.referencedImplementation_)),
     regulator__ ()
     {
@@ -52,14 +52,14 @@ namespace DAnCE
 
 
     // PackagedComponentImplementation
-    ::XMLSchema::string< ACE_TCHAR > const& PackagedComponentImplementation::
+    ::XMLSchema::string<ACE_TCHAR> const& PackagedComponentImplementation::
     name () const
     {
       return *name_;
     }
 
     void PackagedComponentImplementation::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
@@ -88,13 +88,13 @@ namespace DAnCE
 
     ComponentPackageDescription::ComponentPackageDescription (ComponentPackageDescription const& s) :
     ::XSCRT::Type (s),
-    label_ (s.label_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.UUID_) : 0),
+    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
+    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
     realizes_ (s.realizes_.get () ? new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (*s.realizes_) : 0),
     configProperty_ (s.configProperty_),
     implementation_ (s.implementation_),
     infoProperty_ (s.infoProperty_),
-    href_ (s.href_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.href_) : 0),
+    href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0),
     regulator__ ()
     {
       if (label_.get ()) label_->container (this);
@@ -130,7 +130,7 @@ namespace DAnCE
         infoProperty_ = s.infoProperty_;
 
         if (s.href_.get ()) href (*(s.href_));
-        else href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+        else href_.reset (0);
       }
 
       return *this;
@@ -144,14 +144,14 @@ namespace DAnCE
       return label_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentPackageDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentPackageDescription::
     label () const
     {
       return *label_;
     }
 
     void ComponentPackageDescription::
-    label (::XMLSchema::string< ACE_TCHAR > const& e)
+    label (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (label_.get ())
       {
@@ -160,7 +160,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -172,14 +172,14 @@ namespace DAnCE
       return UUID_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentPackageDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentPackageDescription::
     UUID () const
     {
       return *UUID_;
     }
 
     void ComponentPackageDescription::
-    UUID (::XMLSchema::string< ACE_TCHAR > const& e)
+    UUID (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (UUID_.get ())
       {
@@ -188,7 +188,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -339,20 +339,20 @@ namespace DAnCE
       return href_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentPackageDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentPackageDescription::
     href () const
     {
       return *href_;
     }
 
-    ::XMLSchema::string< ACE_TCHAR >& ComponentPackageDescription::
+    ::XMLSchema::string<ACE_TCHAR>& ComponentPackageDescription::
     href ()
     {
       return *href_;
     }
 
     void ComponentPackageDescription::
-    href (::XMLSchema::string< ACE_TCHAR > const& e)
+    href (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (href_.get ())
       {
@@ -361,7 +361,7 @@ namespace DAnCE
 
       else
       {
-        href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -377,13 +377,13 @@ namespace DAnCE
 
     ConnectorPackageDescription::ConnectorPackageDescription (ConnectorPackageDescription const& s) :
     ::XSCRT::Type (s),
-    label_ (s.label_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.UUID_) : 0),
+    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
+    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
     realizes_ (s.realizes_.get () ? new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (*s.realizes_) : 0),
     configProperty_ (s.configProperty_),
     implementation_ (s.implementation_),
     infoProperty_ (s.infoProperty_),
-    href_ (s.href_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.href_) : 0),
+    href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0),
     regulator__ ()
     {
       if (label_.get ()) label_->container (this);
@@ -419,7 +419,7 @@ namespace DAnCE
         infoProperty_ = s.infoProperty_;
 
         if (s.href_.get ()) href (*(s.href_));
-        else href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+        else href_.reset (0);
       }
 
       return *this;
@@ -433,14 +433,14 @@ namespace DAnCE
       return label_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ConnectorPackageDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ConnectorPackageDescription::
     label () const
     {
       return *label_;
     }
 
     void ConnectorPackageDescription::
-    label (::XMLSchema::string< ACE_TCHAR > const& e)
+    label (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (label_.get ())
       {
@@ -449,7 +449,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -461,14 +461,14 @@ namespace DAnCE
       return UUID_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ConnectorPackageDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ConnectorPackageDescription::
     UUID () const
     {
       return *UUID_;
     }
 
     void ConnectorPackageDescription::
-    UUID (::XMLSchema::string< ACE_TCHAR > const& e)
+    UUID (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (UUID_.get ())
       {
@@ -477,7 +477,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -628,20 +628,20 @@ namespace DAnCE
       return href_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ConnectorPackageDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ConnectorPackageDescription::
     href () const
     {
       return *href_;
     }
 
-    ::XMLSchema::string< ACE_TCHAR >& ConnectorPackageDescription::
+    ::XMLSchema::string<ACE_TCHAR>& ConnectorPackageDescription::
     href ()
     {
       return *href_;
     }
 
     void ConnectorPackageDescription::
-    href (::XMLSchema::string< ACE_TCHAR > const& e)
+    href (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (href_.get ())
       {
@@ -650,7 +650,7 @@ namespace DAnCE
 
       else
       {
-        href_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -677,7 +677,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -709,13 +709,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("label"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           label (t);
         }
 
         else if (n == ACE_TEXT("UUID"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           UUID (t);
         }
 
@@ -754,7 +754,7 @@ namespace DAnCE
         std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (a);
+          ::XMLSchema::string<ACE_TCHAR> t (a);
           href (t);
         }
 
@@ -780,13 +780,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("label"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           label (t);
         }
 
         else if (n == ACE_TEXT("UUID"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           UUID (t);
         }
 
@@ -825,7 +825,7 @@ namespace DAnCE
         std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (a);
+          ::XMLSchema::string<ACE_TCHAR> t (a);
           href (t);
         }
 
@@ -1899,7 +1899,7 @@ namespace DAnCE
       href (Type const& o)
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
-        attr_ (&(a));
+        attr_ (&a);
         Traversal::ComponentPackageDescription::href (o);
         attr_ (0);
       }
@@ -2007,7 +2007,7 @@ namespace DAnCE
       href (Type const& o)
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
-        attr_ (&(a));
+        attr_ (&a);
         Traversal::ConnectorPackageDescription::href (o);
         attr_ (0);
       }
