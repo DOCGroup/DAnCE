@@ -8,19 +8,11 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #ifndef CPD_HPP
 #define CPD_HPP
 
 #include "XSC_XML_Handlers_Export.h"
 // Forward declarations.
-//
 namespace DAnCE
 {
   namespace Config_Handlers
@@ -53,35 +45,32 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < PackagedComponentImplementation, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex > _ptr;
 
       // name
-      //
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // referencedImplementation
-      //
       public:
       ::DAnCE::Config_Handlers::ComponentImplementationDescription const& referencedImplementation () const;
       void referencedImplementation (::DAnCE::Config_Handlers::ComponentImplementationDescription const& );
 
       protected:
-      ::std::auto_ptr< ::DAnCE::Config_Handlers::ComponentImplementationDescription > referencedImplementation_;
+      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentImplementationDescription > referencedImplementation_;
 
       public:
-      PackagedComponentImplementation (::XMLSchema::string< ACE_TCHAR > const& name__,
+      PackagedComponentImplementation (::XMLSchema::string<ACE_TCHAR> const& name__,
                                        ::DAnCE::Config_Handlers::ComponentImplementationDescription const& referencedImplementation__);
 
       PackagedComponentImplementation (::XSCRT::XML::Element< ACE_TCHAR > const&);
       PackagedComponentImplementation (PackagedComponentImplementation const& s);
 
-      PackagedComponentImplementation&
-      operator= (PackagedComponentImplementation const& s);
+      PackagedComponentImplementation& operator= (PackagedComponentImplementation const& s);
 
       private:
       char regulator__;
@@ -93,96 +82,92 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < ComponentPackageDescription, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPackageDescription, ACE_Null_Mutex > _ptr;
 
       // label
-      //
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // UUID
-      //
       public:
       bool UUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& UUID () const;
-      void UUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& UUID () const;
+      void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > UUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
 
       // realizes
-      //
       public:
       bool realizes_p () const;
       ::DAnCE::Config_Handlers::ComponentInterfaceDescription const& realizes () const;
       void realizes (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      ::std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_;
+      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_;
 
       // configProperty
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator configProperty_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator configProperty_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator configProperty_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
       configProperty_iterator end_configProperty ();
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
       void add_configProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* configProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_configProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_configProperty_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_configProperty (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > configProperty_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > configProperty_;
 
       // implementation
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex > >::iterator implementation_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex > >::const_iterator implementation_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex > >::iterator implementation_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex > >::const_iterator implementation_const_iterator;
       implementation_iterator begin_implementation ();
       implementation_iterator end_implementation ();
       implementation_const_iterator begin_implementation () const;
       implementation_const_iterator end_implementation () const;
       void add_implementation ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex > const& );
-      XSCRT::Type* implementation_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_implementation_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_implementation_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_implementation (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex > > implementation_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex > > implementation_;
 
       // infoProperty
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator infoProperty_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator infoProperty_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator infoProperty_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
       infoProperty_iterator end_infoProperty ();
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_infoProperty (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > infoProperty_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > infoProperty_;
 
       // href
-      //
       public:
       bool href_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& href () const;
-      ::XMLSchema::string< ACE_TCHAR >& href ();
-      void href (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& href () const;
+      ::XMLSchema::string<ACE_TCHAR>& href ();
+      void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > href_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
 
       public:
       ComponentPackageDescription ();
@@ -190,8 +175,7 @@ namespace DAnCE
       ComponentPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
       ComponentPackageDescription (ComponentPackageDescription const& s);
 
-      ComponentPackageDescription&
-      operator= (ComponentPackageDescription const& s);
+      ComponentPackageDescription& operator= (ComponentPackageDescription const& s);
 
       private:
       char regulator__;
@@ -203,96 +187,92 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < ConnectorPackageDescription, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorPackageDescription, ACE_Null_Mutex > _ptr;
 
       // label
-      //
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // UUID
-      //
       public:
       bool UUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& UUID () const;
-      void UUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& UUID () const;
+      void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > UUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
 
       // realizes
-      //
       public:
       bool realizes_p () const;
       ::DAnCE::Config_Handlers::ComponentInterfaceDescription const& realizes () const;
       void realizes (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      ::std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_;
+      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_;
 
       // configProperty
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator configProperty_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator configProperty_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator configProperty_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
       configProperty_iterator end_configProperty ();
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
       void add_configProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* configProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_configProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_configProperty_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_configProperty (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > configProperty_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > configProperty_;
 
       // implementation
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex > >::iterator implementation_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex > >::const_iterator implementation_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex > >::iterator implementation_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex > >::const_iterator implementation_const_iterator;
       implementation_iterator begin_implementation ();
       implementation_iterator end_implementation ();
       implementation_const_iterator begin_implementation () const;
       implementation_const_iterator end_implementation () const;
       void add_implementation ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* implementation_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_implementation_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_implementation_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_implementation (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex > > implementation_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex > > implementation_;
 
       // infoProperty
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator infoProperty_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator infoProperty_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator infoProperty_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
       infoProperty_iterator end_infoProperty ();
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_infoProperty (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > infoProperty_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > infoProperty_;
 
       // href
-      //
       public:
       bool href_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& href () const;
-      ::XMLSchema::string< ACE_TCHAR >& href ();
-      void href (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& href () const;
+      ::XMLSchema::string<ACE_TCHAR>& href ();
+      void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > href_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
 
       public:
       ConnectorPackageDescription ();
@@ -300,8 +280,7 @@ namespace DAnCE
       ConnectorPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
       ConnectorPackageDescription (ConnectorPackageDescription const& s);
 
-      ConnectorPackageDescription&
-      operator= (ConnectorPackageDescription const& s);
+      ConnectorPackageDescription& operator= (ConnectorPackageDescription const& s);
 
       private:
       char regulator__;

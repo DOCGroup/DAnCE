@@ -8,19 +8,11 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #ifndef CDP_HPP
 #define CDP_HPP
 
 #include "XSC_XML_Handlers_Export.h"
 // Forward declarations.
-//
 namespace DAnCE
 {
   namespace Config_Handlers
@@ -53,35 +45,32 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < PlanSubcomponentPropertyReference, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > _ptr;
 
       // propertyName
-      //
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& propertyName () const;
-      void propertyName (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& propertyName () const;
+      void propertyName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > propertyName_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > propertyName_;
 
       // instance
-      //
       public:
       ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& instance () const;
       void instance (::DAnCE::Config_Handlers::InstanceDeploymentDescription const& );
 
       protected:
-      ::std::auto_ptr< ::DAnCE::Config_Handlers::InstanceDeploymentDescription > instance_;
+      std::auto_ptr< ::DAnCE::Config_Handlers::InstanceDeploymentDescription > instance_;
 
       public:
-      PlanSubcomponentPropertyReference (::XMLSchema::string< ACE_TCHAR > const& propertyName__,
+      PlanSubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
                                          ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& instance__);
 
       PlanSubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR > const&);
       PlanSubcomponentPropertyReference (PlanSubcomponentPropertyReference const& s);
 
-      PlanSubcomponentPropertyReference&
-      operator= (PlanSubcomponentPropertyReference const& s);
+      PlanSubcomponentPropertyReference& operator= (PlanSubcomponentPropertyReference const& s);
 
       private:
       char regulator__;
@@ -93,68 +82,65 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < PlanPropertyMapping, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex > _ptr;
 
       // name
-      //
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // source
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::iterator source_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::const_iterator source_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::iterator source_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::const_iterator source_const_iterator;
       source_iterator begin_source ();
       source_iterator end_source ();
       source_const_iterator begin_source () const;
       source_const_iterator end_source () const;
-      void add_source ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > const& );
-      XSCRT::Type* source_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void add_source ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
+      XSCRT::Type* get_source_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_source_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_source (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > > source_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > source_;
 
       // externalName
-      //
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& externalName () const;
-      void externalName (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& externalName () const;
+      void externalName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > externalName_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > externalName_;
 
       // delegatesTo
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > >::iterator delegatesTo_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > >::const_iterator delegatesTo_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > >::iterator delegatesTo_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > >::const_iterator delegatesTo_const_iterator;
       delegatesTo_iterator begin_delegatesTo ();
       delegatesTo_iterator end_delegatesTo ();
       delegatesTo_const_iterator begin_delegatesTo () const;
       delegatesTo_const_iterator end_delegatesTo () const;
       void add_delegatesTo ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > const& );
-      XSCRT::Type* delegatesTo_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_delegatesTo_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_delegatesTo_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_delegatesTo (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > delegatesTo_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > delegatesTo_;
 
       public:
-      PlanPropertyMapping (::XMLSchema::string< ACE_TCHAR > const& name__,
-                           ::XMLSchema::string< ACE_TCHAR > const& externalName__,
-                           ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__);
+      PlanPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
+                           ::XMLSchema::string<ACE_TCHAR> const& externalName__,
+                           std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__);
 
       PlanPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR > const&);
       PlanPropertyMapping (PlanPropertyMapping const& s);
 
-      PlanPropertyMapping&
-      operator= (PlanPropertyMapping const& s);
+      PlanPropertyMapping& operator= (PlanPropertyMapping const& s);
 
       private:
       char regulator__;
@@ -166,165 +152,162 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < deploymentPlan, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::deploymentPlan, ACE_Null_Mutex > _ptr;
 
       // label
-      //
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // UUID
-      //
       public:
       bool UUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& UUID () const;
-      void UUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& UUID () const;
+      void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > UUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
 
       // realizes
-      //
       public:
       bool realizes_p () const;
       ::DAnCE::Config_Handlers::ComponentInterfaceDescription const& realizes () const;
       void realizes (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      ::std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_;
+      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_;
 
       // implementation
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex > >::iterator implementation_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex > >::const_iterator implementation_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex > >::iterator implementation_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex > >::const_iterator implementation_const_iterator;
       implementation_iterator begin_implementation ();
       implementation_iterator end_implementation ();
       implementation_const_iterator begin_implementation () const;
       implementation_const_iterator end_implementation () const;
       void add_implementation ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* implementation_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_implementation_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_implementation_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_implementation (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex > > implementation_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex > > implementation_;
 
       // instance
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex > >::iterator instance_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex > >::const_iterator instance_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex > >::iterator instance_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex > >::const_iterator instance_const_iterator;
       instance_iterator begin_instance ();
       instance_iterator end_instance ();
       instance_const_iterator begin_instance () const;
       instance_const_iterator end_instance () const;
       void add_instance ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* instance_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_instance_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_instance_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_instance (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex > > instance_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex > > instance_;
 
       // connection
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex > >::iterator connection_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex > >::const_iterator connection_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex > >::iterator connection_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex > >::const_iterator connection_const_iterator;
       connection_iterator begin_connection ();
       connection_iterator end_connection ();
       connection_const_iterator begin_connection () const;
       connection_const_iterator end_connection () const;
       void add_connection ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* connection_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_connection_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_connection_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_connection (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex > > connection_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex > > connection_;
 
       // externalProperty
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex > >::iterator externalProperty_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex > >::const_iterator externalProperty_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex > >::iterator externalProperty_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex > >::const_iterator externalProperty_const_iterator;
       externalProperty_iterator begin_externalProperty ();
       externalProperty_iterator end_externalProperty ();
       externalProperty_const_iterator begin_externalProperty () const;
       externalProperty_const_iterator end_externalProperty () const;
       void add_externalProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex > const& );
-      XSCRT::Type* externalProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_externalProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_externalProperty_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_externalProperty (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex > > externalProperty_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex > > externalProperty_;
 
       // dependsOn
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex > >::iterator dependsOn_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex > >::const_iterator dependsOn_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex > >::iterator dependsOn_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex > >::const_iterator dependsOn_const_iterator;
       dependsOn_iterator begin_dependsOn ();
       dependsOn_iterator end_dependsOn ();
       dependsOn_const_iterator begin_dependsOn () const;
       dependsOn_const_iterator end_dependsOn () const;
       void add_dependsOn ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex > const& );
-      XSCRT::Type* dependsOn_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_dependsOn_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_dependsOn_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_dependsOn (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex > > dependsOn_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex > > dependsOn_;
 
       // artifact
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex > >::iterator artifact_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex > >::const_iterator artifact_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex > >::iterator artifact_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex > >::const_iterator artifact_const_iterator;
       artifact_iterator begin_artifact ();
       artifact_iterator end_artifact ();
       artifact_const_iterator begin_artifact () const;
       artifact_const_iterator end_artifact () const;
       void add_artifact ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* artifact_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_artifact_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_artifact_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_artifact (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex > > artifact_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex > > artifact_;
 
       // infoProperty
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator infoProperty_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator infoProperty_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator infoProperty_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
       infoProperty_iterator end_infoProperty ();
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_infoProperty (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > infoProperty_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > infoProperty_;
 
       // localityConstraint
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex > >::iterator localityConstraint_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex > >::const_iterator localityConstraint_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex > >::iterator localityConstraint_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex > >::const_iterator localityConstraint_const_iterator;
       localityConstraint_iterator begin_localityConstraint ();
       localityConstraint_iterator end_localityConstraint ();
       localityConstraint_const_iterator begin_localityConstraint () const;
       localityConstraint_const_iterator end_localityConstraint () const;
       void add_localityConstraint ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex > const& );
-      XSCRT::Type* localityConstraint_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_localityConstraint_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_localityConstraint_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_localityConstraint (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex > > localityConstraint_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex > > localityConstraint_;
 
       public:
       deploymentPlan ();
@@ -332,8 +315,7 @@ namespace DAnCE
       deploymentPlan (::XSCRT::XML::Element< ACE_TCHAR > const&);
       deploymentPlan (deploymentPlan const& s);
 
-      deploymentPlan&
-      operator= (deploymentPlan const& s);
+      deploymentPlan& operator= (deploymentPlan const& s);
 
       private:
       char regulator__;

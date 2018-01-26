@@ -8,13 +8,6 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #include "toplevel.hpp"
 
 namespace DAnCE
@@ -22,36 +15,33 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // TopLevelPackageDescription
-    //
 
-    TopLevelPackageDescription::
-    TopLevelPackageDescription ()
-    :
+    TopLevelPackageDescription::TopLevelPackageDescription () :
     ::XSCRT::Type (),
     regulator__ ()
     {
     }
 
-    TopLevelPackageDescription::
-    TopLevelPackageDescription (TopLevelPackageDescription const& s)
-    :
-    ::XSCRT::Type (),
+    TopLevelPackageDescription::TopLevelPackageDescription (TopLevelPackageDescription const& s) :
+    ::XSCRT::Type (s),
     package_ (s.package_),
     regulator__ ()
     {
     }
 
-    TopLevelPackageDescription& TopLevelPackageDescription::
-    operator= (TopLevelPackageDescription const& s)
+    TopLevelPackageDescription&
+    TopLevelPackageDescription::operator= (TopLevelPackageDescription const& s)
     {
-      package_ = s.package_;
+      if (&s != this)
+      {
+        package_ = s.package_;
+      }
 
       return *this;
     }
 
 
     // TopLevelPackageDescription
-    //
     TopLevelPackageDescription::package_iterator TopLevelPackageDescription::
     begin_package ()
     {
@@ -95,7 +85,6 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // TopLevelPackageDescription
-    //
 
     TopLevelPackageDescription::
     TopLevelPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -107,7 +96,7 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("package"))
         {
@@ -148,7 +137,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -164,8 +153,6 @@ namespace DAnCE
     namespace Traversal
     {
       // TopLevelPackageDescription
-      //
-      //
 
       void TopLevelPackageDescription::
       traverse (Type& o)
@@ -197,7 +184,6 @@ namespace DAnCE
       package (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::TopLevelPackageDescription::package_iterator b (o.begin_package()), e (o.end_package());
 
         if (b != e)
@@ -219,7 +205,6 @@ namespace DAnCE
       package (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::TopLevelPackageDescription::package_const_iterator b (o.begin_package()), e (o.end_package());
 
         if (b != e)
@@ -297,9 +282,6 @@ namespace DAnCE
     namespace Writer
     {
       // TopLevelPackageDescription
-      //
-      //
-
       TopLevelPackageDescription::
       TopLevelPackageDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -320,7 +302,7 @@ namespace DAnCE
       void TopLevelPackageDescription::
       package_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("package"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("package"), top_ ()));
       }
 
       void TopLevelPackageDescription::

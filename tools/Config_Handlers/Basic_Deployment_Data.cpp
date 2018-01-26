@@ -15,36 +15,32 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // IdRef
-    //
 
-    IdRef::
-    IdRef ()
-    :
+    IdRef::IdRef () :
     regulator__ ()
     {
     }
 
-    IdRef::
-    IdRef (IdRef const& s)
-    : ::XSCRT::Type (),
-    href_ (s.href_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.href_) : 0),
-    idref_ (s.idref_.get () ? new ::XMLSchema::IDREF< ACE_TCHAR > (*s.idref_) : 0),
+    IdRef::IdRef (IdRef const& s) :
+    ::XSCRT::Type (s),
+    href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0),
+    idref_ (s.idref_.get () ? new ::XMLSchema::IDREF<ACE_TCHAR> (*s.idref_) : 0),
     regulator__ ()
     {
       if (href_.get ()) href_->container (this);
       if (idref_.get ()) idref_->container (this);
     }
 
-    IdRef& IdRef::
-    operator= (IdRef const& s)
+    IdRef&
+    IdRef::operator= (IdRef const& s)
     {
       if (&s != this)
       {
         if (s.href_.get ()) href (*(s.href_));
-        else href_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (0);
+        else href_.reset (0);
 
         if (s.idref_.get ()) idref (*(s.idref_));
-        else idref_ = ::std::auto_ptr< ::XMLSchema::IDREF< ACE_TCHAR > > (0);
+        else idref_.reset (0);
       }
 
       return *this;
@@ -52,27 +48,26 @@ namespace DAnCE
 
 
     // IdRef
-    //
     bool IdRef::
     href_p () const
     {
       return href_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& IdRef::
+    ::XMLSchema::string<ACE_TCHAR> const& IdRef::
     href () const
     {
       return *href_;
     }
 
-    ::XMLSchema::string< ACE_TCHAR >& IdRef::
+    ::XMLSchema::string<ACE_TCHAR>& IdRef::
     href ()
     {
       return *href_;
     }
 
     void IdRef::
-    href (::XMLSchema::string< ACE_TCHAR > const& e)
+    href (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (href_.get ())
       {
@@ -81,40 +76,46 @@ namespace DAnCE
 
       else
       {
-        href_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
 
     // IdRef
-    //
     bool IdRef::
     idref_p () const
     {
       return idref_.get () != 0;
     }
 
-    ::XMLSchema::IDREF< ACE_TCHAR > const& IdRef::
+    ::XMLSchema::IDREF<ACE_TCHAR> const& IdRef::
     idref () const
     {
       return *idref_;
     }
 
-    ::XMLSchema::IDREF< ACE_TCHAR >& IdRef::
+    ::XMLSchema::IDREF<ACE_TCHAR>& IdRef::
     idref ()
     {
       return *idref_;
     }
 
-    ::XSCRT::Type* IdRef::idref_ptr ()
+    ::XSCRT::Type* IdRef::get_idref_ptr ()
     {
         std::basic_string<ACE_TCHAR> temp (idref().id());
       return this->get_idref(temp.c_str());
     }
 
 
+    void IdRef::set_idref_ptr (std::basic_string<ACE_TCHAR> idref)
+    {
+        ID_Map::TSS_ID_Map* TSS_ID_Map (ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance());
+        (*TSS_ID_Map)->resolve_single_idref(idref, this);
+    }
+
+
     void IdRef::
-    idref (::XMLSchema::IDREF< ACE_TCHAR > const& e)
+    idref (::XMLSchema::IDREF<ACE_TCHAR> const& e)
     {
       if (idref_.get ())
       {
@@ -123,14 +124,13 @@ namespace DAnCE
 
       else
       {
-        idref_ = ::std::auto_ptr< ::XMLSchema::IDREF< ACE_TCHAR > > (new ::XMLSchema::IDREF< ACE_TCHAR > (e));
+        idref_ = std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > (new ::XMLSchema::IDREF<ACE_TCHAR> (e));
         idref_->container (this);
       }
     }
 
 
     // TCKind
-    //
 
     TCKind::Value TCKind::
     integral () const
@@ -157,11 +157,8 @@ namespace DAnCE
     }
 
     // DataType
-    //
 
-    DataType::
-    DataType (::DAnCE::Config_Handlers::TCKind const& kind__)
-    :
+    DataType::DataType (::DAnCE::Config_Handlers::TCKind const& kind__) :
     ::XSCRT::Type (),
     kind_ (new ::DAnCE::Config_Handlers::TCKind (kind__)),
     regulator__ ()
@@ -169,10 +166,8 @@ namespace DAnCE
       kind_->container (this);
     }
 
-    DataType::
-    DataType (DataType const& s)
-    :
-    ::XSCRT::Type (),
+    DataType::DataType (DataType const& s) :
+    ::XSCRT::Type (s),
     kind_ (new ::DAnCE::Config_Handlers::TCKind (*s.kind_)),
     enum__ (s.enum__.get () ? new ::DAnCE::Config_Handlers::EnumType (*s.enum__) : 0),
     struct__ (s.struct__.get () ? new ::DAnCE::Config_Handlers::StructType (*s.struct__) : 0),
@@ -181,7 +176,7 @@ namespace DAnCE
     alias_ (s.alias_.get () ? new ::DAnCE::Config_Handlers::AliasType (*s.alias_) : 0),
     array_ (s.array_.get () ? new ::DAnCE::Config_Handlers::ArrayType (*s.array_) : 0),
     boundedString_ (s.boundedString_.get () ? new ::DAnCE::Config_Handlers::BoundedStringType (*s.boundedString_) : 0),
-    id_ (s.id_.get () ? new ::XMLSchema::ID< ACE_TCHAR > (*s.id_) : 0),
+    id_ (s.id_.get () ? new ::XMLSchema::ID<ACE_TCHAR> (*s.id_) : 0),
     regulator__ ()
     {
       kind_->container (this);
@@ -195,8 +190,8 @@ namespace DAnCE
       if (id_.get ()) id_->container (this);
     }
 
-    DataType& DataType::
-    operator= (DataType const& s)
+    DataType&
+    DataType::operator= (DataType const& s)
     {
       if (&s != this)
       {
@@ -238,7 +233,7 @@ namespace DAnCE
           boundedString_.reset (0);
 
         if (s.id_.get ()) id (*(s.id_));
-        else id_ = ::std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (0);
+        else id_.reset (0);
       }
 
       return *this;
@@ -246,7 +241,6 @@ namespace DAnCE
 
 
     // DataType
-    //
     ::DAnCE::Config_Handlers::TCKind const& DataType::
     kind () const
     {
@@ -260,7 +254,6 @@ namespace DAnCE
     }
 
     // DataType
-    //
     bool DataType::
     enum_p () const
     {
@@ -283,13 +276,12 @@ namespace DAnCE
 
       else
       {
-        enum__ = ::std::auto_ptr< ::DAnCE::Config_Handlers::EnumType > (new ::DAnCE::Config_Handlers::EnumType (e));
+        enum__ = std::auto_ptr< ::DAnCE::Config_Handlers::EnumType > (new ::DAnCE::Config_Handlers::EnumType (e));
         enum__->container (this);
       }
     }
 
     // DataType
-    //
     bool DataType::
     struct_p () const
     {
@@ -312,13 +304,12 @@ namespace DAnCE
 
       else
       {
-        struct__ = ::std::auto_ptr< ::DAnCE::Config_Handlers::StructType > (new ::DAnCE::Config_Handlers::StructType (e));
+        struct__ = std::auto_ptr< ::DAnCE::Config_Handlers::StructType > (new ::DAnCE::Config_Handlers::StructType (e));
         struct__->container (this);
       }
     }
 
     // DataType
-    //
     bool DataType::
     value_p () const
     {
@@ -341,13 +332,12 @@ namespace DAnCE
 
       else
       {
-        value_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::ValueType > (new ::DAnCE::Config_Handlers::ValueType (e));
+        value_ = std::auto_ptr< ::DAnCE::Config_Handlers::ValueType > (new ::DAnCE::Config_Handlers::ValueType (e));
         value_->container (this);
       }
     }
 
     // DataType
-    //
     bool DataType::
     sequence_p () const
     {
@@ -370,13 +360,12 @@ namespace DAnCE
 
       else
       {
-        sequence_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::SequenceType > (new ::DAnCE::Config_Handlers::SequenceType (e));
+        sequence_ = std::auto_ptr< ::DAnCE::Config_Handlers::SequenceType > (new ::DAnCE::Config_Handlers::SequenceType (e));
         sequence_->container (this);
       }
     }
 
     // DataType
-    //
     bool DataType::
     alias_p () const
     {
@@ -399,13 +388,12 @@ namespace DAnCE
 
       else
       {
-        alias_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::AliasType > (new ::DAnCE::Config_Handlers::AliasType (e));
+        alias_ = std::auto_ptr< ::DAnCE::Config_Handlers::AliasType > (new ::DAnCE::Config_Handlers::AliasType (e));
         alias_->container (this);
       }
     }
 
     // DataType
-    //
     bool DataType::
     array_p () const
     {
@@ -428,13 +416,12 @@ namespace DAnCE
 
       else
       {
-        array_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::ArrayType > (new ::DAnCE::Config_Handlers::ArrayType (e));
+        array_ = std::auto_ptr< ::DAnCE::Config_Handlers::ArrayType > (new ::DAnCE::Config_Handlers::ArrayType (e));
         array_->container (this);
       }
     }
 
     // DataType
-    //
     bool DataType::
     boundedString_p () const
     {
@@ -457,33 +444,32 @@ namespace DAnCE
 
       else
       {
-        boundedString_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::BoundedStringType > (new ::DAnCE::Config_Handlers::BoundedStringType (e));
+        boundedString_ = std::auto_ptr< ::DAnCE::Config_Handlers::BoundedStringType > (new ::DAnCE::Config_Handlers::BoundedStringType (e));
         boundedString_->container (this);
       }
     }
 
     // DataType
-    //
     bool DataType::
     id_p () const
     {
       return id_.get () != 0;
     }
 
-    ::XMLSchema::ID< ACE_TCHAR > const& DataType::
+    ::XMLSchema::ID<ACE_TCHAR> const& DataType::
     id () const
     {
       return *id_;
     }
 
-    ::XMLSchema::ID< ACE_TCHAR >& DataType::
+    ::XMLSchema::ID<ACE_TCHAR>& DataType::
     id ()
     {
       return *id_;
     }
 
     void DataType::
-    id (::XMLSchema::ID< ACE_TCHAR > const& e)
+    id (::XMLSchema::ID<ACE_TCHAR> const& e)
     {
       if (id_.get ())
       {
@@ -492,26 +478,22 @@ namespace DAnCE
 
       else
       {
-        id_ = ::std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (new ::XMLSchema::ID< ACE_TCHAR > (e));
+        id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
         id_->container (this);
       }
     }
 
 
     // DataValue
-    //
 
-    DataValue::
-    DataValue ()
-    :
+    DataValue::DataValue () :
+    ::XSCRT::Type (),
     regulator__ ()
     {
     }
 
-    DataValue::
-    DataValue (DataValue const& s)
-    :
-    ::XSCRT::Type (),
+    DataValue::DataValue (DataValue const& s) :
+    ::XSCRT::Type (s),
     short__ (s.short__),
     long__ (s.long__),
     ushort_ (s.ushort_),
@@ -531,8 +513,8 @@ namespace DAnCE
     {
     }
 
-    DataValue& DataValue::
-    operator= (DataValue const& s)
+    DataValue&
+    DataValue::operator= (DataValue const& s)
     {
       if (&s != this)
       {
@@ -572,7 +554,6 @@ namespace DAnCE
 
 
     // DataValue
-    //
     DataValue::short_iterator DataValue::
     begin_short ()
     {
@@ -610,7 +591,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::long_iterator DataValue::
     begin_long ()
     {
@@ -648,7 +628,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::ushort_iterator DataValue::
     begin_ushort ()
     {
@@ -686,7 +665,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::ulong_iterator DataValue::
     begin_ulong ()
     {
@@ -724,7 +702,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::float_iterator DataValue::
     begin_float ()
     {
@@ -762,7 +739,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::double_iterator DataValue::
     begin_double ()
     {
@@ -800,7 +776,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::boolean_iterator DataValue::
     begin_boolean ()
     {
@@ -838,7 +813,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::octet_iterator DataValue::
     begin_octet ()
     {
@@ -876,7 +850,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::enum_iterator DataValue::
     begin_enum ()
     {
@@ -902,7 +875,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_enum (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_enum (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       enum__.push_back (e);
     }
@@ -914,7 +887,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::string_iterator DataValue::
     begin_string ()
     {
@@ -940,7 +912,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_string (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_string (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       string_.push_back (e);
     }
@@ -952,7 +924,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::longlong_iterator DataValue::
     begin_longlong ()
     {
@@ -990,7 +961,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::ulonglong_iterator DataValue::
     begin_ulonglong ()
     {
@@ -1028,7 +998,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::longdouble_iterator DataValue::
     begin_longdouble ()
     {
@@ -1066,7 +1035,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::element_iterator DataValue::
     begin_element ()
     {
@@ -1104,7 +1072,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
     DataValue::member_iterator DataValue::
     begin_member ()
     {
@@ -1143,15 +1110,13 @@ namespace DAnCE
 
 
     // AliasType
-    //
 
-    AliasType::
-    AliasType (::XMLSchema::string< ACE_TCHAR > const& name__,
-               ::XMLSchema::string< ACE_TCHAR > const& typeId__,
-               ::DAnCE::Config_Handlers::DataType const& elementType__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    typeId_ (new ::XMLSchema::string< ACE_TCHAR > (typeId__)),
+    AliasType::AliasType (::XMLSchema::string<ACE_TCHAR> const& name__,
+                          ::XMLSchema::string<ACE_TCHAR> const& typeId__,
+                          ::DAnCE::Config_Handlers::DataType const& elementType__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    typeId_ (new ::XMLSchema::string<ACE_TCHAR> (typeId__)),
     elementType_ (new ::DAnCE::Config_Handlers::DataType (elementType__)),
     regulator__ ()
     {
@@ -1160,12 +1125,10 @@ namespace DAnCE
       elementType_->container (this);
     }
 
-    AliasType::
-    AliasType (AliasType const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
-    typeId_ (new ::XMLSchema::string< ACE_TCHAR > (*s.typeId_)),
+    AliasType::AliasType (AliasType const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
+    typeId_ (new ::XMLSchema::string<ACE_TCHAR> (*s.typeId_)),
     elementType_ (new ::DAnCE::Config_Handlers::DataType (*s.elementType_)),
     regulator__ ()
     {
@@ -1174,8 +1137,8 @@ namespace DAnCE
       elementType_->container (this);
     }
 
-    AliasType& AliasType::
-    operator= (AliasType const& s)
+    AliasType&
+    AliasType::operator= (AliasType const& s)
     {
       if (&s != this)
       {
@@ -1191,35 +1154,32 @@ namespace DAnCE
 
 
     // AliasType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& AliasType::
+    ::XMLSchema::string<ACE_TCHAR> const& AliasType::
     name () const
     {
       return *name_;
     }
 
     void AliasType::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // AliasType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& AliasType::
+    ::XMLSchema::string<ACE_TCHAR> const& AliasType::
     typeId () const
     {
       return *typeId_;
     }
 
     void AliasType::
-    typeId (::XMLSchema::string< ACE_TCHAR > const& e)
+    typeId (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *typeId_ = e;
     }
 
     // AliasType
-    //
     ::DAnCE::Config_Handlers::DataType const& AliasType::
     elementType () const
     {
@@ -1234,15 +1194,13 @@ namespace DAnCE
 
 
     // EnumType
-    //
 
-    EnumType::
-    EnumType (::XMLSchema::string< ACE_TCHAR > const& name__,
-              ::XMLSchema::string< ACE_TCHAR > const& typeId__,
-              ::std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > > const& member__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    typeId_ (new ::XMLSchema::string< ACE_TCHAR > (typeId__)),
+    EnumType::EnumType (::XMLSchema::string<ACE_TCHAR> const& name__,
+                        ::XMLSchema::string<ACE_TCHAR> const& typeId__,
+                        std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > const& member__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    typeId_ (new ::XMLSchema::string<ACE_TCHAR> (typeId__)),
     member_ (member__),
     regulator__ ()
     {
@@ -1250,12 +1208,10 @@ namespace DAnCE
       typeId_->container (this);
     }
 
-    EnumType::
-    EnumType (EnumType const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
-    typeId_ (new ::XMLSchema::string< ACE_TCHAR > (*s.typeId_)),
+    EnumType::EnumType (EnumType const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
+    typeId_ (new ::XMLSchema::string<ACE_TCHAR> (*s.typeId_)),
     member_ (s.member_),
     regulator__ ()
     {
@@ -1263,8 +1219,8 @@ namespace DAnCE
       typeId_->container (this);
     }
 
-    EnumType& EnumType::
-    operator= (EnumType const& s)
+    EnumType&
+    EnumType::operator= (EnumType const& s)
     {
       if (&s != this)
       {
@@ -1280,35 +1236,32 @@ namespace DAnCE
 
 
     // EnumType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& EnumType::
+    ::XMLSchema::string<ACE_TCHAR> const& EnumType::
     name () const
     {
       return *name_;
     }
 
     void EnumType::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // EnumType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& EnumType::
+    ::XMLSchema::string<ACE_TCHAR> const& EnumType::
     typeId () const
     {
       return *typeId_;
     }
 
     void EnumType::
-    typeId (::XMLSchema::string< ACE_TCHAR > const& e)
+    typeId (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *typeId_ = e;
     }
 
     // EnumType
-    //
     EnumType::member_iterator EnumType::
     begin_member ()
     {
@@ -1334,7 +1287,7 @@ namespace DAnCE
     }
 
     void EnumType::
-    add_member (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_member (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       member_.push_back (e);
     }
@@ -1347,26 +1300,22 @@ namespace DAnCE
 
 
     // BoundedStringType
-    //
 
-    BoundedStringType::
-    BoundedStringType ()
-    :
+    BoundedStringType::BoundedStringType () :
+    ::XSCRT::Type (),
     regulator__ ()
     {
     }
 
-    BoundedStringType::
-    BoundedStringType (BoundedStringType const& s)
-    :
-    ::XSCRT::Type (),
+    BoundedStringType::BoundedStringType (BoundedStringType const& s) :
+    ::XSCRT::Type (s),
     bound_ (s.bound_),
     regulator__ ()
     {
     }
 
-    BoundedStringType& BoundedStringType::
-    operator= (BoundedStringType const& s)
+    BoundedStringType&
+    BoundedStringType::operator= (BoundedStringType const& s)
     {
       if (&s != this)
       {
@@ -1378,7 +1327,6 @@ namespace DAnCE
 
 
     // BoundedStringType
-    //
     BoundedStringType::bound_iterator BoundedStringType::
     begin_bound ()
     {
@@ -1417,26 +1365,22 @@ namespace DAnCE
 
 
     // StructType
-    //
 
-    StructType::
-    StructType (::XMLSchema::string< ACE_TCHAR > const& name__,
-                ::XMLSchema::string< ACE_TCHAR > const& typeId__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    typeId_ (new ::XMLSchema::string< ACE_TCHAR > (typeId__)),
+    StructType::StructType (::XMLSchema::string<ACE_TCHAR> const& name__,
+                            ::XMLSchema::string<ACE_TCHAR> const& typeId__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    typeId_ (new ::XMLSchema::string<ACE_TCHAR> (typeId__)),
     regulator__ ()
     {
       name_->container (this);
       typeId_->container (this);
     }
 
-    StructType::
-    StructType (StructType const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
-    typeId_ (new ::XMLSchema::string< ACE_TCHAR > (*s.typeId_)),
+    StructType::StructType (StructType const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
+    typeId_ (new ::XMLSchema::string<ACE_TCHAR> (*s.typeId_)),
     member_ (s.member_),
     regulator__ ()
     {
@@ -1444,8 +1388,8 @@ namespace DAnCE
       typeId_->container (this);
     }
 
-    StructType& StructType::
-    operator= (StructType const& s)
+    StructType&
+    StructType::operator= (StructType const& s)
     {
       if (&s != this)
       {
@@ -1461,35 +1405,32 @@ namespace DAnCE
 
 
     // StructType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& StructType::
+    ::XMLSchema::string<ACE_TCHAR> const& StructType::
     name () const
     {
       return *name_;
     }
 
     void StructType::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // StructType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& StructType::
+    ::XMLSchema::string<ACE_TCHAR> const& StructType::
     typeId () const
     {
       return *typeId_;
     }
 
     void StructType::
-    typeId (::XMLSchema::string< ACE_TCHAR > const& e)
+    typeId (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *typeId_ = e;
     }
 
     // StructType
-    //
     StructType::member_iterator StructType::
     begin_member ()
     {
@@ -1528,13 +1469,11 @@ namespace DAnCE
 
 
     // StructMemberType
-    //
 
-    StructMemberType::
-    StructMemberType (::XMLSchema::string< ACE_TCHAR > const& name__,
-                      ::DAnCE::Config_Handlers::DataType const& type__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    StructMemberType::StructMemberType (::XMLSchema::string<ACE_TCHAR> const& name__,
+                                        ::DAnCE::Config_Handlers::DataType const& type__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     type_ (new ::DAnCE::Config_Handlers::DataType (type__)),
     regulator__ ()
     {
@@ -1542,11 +1481,9 @@ namespace DAnCE
       type_->container (this);
     }
 
-    StructMemberType::
-    StructMemberType (StructMemberType const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    StructMemberType::StructMemberType (StructMemberType const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     type_ (new ::DAnCE::Config_Handlers::DataType (*s.type_)),
     regulator__ ()
     {
@@ -1554,8 +1491,8 @@ namespace DAnCE
       type_->container (this);
     }
 
-    StructMemberType& StructMemberType::
-    operator= (StructMemberType const& s)
+    StructMemberType&
+    StructMemberType::operator= (StructMemberType const& s)
     {
       if (&s != this)
       {
@@ -1569,21 +1506,19 @@ namespace DAnCE
 
 
     // StructMemberType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& StructMemberType::
+    ::XMLSchema::string<ACE_TCHAR> const& StructMemberType::
     name () const
     {
       return *name_;
     }
 
     void StructMemberType::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // StructMemberType
-    //
     ::DAnCE::Config_Handlers::DataType const& StructMemberType::
     type () const
     {
@@ -1598,17 +1533,15 @@ namespace DAnCE
 
 
     // ValueType
-    //
 
-    ValueType::
-    ValueType (::XMLSchema::string< ACE_TCHAR > const& name__,
-               ::XMLSchema::string< ACE_TCHAR > const& typeId__,
-               ::XMLSchema::string< ACE_TCHAR > const& modifier__,
-               ::DAnCE::Config_Handlers::DataType const& baseType__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    typeId_ (new ::XMLSchema::string< ACE_TCHAR > (typeId__)),
-    modifier_ (new ::XMLSchema::string< ACE_TCHAR > (modifier__)),
+    ValueType::ValueType (::XMLSchema::string<ACE_TCHAR> const& name__,
+                          ::XMLSchema::string<ACE_TCHAR> const& typeId__,
+                          ::XMLSchema::string<ACE_TCHAR> const& modifier__,
+                          ::DAnCE::Config_Handlers::DataType const& baseType__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    typeId_ (new ::XMLSchema::string<ACE_TCHAR> (typeId__)),
+    modifier_ (new ::XMLSchema::string<ACE_TCHAR> (modifier__)),
     baseType_ (new ::DAnCE::Config_Handlers::DataType (baseType__)),
     regulator__ ()
     {
@@ -1618,13 +1551,11 @@ namespace DAnCE
       baseType_->container (this);
     }
 
-    ValueType::
-    ValueType (ValueType const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
-    typeId_ (new ::XMLSchema::string< ACE_TCHAR > (*s.typeId_)),
-    modifier_ (new ::XMLSchema::string< ACE_TCHAR > (*s.modifier_)),
+    ValueType::ValueType (ValueType const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
+    typeId_ (new ::XMLSchema::string<ACE_TCHAR> (*s.typeId_)),
+    modifier_ (new ::XMLSchema::string<ACE_TCHAR> (*s.modifier_)),
     baseType_ (new ::DAnCE::Config_Handlers::DataType (*s.baseType_)),
     member_ (s.member_),
     regulator__ ()
@@ -1635,8 +1566,8 @@ namespace DAnCE
       baseType_->container (this);
     }
 
-    ValueType& ValueType::
-    operator= (ValueType const& s)
+    ValueType&
+    ValueType::operator= (ValueType const& s)
     {
       if (&s != this)
       {
@@ -1656,49 +1587,45 @@ namespace DAnCE
 
 
     // ValueType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ValueType::
+    ::XMLSchema::string<ACE_TCHAR> const& ValueType::
     name () const
     {
       return *name_;
     }
 
     void ValueType::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // ValueType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ValueType::
+    ::XMLSchema::string<ACE_TCHAR> const& ValueType::
     typeId () const
     {
       return *typeId_;
     }
 
     void ValueType::
-    typeId (::XMLSchema::string< ACE_TCHAR > const& e)
+    typeId (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *typeId_ = e;
     }
 
     // ValueType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ValueType::
+    ::XMLSchema::string<ACE_TCHAR> const& ValueType::
     modifier () const
     {
       return *modifier_;
     }
 
     void ValueType::
-    modifier (::XMLSchema::string< ACE_TCHAR > const& e)
+    modifier (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *modifier_ = e;
     }
 
     // ValueType
-    //
     ::DAnCE::Config_Handlers::DataType const& ValueType::
     baseType () const
     {
@@ -1712,7 +1639,6 @@ namespace DAnCE
     }
 
     // ValueType
-    //
     ValueType::member_iterator ValueType::
     begin_member ()
     {
@@ -1751,15 +1677,13 @@ namespace DAnCE
 
 
     // ValueMemberType
-    //
 
-    ValueMemberType::
-    ValueMemberType (::XMLSchema::string< ACE_TCHAR > const& name__,
-                     ::XMLSchema::string< ACE_TCHAR > const& visibility__,
-                     ::DAnCE::Config_Handlers::DataType const& type__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    visibility_ (new ::XMLSchema::string< ACE_TCHAR > (visibility__)),
+    ValueMemberType::ValueMemberType (::XMLSchema::string<ACE_TCHAR> const& name__,
+                                      ::XMLSchema::string<ACE_TCHAR> const& visibility__,
+                                      ::DAnCE::Config_Handlers::DataType const& type__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    visibility_ (new ::XMLSchema::string<ACE_TCHAR> (visibility__)),
     type_ (new ::DAnCE::Config_Handlers::DataType (type__)),
     regulator__ ()
     {
@@ -1768,12 +1692,10 @@ namespace DAnCE
       type_->container (this);
     }
 
-    ValueMemberType::
-    ValueMemberType (ValueMemberType const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
-    visibility_ (new ::XMLSchema::string< ACE_TCHAR > (*s.visibility_)),
+    ValueMemberType::ValueMemberType (ValueMemberType const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
+    visibility_ (new ::XMLSchema::string<ACE_TCHAR> (*s.visibility_)),
     type_ (new ::DAnCE::Config_Handlers::DataType (*s.type_)),
     regulator__ ()
     {
@@ -1782,8 +1704,8 @@ namespace DAnCE
       type_->container (this);
     }
 
-    ValueMemberType& ValueMemberType::
-    operator= (ValueMemberType const& s)
+    ValueMemberType&
+    ValueMemberType::operator= (ValueMemberType const& s)
     {
       if (&s != this)
       {
@@ -1799,35 +1721,32 @@ namespace DAnCE
 
 
     // ValueMemberType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ValueMemberType::
+    ::XMLSchema::string<ACE_TCHAR> const& ValueMemberType::
     name () const
     {
       return *name_;
     }
 
     void ValueMemberType::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // ValueMemberType
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ValueMemberType::
+    ::XMLSchema::string<ACE_TCHAR> const& ValueMemberType::
     visibility () const
     {
       return *visibility_;
     }
 
     void ValueMemberType::
-    visibility (::XMLSchema::string< ACE_TCHAR > const& e)
+    visibility (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *visibility_ = e;
     }
 
     // ValueMemberType
-    //
     ::DAnCE::Config_Handlers::DataType const& ValueMemberType::
     type () const
     {
@@ -1842,13 +1761,11 @@ namespace DAnCE
 
 
     // NamedValue
-    //
 
-    NamedValue::
-    NamedValue (::XMLSchema::string< ACE_TCHAR > const& name__,
-                ::DAnCE::Config_Handlers::DataValue const& value__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    NamedValue::NamedValue (::XMLSchema::string<ACE_TCHAR> const& name__,
+                            ::DAnCE::Config_Handlers::DataValue const& value__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     value_ (new ::DAnCE::Config_Handlers::DataValue (value__)),
     regulator__ ()
     {
@@ -1856,11 +1773,9 @@ namespace DAnCE
       value_->container (this);
     }
 
-    NamedValue::
-    NamedValue (NamedValue const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    NamedValue::NamedValue (NamedValue const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     value_ (new ::DAnCE::Config_Handlers::DataValue (*s.value_)),
     regulator__ ()
     {
@@ -1868,8 +1783,8 @@ namespace DAnCE
       value_->container (this);
     }
 
-    NamedValue& NamedValue::
-    operator= (NamedValue const& s)
+    NamedValue&
+    NamedValue::operator= (NamedValue const& s)
     {
       if (&s != this)
       {
@@ -1883,21 +1798,19 @@ namespace DAnCE
 
 
     // NamedValue
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& NamedValue::
+    ::XMLSchema::string<ACE_TCHAR> const& NamedValue::
     name () const
     {
       return *name_;
     }
 
     void NamedValue::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // NamedValue
-    //
     ::DAnCE::Config_Handlers::DataValue const& NamedValue::
     value () const
     {
@@ -1912,12 +1825,10 @@ namespace DAnCE
 
 
     // ArrayType
-    //
 
-    ArrayType::
-    ArrayType (::XMLSchema::unsignedInt const& length__,
-               ::DAnCE::Config_Handlers::DataType const& elementType__)
-    :
+    ArrayType::ArrayType (::XMLSchema::unsignedInt const& length__,
+                          ::DAnCE::Config_Handlers::DataType const& elementType__) :
+    ::XSCRT::Type (),
     length_ (new ::XMLSchema::unsignedInt (length__)),
     elementType_ (new ::DAnCE::Config_Handlers::DataType (elementType__)),
     regulator__ ()
@@ -1926,10 +1837,8 @@ namespace DAnCE
       elementType_->container (this);
     }
 
-    ArrayType::
-    ArrayType (ArrayType const& s)
-    :
-    ::XSCRT::Type (),
+    ArrayType::ArrayType (ArrayType const& s) :
+    ::XSCRT::Type (s),
     length_ (new ::XMLSchema::unsignedInt (*s.length_)),
     elementType_ (new ::DAnCE::Config_Handlers::DataType (*s.elementType_)),
     regulator__ ()
@@ -1938,8 +1847,8 @@ namespace DAnCE
       elementType_->container (this);
     }
 
-    ArrayType& ArrayType::
-    operator= (ArrayType const& s)
+    ArrayType&
+    ArrayType::operator= (ArrayType const& s)
     {
       if (&s != this)
       {
@@ -1953,7 +1862,6 @@ namespace DAnCE
 
 
     // ArrayType
-    //
     ::XMLSchema::unsignedInt const& ArrayType::
     length () const
     {
@@ -1967,7 +1875,6 @@ namespace DAnCE
     }
 
     // ArrayType
-    //
     ::DAnCE::Config_Handlers::DataType const& ArrayType::
     elementType () const
     {
@@ -1982,21 +1889,17 @@ namespace DAnCE
 
 
     // SequenceType
-    //
 
-    SequenceType::
-    SequenceType (::DAnCE::Config_Handlers::DataType const& elementType__)
-    :
+    SequenceType::SequenceType (::DAnCE::Config_Handlers::DataType const& elementType__) :
+    ::XSCRT::Type (),
     elementType_ (new ::DAnCE::Config_Handlers::DataType (elementType__)),
     regulator__ ()
     {
       elementType_->container (this);
     }
 
-    SequenceType::
-    SequenceType (SequenceType const& s)
-    :
-    ::XSCRT::Type (),
+    SequenceType::SequenceType (SequenceType const& s) :
+    ::XSCRT::Type (s),
     bound_ (s.bound_.get () ? new ::XMLSchema::unsignedInt (*s.bound_) : 0),
     elementType_ (new ::DAnCE::Config_Handlers::DataType (*s.elementType_)),
     regulator__ ()
@@ -2005,8 +1908,8 @@ namespace DAnCE
       elementType_->container (this);
     }
 
-    SequenceType& SequenceType::
-    operator= (SequenceType const& s)
+    SequenceType&
+    SequenceType::operator= (SequenceType const& s)
     {
       if (&s != this)
       {
@@ -2023,7 +1926,6 @@ namespace DAnCE
 
 
     // SequenceType
-    //
     bool SequenceType::
     bound_p () const
     {
@@ -2046,13 +1948,12 @@ namespace DAnCE
 
       else
       {
-        bound_ = ::std::auto_ptr< ::XMLSchema::unsignedInt > (new ::XMLSchema::unsignedInt (e));
+        bound_ = std::auto_ptr< ::XMLSchema::unsignedInt > (new ::XMLSchema::unsignedInt (e));
         bound_->container (this);
       }
     }
 
     // SequenceType
-    //
     ::DAnCE::Config_Handlers::DataType const& SequenceType::
     elementType () const
     {
@@ -2067,12 +1968,10 @@ namespace DAnCE
 
 
     // Any
-    //
 
-    Any::
-    Any (::DAnCE::Config_Handlers::DataType const& type__,
-         ::DAnCE::Config_Handlers::DataValue const& value__)
-    :
+    Any::Any (::DAnCE::Config_Handlers::DataType const& type__,
+              ::DAnCE::Config_Handlers::DataValue const& value__) :
+    ::XSCRT::Type (),
     type_ (new ::DAnCE::Config_Handlers::DataType (type__)),
     value_ (new ::DAnCE::Config_Handlers::DataValue (value__)),
     regulator__ ()
@@ -2081,10 +1980,8 @@ namespace DAnCE
       value_->container (this);
     }
 
-    Any::
-    Any (Any const& s)
-    :
-    ::XSCRT::Type (),
+    Any::Any (Any const& s) :
+    ::XSCRT::Type (s),
     type_ (new ::DAnCE::Config_Handlers::DataType (*s.type_)),
     value_ (new ::DAnCE::Config_Handlers::DataValue (*s.value_)),
     regulator__ ()
@@ -2093,8 +1990,8 @@ namespace DAnCE
       value_->container (this);
     }
 
-    Any& Any::
-    operator= (Any const& s)
+    Any&
+    Any::operator= (Any const& s)
     {
       if (&s != this)
       {
@@ -2108,7 +2005,6 @@ namespace DAnCE
 
 
     // Any
-    //
     ::DAnCE::Config_Handlers::DataType const& Any::
     type () const
     {
@@ -2122,7 +2018,6 @@ namespace DAnCE
     }
 
     // Any
-    //
     ::DAnCE::Config_Handlers::DataValue const& Any::
     value () const
     {
@@ -2137,13 +2032,11 @@ namespace DAnCE
 
 
     // Property
-    //
 
-    Property::
-    Property (::XMLSchema::string< ACE_TCHAR > const& name__,
-              ::DAnCE::Config_Handlers::Any const& value__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    Property::Property (::XMLSchema::string<ACE_TCHAR> const& name__,
+                        ::DAnCE::Config_Handlers::Any const& value__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     value_ (new ::DAnCE::Config_Handlers::Any (value__)),
     regulator__ ()
     {
@@ -2151,11 +2044,9 @@ namespace DAnCE
       value_->container (this);
     }
 
-    Property::
-    Property (Property const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    Property::Property (Property const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     value_ (new ::DAnCE::Config_Handlers::Any (*s.value_)),
     regulator__ ()
     {
@@ -2163,8 +2054,8 @@ namespace DAnCE
       value_->container (this);
     }
 
-    Property& Property::
-    operator= (Property const& s)
+    Property&
+    Property::operator= (Property const& s)
     {
       if (&s != this)
       {
@@ -2178,21 +2069,19 @@ namespace DAnCE
 
 
     // Property
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& Property::
+    ::XMLSchema::string<ACE_TCHAR> const& Property::
     name () const
     {
       return *name_;
     }
 
     void Property::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // Property
-    //
     ::DAnCE::Config_Handlers::Any const& Property::
     value () const
     {
@@ -2207,7 +2096,6 @@ namespace DAnCE
 
 
     // SatisfierPropertyKind
-    //
 
     SatisfierPropertyKind::Value SatisfierPropertyKind::
     integral () const
@@ -2234,15 +2122,13 @@ namespace DAnCE
     }
 
     // SatisfierProperty
-    //
 
-    SatisfierProperty::
-    SatisfierProperty (::XMLSchema::string< ACE_TCHAR > const& name__,
-                       ::DAnCE::Config_Handlers::SatisfierPropertyKind const& kind__,
-                       ::XMLSchema::boolean const& dynamic__,
-                       ::DAnCE::Config_Handlers::Any const& value__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    SatisfierProperty::SatisfierProperty (::XMLSchema::string<ACE_TCHAR> const& name__,
+                                          ::DAnCE::Config_Handlers::SatisfierPropertyKind const& kind__,
+                                          ::XMLSchema::boolean const& dynamic__,
+                                          ::DAnCE::Config_Handlers::Any const& value__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     kind_ (new ::DAnCE::Config_Handlers::SatisfierPropertyKind (kind__)),
     dynamic_ (new ::XMLSchema::boolean (dynamic__)),
     value_ (new ::DAnCE::Config_Handlers::Any (value__)),
@@ -2254,11 +2140,9 @@ namespace DAnCE
       value_->container (this);
     }
 
-    SatisfierProperty::
-    SatisfierProperty (SatisfierProperty const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    SatisfierProperty::SatisfierProperty (SatisfierProperty const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     kind_ (new ::DAnCE::Config_Handlers::SatisfierPropertyKind (*s.kind_)),
     dynamic_ (new ::XMLSchema::boolean (*s.dynamic_)),
     value_ (new ::DAnCE::Config_Handlers::Any (*s.value_)),
@@ -2270,8 +2154,8 @@ namespace DAnCE
       value_->container (this);
     }
 
-    SatisfierProperty& SatisfierProperty::
-    operator= (SatisfierProperty const& s)
+    SatisfierProperty&
+    SatisfierProperty::operator= (SatisfierProperty const& s)
     {
       if (&s != this)
       {
@@ -2289,21 +2173,19 @@ namespace DAnCE
 
 
     // SatisfierProperty
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& SatisfierProperty::
+    ::XMLSchema::string<ACE_TCHAR> const& SatisfierProperty::
     name () const
     {
       return *name_;
     }
 
     void SatisfierProperty::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // SatisfierProperty
-    //
     ::DAnCE::Config_Handlers::SatisfierPropertyKind const& SatisfierProperty::
     kind () const
     {
@@ -2317,7 +2199,6 @@ namespace DAnCE
     }
 
     // SatisfierProperty
-    //
     ::XMLSchema::boolean const& SatisfierProperty::
     dynamic () const
     {
@@ -2331,7 +2212,6 @@ namespace DAnCE
     }
 
     // SatisfierProperty
-    //
     ::DAnCE::Config_Handlers::Any const& SatisfierProperty::
     value () const
     {
@@ -2346,24 +2226,20 @@ namespace DAnCE
 
 
     // Resource
-    //
 
-    Resource::
-    Resource (::XMLSchema::string< ACE_TCHAR > const& name__,
-              ::std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > > const& resourceType__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    Resource::Resource (::XMLSchema::string<ACE_TCHAR> const& name__,
+                        std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > const& resourceType__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     resourceType_ (resourceType__),
     regulator__ ()
     {
       name_->container (this);
     }
 
-    Resource::
-    Resource (Resource const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    Resource::Resource (Resource const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     resourceType_ (s.resourceType_),
     property_ (s.property_),
     regulator__ ()
@@ -2371,8 +2247,8 @@ namespace DAnCE
       name_->container (this);
     }
 
-    Resource& Resource::
-    operator= (Resource const& s)
+    Resource&
+    Resource::operator= (Resource const& s)
     {
       if (&s != this)
       {
@@ -2388,21 +2264,19 @@ namespace DAnCE
 
 
     // Resource
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& Resource::
+    ::XMLSchema::string<ACE_TCHAR> const& Resource::
     name () const
     {
       return *name_;
     }
 
     void Resource::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // Resource
-    //
     Resource::resourceType_iterator Resource::
     begin_resourceType ()
     {
@@ -2428,7 +2302,7 @@ namespace DAnCE
     }
 
     void Resource::
-    add_resourceType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_resourceType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       resourceType_.push_back (e);
     }
@@ -2440,7 +2314,6 @@ namespace DAnCE
     }
 
     // Resource
-    //
     Resource::property_iterator Resource::
     begin_property ()
     {
@@ -2479,26 +2352,22 @@ namespace DAnCE
 
 
     // Requirement
-    //
 
-    Requirement::
-    Requirement (::XMLSchema::string< ACE_TCHAR > const& name__,
-                 ::XMLSchema::string< ACE_TCHAR > const& resourceType__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    resourceType_ (new ::XMLSchema::string< ACE_TCHAR > (resourceType__)),
+    Requirement::Requirement (::XMLSchema::string<ACE_TCHAR> const& name__,
+                              ::XMLSchema::string<ACE_TCHAR> const& resourceType__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    resourceType_ (new ::XMLSchema::string<ACE_TCHAR> (resourceType__)),
     regulator__ ()
     {
       name_->container (this);
       resourceType_->container (this);
     }
 
-    Requirement::
-    Requirement (Requirement const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
-    resourceType_ (new ::XMLSchema::string< ACE_TCHAR > (*s.resourceType_)),
+    Requirement::Requirement (Requirement const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
+    resourceType_ (new ::XMLSchema::string<ACE_TCHAR> (*s.resourceType_)),
     property_ (s.property_),
     regulator__ ()
     {
@@ -2506,8 +2375,8 @@ namespace DAnCE
       resourceType_->container (this);
     }
 
-    Requirement& Requirement::
-    operator= (Requirement const& s)
+    Requirement&
+    Requirement::operator= (Requirement const& s)
     {
       if (&s != this)
       {
@@ -2523,35 +2392,32 @@ namespace DAnCE
 
 
     // Requirement
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& Requirement::
+    ::XMLSchema::string<ACE_TCHAR> const& Requirement::
     name () const
     {
       return *name_;
     }
 
     void Requirement::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // Requirement
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& Requirement::
+    ::XMLSchema::string<ACE_TCHAR> const& Requirement::
     resourceType () const
     {
       return *resourceType_;
     }
 
     void Requirement::
-    resourceType (::XMLSchema::string< ACE_TCHAR > const& e)
+    resourceType (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *resourceType_ = e;
     }
 
     // Requirement
-    //
     Requirement::property_iterator Requirement::
     begin_property ()
     {
@@ -2590,26 +2456,22 @@ namespace DAnCE
 
 
     // ResourceDeploymentDescription
-    //
 
-    ResourceDeploymentDescription::
-    ResourceDeploymentDescription (::XMLSchema::string< ACE_TCHAR > const& requirementName__,
-                                   ::XMLSchema::string< ACE_TCHAR > const& resourceName__)
-    :
-    requirementName_ (new ::XMLSchema::string< ACE_TCHAR > (requirementName__)),
-    resourceName_ (new ::XMLSchema::string< ACE_TCHAR > (resourceName__)),
+    ResourceDeploymentDescription::ResourceDeploymentDescription (::XMLSchema::string<ACE_TCHAR> const& requirementName__,
+                                                                  ::XMLSchema::string<ACE_TCHAR> const& resourceName__) :
+    ::XSCRT::Type (),
+    requirementName_ (new ::XMLSchema::string<ACE_TCHAR> (requirementName__)),
+    resourceName_ (new ::XMLSchema::string<ACE_TCHAR> (resourceName__)),
     regulator__ ()
     {
       requirementName_->container (this);
       resourceName_->container (this);
     }
 
-    ResourceDeploymentDescription::
-    ResourceDeploymentDescription (ResourceDeploymentDescription const& s)
-    :
-    ::XSCRT::Type (),
-    requirementName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.requirementName_)),
-    resourceName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.resourceName_)),
+    ResourceDeploymentDescription::ResourceDeploymentDescription (ResourceDeploymentDescription const& s) :
+    ::XSCRT::Type (s),
+    requirementName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.requirementName_)),
+    resourceName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.resourceName_)),
     property_ (s.property_),
     regulator__ ()
     {
@@ -2617,8 +2479,8 @@ namespace DAnCE
       resourceName_->container (this);
     }
 
-    ResourceDeploymentDescription& ResourceDeploymentDescription::
-    operator= (ResourceDeploymentDescription const& s)
+    ResourceDeploymentDescription&
+    ResourceDeploymentDescription::operator= (ResourceDeploymentDescription const& s)
     {
       if (&s != this)
       {
@@ -2634,35 +2496,32 @@ namespace DAnCE
 
 
     // ResourceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ResourceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ResourceDeploymentDescription::
     requirementName () const
     {
       return *requirementName_;
     }
 
     void ResourceDeploymentDescription::
-    requirementName (::XMLSchema::string< ACE_TCHAR > const& e)
+    requirementName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *requirementName_ = e;
     }
 
     // ResourceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ResourceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ResourceDeploymentDescription::
     resourceName () const
     {
       return *resourceName_;
     }
 
     void ResourceDeploymentDescription::
-    resourceName (::XMLSchema::string< ACE_TCHAR > const& e)
+    resourceName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *resourceName_ = e;
     }
 
     // ResourceDeploymentDescription
-    //
     ResourceDeploymentDescription::property_iterator ResourceDeploymentDescription::
     begin_property ()
     {
@@ -2701,32 +2560,28 @@ namespace DAnCE
 
 
     // ArtifactDeploymentDescription
-    //
 
-    ArtifactDeploymentDescription::
-    ArtifactDeploymentDescription (::XMLSchema::string< ACE_TCHAR > const& name__,
-                                   ::XMLSchema::string< ACE_TCHAR > const& node__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    node_ (new ::XMLSchema::string< ACE_TCHAR > (node__)),
+    ArtifactDeploymentDescription::ArtifactDeploymentDescription (::XMLSchema::string<ACE_TCHAR> const& name__,
+                                                                  ::XMLSchema::string<ACE_TCHAR> const& node__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    node_ (new ::XMLSchema::string<ACE_TCHAR> (node__)),
     regulator__ ()
     {
       name_->container (this);
       node_->container (this);
     }
 
-    ArtifactDeploymentDescription::
-    ArtifactDeploymentDescription (ArtifactDeploymentDescription const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    ArtifactDeploymentDescription::ArtifactDeploymentDescription (ArtifactDeploymentDescription const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     source_ (s.source_),
-    node_ (new ::XMLSchema::string< ACE_TCHAR > (*s.node_)),
+    node_ (new ::XMLSchema::string<ACE_TCHAR> (*s.node_)),
     location_ (s.location_),
     execParameter_ (s.execParameter_),
     deployRequirement_ (s.deployRequirement_),
     deployedResource_ (s.deployedResource_),
-    id_ (s.id_.get () ? new ::XMLSchema::ID< ACE_TCHAR > (*s.id_) : 0),
+    id_ (s.id_.get () ? new ::XMLSchema::ID<ACE_TCHAR> (*s.id_) : 0),
     regulator__ ()
     {
       name_->container (this);
@@ -2734,8 +2589,8 @@ namespace DAnCE
       if (id_.get ()) id_->container (this);
     }
 
-    ArtifactDeploymentDescription& ArtifactDeploymentDescription::
-    operator= (ArtifactDeploymentDescription const& s)
+    ArtifactDeploymentDescription&
+    ArtifactDeploymentDescription::operator= (ArtifactDeploymentDescription const& s)
     {
       if (&s != this)
       {
@@ -2754,7 +2609,7 @@ namespace DAnCE
         deployedResource_ = s.deployedResource_;
 
         if (s.id_.get ()) id (*(s.id_));
-        else id_ = ::std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (0);
+        else id_.reset (0);
       }
 
       return *this;
@@ -2762,21 +2617,19 @@ namespace DAnCE
 
 
     // ArtifactDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ArtifactDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ArtifactDeploymentDescription::
     name () const
     {
       return *name_;
     }
 
     void ArtifactDeploymentDescription::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // ArtifactDeploymentDescription
-    //
     ArtifactDeploymentDescription::source_iterator ArtifactDeploymentDescription::
     begin_source ()
     {
@@ -2802,7 +2655,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       source_.push_back (e);
     }
@@ -2814,21 +2667,19 @@ namespace DAnCE
     }
 
     // ArtifactDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ArtifactDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ArtifactDeploymentDescription::
     node () const
     {
       return *node_;
     }
 
     void ArtifactDeploymentDescription::
-    node (::XMLSchema::string< ACE_TCHAR > const& e)
+    node (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *node_ = e;
     }
 
     // ArtifactDeploymentDescription
-    //
     ArtifactDeploymentDescription::location_iterator ArtifactDeploymentDescription::
     begin_location ()
     {
@@ -2854,7 +2705,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       location_.push_back (e);
     }
@@ -2866,7 +2717,6 @@ namespace DAnCE
     }
 
     // ArtifactDeploymentDescription
-    //
     ArtifactDeploymentDescription::execParameter_iterator ArtifactDeploymentDescription::
     begin_execParameter ()
     {
@@ -2904,7 +2754,6 @@ namespace DAnCE
     }
 
     // ArtifactDeploymentDescription
-    //
     ArtifactDeploymentDescription::deployRequirement_iterator ArtifactDeploymentDescription::
     begin_deployRequirement ()
     {
@@ -2942,7 +2791,6 @@ namespace DAnCE
     }
 
     // ArtifactDeploymentDescription
-    //
     ArtifactDeploymentDescription::deployedResource_iterator ArtifactDeploymentDescription::
     begin_deployedResource ()
     {
@@ -2980,27 +2828,26 @@ namespace DAnCE
     }
 
     // ArtifactDeploymentDescription
-    //
     bool ArtifactDeploymentDescription::
     id_p () const
     {
       return id_.get () != 0;
     }
 
-    ::XMLSchema::ID< ACE_TCHAR > const& ArtifactDeploymentDescription::
+    ::XMLSchema::ID<ACE_TCHAR> const& ArtifactDeploymentDescription::
     id () const
     {
       return *id_;
     }
 
-    ::XMLSchema::ID< ACE_TCHAR >& ArtifactDeploymentDescription::
+    ::XMLSchema::ID<ACE_TCHAR>& ArtifactDeploymentDescription::
     id ()
     {
       return *id_;
     }
 
     void ArtifactDeploymentDescription::
-    id (::XMLSchema::ID< ACE_TCHAR > const& e)
+    id (::XMLSchema::ID<ACE_TCHAR> const& e)
     {
       if (id_.get ())
       {
@@ -3009,42 +2856,38 @@ namespace DAnCE
 
       else
       {
-        id_ = ::std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (new ::XMLSchema::ID< ACE_TCHAR > (e));
+        id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
         id_->container (this);
       }
     }
 
 
     // MonolithicDeploymentDescription
-    //
 
-    MonolithicDeploymentDescription::
-    MonolithicDeploymentDescription (::XMLSchema::string< ACE_TCHAR > const& name__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    MonolithicDeploymentDescription::MonolithicDeploymentDescription (::XMLSchema::string<ACE_TCHAR> const& name__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     regulator__ ()
     {
       name_->container (this);
     }
 
-    MonolithicDeploymentDescription::
-    MonolithicDeploymentDescription (MonolithicDeploymentDescription const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    MonolithicDeploymentDescription::MonolithicDeploymentDescription (MonolithicDeploymentDescription const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     source_ (s.source_),
     artifact_ (s.artifact_),
     execParameter_ (s.execParameter_),
     deployRequirement_ (s.deployRequirement_),
-    id_ (s.id_.get () ? new ::XMLSchema::ID< ACE_TCHAR > (*s.id_) : 0),
+    id_ (s.id_.get () ? new ::XMLSchema::ID<ACE_TCHAR> (*s.id_) : 0),
     regulator__ ()
     {
       name_->container (this);
       if (id_.get ()) id_->container (this);
     }
 
-    MonolithicDeploymentDescription& MonolithicDeploymentDescription::
-    operator= (MonolithicDeploymentDescription const& s)
+    MonolithicDeploymentDescription&
+    MonolithicDeploymentDescription::operator= (MonolithicDeploymentDescription const& s)
     {
       if (&s != this)
       {
@@ -3059,7 +2902,7 @@ namespace DAnCE
         deployRequirement_ = s.deployRequirement_;
 
         if (s.id_.get ()) id (*(s.id_));
-        else id_ = ::std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (0);
+        else id_.reset (0);
       }
 
       return *this;
@@ -3067,21 +2910,19 @@ namespace DAnCE
 
 
     // MonolithicDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& MonolithicDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& MonolithicDeploymentDescription::
     name () const
     {
       return *name_;
     }
 
     void MonolithicDeploymentDescription::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // MonolithicDeploymentDescription
-    //
     MonolithicDeploymentDescription::source_iterator MonolithicDeploymentDescription::
     begin_source ()
     {
@@ -3107,7 +2948,7 @@ namespace DAnCE
     }
 
     void MonolithicDeploymentDescription::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       source_.push_back (e);
     }
@@ -3119,7 +2960,6 @@ namespace DAnCE
     }
 
     // MonolithicDeploymentDescription
-    //
     MonolithicDeploymentDescription::artifact_iterator MonolithicDeploymentDescription::
     begin_artifact ()
     {
@@ -3157,7 +2997,6 @@ namespace DAnCE
     }
 
     // MonolithicDeploymentDescription
-    //
     MonolithicDeploymentDescription::execParameter_iterator MonolithicDeploymentDescription::
     begin_execParameter ()
     {
@@ -3195,7 +3034,6 @@ namespace DAnCE
     }
 
     // MonolithicDeploymentDescription
-    //
     MonolithicDeploymentDescription::deployRequirement_iterator MonolithicDeploymentDescription::
     begin_deployRequirement ()
     {
@@ -3233,27 +3071,26 @@ namespace DAnCE
     }
 
     // MonolithicDeploymentDescription
-    //
     bool MonolithicDeploymentDescription::
     id_p () const
     {
       return id_.get () != 0;
     }
 
-    ::XMLSchema::ID< ACE_TCHAR > const& MonolithicDeploymentDescription::
+    ::XMLSchema::ID<ACE_TCHAR> const& MonolithicDeploymentDescription::
     id () const
     {
       return *id_;
     }
 
-    ::XMLSchema::ID< ACE_TCHAR >& MonolithicDeploymentDescription::
+    ::XMLSchema::ID<ACE_TCHAR>& MonolithicDeploymentDescription::
     id ()
     {
       return *id_;
     }
 
     void MonolithicDeploymentDescription::
-    id (::XMLSchema::ID< ACE_TCHAR > const& e)
+    id (::XMLSchema::ID<ACE_TCHAR> const& e)
     {
       if (id_.get ())
       {
@@ -3262,14 +3099,13 @@ namespace DAnCE
 
       else
       {
-        id_ = ::std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (new ::XMLSchema::ID< ACE_TCHAR > (e));
+        id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
         id_->container (this);
       }
     }
 
 
     // ResourceUsageKind
-    //
 
     ResourceUsageKind::Value ResourceUsageKind::
     integral () const
@@ -3296,16 +3132,14 @@ namespace DAnCE
     }
 
     // InstanceResourceDeploymentDescription
-    //
 
-    InstanceResourceDeploymentDescription::
-    InstanceResourceDeploymentDescription (::DAnCE::Config_Handlers::ResourceUsageKind const& resourceUsage__,
-                                           ::XMLSchema::string< ACE_TCHAR > const& requirementName__,
-                                           ::XMLSchema::string< ACE_TCHAR > const& resourceName__)
-    :
+    InstanceResourceDeploymentDescription::InstanceResourceDeploymentDescription (::DAnCE::Config_Handlers::ResourceUsageKind const& resourceUsage__,
+                                                                                  ::XMLSchema::string<ACE_TCHAR> const& requirementName__,
+                                                                                  ::XMLSchema::string<ACE_TCHAR> const& resourceName__) :
+    ::XSCRT::Type (),
     resourceUsage_ (new ::DAnCE::Config_Handlers::ResourceUsageKind (resourceUsage__)),
-    requirementName_ (new ::XMLSchema::string< ACE_TCHAR > (requirementName__)),
-    resourceName_ (new ::XMLSchema::string< ACE_TCHAR > (resourceName__)),
+    requirementName_ (new ::XMLSchema::string<ACE_TCHAR> (requirementName__)),
+    resourceName_ (new ::XMLSchema::string<ACE_TCHAR> (resourceName__)),
     regulator__ ()
     {
       resourceUsage_->container (this);
@@ -3313,13 +3147,11 @@ namespace DAnCE
       resourceName_->container (this);
     }
 
-    InstanceResourceDeploymentDescription::
-    InstanceResourceDeploymentDescription (InstanceResourceDeploymentDescription const& s)
-    :
-    ::XSCRT::Type (),
+    InstanceResourceDeploymentDescription::InstanceResourceDeploymentDescription (InstanceResourceDeploymentDescription const& s) :
+    ::XSCRT::Type (s),
     resourceUsage_ (new ::DAnCE::Config_Handlers::ResourceUsageKind (*s.resourceUsage_)),
-    requirementName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.requirementName_)),
-    resourceName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.resourceName_)),
+    requirementName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.requirementName_)),
+    resourceName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.resourceName_)),
     property_ (s.property_),
     regulator__ ()
     {
@@ -3328,8 +3160,8 @@ namespace DAnCE
       resourceName_->container (this);
     }
 
-    InstanceResourceDeploymentDescription& InstanceResourceDeploymentDescription::
-    operator= (InstanceResourceDeploymentDescription const& s)
+    InstanceResourceDeploymentDescription&
+    InstanceResourceDeploymentDescription::operator= (InstanceResourceDeploymentDescription const& s)
     {
       if (&s != this)
       {
@@ -3347,7 +3179,6 @@ namespace DAnCE
 
 
     // InstanceResourceDeploymentDescription
-    //
     ::DAnCE::Config_Handlers::ResourceUsageKind const& InstanceResourceDeploymentDescription::
     resourceUsage () const
     {
@@ -3361,35 +3192,32 @@ namespace DAnCE
     }
 
     // InstanceResourceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& InstanceResourceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& InstanceResourceDeploymentDescription::
     requirementName () const
     {
       return *requirementName_;
     }
 
     void InstanceResourceDeploymentDescription::
-    requirementName (::XMLSchema::string< ACE_TCHAR > const& e)
+    requirementName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *requirementName_ = e;
     }
 
     // InstanceResourceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& InstanceResourceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& InstanceResourceDeploymentDescription::
     resourceName () const
     {
       return *resourceName_;
     }
 
     void InstanceResourceDeploymentDescription::
-    resourceName (::XMLSchema::string< ACE_TCHAR > const& e)
+    resourceName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *resourceName_ = e;
     }
 
     // InstanceResourceDeploymentDescription
-    //
     InstanceResourceDeploymentDescription::property_iterator InstanceResourceDeploymentDescription::
     begin_property ()
     {
@@ -3428,17 +3256,15 @@ namespace DAnCE
 
 
     // InstanceDeploymentDescription
-    //
 
-    InstanceDeploymentDescription::
-    InstanceDeploymentDescription (::XMLSchema::string< ACE_TCHAR > const& name__,
-                                   ::XMLSchema::string< ACE_TCHAR > const& node__,
-                                   ::XMLSchema::string< ACE_TCHAR > const& source__,
-                                   ::DAnCE::Config_Handlers::IdRef const& implementation__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    node_ (new ::XMLSchema::string< ACE_TCHAR > (node__)),
-    source_ (new ::XMLSchema::string< ACE_TCHAR > (source__)),
+    InstanceDeploymentDescription::InstanceDeploymentDescription (::XMLSchema::string<ACE_TCHAR> const& name__,
+                                                                  ::XMLSchema::string<ACE_TCHAR> const& node__,
+                                                                  ::XMLSchema::string<ACE_TCHAR> const& source__,
+                                                                  ::DAnCE::Config_Handlers::IdRef const& implementation__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    node_ (new ::XMLSchema::string<ACE_TCHAR> (node__)),
+    source_ (new ::XMLSchema::string<ACE_TCHAR> (source__)),
     implementation_ (new ::DAnCE::Config_Handlers::IdRef (implementation__)),
     regulator__ ()
     {
@@ -3448,18 +3274,16 @@ namespace DAnCE
       implementation_->container (this);
     }
 
-    InstanceDeploymentDescription::
-    InstanceDeploymentDescription (InstanceDeploymentDescription const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
-    node_ (new ::XMLSchema::string< ACE_TCHAR > (*s.node_)),
-    source_ (new ::XMLSchema::string< ACE_TCHAR > (*s.source_)),
+    InstanceDeploymentDescription::InstanceDeploymentDescription (InstanceDeploymentDescription const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
+    node_ (new ::XMLSchema::string<ACE_TCHAR> (*s.node_)),
+    source_ (new ::XMLSchema::string<ACE_TCHAR> (*s.source_)),
     implementation_ (new ::DAnCE::Config_Handlers::IdRef (*s.implementation_)),
     configProperty_ (s.configProperty_),
     deployedResource_ (s.deployedResource_),
     deployedSharedResource_ (s.deployedSharedResource_.get () ? new ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription (*s.deployedSharedResource_) : 0),
-    id_ (s.id_.get () ? new ::XMLSchema::ID< ACE_TCHAR > (*s.id_) : 0),
+    id_ (s.id_.get () ? new ::XMLSchema::ID<ACE_TCHAR> (*s.id_) : 0),
     regulator__ ()
     {
       name_->container (this);
@@ -3470,8 +3294,8 @@ namespace DAnCE
       if (id_.get ()) id_->container (this);
     }
 
-    InstanceDeploymentDescription& InstanceDeploymentDescription::
-    operator= (InstanceDeploymentDescription const& s)
+    InstanceDeploymentDescription&
+    InstanceDeploymentDescription::operator= (InstanceDeploymentDescription const& s)
     {
       if (&s != this)
       {
@@ -3493,7 +3317,7 @@ namespace DAnCE
           deployedSharedResource_.reset (0);
 
         if (s.id_.get ()) id (*(s.id_));
-        else id_ = ::std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (0);
+        else id_.reset (0);
       }
 
       return *this;
@@ -3501,49 +3325,45 @@ namespace DAnCE
 
 
     // InstanceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& InstanceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& InstanceDeploymentDescription::
     name () const
     {
       return *name_;
     }
 
     void InstanceDeploymentDescription::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // InstanceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& InstanceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& InstanceDeploymentDescription::
     node () const
     {
       return *node_;
     }
 
     void InstanceDeploymentDescription::
-    node (::XMLSchema::string< ACE_TCHAR > const& e)
+    node (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *node_ = e;
     }
 
     // InstanceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& InstanceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& InstanceDeploymentDescription::
     source () const
     {
       return *source_;
     }
 
     void InstanceDeploymentDescription::
-    source (::XMLSchema::string< ACE_TCHAR > const& e)
+    source (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *source_ = e;
     }
 
     // InstanceDeploymentDescription
-    //
     ::DAnCE::Config_Handlers::IdRef const& InstanceDeploymentDescription::
     implementation () const
     {
@@ -3557,7 +3377,6 @@ namespace DAnCE
     }
 
     // InstanceDeploymentDescription
-    //
     InstanceDeploymentDescription::configProperty_iterator InstanceDeploymentDescription::
     begin_configProperty ()
     {
@@ -3595,7 +3414,6 @@ namespace DAnCE
     }
 
     // InstanceDeploymentDescription
-    //
     InstanceDeploymentDescription::deployedResource_iterator InstanceDeploymentDescription::
     begin_deployedResource ()
     {
@@ -3633,7 +3451,6 @@ namespace DAnCE
     }
 
     // InstanceDeploymentDescription
-    //
     bool InstanceDeploymentDescription::
     deployedSharedResource_p () const
     {
@@ -3656,33 +3473,32 @@ namespace DAnCE
 
       else
       {
-        deployedSharedResource_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription > (new ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription (e));
+        deployedSharedResource_ = std::auto_ptr< ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription > (new ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription (e));
         deployedSharedResource_->container (this);
       }
     }
 
     // InstanceDeploymentDescription
-    //
     bool InstanceDeploymentDescription::
     id_p () const
     {
       return id_.get () != 0;
     }
 
-    ::XMLSchema::ID< ACE_TCHAR > const& InstanceDeploymentDescription::
+    ::XMLSchema::ID<ACE_TCHAR> const& InstanceDeploymentDescription::
     id () const
     {
       return *id_;
     }
 
-    ::XMLSchema::ID< ACE_TCHAR >& InstanceDeploymentDescription::
+    ::XMLSchema::ID<ACE_TCHAR>& InstanceDeploymentDescription::
     id ()
     {
       return *id_;
     }
 
     void InstanceDeploymentDescription::
-    id (::XMLSchema::ID< ACE_TCHAR > const& e)
+    id (::XMLSchema::ID<ACE_TCHAR> const& e)
     {
       if (id_.get ())
       {
@@ -3691,14 +3507,13 @@ namespace DAnCE
 
       else
       {
-        id_ = ::std::auto_ptr< ::XMLSchema::ID< ACE_TCHAR > > (new ::XMLSchema::ID< ACE_TCHAR > (e));
+        id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
         id_->container (this);
       }
     }
 
 
     // CCMComponentPortKind
-    //
 
     CCMComponentPortKind::Value CCMComponentPortKind::
     integral () const
@@ -3725,17 +3540,15 @@ namespace DAnCE
     }
 
     // ComponentPortDescription
-    //
 
-    ComponentPortDescription::
-    ComponentPortDescription (::XMLSchema::string< ACE_TCHAR > const& name__,
-                              ::XMLSchema::boolean const& provider__,
-                              ::XMLSchema::boolean const& exclusiveProvider__,
-                              ::XMLSchema::boolean const& exclusiveUser__,
-                              ::XMLSchema::boolean const& optional__,
-                              ::DAnCE::Config_Handlers::CCMComponentPortKind const& kind__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    ComponentPortDescription::ComponentPortDescription (::XMLSchema::string<ACE_TCHAR> const& name__,
+                                                        ::XMLSchema::boolean const& provider__,
+                                                        ::XMLSchema::boolean const& exclusiveProvider__,
+                                                        ::XMLSchema::boolean const& exclusiveUser__,
+                                                        ::XMLSchema::boolean const& optional__,
+                                                        ::DAnCE::Config_Handlers::CCMComponentPortKind const& kind__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     provider_ (new ::XMLSchema::boolean (provider__)),
     exclusiveProvider_ (new ::XMLSchema::boolean (exclusiveProvider__)),
     exclusiveUser_ (new ::XMLSchema::boolean (exclusiveUser__)),
@@ -3751,12 +3564,10 @@ namespace DAnCE
       kind_->container (this);
     }
 
-    ComponentPortDescription::
-    ComponentPortDescription (ComponentPortDescription const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
-    specificType_ (s.specificType_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.specificType_) : 0),
+    ComponentPortDescription::ComponentPortDescription (ComponentPortDescription const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
+    specificType_ (s.specificType_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.specificType_) : 0),
     supportedType_ (s.supportedType_),
     provider_ (new ::XMLSchema::boolean (*s.provider_)),
     exclusiveProvider_ (new ::XMLSchema::boolean (*s.exclusiveProvider_)),
@@ -3775,8 +3586,8 @@ namespace DAnCE
       kind_->container (this);
     }
 
-    ComponentPortDescription& ComponentPortDescription::
-    operator= (ComponentPortDescription const& s)
+    ComponentPortDescription&
+    ComponentPortDescription::operator= (ComponentPortDescription const& s)
     {
       if (&s != this)
       {
@@ -3807,35 +3618,33 @@ namespace DAnCE
 
 
     // ComponentPortDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentPortDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentPortDescription::
     name () const
     {
       return *name_;
     }
 
     void ComponentPortDescription::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // ComponentPortDescription
-    //
     bool ComponentPortDescription::
     specificType_p () const
     {
       return specificType_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentPortDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentPortDescription::
     specificType () const
     {
       return *specificType_;
     }
 
     void ComponentPortDescription::
-    specificType (::XMLSchema::string< ACE_TCHAR > const& e)
+    specificType (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (specificType_.get ())
       {
@@ -3844,13 +3653,12 @@ namespace DAnCE
 
       else
       {
-        specificType_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        specificType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         specificType_->container (this);
       }
     }
 
     // ComponentPortDescription
-    //
     ComponentPortDescription::supportedType_iterator ComponentPortDescription::
     begin_supportedType ()
     {
@@ -3876,7 +3684,7 @@ namespace DAnCE
     }
 
     void ComponentPortDescription::
-    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       supportedType_.push_back (e);
     }
@@ -3888,7 +3696,6 @@ namespace DAnCE
     }
 
     // ComponentPortDescription
-    //
     ::XMLSchema::boolean const& ComponentPortDescription::
     provider () const
     {
@@ -3902,7 +3709,6 @@ namespace DAnCE
     }
 
     // ComponentPortDescription
-    //
     ::XMLSchema::boolean const& ComponentPortDescription::
     exclusiveProvider () const
     {
@@ -3916,7 +3722,6 @@ namespace DAnCE
     }
 
     // ComponentPortDescription
-    //
     ::XMLSchema::boolean const& ComponentPortDescription::
     exclusiveUser () const
     {
@@ -3930,7 +3735,6 @@ namespace DAnCE
     }
 
     // ComponentPortDescription
-    //
     ::XMLSchema::boolean const& ComponentPortDescription::
     optional () const
     {
@@ -3944,7 +3748,6 @@ namespace DAnCE
     }
 
     // ComponentPortDescription
-    //
     ::DAnCE::Config_Handlers::CCMComponentPortKind const& ComponentPortDescription::
     kind () const
     {
@@ -3958,7 +3761,6 @@ namespace DAnCE
     }
 
     // ComponentPortDescription
-    //
     ComponentPortDescription::templateParam_iterator ComponentPortDescription::
     begin_templateParam ()
     {
@@ -3984,7 +3786,7 @@ namespace DAnCE
     }
 
     void ComponentPortDescription::
-    add_templateParam (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_templateParam (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       templateParam_.push_back (e);
     }
@@ -3997,13 +3799,11 @@ namespace DAnCE
 
 
     // ComponentPropertyDescription
-    //
 
-    ComponentPropertyDescription::
-    ComponentPropertyDescription (::XMLSchema::string< ACE_TCHAR > const& name__,
-                                  ::DAnCE::Config_Handlers::DataType const& type__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    ComponentPropertyDescription::ComponentPropertyDescription (::XMLSchema::string<ACE_TCHAR> const& name__,
+                                                                ::DAnCE::Config_Handlers::DataType const& type__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     type_ (new ::DAnCE::Config_Handlers::DataType (type__)),
     regulator__ ()
     {
@@ -4011,11 +3811,9 @@ namespace DAnCE
       type_->container (this);
     }
 
-    ComponentPropertyDescription::
-    ComponentPropertyDescription (ComponentPropertyDescription const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    ComponentPropertyDescription::ComponentPropertyDescription (ComponentPropertyDescription const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     type_ (new ::DAnCE::Config_Handlers::DataType (*s.type_)),
     regulator__ ()
     {
@@ -4023,8 +3821,8 @@ namespace DAnCE
       type_->container (this);
     }
 
-    ComponentPropertyDescription& ComponentPropertyDescription::
-    operator= (ComponentPropertyDescription const& s)
+    ComponentPropertyDescription&
+    ComponentPropertyDescription::operator= (ComponentPropertyDescription const& s)
     {
       if (&s != this)
       {
@@ -4038,21 +3836,19 @@ namespace DAnCE
 
 
     // ComponentPropertyDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentPropertyDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentPropertyDescription::
     name () const
     {
       return *name_;
     }
 
     void ComponentPropertyDescription::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // ComponentPropertyDescription
-    //
     ::DAnCE::Config_Handlers::DataType const& ComponentPropertyDescription::
     type () const
     {
@@ -4067,29 +3863,25 @@ namespace DAnCE
 
 
     // ComponentExternalPortEndpoint
-    //
 
-    ComponentExternalPortEndpoint::
-    ComponentExternalPortEndpoint (::XMLSchema::string< ACE_TCHAR > const& portName__)
-    :
-    portName_ (new ::XMLSchema::string< ACE_TCHAR > (portName__)),
-    regulator__ ()
-    {
-      portName_->container (this);
-    }
-
-    ComponentExternalPortEndpoint::
-    ComponentExternalPortEndpoint (ComponentExternalPortEndpoint const& s)
-    :
+    ComponentExternalPortEndpoint::ComponentExternalPortEndpoint (::XMLSchema::string<ACE_TCHAR> const& portName__) :
     ::XSCRT::Type (),
-    portName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.portName_)),
+    portName_ (new ::XMLSchema::string<ACE_TCHAR> (portName__)),
     regulator__ ()
     {
       portName_->container (this);
     }
 
-    ComponentExternalPortEndpoint& ComponentExternalPortEndpoint::
-    operator= (ComponentExternalPortEndpoint const& s)
+    ComponentExternalPortEndpoint::ComponentExternalPortEndpoint (ComponentExternalPortEndpoint const& s) :
+    ::XSCRT::Type (s),
+    portName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.portName_)),
+    regulator__ ()
+    {
+      portName_->container (this);
+    }
+
+    ComponentExternalPortEndpoint&
+    ComponentExternalPortEndpoint::operator= (ComponentExternalPortEndpoint const& s)
     {
       if (&s != this)
       {
@@ -4101,29 +3893,26 @@ namespace DAnCE
 
 
     // ComponentExternalPortEndpoint
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ComponentExternalPortEndpoint::
+    ::XMLSchema::string<ACE_TCHAR> const& ComponentExternalPortEndpoint::
     portName () const
     {
       return *portName_;
     }
 
     void ComponentExternalPortEndpoint::
-    portName (::XMLSchema::string< ACE_TCHAR > const& e)
+    portName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *portName_ = e;
     }
 
 
     // PlanSubcomponentPortEndpoint
-    //
 
-    PlanSubcomponentPortEndpoint::
-    PlanSubcomponentPortEndpoint (::XMLSchema::string< ACE_TCHAR > const& portName__,
-                                  ::DAnCE::Config_Handlers::CCMComponentPortKind const& kind__,
-                                  ::DAnCE::Config_Handlers::IdRef const& instance__)
-    :
-    portName_ (new ::XMLSchema::string< ACE_TCHAR > (portName__)),
+    PlanSubcomponentPortEndpoint::PlanSubcomponentPortEndpoint (::XMLSchema::string<ACE_TCHAR> const& portName__,
+                                                                ::DAnCE::Config_Handlers::CCMComponentPortKind const& kind__,
+                                                                ::DAnCE::Config_Handlers::IdRef const& instance__) :
+    ::XSCRT::Type (),
+    portName_ (new ::XMLSchema::string<ACE_TCHAR> (portName__)),
     kind_ (new ::DAnCE::Config_Handlers::CCMComponentPortKind (kind__)),
     instance_ (new ::DAnCE::Config_Handlers::IdRef (instance__)),
     regulator__ ()
@@ -4133,12 +3922,10 @@ namespace DAnCE
       instance_->container (this);
     }
 
-    PlanSubcomponentPortEndpoint::
-    PlanSubcomponentPortEndpoint (PlanSubcomponentPortEndpoint const& s)
-    :
-    ::XSCRT::Type (),
-    portName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.portName_)),
-    provider_ (s.provider_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.provider_) : 0),
+    PlanSubcomponentPortEndpoint::PlanSubcomponentPortEndpoint (PlanSubcomponentPortEndpoint const& s) :
+    ::XSCRT::Type (s),
+    portName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.portName_)),
+    provider_ (s.provider_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.provider_) : 0),
     kind_ (new ::DAnCE::Config_Handlers::CCMComponentPortKind (*s.kind_)),
     instance_ (new ::DAnCE::Config_Handlers::IdRef (*s.instance_)),
     regulator__ ()
@@ -4149,8 +3936,8 @@ namespace DAnCE
       instance_->container (this);
     }
 
-    PlanSubcomponentPortEndpoint& PlanSubcomponentPortEndpoint::
-    operator= (PlanSubcomponentPortEndpoint const& s)
+    PlanSubcomponentPortEndpoint&
+    PlanSubcomponentPortEndpoint::operator= (PlanSubcomponentPortEndpoint const& s)
     {
       if (&s != this)
       {
@@ -4171,35 +3958,33 @@ namespace DAnCE
 
 
     // PlanSubcomponentPortEndpoint
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& PlanSubcomponentPortEndpoint::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanSubcomponentPortEndpoint::
     portName () const
     {
       return *portName_;
     }
 
     void PlanSubcomponentPortEndpoint::
-    portName (::XMLSchema::string< ACE_TCHAR > const& e)
+    portName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *portName_ = e;
     }
 
     // PlanSubcomponentPortEndpoint
-    //
     bool PlanSubcomponentPortEndpoint::
     provider_p () const
     {
       return provider_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& PlanSubcomponentPortEndpoint::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanSubcomponentPortEndpoint::
     provider () const
     {
       return *provider_;
     }
 
     void PlanSubcomponentPortEndpoint::
-    provider (::XMLSchema::string< ACE_TCHAR > const& e)
+    provider (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (provider_.get ())
       {
@@ -4208,13 +3993,12 @@ namespace DAnCE
 
       else
       {
-        provider_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        provider_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         provider_->container (this);
       }
     }
 
     // PlanSubcomponentPortEndpoint
-    //
     ::DAnCE::Config_Handlers::CCMComponentPortKind const& PlanSubcomponentPortEndpoint::
     kind () const
     {
@@ -4228,7 +4012,6 @@ namespace DAnCE
     }
 
     // PlanSubcomponentPortEndpoint
-    //
     ::DAnCE::Config_Handlers::IdRef const& PlanSubcomponentPortEndpoint::
     instance () const
     {
@@ -4243,13 +4026,11 @@ namespace DAnCE
 
 
     // ExternalReferenceEndpoint
-    //
 
-    ExternalReferenceEndpoint::
-    ExternalReferenceEndpoint (::XMLSchema::string< ACE_TCHAR > const& location__,
-                               ::XMLSchema::boolean const& provider__)
-    :
-    location_ (new ::XMLSchema::string< ACE_TCHAR > (location__)),
+    ExternalReferenceEndpoint::ExternalReferenceEndpoint (::XMLSchema::string<ACE_TCHAR> const& location__,
+                                                          ::XMLSchema::boolean const& provider__) :
+    ::XSCRT::Type (),
+    location_ (new ::XMLSchema::string<ACE_TCHAR> (location__)),
     provider_ (new ::XMLSchema::boolean (provider__)),
     regulator__ ()
     {
@@ -4257,13 +4038,11 @@ namespace DAnCE
       provider_->container (this);
     }
 
-    ExternalReferenceEndpoint::
-    ExternalReferenceEndpoint (ExternalReferenceEndpoint const& s)
-    :
-    ::XSCRT::Type (),
-    location_ (new ::XMLSchema::string< ACE_TCHAR > (*s.location_)),
+    ExternalReferenceEndpoint::ExternalReferenceEndpoint (ExternalReferenceEndpoint const& s) :
+    ::XSCRT::Type (s),
+    location_ (new ::XMLSchema::string<ACE_TCHAR> (*s.location_)),
     provider_ (new ::XMLSchema::boolean (*s.provider_)),
-    portName_ (s.portName_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.portName_) : 0),
+    portName_ (s.portName_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.portName_) : 0),
     supportedType_ (s.supportedType_),
     regulator__ ()
     {
@@ -4272,8 +4051,8 @@ namespace DAnCE
       if (portName_.get ()) portName_->container (this);
     }
 
-    ExternalReferenceEndpoint& ExternalReferenceEndpoint::
-    operator= (ExternalReferenceEndpoint const& s)
+    ExternalReferenceEndpoint&
+    ExternalReferenceEndpoint::operator= (ExternalReferenceEndpoint const& s)
     {
       if (&s != this)
       {
@@ -4294,21 +4073,19 @@ namespace DAnCE
 
 
     // ExternalReferenceEndpoint
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ExternalReferenceEndpoint::
+    ::XMLSchema::string<ACE_TCHAR> const& ExternalReferenceEndpoint::
     location () const
     {
       return *location_;
     }
 
     void ExternalReferenceEndpoint::
-    location (::XMLSchema::string< ACE_TCHAR > const& e)
+    location (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *location_ = e;
     }
 
     // ExternalReferenceEndpoint
-    //
     ::XMLSchema::boolean const& ExternalReferenceEndpoint::
     provider () const
     {
@@ -4322,21 +4099,20 @@ namespace DAnCE
     }
 
     // ExternalReferenceEndpoint
-    //
     bool ExternalReferenceEndpoint::
     portName_p () const
     {
       return portName_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ExternalReferenceEndpoint::
+    ::XMLSchema::string<ACE_TCHAR> const& ExternalReferenceEndpoint::
     portName () const
     {
       return *portName_;
     }
 
     void ExternalReferenceEndpoint::
-    portName (::XMLSchema::string< ACE_TCHAR > const& e)
+    portName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (portName_.get ())
       {
@@ -4345,13 +4121,12 @@ namespace DAnCE
 
       else
       {
-        portName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        portName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         portName_->container (this);
       }
     }
 
     // ExternalReferenceEndpoint
-    //
     ExternalReferenceEndpoint::supportedType_iterator ExternalReferenceEndpoint::
     begin_supportedType ()
     {
@@ -4377,7 +4152,7 @@ namespace DAnCE
     }
 
     void ExternalReferenceEndpoint::
-    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       supportedType_.push_back (e);
     }
@@ -4390,16 +4165,14 @@ namespace DAnCE
 
 
     // ConnectionResourceDeploymentDescription
-    //
 
-    ConnectionResourceDeploymentDescription::
-    ConnectionResourceDeploymentDescription (::XMLSchema::string< ACE_TCHAR > const& targetName__,
-                                             ::XMLSchema::string< ACE_TCHAR > const& requirementName__,
-                                             ::XMLSchema::string< ACE_TCHAR > const& resourceName__)
-    :
-    targetName_ (new ::XMLSchema::string< ACE_TCHAR > (targetName__)),
-    requirementName_ (new ::XMLSchema::string< ACE_TCHAR > (requirementName__)),
-    resourceName_ (new ::XMLSchema::string< ACE_TCHAR > (resourceName__)),
+    ConnectionResourceDeploymentDescription::ConnectionResourceDeploymentDescription (::XMLSchema::string<ACE_TCHAR> const& targetName__,
+                                                                                      ::XMLSchema::string<ACE_TCHAR> const& requirementName__,
+                                                                                      ::XMLSchema::string<ACE_TCHAR> const& resourceName__) :
+    ::XSCRT::Type (),
+    targetName_ (new ::XMLSchema::string<ACE_TCHAR> (targetName__)),
+    requirementName_ (new ::XMLSchema::string<ACE_TCHAR> (requirementName__)),
+    resourceName_ (new ::XMLSchema::string<ACE_TCHAR> (resourceName__)),
     regulator__ ()
     {
       targetName_->container (this);
@@ -4407,13 +4180,11 @@ namespace DAnCE
       resourceName_->container (this);
     }
 
-    ConnectionResourceDeploymentDescription::
-    ConnectionResourceDeploymentDescription (ConnectionResourceDeploymentDescription const& s)
-    :
-    ::XSCRT::Type (),
-    targetName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.targetName_)),
-    requirementName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.requirementName_)),
-    resourceName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.resourceName_)),
+    ConnectionResourceDeploymentDescription::ConnectionResourceDeploymentDescription (ConnectionResourceDeploymentDescription const& s) :
+    ::XSCRT::Type (s),
+    targetName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.targetName_)),
+    requirementName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.requirementName_)),
+    resourceName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.resourceName_)),
     property_ (s.property_),
     regulator__ ()
     {
@@ -4422,8 +4193,8 @@ namespace DAnCE
       resourceName_->container (this);
     }
 
-    ConnectionResourceDeploymentDescription& ConnectionResourceDeploymentDescription::
-    operator= (ConnectionResourceDeploymentDescription const& s)
+    ConnectionResourceDeploymentDescription&
+    ConnectionResourceDeploymentDescription::operator= (ConnectionResourceDeploymentDescription const& s)
     {
       if (&s != this)
       {
@@ -4441,49 +4212,45 @@ namespace DAnCE
 
 
     // ConnectionResourceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ConnectionResourceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ConnectionResourceDeploymentDescription::
     targetName () const
     {
       return *targetName_;
     }
 
     void ConnectionResourceDeploymentDescription::
-    targetName (::XMLSchema::string< ACE_TCHAR > const& e)
+    targetName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *targetName_ = e;
     }
 
     // ConnectionResourceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ConnectionResourceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ConnectionResourceDeploymentDescription::
     requirementName () const
     {
       return *requirementName_;
     }
 
     void ConnectionResourceDeploymentDescription::
-    requirementName (::XMLSchema::string< ACE_TCHAR > const& e)
+    requirementName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *requirementName_ = e;
     }
 
     // ConnectionResourceDeploymentDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ConnectionResourceDeploymentDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& ConnectionResourceDeploymentDescription::
     resourceName () const
     {
       return *resourceName_;
     }
 
     void ConnectionResourceDeploymentDescription::
-    resourceName (::XMLSchema::string< ACE_TCHAR > const& e)
+    resourceName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *resourceName_ = e;
     }
 
     // ConnectionResourceDeploymentDescription
-    //
     ConnectionResourceDeploymentDescription::property_iterator ConnectionResourceDeploymentDescription::
     begin_property ()
     {
@@ -4522,23 +4289,19 @@ namespace DAnCE
 
 
     // PlanConnectionDescription
-    //
 
-    PlanConnectionDescription::
-    PlanConnectionDescription (::XMLSchema::string< ACE_TCHAR > const& name__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    PlanConnectionDescription::PlanConnectionDescription (::XMLSchema::string<ACE_TCHAR> const& name__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     regulator__ ()
     {
       name_->container (this);
     }
 
-    PlanConnectionDescription::
-    PlanConnectionDescription (PlanConnectionDescription const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
-    source_ (s.source_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.source_) : 0),
+    PlanConnectionDescription::PlanConnectionDescription (PlanConnectionDescription const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
+    source_ (s.source_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.source_) : 0),
     deployRequirement_ (s.deployRequirement_),
     externalEndpoint_ (s.externalEndpoint_),
     internalEndpoint_ (s.internalEndpoint_),
@@ -4550,8 +4313,8 @@ namespace DAnCE
       if (source_.get ()) source_->container (this);
     }
 
-    PlanConnectionDescription& PlanConnectionDescription::
-    operator= (PlanConnectionDescription const& s)
+    PlanConnectionDescription&
+    PlanConnectionDescription::operator= (PlanConnectionDescription const& s)
     {
       if (&s != this)
       {
@@ -4578,35 +4341,33 @@ namespace DAnCE
 
 
     // PlanConnectionDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& PlanConnectionDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanConnectionDescription::
     name () const
     {
       return *name_;
     }
 
     void PlanConnectionDescription::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // PlanConnectionDescription
-    //
     bool PlanConnectionDescription::
     source_p () const
     {
       return source_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& PlanConnectionDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanConnectionDescription::
     source () const
     {
       return *source_;
     }
 
     void PlanConnectionDescription::
-    source (::XMLSchema::string< ACE_TCHAR > const& e)
+    source (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (source_.get ())
       {
@@ -4615,13 +4376,12 @@ namespace DAnCE
 
       else
       {
-        source_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        source_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         source_->container (this);
       }
     }
 
     // PlanConnectionDescription
-    //
     PlanConnectionDescription::deployRequirement_iterator PlanConnectionDescription::
     begin_deployRequirement ()
     {
@@ -4659,7 +4419,6 @@ namespace DAnCE
     }
 
     // PlanConnectionDescription
-    //
     PlanConnectionDescription::externalEndpoint_iterator PlanConnectionDescription::
     begin_externalEndpoint ()
     {
@@ -4697,7 +4456,6 @@ namespace DAnCE
     }
 
     // PlanConnectionDescription
-    //
     PlanConnectionDescription::internalEndpoint_iterator PlanConnectionDescription::
     begin_internalEndpoint ()
     {
@@ -4735,7 +4493,6 @@ namespace DAnCE
     }
 
     // PlanConnectionDescription
-    //
     PlanConnectionDescription::externalReference_iterator PlanConnectionDescription::
     begin_externalReference ()
     {
@@ -4773,7 +4530,6 @@ namespace DAnCE
     }
 
     // PlanConnectionDescription
-    //
     PlanConnectionDescription::deployedResource_iterator PlanConnectionDescription::
     begin_deployedResource ()
     {
@@ -4812,29 +4568,25 @@ namespace DAnCE
 
 
     // ImplementationDependency
-    //
 
-    ImplementationDependency::
-    ImplementationDependency (::XMLSchema::string< ACE_TCHAR > const& requiredType__)
-    :
-    requiredType_ (new ::XMLSchema::string< ACE_TCHAR > (requiredType__)),
-    regulator__ ()
-    {
-      requiredType_->container (this);
-    }
-
-    ImplementationDependency::
-    ImplementationDependency (ImplementationDependency const& s)
-    :
+    ImplementationDependency::ImplementationDependency (::XMLSchema::string<ACE_TCHAR> const& requiredType__) :
     ::XSCRT::Type (),
-    requiredType_ (new ::XMLSchema::string< ACE_TCHAR > (*s.requiredType_)),
+    requiredType_ (new ::XMLSchema::string<ACE_TCHAR> (requiredType__)),
     regulator__ ()
     {
       requiredType_->container (this);
     }
 
-    ImplementationDependency& ImplementationDependency::
-    operator= (ImplementationDependency const& s)
+    ImplementationDependency::ImplementationDependency (ImplementationDependency const& s) :
+    ::XSCRT::Type (s),
+    requiredType_ (new ::XMLSchema::string<ACE_TCHAR> (*s.requiredType_)),
+    regulator__ ()
+    {
+      requiredType_->container (this);
+    }
+
+    ImplementationDependency&
+    ImplementationDependency::operator= (ImplementationDependency const& s)
     {
       if (&s != this)
       {
@@ -4846,37 +4598,32 @@ namespace DAnCE
 
 
     // ImplementationDependency
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ImplementationDependency::
+    ::XMLSchema::string<ACE_TCHAR> const& ImplementationDependency::
     requiredType () const
     {
       return *requiredType_;
     }
 
     void ImplementationDependency::
-    requiredType (::XMLSchema::string< ACE_TCHAR > const& e)
+    requiredType (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *requiredType_ = e;
     }
 
 
     // Capability
-    //
 
-    Capability::
-    Capability (::XMLSchema::string< ACE_TCHAR > const& name__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    Capability::Capability (::XMLSchema::string<ACE_TCHAR> const& name__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     regulator__ ()
     {
       name_->container (this);
     }
 
-    Capability::
-    Capability (Capability const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    Capability::Capability (Capability const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     resourceType_ (s.resourceType_),
     property_ (s.property_),
     regulator__ ()
@@ -4884,8 +4631,8 @@ namespace DAnCE
       name_->container (this);
     }
 
-    Capability& Capability::
-    operator= (Capability const& s)
+    Capability&
+    Capability::operator= (Capability const& s)
     {
       if (&s != this)
       {
@@ -4901,21 +4648,19 @@ namespace DAnCE
 
 
     // Capability
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& Capability::
+    ::XMLSchema::string<ACE_TCHAR> const& Capability::
     name () const
     {
       return *name_;
     }
 
     void Capability::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // Capability
-    //
     Capability::resourceType_iterator Capability::
     begin_resourceType ()
     {
@@ -4941,7 +4686,7 @@ namespace DAnCE
     }
 
     void Capability::
-    add_resourceType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_resourceType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       resourceType_.push_back (e);
     }
@@ -4953,7 +4698,6 @@ namespace DAnCE
     }
 
     // Capability
-    //
     Capability::property_iterator Capability::
     begin_property ()
     {
@@ -4992,29 +4736,25 @@ namespace DAnCE
 
 
     // ImplementationRequirement
-    //
 
-    ImplementationRequirement::
-    ImplementationRequirement (::XMLSchema::string< ACE_TCHAR > const& resourceType__,
-                               ::XMLSchema::string< ACE_TCHAR > const& name__)
-    :
-    resourceType_ (new ::XMLSchema::string< ACE_TCHAR > (resourceType__)),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    ImplementationRequirement::ImplementationRequirement (::XMLSchema::string<ACE_TCHAR> const& resourceType__,
+                                                          ::XMLSchema::string<ACE_TCHAR> const& name__) :
+    ::XSCRT::Type (),
+    resourceType_ (new ::XMLSchema::string<ACE_TCHAR> (resourceType__)),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     regulator__ ()
     {
       resourceType_->container (this);
       name_->container (this);
     }
 
-    ImplementationRequirement::
-    ImplementationRequirement (ImplementationRequirement const& s)
-    :
-    ::XSCRT::Type (),
+    ImplementationRequirement::ImplementationRequirement (ImplementationRequirement const& s) :
+    ::XSCRT::Type (s),
     resourceUsage_ (s.resourceUsage_.get () ? new ::DAnCE::Config_Handlers::ResourceUsageKind (*s.resourceUsage_) : 0),
-    resourcePort_ (s.resourcePort_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.resourcePort_) : 0),
-    componentPort_ (s.componentPort_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.componentPort_) : 0),
-    resourceType_ (new ::XMLSchema::string< ACE_TCHAR > (*s.resourceType_)),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    resourcePort_ (s.resourcePort_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.resourcePort_) : 0),
+    componentPort_ (s.componentPort_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.componentPort_) : 0),
+    resourceType_ (new ::XMLSchema::string<ACE_TCHAR> (*s.resourceType_)),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     property_ (s.property_),
     regulator__ ()
     {
@@ -5025,8 +4765,8 @@ namespace DAnCE
       name_->container (this);
     }
 
-    ImplementationRequirement& ImplementationRequirement::
-    operator= (ImplementationRequirement const& s)
+    ImplementationRequirement&
+    ImplementationRequirement::operator= (ImplementationRequirement const& s)
     {
       if (&s != this)
       {
@@ -5057,7 +4797,6 @@ namespace DAnCE
 
 
     // ImplementationRequirement
-    //
     bool ImplementationRequirement::
     resourceUsage_p () const
     {
@@ -5080,27 +4819,26 @@ namespace DAnCE
 
       else
       {
-        resourceUsage_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > (new ::DAnCE::Config_Handlers::ResourceUsageKind (e));
+        resourceUsage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > (new ::DAnCE::Config_Handlers::ResourceUsageKind (e));
         resourceUsage_->container (this);
       }
     }
 
     // ImplementationRequirement
-    //
     bool ImplementationRequirement::
     resourcePort_p () const
     {
       return resourcePort_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ImplementationRequirement::
+    ::XMLSchema::string<ACE_TCHAR> const& ImplementationRequirement::
     resourcePort () const
     {
       return *resourcePort_;
     }
 
     void ImplementationRequirement::
-    resourcePort (::XMLSchema::string< ACE_TCHAR > const& e)
+    resourcePort (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (resourcePort_.get ())
       {
@@ -5109,27 +4847,26 @@ namespace DAnCE
 
       else
       {
-        resourcePort_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        resourcePort_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         resourcePort_->container (this);
       }
     }
 
     // ImplementationRequirement
-    //
     bool ImplementationRequirement::
     componentPort_p () const
     {
       return componentPort_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& ImplementationRequirement::
+    ::XMLSchema::string<ACE_TCHAR> const& ImplementationRequirement::
     componentPort () const
     {
       return *componentPort_;
     }
 
     void ImplementationRequirement::
-    componentPort (::XMLSchema::string< ACE_TCHAR > const& e)
+    componentPort (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (componentPort_.get ())
       {
@@ -5138,41 +4875,38 @@ namespace DAnCE
 
       else
       {
-        componentPort_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        componentPort_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         componentPort_->container (this);
       }
     }
 
     // ImplementationRequirement
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ImplementationRequirement::
+    ::XMLSchema::string<ACE_TCHAR> const& ImplementationRequirement::
     resourceType () const
     {
       return *resourceType_;
     }
 
     void ImplementationRequirement::
-    resourceType (::XMLSchema::string< ACE_TCHAR > const& e)
+    resourceType (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *resourceType_ = e;
     }
 
     // ImplementationRequirement
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& ImplementationRequirement::
+    ::XMLSchema::string<ACE_TCHAR> const& ImplementationRequirement::
     name () const
     {
       return *name_;
     }
 
     void ImplementationRequirement::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // ImplementationRequirement
-    //
     ImplementationRequirement::property_iterator ImplementationRequirement::
     begin_property ()
     {
@@ -5211,13 +4945,11 @@ namespace DAnCE
 
 
     // SubcomponentPortEndpoint
-    //
 
-    SubcomponentPortEndpoint::
-    SubcomponentPortEndpoint (::XMLSchema::string< ACE_TCHAR > const& portName__,
-                              ::DAnCE::Config_Handlers::IdRef const& instance__)
-    :
-    portName_ (new ::XMLSchema::string< ACE_TCHAR > (portName__)),
+    SubcomponentPortEndpoint::SubcomponentPortEndpoint (::XMLSchema::string<ACE_TCHAR> const& portName__,
+                                                        ::DAnCE::Config_Handlers::IdRef const& instance__) :
+    ::XSCRT::Type (),
+    portName_ (new ::XMLSchema::string<ACE_TCHAR> (portName__)),
     instance_ (new ::DAnCE::Config_Handlers::IdRef (instance__)),
     regulator__ ()
     {
@@ -5225,11 +4957,9 @@ namespace DAnCE
       instance_->container (this);
     }
 
-    SubcomponentPortEndpoint::
-    SubcomponentPortEndpoint (SubcomponentPortEndpoint const& s)
-    :
-    ::XSCRT::Type (),
-    portName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.portName_)),
+    SubcomponentPortEndpoint::SubcomponentPortEndpoint (SubcomponentPortEndpoint const& s) :
+    ::XSCRT::Type (s),
+    portName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.portName_)),
     instance_ (new ::DAnCE::Config_Handlers::IdRef (*s.instance_)),
     regulator__ ()
     {
@@ -5237,8 +4967,8 @@ namespace DAnCE
       instance_->container (this);
     }
 
-    SubcomponentPortEndpoint& SubcomponentPortEndpoint::
-    operator= (SubcomponentPortEndpoint const& s)
+    SubcomponentPortEndpoint&
+    SubcomponentPortEndpoint::operator= (SubcomponentPortEndpoint const& s)
     {
       if (&s != this)
       {
@@ -5252,21 +4982,19 @@ namespace DAnCE
 
 
     // SubcomponentPortEndpoint
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& SubcomponentPortEndpoint::
+    ::XMLSchema::string<ACE_TCHAR> const& SubcomponentPortEndpoint::
     portName () const
     {
       return *portName_;
     }
 
     void SubcomponentPortEndpoint::
-    portName (::XMLSchema::string< ACE_TCHAR > const& e)
+    portName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *portName_ = e;
     }
 
     // SubcomponentPortEndpoint
-    //
     ::DAnCE::Config_Handlers::IdRef const& SubcomponentPortEndpoint::
     instance () const
     {
@@ -5281,22 +5009,18 @@ namespace DAnCE
 
 
     // AssemblyConnectionDescription
-    //
 
-    AssemblyConnectionDescription::
-    AssemblyConnectionDescription (::XMLSchema::string< ACE_TCHAR > const& name__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
+    AssemblyConnectionDescription::AssemblyConnectionDescription (::XMLSchema::string<ACE_TCHAR> const& name__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     regulator__ ()
     {
       name_->container (this);
     }
 
-    AssemblyConnectionDescription::
-    AssemblyConnectionDescription (AssemblyConnectionDescription const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    AssemblyConnectionDescription::AssemblyConnectionDescription (AssemblyConnectionDescription const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     deployRequirement_ (s.deployRequirement_),
     internalEndpoint_ (s.internalEndpoint_),
     externalEndpoint_ (s.externalEndpoint_),
@@ -5306,8 +5030,8 @@ namespace DAnCE
       name_->container (this);
     }
 
-    AssemblyConnectionDescription& AssemblyConnectionDescription::
-    operator= (AssemblyConnectionDescription const& s)
+    AssemblyConnectionDescription&
+    AssemblyConnectionDescription::operator= (AssemblyConnectionDescription const& s)
     {
       if (&s != this)
       {
@@ -5327,21 +5051,19 @@ namespace DAnCE
 
 
     // AssemblyConnectionDescription
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& AssemblyConnectionDescription::
+    ::XMLSchema::string<ACE_TCHAR> const& AssemblyConnectionDescription::
     name () const
     {
       return *name_;
     }
 
     void AssemblyConnectionDescription::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // AssemblyConnectionDescription
-    //
     AssemblyConnectionDescription::deployRequirement_iterator AssemblyConnectionDescription::
     begin_deployRequirement ()
     {
@@ -5379,7 +5101,6 @@ namespace DAnCE
     }
 
     // AssemblyConnectionDescription
-    //
     AssemblyConnectionDescription::internalEndpoint_iterator AssemblyConnectionDescription::
     begin_internalEndpoint ()
     {
@@ -5417,7 +5138,6 @@ namespace DAnCE
     }
 
     // AssemblyConnectionDescription
-    //
     AssemblyConnectionDescription::externalEndpoint_iterator AssemblyConnectionDescription::
     begin_externalEndpoint ()
     {
@@ -5455,7 +5175,6 @@ namespace DAnCE
     }
 
     // AssemblyConnectionDescription
-    //
     AssemblyConnectionDescription::externalReference_iterator AssemblyConnectionDescription::
     begin_externalReference ()
     {
@@ -5494,7 +5213,6 @@ namespace DAnCE
 
 
     // PlanLocalityKind
-    //
 
     PlanLocalityKind::Value PlanLocalityKind::
     integral () const
@@ -5521,12 +5239,10 @@ namespace DAnCE
     }
 
     // PlanLocality
-    //
 
-    PlanLocality::
-    PlanLocality (::DAnCE::Config_Handlers::PlanLocalityKind const& constraint__,
-                  ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex > > const& constrainedInstance__)
-    :
+    PlanLocality::PlanLocality (::DAnCE::Config_Handlers::PlanLocalityKind const& constraint__,
+                                std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex > > const& constrainedInstance__) :
+    ::XSCRT::Type (),
     constraint_ (new ::DAnCE::Config_Handlers::PlanLocalityKind (constraint__)),
     constrainedInstance_ (constrainedInstance__),
     regulator__ ()
@@ -5534,10 +5250,8 @@ namespace DAnCE
       constraint_->container (this);
     }
 
-    PlanLocality::
-    PlanLocality (PlanLocality const& s)
-    :
-    ::XSCRT::Type (),
+    PlanLocality::PlanLocality (PlanLocality const& s) :
+    ::XSCRT::Type (s),
     constraint_ (new ::DAnCE::Config_Handlers::PlanLocalityKind (*s.constraint_)),
     constrainedInstance_ (s.constrainedInstance_),
     regulator__ ()
@@ -5545,8 +5259,8 @@ namespace DAnCE
       constraint_->container (this);
     }
 
-    PlanLocality& PlanLocality::
-    operator= (PlanLocality const& s)
+    PlanLocality&
+    PlanLocality::operator= (PlanLocality const& s)
     {
       if (&s != this)
       {
@@ -5560,7 +5274,6 @@ namespace DAnCE
 
 
     // PlanLocality
-    //
     ::DAnCE::Config_Handlers::PlanLocalityKind const& PlanLocality::
     constraint () const
     {
@@ -5574,7 +5287,6 @@ namespace DAnCE
     }
 
     // PlanLocality
-    //
     PlanLocality::constrainedInstance_iterator PlanLocality::
     begin_constrainedInstance ()
     {
@@ -5618,7 +5330,6 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // IdRef
-    //
 
     IdRef::
     IdRef (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -5630,16 +5341,16 @@ namespace DAnCE
       while (p.more_attributes ())
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (a);
+          ::XMLSchema::string<ACE_TCHAR> t (a);
           href (t);
         }
 
         else if (n == ACE_TEXT ("idref"))
         {
-          ::XMLSchema::IDREF< ACE_TCHAR > t (a);
+          ::XMLSchema::IDREF<ACE_TCHAR> t (a);
           idref (t);
           std::basic_string<ACE_TCHAR> temp ((*idref_).id().c_str());
 
@@ -5654,13 +5365,12 @@ namespace DAnCE
     }
 
     // TCKind
-    //
 
     TCKind::
     TCKind (::XSCRT::XML::Element< ACE_TCHAR > const& e)
     : ::XSCRT::Type (e)
     {
-      ::std::basic_string< ACE_TCHAR > v (e.value ());
+      std::basic_string< ACE_TCHAR > v (e.value ());
 
       if (v == ACE_TEXT ("tk_null")) v_ = tk_null_l;
       else if (v == ACE_TEXT ("tk_void")) v_ = tk_void_l;
@@ -5708,7 +5418,7 @@ namespace DAnCE
     TCKind (::XSCRT::XML::Attribute< ACE_TCHAR > const& a)
     : ::XSCRT::Type (a)
     {
-      ::std::basic_string< ACE_TCHAR > v (a.value ());
+      std::basic_string< ACE_TCHAR > v (a.value ());
 
       if (v == ACE_TEXT ("tk_null")) v_ = tk_null_l;
       else if (v == ACE_TEXT ("tk_void")) v_ = tk_void_l;
@@ -5791,7 +5501,6 @@ namespace DAnCE
     TCKind const TCKind::tk_event (TCKind::tk_event_l);
 
     // DataType
-    //
 
     DataType::
     DataType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -5803,11 +5512,11 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("kind"))
         {
-          kind_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::TCKind > (new ::DAnCE::Config_Handlers::TCKind (e));
+          kind_ = std::auto_ptr< ::DAnCE::Config_Handlers::TCKind > (new ::DAnCE::Config_Handlers::TCKind (e));
           kind_->container (this);
         }
 
@@ -5861,10 +5570,10 @@ namespace DAnCE
       while (p.more_attributes ())
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("id"))
         {
-          ::XMLSchema::ID< ACE_TCHAR > t (a);
+          ::XMLSchema::ID<ACE_TCHAR> t (a);
           id (t);
           std::basic_string<ACE_TCHAR> temp ((*id_).c_str());
           (*ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance())->
@@ -5878,7 +5587,6 @@ namespace DAnCE
     }
 
     // DataValue
-    //
 
     DataValue::
     DataValue (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -5890,7 +5598,7 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("short"))
         {
@@ -5942,13 +5650,13 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("enum"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_enum (t);
         }
 
         else if (n == ACE_TEXT("string"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_string (t);
         }
 
@@ -5989,7 +5697,6 @@ namespace DAnCE
     }
 
     // AliasType
-    //
 
     AliasType::
     AliasType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6001,23 +5708,23 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("typeId"))
         {
-          typeId_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          typeId_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           typeId_->container (this);
         }
 
         else if (n == ACE_TEXT("elementType"))
         {
-          elementType_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          elementType_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
           elementType_->container (this);
         }
 
@@ -6028,7 +5735,6 @@ namespace DAnCE
     }
 
     // EnumType
-    //
 
     EnumType::
     EnumType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6040,23 +5746,23 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("typeId"))
         {
-          typeId_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          typeId_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           typeId_->container (this);
         }
 
         else if (n == ACE_TEXT("member"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_member (t);
         }
 
@@ -6067,7 +5773,6 @@ namespace DAnCE
     }
 
     // BoundedStringType
-    //
 
     BoundedStringType::
     BoundedStringType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6079,7 +5784,7 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("bound"))
         {
@@ -6094,7 +5799,6 @@ namespace DAnCE
     }
 
     // StructType
-    //
 
     StructType::
     StructType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6106,17 +5810,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("typeId"))
         {
-          typeId_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          typeId_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           typeId_->container (this);
         }
 
@@ -6133,7 +5837,6 @@ namespace DAnCE
     }
 
     // StructMemberType
-    //
 
     StructMemberType::
     StructMemberType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6145,17 +5848,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("type"))
         {
-          type_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          type_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
           type_->container (this);
         }
 
@@ -6166,7 +5869,6 @@ namespace DAnCE
     }
 
     // ValueType
-    //
 
     ValueType::
     ValueType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6178,29 +5880,29 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("typeId"))
         {
-          typeId_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          typeId_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           typeId_->container (this);
         }
 
         else if (n == ACE_TEXT("modifier"))
         {
-          modifier_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          modifier_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           modifier_->container (this);
         }
 
         else if (n == ACE_TEXT("baseType"))
         {
-          baseType_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          baseType_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
           baseType_->container (this);
         }
 
@@ -6217,7 +5919,6 @@ namespace DAnCE
     }
 
     // ValueMemberType
-    //
 
     ValueMemberType::
     ValueMemberType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6229,23 +5930,23 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("visibility"))
         {
-          visibility_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          visibility_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           visibility_->container (this);
         }
 
         else if (n == ACE_TEXT("type"))
         {
-          type_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          type_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
           type_->container (this);
         }
 
@@ -6256,7 +5957,6 @@ namespace DAnCE
     }
 
     // NamedValue
-    //
 
     NamedValue::
     NamedValue (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6268,17 +5968,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("value"))
         {
-          value_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > (new ::DAnCE::Config_Handlers::DataValue (e));
+          value_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > (new ::DAnCE::Config_Handlers::DataValue (e));
           value_->container (this);
         }
 
@@ -6289,7 +5989,6 @@ namespace DAnCE
     }
 
     // ArrayType
-    //
 
     ArrayType::
     ArrayType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6301,17 +6000,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("length"))
         {
-          length_ = ::std::auto_ptr< ::XMLSchema::unsignedInt > (new ::XMLSchema::unsignedInt (e));
+          length_ = std::auto_ptr< ::XMLSchema::unsignedInt > (new ::XMLSchema::unsignedInt (e));
           length_->container (this);
         }
 
         else if (n == ACE_TEXT("elementType"))
         {
-          elementType_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          elementType_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
           elementType_->container (this);
         }
 
@@ -6322,7 +6021,6 @@ namespace DAnCE
     }
 
     // SequenceType
-    //
 
     SequenceType::
     SequenceType (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6334,7 +6032,7 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("bound"))
         {
@@ -6344,7 +6042,7 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("elementType"))
         {
-          elementType_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          elementType_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
           elementType_->container (this);
         }
 
@@ -6355,7 +6053,6 @@ namespace DAnCE
     }
 
     // Any
-    //
 
     Any::
     Any (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6367,17 +6064,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("type"))
         {
-          type_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          type_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
           type_->container (this);
         }
 
         else if (n == ACE_TEXT("value"))
         {
-          value_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > (new ::DAnCE::Config_Handlers::DataValue (e));
+          value_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > (new ::DAnCE::Config_Handlers::DataValue (e));
           value_->container (this);
         }
 
@@ -6388,7 +6085,6 @@ namespace DAnCE
     }
 
     // Property
-    //
 
     Property::
     Property (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6400,17 +6096,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("value"))
         {
-          value_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::Any > (new ::DAnCE::Config_Handlers::Any (e));
+          value_ = std::auto_ptr< ::DAnCE::Config_Handlers::Any > (new ::DAnCE::Config_Handlers::Any (e));
           value_->container (this);
         }
 
@@ -6421,13 +6117,12 @@ namespace DAnCE
     }
 
     // SatisfierPropertyKind
-    //
 
     SatisfierPropertyKind::
     SatisfierPropertyKind (::XSCRT::XML::Element< ACE_TCHAR > const& e)
     : ::XSCRT::Type (e)
     {
-      ::std::basic_string< ACE_TCHAR > v (e.value ());
+      std::basic_string< ACE_TCHAR > v (e.value ());
 
       if (v == ACE_TEXT ("Quantity")) v_ = Quantity_l;
       else if (v == ACE_TEXT ("Capacity")) v_ = Capacity_l;
@@ -6444,7 +6139,7 @@ namespace DAnCE
     SatisfierPropertyKind (::XSCRT::XML::Attribute< ACE_TCHAR > const& a)
     : ::XSCRT::Type (a)
     {
-      ::std::basic_string< ACE_TCHAR > v (a.value ());
+      std::basic_string< ACE_TCHAR > v (a.value ());
 
       if (v == ACE_TEXT ("Quantity")) v_ = Quantity_l;
       else if (v == ACE_TEXT ("Capacity")) v_ = Capacity_l;
@@ -6465,7 +6160,6 @@ namespace DAnCE
     SatisfierPropertyKind const SatisfierPropertyKind::Selection (SatisfierPropertyKind::Selection_l);
 
     // SatisfierProperty
-    //
 
     SatisfierProperty::
     SatisfierProperty (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6477,29 +6171,29 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("kind"))
         {
-          kind_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierPropertyKind > (new ::DAnCE::Config_Handlers::SatisfierPropertyKind (e));
+          kind_ = std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierPropertyKind > (new ::DAnCE::Config_Handlers::SatisfierPropertyKind (e));
           kind_->container (this);
         }
 
         else if (n == ACE_TEXT("dynamic"))
         {
-          dynamic_ = ::std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          dynamic_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
           dynamic_->container (this);
         }
 
         else if (n == ACE_TEXT("value"))
         {
-          value_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::Any > (new ::DAnCE::Config_Handlers::Any (e));
+          value_ = std::auto_ptr< ::DAnCE::Config_Handlers::Any > (new ::DAnCE::Config_Handlers::Any (e));
           value_->container (this);
         }
 
@@ -6510,7 +6204,6 @@ namespace DAnCE
     }
 
     // Resource
-    //
 
     Resource::
     Resource (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6522,17 +6215,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_resourceType (t);
         }
 
@@ -6549,7 +6242,6 @@ namespace DAnCE
     }
 
     // Requirement
-    //
 
     Requirement::
     Requirement (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6561,17 +6253,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          resourceType_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          resourceType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceType_->container (this);
         }
 
@@ -6588,7 +6280,6 @@ namespace DAnCE
     }
 
     // ResourceDeploymentDescription
-    //
 
     ResourceDeploymentDescription::
     ResourceDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6600,17 +6291,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("requirementName"))
         {
-          requirementName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          requirementName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           requirementName_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceName"))
         {
-          resourceName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          resourceName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceName_->container (this);
         }
 
@@ -6627,7 +6318,6 @@ namespace DAnCE
     }
 
     // ArtifactDeploymentDescription
-    //
 
     ArtifactDeploymentDescription::
     ArtifactDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6639,29 +6329,29 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_source (t);
         }
 
         else if (n == ACE_TEXT("node"))
         {
-          node_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          node_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           node_->container (this);
         }
 
         else if (n == ACE_TEXT("location"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_location (t);
         }
 
@@ -6691,10 +6381,10 @@ namespace DAnCE
       while (p.more_attributes ())
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("id"))
         {
-          ::XMLSchema::ID< ACE_TCHAR > t (a);
+          ::XMLSchema::ID<ACE_TCHAR> t (a);
           id (t);
           std::basic_string<ACE_TCHAR> temp ((*id_).c_str());
           (*ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance())->
@@ -6708,7 +6398,6 @@ namespace DAnCE
     }
 
     // MonolithicDeploymentDescription
-    //
 
     MonolithicDeploymentDescription::
     MonolithicDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6720,17 +6409,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_source (t);
         }
 
@@ -6760,10 +6449,10 @@ namespace DAnCE
       while (p.more_attributes ())
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("id"))
         {
-          ::XMLSchema::ID< ACE_TCHAR > t (a);
+          ::XMLSchema::ID<ACE_TCHAR> t (a);
           id (t);
           std::basic_string<ACE_TCHAR> temp ((*id_).c_str());
           (*ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance())->
@@ -6777,13 +6466,12 @@ namespace DAnCE
     }
 
     // ResourceUsageKind
-    //
 
     ResourceUsageKind::
     ResourceUsageKind (::XSCRT::XML::Element< ACE_TCHAR > const& e)
     : ::XSCRT::Type (e)
     {
-      ::std::basic_string< ACE_TCHAR > v (e.value ());
+      std::basic_string< ACE_TCHAR > v (e.value ());
 
       if (v == ACE_TEXT ("None")) v_ = None_l;
       else if (v == ACE_TEXT ("InstanceUsesResource")) v_ = InstanceUsesResource_l;
@@ -6799,7 +6487,7 @@ namespace DAnCE
     ResourceUsageKind (::XSCRT::XML::Attribute< ACE_TCHAR > const& a)
     : ::XSCRT::Type (a)
     {
-      ::std::basic_string< ACE_TCHAR > v (a.value ());
+      std::basic_string< ACE_TCHAR > v (a.value ());
 
       if (v == ACE_TEXT ("None")) v_ = None_l;
       else if (v == ACE_TEXT ("InstanceUsesResource")) v_ = InstanceUsesResource_l;
@@ -6818,7 +6506,6 @@ namespace DAnCE
     ResourceUsageKind const ResourceUsageKind::ResourceUsesPort (ResourceUsageKind::ResourceUsesPort_l);
 
     // InstanceResourceDeploymentDescription
-    //
 
     InstanceResourceDeploymentDescription::
     InstanceResourceDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6830,23 +6517,23 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("resourceUsage"))
         {
-          resourceUsage_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > (new ::DAnCE::Config_Handlers::ResourceUsageKind (e));
+          resourceUsage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > (new ::DAnCE::Config_Handlers::ResourceUsageKind (e));
           resourceUsage_->container (this);
         }
 
         else if (n == ACE_TEXT("requirementName"))
         {
-          requirementName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          requirementName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           requirementName_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceName"))
         {
-          resourceName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          resourceName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceName_->container (this);
         }
 
@@ -6863,7 +6550,6 @@ namespace DAnCE
     }
 
     // InstanceDeploymentDescription
-    //
 
     InstanceDeploymentDescription::
     InstanceDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -6875,29 +6561,29 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("node"))
         {
-          node_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          node_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           node_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          source_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          source_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           source_->container (this);
         }
 
         else if (n == ACE_TEXT("implementation"))
         {
-          implementation_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > (new ::DAnCE::Config_Handlers::IdRef (e));
+          implementation_ = std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > (new ::DAnCE::Config_Handlers::IdRef (e));
           implementation_->container (this);
         }
 
@@ -6927,10 +6613,10 @@ namespace DAnCE
       while (p.more_attributes ())
       {
         ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("id"))
         {
-          ::XMLSchema::ID< ACE_TCHAR > t (a);
+          ::XMLSchema::ID<ACE_TCHAR> t (a);
           id (t);
           std::basic_string<ACE_TCHAR> temp ((*id_).c_str());
           (*ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance())->
@@ -6944,13 +6630,12 @@ namespace DAnCE
     }
 
     // CCMComponentPortKind
-    //
 
     CCMComponentPortKind::
     CCMComponentPortKind (::XSCRT::XML::Element< ACE_TCHAR > const& e)
     : ::XSCRT::Type (e)
     {
-      ::std::basic_string< ACE_TCHAR > v (e.value ());
+      std::basic_string< ACE_TCHAR > v (e.value ());
 
       if (v == ACE_TEXT ("Facet")) v_ = Facet_l;
       else if (v == ACE_TEXT ("SimplexReceptacle")) v_ = SimplexReceptacle_l;
@@ -6969,7 +6654,7 @@ namespace DAnCE
     CCMComponentPortKind (::XSCRT::XML::Attribute< ACE_TCHAR > const& a)
     : ::XSCRT::Type (a)
     {
-      ::std::basic_string< ACE_TCHAR > v (a.value ());
+      std::basic_string< ACE_TCHAR > v (a.value ());
 
       if (v == ACE_TEXT ("Facet")) v_ = Facet_l;
       else if (v == ACE_TEXT ("SimplexReceptacle")) v_ = SimplexReceptacle_l;
@@ -6994,7 +6679,6 @@ namespace DAnCE
     CCMComponentPortKind const CCMComponentPortKind::MirrorPort (CCMComponentPortKind::MirrorPort_l);
 
     // ComponentPortDescription
-    //
 
     ComponentPortDescription::
     ComponentPortDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7006,59 +6690,59 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("specificType"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           specificType (t);
         }
 
         else if (n == ACE_TEXT("supportedType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_supportedType (t);
         }
 
         else if (n == ACE_TEXT("provider"))
         {
-          provider_ = ::std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          provider_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
           provider_->container (this);
         }
 
         else if (n == ACE_TEXT("exclusiveProvider"))
         {
-          exclusiveProvider_ = ::std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          exclusiveProvider_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
           exclusiveProvider_->container (this);
         }
 
         else if (n == ACE_TEXT("exclusiveUser"))
         {
-          exclusiveUser_ = ::std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          exclusiveUser_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
           exclusiveUser_->container (this);
         }
 
         else if (n == ACE_TEXT("optional"))
         {
-          optional_ = ::std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          optional_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
           optional_->container (this);
         }
 
         else if (n == ACE_TEXT("kind"))
         {
-          kind_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > (new ::DAnCE::Config_Handlers::CCMComponentPortKind (e));
+          kind_ = std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > (new ::DAnCE::Config_Handlers::CCMComponentPortKind (e));
           kind_->container (this);
         }
 
         else if (n == ACE_TEXT("templateParam"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_templateParam (t);
         }
 
@@ -7069,7 +6753,6 @@ namespace DAnCE
     }
 
     // ComponentPropertyDescription
-    //
 
     ComponentPropertyDescription::
     ComponentPropertyDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7081,17 +6764,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("type"))
         {
-          type_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          type_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
           type_->container (this);
         }
 
@@ -7102,7 +6785,6 @@ namespace DAnCE
     }
 
     // ComponentExternalPortEndpoint
-    //
 
     ComponentExternalPortEndpoint::
     ComponentExternalPortEndpoint (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7114,11 +6796,11 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("portName"))
         {
-          portName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          portName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           portName_->container (this);
         }
 
@@ -7129,7 +6811,6 @@ namespace DAnCE
     }
 
     // PlanSubcomponentPortEndpoint
-    //
 
     PlanSubcomponentPortEndpoint::
     PlanSubcomponentPortEndpoint (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7141,29 +6822,29 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("portName"))
         {
-          portName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          portName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           portName_->container (this);
         }
 
         else if (n == ACE_TEXT("provider"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           provider (t);
         }
 
         else if (n == ACE_TEXT("kind"))
         {
-          kind_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > (new ::DAnCE::Config_Handlers::CCMComponentPortKind (e));
+          kind_ = std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > (new ::DAnCE::Config_Handlers::CCMComponentPortKind (e));
           kind_->container (this);
         }
 
         else if (n == ACE_TEXT("instance"))
         {
-          instance_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > (new ::DAnCE::Config_Handlers::IdRef (e));
+          instance_ = std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > (new ::DAnCE::Config_Handlers::IdRef (e));
           instance_->container (this);
         }
 
@@ -7174,7 +6855,6 @@ namespace DAnCE
     }
 
     // ExternalReferenceEndpoint
-    //
 
     ExternalReferenceEndpoint::
     ExternalReferenceEndpoint (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7186,29 +6866,29 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("location"))
         {
-          location_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          location_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           location_->container (this);
         }
 
         else if (n == ACE_TEXT("provider"))
         {
-          provider_ = ::std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          provider_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
           provider_->container (this);
         }
 
         else if (n == ACE_TEXT("portName"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           portName (t);
         }
 
         else if (n == ACE_TEXT("supportedType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_supportedType (t);
         }
 
@@ -7219,7 +6899,6 @@ namespace DAnCE
     }
 
     // ConnectionResourceDeploymentDescription
-    //
 
     ConnectionResourceDeploymentDescription::
     ConnectionResourceDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7231,23 +6910,23 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("targetName"))
         {
-          targetName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          targetName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           targetName_->container (this);
         }
 
         else if (n == ACE_TEXT("requirementName"))
         {
-          requirementName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          requirementName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           requirementName_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceName"))
         {
-          resourceName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          resourceName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceName_->container (this);
         }
 
@@ -7264,7 +6943,6 @@ namespace DAnCE
     }
 
     // PlanConnectionDescription
-    //
 
     PlanConnectionDescription::
     PlanConnectionDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7276,17 +6954,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           source (t);
         }
 
@@ -7327,7 +7005,6 @@ namespace DAnCE
     }
 
     // ImplementationDependency
-    //
 
     ImplementationDependency::
     ImplementationDependency (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7339,11 +7016,11 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("requiredType"))
         {
-          requiredType_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          requiredType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           requiredType_->container (this);
         }
 
@@ -7354,7 +7031,6 @@ namespace DAnCE
     }
 
     // Capability
-    //
 
     Capability::
     Capability (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7366,17 +7042,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_resourceType (t);
         }
 
@@ -7393,7 +7069,6 @@ namespace DAnCE
     }
 
     // ImplementationRequirement
-    //
 
     ImplementationRequirement::
     ImplementationRequirement (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7405,7 +7080,7 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("resourceUsage"))
         {
@@ -7415,25 +7090,25 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("resourcePort"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           resourcePort (t);
         }
 
         else if (n == ACE_TEXT("componentPort"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           componentPort (t);
         }
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          resourceType_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          resourceType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceType_->container (this);
         }
 
         else if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -7450,7 +7125,6 @@ namespace DAnCE
     }
 
     // SubcomponentPortEndpoint
-    //
 
     SubcomponentPortEndpoint::
     SubcomponentPortEndpoint (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7462,17 +7136,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("portName"))
         {
-          portName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          portName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           portName_->container (this);
         }
 
         else if (n == ACE_TEXT("instance"))
         {
-          instance_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > (new ::DAnCE::Config_Handlers::IdRef (e));
+          instance_ = std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > (new ::DAnCE::Config_Handlers::IdRef (e));
           instance_->container (this);
         }
 
@@ -7483,7 +7157,6 @@ namespace DAnCE
     }
 
     // AssemblyConnectionDescription
-    //
 
     AssemblyConnectionDescription::
     AssemblyConnectionDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7495,11 +7168,11 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -7534,13 +7207,12 @@ namespace DAnCE
     }
 
     // PlanLocalityKind
-    //
 
     PlanLocalityKind::
     PlanLocalityKind (::XSCRT::XML::Element< ACE_TCHAR > const& e)
     : ::XSCRT::Type (e)
     {
-      ::std::basic_string< ACE_TCHAR > v (e.value ());
+      std::basic_string< ACE_TCHAR > v (e.value ());
 
       if (v == ACE_TEXT ("SameProcess")) v_ = SameProcess_l;
       else if (v == ACE_TEXT ("DifferentProcess")) v_ = DifferentProcess_l;
@@ -7554,7 +7226,7 @@ namespace DAnCE
     PlanLocalityKind (::XSCRT::XML::Attribute< ACE_TCHAR > const& a)
     : ::XSCRT::Type (a)
     {
-      ::std::basic_string< ACE_TCHAR > v (a.value ());
+      std::basic_string< ACE_TCHAR > v (a.value ());
 
       if (v == ACE_TEXT ("SameProcess")) v_ = SameProcess_l;
       else if (v == ACE_TEXT ("DifferentProcess")) v_ = DifferentProcess_l;
@@ -7569,7 +7241,6 @@ namespace DAnCE
     PlanLocalityKind const PlanLocalityKind::NoConstraint (PlanLocalityKind::NoConstraint_l);
 
     // PlanLocality
-    //
 
     PlanLocality::
     PlanLocality (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -7581,11 +7252,11 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("constraint"))
         {
-          constraint_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::PlanLocalityKind > (new ::DAnCE::Config_Handlers::PlanLocalityKind (e));
+          constraint_ = std::auto_ptr< ::DAnCE::Config_Handlers::PlanLocalityKind > (new ::DAnCE::Config_Handlers::PlanLocalityKind (e));
           constraint_->container (this);
         }
 
@@ -7628,7 +7299,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7643,7 +7314,7 @@ namespace DAnCE
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
 
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7657,7 +7328,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7671,7 +7342,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7685,7 +7356,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7699,7 +7370,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7713,7 +7384,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7727,7 +7398,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7741,7 +7412,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7755,7 +7426,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7769,7 +7440,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7783,7 +7454,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7797,7 +7468,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7811,7 +7482,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7825,7 +7496,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7839,7 +7510,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7854,7 +7525,7 @@ namespace DAnCE
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
 
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7868,7 +7539,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7882,7 +7553,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7896,7 +7567,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7910,7 +7581,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7924,7 +7595,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7938,7 +7609,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7953,7 +7624,7 @@ namespace DAnCE
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
 
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7967,7 +7638,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7981,7 +7652,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -7996,7 +7667,7 @@ namespace DAnCE
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
 
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8010,7 +7681,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8024,7 +7695,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8038,7 +7709,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8052,7 +7723,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8066,7 +7737,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8080,7 +7751,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8094,7 +7765,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8108,7 +7779,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8122,7 +7793,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8136,7 +7807,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8150,7 +7821,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8164,7 +7835,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8179,7 +7850,7 @@ namespace DAnCE
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
 
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8193,7 +7864,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -8209,8 +7880,6 @@ namespace DAnCE
     namespace Traversal
     {
       // IdRef
-      //
-      //
 
       void IdRef::
       traverse (Type& o)
@@ -8299,8 +7968,6 @@ namespace DAnCE
       }
 
       // DataType
-      //
-      //
 
       void DataType::
       traverse (Type& o)
@@ -8559,8 +8226,6 @@ namespace DAnCE
       }
 
       // DataValue
-      //
-      //
 
       void DataValue::
       traverse (Type& o)
@@ -8620,7 +8285,6 @@ namespace DAnCE
       short_ (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::short_iterator b (o.begin_short()), e (o.end_short());
 
         if (b != e)
@@ -8642,7 +8306,6 @@ namespace DAnCE
       short_ (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::short_const_iterator b (o.begin_short()), e (o.end_short());
 
         if (b != e)
@@ -8704,7 +8367,6 @@ namespace DAnCE
       long_ (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::long_iterator b (o.begin_long()), e (o.end_long());
 
         if (b != e)
@@ -8726,7 +8388,6 @@ namespace DAnCE
       long_ (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::long_const_iterator b (o.begin_long()), e (o.end_long());
 
         if (b != e)
@@ -8788,7 +8449,6 @@ namespace DAnCE
       ushort (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::ushort_iterator b (o.begin_ushort()), e (o.end_ushort());
 
         if (b != e)
@@ -8810,7 +8470,6 @@ namespace DAnCE
       ushort (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::ushort_const_iterator b (o.begin_ushort()), e (o.end_ushort());
 
         if (b != e)
@@ -8872,7 +8531,6 @@ namespace DAnCE
       ulong (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::ulong_iterator b (o.begin_ulong()), e (o.end_ulong());
 
         if (b != e)
@@ -8894,7 +8552,6 @@ namespace DAnCE
       ulong (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::ulong_const_iterator b (o.begin_ulong()), e (o.end_ulong());
 
         if (b != e)
@@ -8956,7 +8613,6 @@ namespace DAnCE
       float_ (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::float_iterator b (o.begin_float()), e (o.end_float());
 
         if (b != e)
@@ -8978,7 +8634,6 @@ namespace DAnCE
       float_ (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::float_const_iterator b (o.begin_float()), e (o.end_float());
 
         if (b != e)
@@ -9040,7 +8695,6 @@ namespace DAnCE
       double_ (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::double_iterator b (o.begin_double()), e (o.end_double());
 
         if (b != e)
@@ -9062,7 +8716,6 @@ namespace DAnCE
       double_ (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::double_const_iterator b (o.begin_double()), e (o.end_double());
 
         if (b != e)
@@ -9124,7 +8777,6 @@ namespace DAnCE
       boolean (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::boolean_iterator b (o.begin_boolean()), e (o.end_boolean());
 
         if (b != e)
@@ -9146,7 +8798,6 @@ namespace DAnCE
       boolean (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::boolean_const_iterator b (o.begin_boolean()), e (o.end_boolean());
 
         if (b != e)
@@ -9208,7 +8859,6 @@ namespace DAnCE
       octet (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::octet_iterator b (o.begin_octet()), e (o.end_octet());
 
         if (b != e)
@@ -9230,7 +8880,6 @@ namespace DAnCE
       octet (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::octet_const_iterator b (o.begin_octet()), e (o.end_octet());
 
         if (b != e)
@@ -9292,7 +8941,6 @@ namespace DAnCE
       enum_ (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::enum_iterator b (o.begin_enum()), e (o.end_enum());
 
         if (b != e)
@@ -9314,7 +8962,6 @@ namespace DAnCE
       enum_ (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::enum_const_iterator b (o.begin_enum()), e (o.end_enum());
 
         if (b != e)
@@ -9376,7 +9023,6 @@ namespace DAnCE
       string (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::string_iterator b (o.begin_string()), e (o.end_string());
 
         if (b != e)
@@ -9398,7 +9044,6 @@ namespace DAnCE
       string (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::string_const_iterator b (o.begin_string()), e (o.end_string());
 
         if (b != e)
@@ -9460,7 +9105,6 @@ namespace DAnCE
       longlong (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::longlong_iterator b (o.begin_longlong()), e (o.end_longlong());
 
         if (b != e)
@@ -9482,7 +9126,6 @@ namespace DAnCE
       longlong (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::longlong_const_iterator b (o.begin_longlong()), e (o.end_longlong());
 
         if (b != e)
@@ -9544,7 +9187,6 @@ namespace DAnCE
       ulonglong (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::ulonglong_iterator b (o.begin_ulonglong()), e (o.end_ulonglong());
 
         if (b != e)
@@ -9566,7 +9208,6 @@ namespace DAnCE
       ulonglong (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::ulonglong_const_iterator b (o.begin_ulonglong()), e (o.end_ulonglong());
 
         if (b != e)
@@ -9628,7 +9269,6 @@ namespace DAnCE
       longdouble (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::longdouble_iterator b (o.begin_longdouble()), e (o.end_longdouble());
 
         if (b != e)
@@ -9650,7 +9290,6 @@ namespace DAnCE
       longdouble (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::longdouble_const_iterator b (o.begin_longdouble()), e (o.end_longdouble());
 
         if (b != e)
@@ -9712,7 +9351,6 @@ namespace DAnCE
       element (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::element_iterator b (o.begin_element()), e (o.end_element());
 
         if (b != e)
@@ -9734,7 +9372,6 @@ namespace DAnCE
       element (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::element_const_iterator b (o.begin_element()), e (o.end_element());
 
         if (b != e)
@@ -9796,7 +9433,6 @@ namespace DAnCE
       member (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::member_iterator b (o.begin_member()), e (o.end_member());
 
         if (b != e)
@@ -9818,7 +9454,6 @@ namespace DAnCE
       member (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::DataValue::member_const_iterator b (o.begin_member()), e (o.end_member());
 
         if (b != e)
@@ -9887,8 +9522,6 @@ namespace DAnCE
       }
 
       // AliasType
-      //
-      //
 
       void AliasType::
       traverse (Type& o)
@@ -9967,8 +9600,6 @@ namespace DAnCE
       }
 
       // EnumType
-      //
-      //
 
       void EnumType::
       traverse (Type& o)
@@ -10028,7 +9659,6 @@ namespace DAnCE
       member (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::EnumType::member_iterator b (o.begin_member()), e (o.end_member());
 
         if (b != e)
@@ -10048,7 +9678,6 @@ namespace DAnCE
       member (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::EnumType::member_const_iterator b (o.begin_member()), e (o.end_member());
 
         if (b != e)
@@ -10105,8 +9734,6 @@ namespace DAnCE
       }
 
       // BoundedStringType
-      //
-      //
 
       void BoundedStringType::
       traverse (Type& o)
@@ -10138,7 +9765,6 @@ namespace DAnCE
       bound (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::BoundedStringType::bound_iterator b (o.begin_bound()), e (o.end_bound());
 
         if (b != e)
@@ -10160,7 +9786,6 @@ namespace DAnCE
       bound (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::BoundedStringType::bound_const_iterator b (o.begin_bound()), e (o.end_bound());
 
         if (b != e)
@@ -10229,8 +9854,6 @@ namespace DAnCE
       }
 
       // StructType
-      //
-      //
 
       void StructType::
       traverse (Type& o)
@@ -10290,7 +9913,6 @@ namespace DAnCE
       member (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::StructType::member_iterator b (o.begin_member()), e (o.end_member());
 
         if (b != e)
@@ -10312,7 +9934,6 @@ namespace DAnCE
       member (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::StructType::member_const_iterator b (o.begin_member()), e (o.end_member());
 
         if (b != e)
@@ -10381,8 +10002,6 @@ namespace DAnCE
       }
 
       // StructMemberType
-      //
-      //
 
       void StructMemberType::
       traverse (Type& o)
@@ -10447,8 +10066,6 @@ namespace DAnCE
       }
 
       // ValueType
-      //
-      //
 
       void ValueType::
       traverse (Type& o)
@@ -10536,7 +10153,6 @@ namespace DAnCE
       member (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ValueType::member_iterator b (o.begin_member()), e (o.end_member());
 
         if (b != e)
@@ -10558,7 +10174,6 @@ namespace DAnCE
       member (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ValueType::member_const_iterator b (o.begin_member()), e (o.end_member());
 
         if (b != e)
@@ -10627,8 +10242,6 @@ namespace DAnCE
       }
 
       // ValueMemberType
-      //
-      //
 
       void ValueMemberType::
       traverse (Type& o)
@@ -10707,8 +10320,6 @@ namespace DAnCE
       }
 
       // NamedValue
-      //
-      //
 
       void NamedValue::
       traverse (Type& o)
@@ -10773,8 +10384,6 @@ namespace DAnCE
       }
 
       // ArrayType
-      //
-      //
 
       void ArrayType::
       traverse (Type& o)
@@ -10839,8 +10448,6 @@ namespace DAnCE
       }
 
       // SequenceType
-      //
-      //
 
       void SequenceType::
       traverse (Type& o)
@@ -10917,8 +10524,6 @@ namespace DAnCE
       }
 
       // Any
-      //
-      //
 
       void Any::
       traverse (Type& o)
@@ -10983,8 +10588,6 @@ namespace DAnCE
       }
 
       // Property
-      //
-      //
 
       void Property::
       traverse (Type& o)
@@ -11049,8 +10652,6 @@ namespace DAnCE
       }
 
       // SatisfierProperty
-      //
-      //
 
       void SatisfierProperty::
       traverse (Type& o)
@@ -11143,8 +10744,6 @@ namespace DAnCE
       }
 
       // Resource
-      //
-      //
 
       void Resource::
       traverse (Type& o)
@@ -11192,7 +10791,6 @@ namespace DAnCE
       resourceType (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Resource::resourceType_iterator b (o.begin_resourceType()), e (o.end_resourceType());
 
         if (b != e)
@@ -11212,7 +10810,6 @@ namespace DAnCE
       resourceType (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Resource::resourceType_const_iterator b (o.begin_resourceType()), e (o.end_resourceType());
 
         if (b != e)
@@ -11262,7 +10859,6 @@ namespace DAnCE
       property (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Resource::property_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -11284,7 +10880,6 @@ namespace DAnCE
       property (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Resource::property_const_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -11353,8 +10948,6 @@ namespace DAnCE
       }
 
       // Requirement
-      //
-      //
 
       void Requirement::
       traverse (Type& o)
@@ -11414,7 +11007,6 @@ namespace DAnCE
       property (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Requirement::property_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -11436,7 +11028,6 @@ namespace DAnCE
       property (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Requirement::property_const_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -11505,8 +11096,6 @@ namespace DAnCE
       }
 
       // ResourceDeploymentDescription
-      //
-      //
 
       void ResourceDeploymentDescription::
       traverse (Type& o)
@@ -11566,7 +11155,6 @@ namespace DAnCE
       property (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ResourceDeploymentDescription::property_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -11588,7 +11176,6 @@ namespace DAnCE
       property (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ResourceDeploymentDescription::property_const_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -11657,8 +11244,6 @@ namespace DAnCE
       }
 
       // ArtifactDeploymentDescription
-      //
-      //
 
       void ArtifactDeploymentDescription::
       traverse (Type& o)
@@ -11718,7 +11303,6 @@ namespace DAnCE
       source (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::source_iterator b (o.begin_source()), e (o.end_source());
 
         if (b != e)
@@ -11740,7 +11324,6 @@ namespace DAnCE
       source (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::source_const_iterator b (o.begin_source()), e (o.end_source());
 
         if (b != e)
@@ -11814,7 +11397,6 @@ namespace DAnCE
       location (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::location_iterator b (o.begin_location()), e (o.end_location());
 
         if (b != e)
@@ -11836,7 +11418,6 @@ namespace DAnCE
       location (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::location_const_iterator b (o.begin_location()), e (o.end_location());
 
         if (b != e)
@@ -11898,7 +11479,6 @@ namespace DAnCE
       execParameter (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::execParameter_iterator b (o.begin_execParameter()), e (o.end_execParameter());
 
         if (b != e)
@@ -11920,7 +11500,6 @@ namespace DAnCE
       execParameter (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::execParameter_const_iterator b (o.begin_execParameter()), e (o.end_execParameter());
 
         if (b != e)
@@ -11982,7 +11561,6 @@ namespace DAnCE
       deployRequirement (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::deployRequirement_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -12004,7 +11582,6 @@ namespace DAnCE
       deployRequirement (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::deployRequirement_const_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -12066,7 +11643,6 @@ namespace DAnCE
       deployedResource (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::deployedResource_iterator b (o.begin_deployedResource()), e (o.end_deployedResource());
 
         if (b != e)
@@ -12088,7 +11664,6 @@ namespace DAnCE
       deployedResource (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ArtifactDeploymentDescription::deployedResource_const_iterator b (o.begin_deployedResource()), e (o.end_deployedResource());
 
         if (b != e)
@@ -12179,8 +11754,6 @@ namespace DAnCE
       }
 
       // MonolithicDeploymentDescription
-      //
-      //
 
       void MonolithicDeploymentDescription::
       traverse (Type& o)
@@ -12236,7 +11809,6 @@ namespace DAnCE
       source (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::MonolithicDeploymentDescription::source_iterator b (o.begin_source()), e (o.end_source());
 
         if (b != e)
@@ -12258,7 +11830,6 @@ namespace DAnCE
       source (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::MonolithicDeploymentDescription::source_const_iterator b (o.begin_source()), e (o.end_source());
 
         if (b != e)
@@ -12320,7 +11891,6 @@ namespace DAnCE
       artifact (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::MonolithicDeploymentDescription::artifact_iterator b (o.begin_artifact()), e (o.end_artifact());
 
         if (b != e)
@@ -12342,7 +11912,6 @@ namespace DAnCE
       artifact (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::MonolithicDeploymentDescription::artifact_const_iterator b (o.begin_artifact()), e (o.end_artifact());
 
         if (b != e)
@@ -12404,7 +11973,6 @@ namespace DAnCE
       execParameter (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::MonolithicDeploymentDescription::execParameter_iterator b (o.begin_execParameter()), e (o.end_execParameter());
 
         if (b != e)
@@ -12426,7 +11994,6 @@ namespace DAnCE
       execParameter (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::MonolithicDeploymentDescription::execParameter_const_iterator b (o.begin_execParameter()), e (o.end_execParameter());
 
         if (b != e)
@@ -12488,7 +12055,6 @@ namespace DAnCE
       deployRequirement (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::MonolithicDeploymentDescription::deployRequirement_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -12510,7 +12076,6 @@ namespace DAnCE
       deployRequirement (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::MonolithicDeploymentDescription::deployRequirement_const_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -12601,8 +12166,6 @@ namespace DAnCE
       }
 
       // InstanceResourceDeploymentDescription
-      //
-      //
 
       void InstanceResourceDeploymentDescription::
       traverse (Type& o)
@@ -12676,7 +12239,6 @@ namespace DAnCE
       property (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription::property_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -12698,7 +12260,6 @@ namespace DAnCE
       property (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription::property_const_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -12767,8 +12328,6 @@ namespace DAnCE
       }
 
       // InstanceDeploymentDescription
-      //
-      //
 
       void InstanceDeploymentDescription::
       traverse (Type& o)
@@ -12866,7 +12425,6 @@ namespace DAnCE
       configProperty (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::InstanceDeploymentDescription::configProperty_iterator b (o.begin_configProperty()), e (o.end_configProperty());
 
         if (b != e)
@@ -12888,7 +12446,6 @@ namespace DAnCE
       configProperty (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::InstanceDeploymentDescription::configProperty_const_iterator b (o.begin_configProperty()), e (o.end_configProperty());
 
         if (b != e)
@@ -12950,7 +12507,6 @@ namespace DAnCE
       deployedResource (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::InstanceDeploymentDescription::deployedResource_iterator b (o.begin_deployedResource()), e (o.end_deployedResource());
 
         if (b != e)
@@ -12972,7 +12528,6 @@ namespace DAnCE
       deployedResource (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::InstanceDeploymentDescription::deployedResource_const_iterator b (o.begin_deployedResource()), e (o.end_deployedResource());
 
         if (b != e)
@@ -13085,8 +12640,6 @@ namespace DAnCE
       }
 
       // ComponentPortDescription
-      //
-      //
 
       void ComponentPortDescription::
       traverse (Type& o)
@@ -13170,7 +12723,6 @@ namespace DAnCE
       supportedType (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentPortDescription::supportedType_iterator b (o.begin_supportedType()), e (o.end_supportedType());
 
         if (b != e)
@@ -13192,7 +12744,6 @@ namespace DAnCE
       supportedType (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentPortDescription::supportedType_const_iterator b (o.begin_supportedType()), e (o.end_supportedType());
 
         if (b != e)
@@ -13314,7 +12865,6 @@ namespace DAnCE
       templateParam (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentPortDescription::templateParam_iterator b (o.begin_templateParam()), e (o.end_templateParam());
 
         if (b != e)
@@ -13336,7 +12886,6 @@ namespace DAnCE
       templateParam (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentPortDescription::templateParam_const_iterator b (o.begin_templateParam()), e (o.end_templateParam());
 
         if (b != e)
@@ -13405,8 +12954,6 @@ namespace DAnCE
       }
 
       // ComponentPropertyDescription
-      //
-      //
 
       void ComponentPropertyDescription::
       traverse (Type& o)
@@ -13471,8 +13018,6 @@ namespace DAnCE
       }
 
       // ComponentExternalPortEndpoint
-      //
-      //
 
       void ComponentExternalPortEndpoint::
       traverse (Type& o)
@@ -13523,8 +13068,6 @@ namespace DAnCE
       }
 
       // PlanSubcomponentPortEndpoint
-      //
-      //
 
       void PlanSubcomponentPortEndpoint::
       traverse (Type& o)
@@ -13629,8 +13172,6 @@ namespace DAnCE
       }
 
       // ExternalReferenceEndpoint
-      //
-      //
 
       void ExternalReferenceEndpoint::
       traverse (Type& o)
@@ -13716,7 +13257,6 @@ namespace DAnCE
       supportedType (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ExternalReferenceEndpoint::supportedType_iterator b (o.begin_supportedType()), e (o.end_supportedType());
 
         if (b != e)
@@ -13738,7 +13278,6 @@ namespace DAnCE
       supportedType (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ExternalReferenceEndpoint::supportedType_const_iterator b (o.begin_supportedType()), e (o.end_supportedType());
 
         if (b != e)
@@ -13807,8 +13346,6 @@ namespace DAnCE
       }
 
       // ConnectionResourceDeploymentDescription
-      //
-      //
 
       void ConnectionResourceDeploymentDescription::
       traverse (Type& o)
@@ -13882,7 +13419,6 @@ namespace DAnCE
       property (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription::property_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -13904,7 +13440,6 @@ namespace DAnCE
       property (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription::property_const_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -13973,8 +13508,6 @@ namespace DAnCE
       }
 
       // PlanConnectionDescription
-      //
-      //
 
       void PlanConnectionDescription::
       traverse (Type& o)
@@ -14054,7 +13587,6 @@ namespace DAnCE
       deployRequirement (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::deployRequirement_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -14076,7 +13608,6 @@ namespace DAnCE
       deployRequirement (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::deployRequirement_const_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -14138,7 +13669,6 @@ namespace DAnCE
       externalEndpoint (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::externalEndpoint_iterator b (o.begin_externalEndpoint()), e (o.end_externalEndpoint());
 
         if (b != e)
@@ -14160,7 +13690,6 @@ namespace DAnCE
       externalEndpoint (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::externalEndpoint_const_iterator b (o.begin_externalEndpoint()), e (o.end_externalEndpoint());
 
         if (b != e)
@@ -14222,7 +13751,6 @@ namespace DAnCE
       internalEndpoint (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::internalEndpoint_iterator b (o.begin_internalEndpoint()), e (o.end_internalEndpoint());
 
         if (b != e)
@@ -14244,7 +13772,6 @@ namespace DAnCE
       internalEndpoint (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::internalEndpoint_const_iterator b (o.begin_internalEndpoint()), e (o.end_internalEndpoint());
 
         if (b != e)
@@ -14306,7 +13833,6 @@ namespace DAnCE
       externalReference (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::externalReference_iterator b (o.begin_externalReference()), e (o.end_externalReference());
 
         if (b != e)
@@ -14328,7 +13854,6 @@ namespace DAnCE
       externalReference (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::externalReference_const_iterator b (o.begin_externalReference()), e (o.end_externalReference());
 
         if (b != e)
@@ -14390,7 +13915,6 @@ namespace DAnCE
       deployedResource (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::deployedResource_iterator b (o.begin_deployedResource()), e (o.end_deployedResource());
 
         if (b != e)
@@ -14412,7 +13936,6 @@ namespace DAnCE
       deployedResource (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanConnectionDescription::deployedResource_const_iterator b (o.begin_deployedResource()), e (o.end_deployedResource());
 
         if (b != e)
@@ -14481,8 +14004,6 @@ namespace DAnCE
       }
 
       // ImplementationDependency
-      //
-      //
 
       void ImplementationDependency::
       traverse (Type& o)
@@ -14533,8 +14054,6 @@ namespace DAnCE
       }
 
       // Capability
-      //
-      //
 
       void Capability::
       traverse (Type& o)
@@ -14582,7 +14101,6 @@ namespace DAnCE
       resourceType (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Capability::resourceType_iterator b (o.begin_resourceType()), e (o.end_resourceType());
 
         if (b != e)
@@ -14604,7 +14122,6 @@ namespace DAnCE
       resourceType (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Capability::resourceType_const_iterator b (o.begin_resourceType()), e (o.end_resourceType());
 
         if (b != e)
@@ -14666,7 +14183,6 @@ namespace DAnCE
       property (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Capability::property_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -14688,7 +14204,6 @@ namespace DAnCE
       property (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::Capability::property_const_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -14757,8 +14272,6 @@ namespace DAnCE
       }
 
       // ImplementationRequirement
-      //
-      //
 
       void ImplementationRequirement::
       traverse (Type& o)
@@ -14896,7 +14409,6 @@ namespace DAnCE
       property (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationRequirement::property_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -14918,7 +14430,6 @@ namespace DAnCE
       property (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ImplementationRequirement::property_const_iterator b (o.begin_property()), e (o.end_property());
 
         if (b != e)
@@ -14987,8 +14498,6 @@ namespace DAnCE
       }
 
       // SubcomponentPortEndpoint
-      //
-      //
 
       void SubcomponentPortEndpoint::
       traverse (Type& o)
@@ -15053,8 +14562,6 @@ namespace DAnCE
       }
 
       // AssemblyConnectionDescription
-      //
-      //
 
       void AssemblyConnectionDescription::
       traverse (Type& o)
@@ -15106,7 +14613,6 @@ namespace DAnCE
       deployRequirement (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::AssemblyConnectionDescription::deployRequirement_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -15128,7 +14634,6 @@ namespace DAnCE
       deployRequirement (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::AssemblyConnectionDescription::deployRequirement_const_iterator b (o.begin_deployRequirement()), e (o.end_deployRequirement());
 
         if (b != e)
@@ -15190,7 +14695,6 @@ namespace DAnCE
       internalEndpoint (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::AssemblyConnectionDescription::internalEndpoint_iterator b (o.begin_internalEndpoint()), e (o.end_internalEndpoint());
 
         if (b != e)
@@ -15212,7 +14716,6 @@ namespace DAnCE
       internalEndpoint (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::AssemblyConnectionDescription::internalEndpoint_const_iterator b (o.begin_internalEndpoint()), e (o.end_internalEndpoint());
 
         if (b != e)
@@ -15274,7 +14777,6 @@ namespace DAnCE
       externalEndpoint (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::AssemblyConnectionDescription::externalEndpoint_iterator b (o.begin_externalEndpoint()), e (o.end_externalEndpoint());
 
         if (b != e)
@@ -15296,7 +14798,6 @@ namespace DAnCE
       externalEndpoint (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::AssemblyConnectionDescription::externalEndpoint_const_iterator b (o.begin_externalEndpoint()), e (o.end_externalEndpoint());
 
         if (b != e)
@@ -15358,7 +14859,6 @@ namespace DAnCE
       externalReference (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::AssemblyConnectionDescription::externalReference_iterator b (o.begin_externalReference()), e (o.end_externalReference());
 
         if (b != e)
@@ -15380,7 +14880,6 @@ namespace DAnCE
       externalReference (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::AssemblyConnectionDescription::externalReference_const_iterator b (o.begin_externalReference()), e (o.end_externalReference());
 
         if (b != e)
@@ -15449,8 +14948,6 @@ namespace DAnCE
       }
 
       // PlanLocality
-      //
-      //
 
       void PlanLocality::
       traverse (Type& o)
@@ -15496,7 +14993,6 @@ namespace DAnCE
       constrainedInstance (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanLocality::constrainedInstance_iterator b (o.begin_constrainedInstance()), e (o.end_constrainedInstance());
 
         if (b != e)
@@ -15516,7 +15012,6 @@ namespace DAnCE
       constrainedInstance (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanLocality::constrainedInstance_const_iterator b (o.begin_constrainedInstance()), e (o.end_constrainedInstance());
 
         if (b != e)
@@ -15582,9 +15077,6 @@ namespace DAnCE
     namespace Writer
     {
       // IdRef
-      //
-      //
-
       IdRef::
       IdRef (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -15621,8 +15113,6 @@ namespace DAnCE
       }
 
       // TCKind
-      //
-      //
 
       TCKind::
       TCKind (::XSCRT::XML::Element< ACE_TCHAR >& e)
@@ -15638,7 +15128,7 @@ namespace DAnCE
       void TCKind::
       traverse (Type const& o)
       {
-        ::std::basic_string< ACE_TCHAR > s;
+        std::basic_string< ACE_TCHAR > s;
 
         if (o == ::DAnCE::Config_Handlers::TCKind::tk_null) s = ACE_TEXT ("tk_null");
         else if (o == ::DAnCE::Config_Handlers::TCKind::tk_void) s = ACE_TEXT ("tk_void");
@@ -15693,9 +15183,6 @@ namespace DAnCE
       }
 
       // DataType
-      //
-      //
-
       DataType::
       DataType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -15787,9 +15274,6 @@ namespace DAnCE
       }
 
       // DataValue
-      //
-      //
-
       DataValue::
       DataValue (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16093,9 +15577,6 @@ namespace DAnCE
       }
 
       // AliasType
-      //
-      //
-
       AliasType::
       AliasType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16138,9 +15619,6 @@ namespace DAnCE
       }
 
       // EnumType
-      //
-      //
-
       EnumType::
       EnumType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16194,9 +15672,6 @@ namespace DAnCE
       }
 
       // BoundedStringType
-      //
-      //
-
       BoundedStringType::
       BoundedStringType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16234,9 +15709,6 @@ namespace DAnCE
       }
 
       // StructType
-      //
-      //
-
       StructType::
       StructType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16290,9 +15762,6 @@ namespace DAnCE
       }
 
       // StructMemberType
-      //
-      //
-
       StructMemberType::
       StructMemberType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16327,9 +15796,6 @@ namespace DAnCE
       }
 
       // ValueType
-      //
-      //
-
       ValueType::
       ValueType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16399,9 +15865,6 @@ namespace DAnCE
       }
 
       // ValueMemberType
-      //
-      //
-
       ValueMemberType::
       ValueMemberType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16444,9 +15907,6 @@ namespace DAnCE
       }
 
       // NamedValue
-      //
-      //
-
       NamedValue::
       NamedValue (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16481,9 +15941,6 @@ namespace DAnCE
       }
 
       // ArrayType
-      //
-      //
-
       ArrayType::
       ArrayType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16518,9 +15975,6 @@ namespace DAnCE
       }
 
       // SequenceType
-      //
-      //
-
       SequenceType::
       SequenceType (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16555,9 +16009,6 @@ namespace DAnCE
       }
 
       // Any
-      //
-      //
-
       Any::
       Any (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16592,9 +16043,6 @@ namespace DAnCE
       }
 
       // Property
-      //
-      //
-
       Property::
       Property (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16629,8 +16077,6 @@ namespace DAnCE
       }
 
       // SatisfierPropertyKind
-      //
-      //
 
       SatisfierPropertyKind::
       SatisfierPropertyKind (::XSCRT::XML::Element< ACE_TCHAR >& e)
@@ -16646,7 +16092,7 @@ namespace DAnCE
       void SatisfierPropertyKind::
       traverse (Type const& o)
       {
-        ::std::basic_string< ACE_TCHAR > s;
+        std::basic_string< ACE_TCHAR > s;
 
         if (o == ::DAnCE::Config_Handlers::SatisfierPropertyKind::Quantity) s = ACE_TEXT ("Quantity");
         else if (o == ::DAnCE::Config_Handlers::SatisfierPropertyKind::Capacity) s = ACE_TEXT ("Capacity");
@@ -16670,9 +16116,6 @@ namespace DAnCE
       }
 
       // SatisfierProperty
-      //
-      //
-
       SatisfierProperty::
       SatisfierProperty (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16723,9 +16166,6 @@ namespace DAnCE
       }
 
       // Resource
-      //
-      //
-
       Resource::
       Resource (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16790,9 +16230,6 @@ namespace DAnCE
       }
 
       // Requirement
-      //
-      //
-
       Requirement::
       Requirement (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16846,9 +16283,6 @@ namespace DAnCE
       }
 
       // ResourceDeploymentDescription
-      //
-      //
-
       ResourceDeploymentDescription::
       ResourceDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -16902,9 +16336,6 @@ namespace DAnCE
       }
 
       // ArtifactDeploymentDescription
-      //
-      //
-
       ArtifactDeploymentDescription::
       ArtifactDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17043,9 +16474,6 @@ namespace DAnCE
       }
 
       // MonolithicDeploymentDescription
-      //
-      //
-
       MonolithicDeploymentDescription::
       MonolithicDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17157,8 +16585,6 @@ namespace DAnCE
       }
 
       // ResourceUsageKind
-      //
-      //
 
       ResourceUsageKind::
       ResourceUsageKind (::XSCRT::XML::Element< ACE_TCHAR >& e)
@@ -17174,7 +16600,7 @@ namespace DAnCE
       void ResourceUsageKind::
       traverse (Type const& o)
       {
-        ::std::basic_string< ACE_TCHAR > s;
+        std::basic_string< ACE_TCHAR > s;
 
         if (o == ::DAnCE::Config_Handlers::ResourceUsageKind::None) s = ACE_TEXT ("None");
         else if (o == ::DAnCE::Config_Handlers::ResourceUsageKind::InstanceUsesResource) s = ACE_TEXT ("InstanceUsesResource");
@@ -17197,9 +16623,6 @@ namespace DAnCE
       }
 
       // InstanceResourceDeploymentDescription
-      //
-      //
-
       InstanceResourceDeploymentDescription::
       InstanceResourceDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17261,9 +16684,6 @@ namespace DAnCE
       }
 
       // InstanceDeploymentDescription
-      //
-      //
-
       InstanceDeploymentDescription::
       InstanceDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17369,8 +16789,6 @@ namespace DAnCE
       }
 
       // CCMComponentPortKind
-      //
-      //
 
       CCMComponentPortKind::
       CCMComponentPortKind (::XSCRT::XML::Element< ACE_TCHAR >& e)
@@ -17386,7 +16804,7 @@ namespace DAnCE
       void CCMComponentPortKind::
       traverse (Type const& o)
       {
-        ::std::basic_string< ACE_TCHAR > s;
+        std::basic_string< ACE_TCHAR > s;
 
         if (o == ::DAnCE::Config_Handlers::CCMComponentPortKind::Facet) s = ACE_TEXT ("Facet");
         else if (o == ::DAnCE::Config_Handlers::CCMComponentPortKind::SimplexReceptacle) s = ACE_TEXT ("SimplexReceptacle");
@@ -17412,9 +16830,6 @@ namespace DAnCE
       }
 
       // ComponentPortDescription
-      //
-      //
-
       ComponentPortDescription::
       ComponentPortDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17527,9 +16942,6 @@ namespace DAnCE
       }
 
       // ComponentPropertyDescription
-      //
-      //
-
       ComponentPropertyDescription::
       ComponentPropertyDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17564,9 +16976,6 @@ namespace DAnCE
       }
 
       // ComponentExternalPortEndpoint
-      //
-      //
-
       ComponentExternalPortEndpoint::
       ComponentExternalPortEndpoint (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17593,9 +17002,6 @@ namespace DAnCE
       }
 
       // PlanSubcomponentPortEndpoint
-      //
-      //
-
       PlanSubcomponentPortEndpoint::
       PlanSubcomponentPortEndpoint (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17646,9 +17052,6 @@ namespace DAnCE
       }
 
       // ExternalReferenceEndpoint
-      //
-      //
-
       ExternalReferenceEndpoint::
       ExternalReferenceEndpoint (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17710,9 +17113,6 @@ namespace DAnCE
       }
 
       // ConnectionResourceDeploymentDescription
-      //
-      //
-
       ConnectionResourceDeploymentDescription::
       ConnectionResourceDeploymentDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17774,9 +17174,6 @@ namespace DAnCE
       }
 
       // PlanConnectionDescription
-      //
-      //
-
       PlanConnectionDescription::
       PlanConnectionDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17906,9 +17303,6 @@ namespace DAnCE
       }
 
       // ImplementationDependency
-      //
-      //
-
       ImplementationDependency::
       ImplementationDependency (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -17935,9 +17329,6 @@ namespace DAnCE
       }
 
       // Capability
-      //
-      //
-
       Capability::
       Capability (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -18002,9 +17393,6 @@ namespace DAnCE
       }
 
       // ImplementationRequirement
-      //
-      //
-
       ImplementationRequirement::
       ImplementationRequirement (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -18082,9 +17470,6 @@ namespace DAnCE
       }
 
       // SubcomponentPortEndpoint
-      //
-      //
-
       SubcomponentPortEndpoint::
       SubcomponentPortEndpoint (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -18119,9 +17504,6 @@ namespace DAnCE
       }
 
       // AssemblyConnectionDescription
-      //
-      //
-
       AssemblyConnectionDescription::
       AssemblyConnectionDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -18224,8 +17606,6 @@ namespace DAnCE
       }
 
       // PlanLocalityKind
-      //
-      //
 
       PlanLocalityKind::
       PlanLocalityKind (::XSCRT::XML::Element< ACE_TCHAR >& e)
@@ -18241,7 +17621,7 @@ namespace DAnCE
       void PlanLocalityKind::
       traverse (Type const& o)
       {
-        ::std::basic_string< ACE_TCHAR > s;
+        std::basic_string< ACE_TCHAR > s;
 
         if (o == ::DAnCE::Config_Handlers::PlanLocalityKind::SameProcess) s = ACE_TEXT ("SameProcess");
         else if (o == ::DAnCE::Config_Handlers::PlanLocalityKind::DifferentProcess) s = ACE_TEXT ("DifferentProcess");
@@ -18262,9 +17642,6 @@ namespace DAnCE
       }
 
       // PlanLocality
-      //
-      //
-
       PlanLocality::
       PlanLocality (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)

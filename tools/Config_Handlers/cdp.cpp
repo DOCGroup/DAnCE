@@ -8,13 +8,6 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #include "cdp.hpp"
 
 namespace DAnCE
@@ -22,14 +15,11 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // PlanSubcomponentPropertyReference
-    //
 
-    PlanSubcomponentPropertyReference::
-    PlanSubcomponentPropertyReference (::XMLSchema::string< ACE_TCHAR > const& propertyName__,
-                                       ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& instance__)
-    :
+    PlanSubcomponentPropertyReference::PlanSubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
+                                                                          ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& instance__) :
     ::XSCRT::Type (),
-    propertyName_ (new ::XMLSchema::string< ACE_TCHAR > (propertyName__)),
+    propertyName_ (new ::XMLSchema::string<ACE_TCHAR> (propertyName__)),
     instance_ (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (instance__)),
     regulator__ ()
     {
@@ -37,11 +27,9 @@ namespace DAnCE
       instance_->container (this);
     }
 
-    PlanSubcomponentPropertyReference::
-    PlanSubcomponentPropertyReference (PlanSubcomponentPropertyReference const& s)
-    :
-    ::XSCRT::Type (),
-    propertyName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.propertyName_)),
+    PlanSubcomponentPropertyReference::PlanSubcomponentPropertyReference (PlanSubcomponentPropertyReference const& s) :
+    ::XSCRT::Type (s),
+    propertyName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.propertyName_)),
     instance_ (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (*s.instance_)),
     regulator__ ()
     {
@@ -49,33 +37,34 @@ namespace DAnCE
       instance_->container (this);
     }
 
-    PlanSubcomponentPropertyReference& PlanSubcomponentPropertyReference::
-    operator= (PlanSubcomponentPropertyReference const& s)
+    PlanSubcomponentPropertyReference&
+    PlanSubcomponentPropertyReference::operator= (PlanSubcomponentPropertyReference const& s)
     {
-      propertyName (*s.propertyName_);
+      if (&s != this)
+      {
+        propertyName (*s.propertyName_);
 
-      instance (*s.instance_);
+        instance (*s.instance_);
+      }
 
       return *this;
     }
 
 
     // PlanSubcomponentPropertyReference
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& PlanSubcomponentPropertyReference::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanSubcomponentPropertyReference::
     propertyName () const
     {
       return *propertyName_;
     }
 
     void PlanSubcomponentPropertyReference::
-    propertyName (::XMLSchema::string< ACE_TCHAR > const& e)
+    propertyName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *propertyName_ = e;
     }
 
     // PlanSubcomponentPropertyReference
-    //
     ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& PlanSubcomponentPropertyReference::
     instance () const
     {
@@ -90,15 +79,13 @@ namespace DAnCE
 
 
     // PlanPropertyMapping
-    //
 
-    PlanPropertyMapping::
-    PlanPropertyMapping (::XMLSchema::string< ACE_TCHAR > const& name__,
-                         ::XMLSchema::string< ACE_TCHAR > const& externalName__,
-                         ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__)
-    :
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (name__)),
-    externalName_ (new ::XMLSchema::string< ACE_TCHAR > (externalName__)),
+    PlanPropertyMapping::PlanPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
+                                              ::XMLSchema::string<ACE_TCHAR> const& externalName__,
+                                              std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__) :
+    ::XSCRT::Type (),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
+    externalName_ (new ::XMLSchema::string<ACE_TCHAR> (externalName__)),
     delegatesTo_ (delegatesTo__),
     regulator__ ()
     {
@@ -106,13 +93,11 @@ namespace DAnCE
       externalName_->container (this);
     }
 
-    PlanPropertyMapping::
-    PlanPropertyMapping (PlanPropertyMapping const& s)
-    :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string< ACE_TCHAR > (*s.name_)),
+    PlanPropertyMapping::PlanPropertyMapping (PlanPropertyMapping const& s) :
+    ::XSCRT::Type (s),
+    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
     source_ (s.source_),
-    externalName_ (new ::XMLSchema::string< ACE_TCHAR > (*s.externalName_)),
+    externalName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.externalName_)),
     delegatesTo_ (s.delegatesTo_),
     regulator__ ()
     {
@@ -120,37 +105,38 @@ namespace DAnCE
       externalName_->container (this);
     }
 
-    PlanPropertyMapping& PlanPropertyMapping::
-    operator= (PlanPropertyMapping const& s)
+    PlanPropertyMapping&
+    PlanPropertyMapping::operator= (PlanPropertyMapping const& s)
     {
-      name (*s.name_);
+      if (&s != this)
+      {
+        name (*s.name_);
 
-      source_ = s.source_;
+        source_ = s.source_;
 
-      externalName (*s.externalName_);
+        externalName (*s.externalName_);
 
-      delegatesTo_ = s.delegatesTo_;
+        delegatesTo_ = s.delegatesTo_;
+      }
 
       return *this;
     }
 
 
     // PlanPropertyMapping
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& PlanPropertyMapping::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanPropertyMapping::
     name () const
     {
       return *name_;
     }
 
     void PlanPropertyMapping::
-    name (::XMLSchema::string< ACE_TCHAR > const& e)
+    name (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *name_ = e;
     }
 
     // PlanPropertyMapping
-    //
     PlanPropertyMapping::source_iterator PlanPropertyMapping::
     begin_source ()
     {
@@ -176,7 +162,7 @@ namespace DAnCE
     }
 
     void PlanPropertyMapping::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       source_.push_back (e);
     }
@@ -188,21 +174,19 @@ namespace DAnCE
     }
 
     // PlanPropertyMapping
-    //
-    ::XMLSchema::string< ACE_TCHAR > const& PlanPropertyMapping::
+    ::XMLSchema::string<ACE_TCHAR> const& PlanPropertyMapping::
     externalName () const
     {
       return *externalName_;
     }
 
     void PlanPropertyMapping::
-    externalName (::XMLSchema::string< ACE_TCHAR > const& e)
+    externalName (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       *externalName_ = e;
     }
 
     // PlanPropertyMapping
-    //
     PlanPropertyMapping::delegatesTo_iterator PlanPropertyMapping::
     begin_delegatesTo ()
     {
@@ -241,21 +225,17 @@ namespace DAnCE
 
 
     // deploymentPlan
-    //
 
-    deploymentPlan::
-    deploymentPlan ()
-    :
+    deploymentPlan::deploymentPlan () :
+    ::XSCRT::Type (),
     regulator__ ()
     {
     }
 
-    deploymentPlan::
-    deploymentPlan (deploymentPlan const& s)
-    :
-    ::XSCRT::Type (),
-    label_ (s.label_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.UUID_) : 0),
+    deploymentPlan::deploymentPlan (deploymentPlan const& s) :
+    ::XSCRT::Type (s),
+    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
+    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
     realizes_ (s.realizes_.get () ? new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (*s.realizes_) : 0),
     implementation_ (s.implementation_),
     instance_ (s.instance_),
@@ -272,60 +252,62 @@ namespace DAnCE
       if (realizes_.get ()) realizes_->container (this);
     }
 
-    deploymentPlan& deploymentPlan::
-    operator= (deploymentPlan const& s)
+    deploymentPlan&
+    deploymentPlan::operator= (deploymentPlan const& s)
     {
-      if (s.label_.get ())
-        label (*(s.label_));
-      else
-        label_.reset (0);
+      if (&s != this)
+      {
+        if (s.label_.get ())
+          label (*(s.label_));
+        else
+          label_.reset (0);
 
-      if (s.UUID_.get ())
-        UUID (*(s.UUID_));
-      else
-        UUID_.reset (0);
+        if (s.UUID_.get ())
+          UUID (*(s.UUID_));
+        else
+          UUID_.reset (0);
 
-      if (s.realizes_.get ())
-        realizes (*(s.realizes_));
-      else
-        realizes_.reset (0);
+        if (s.realizes_.get ())
+          realizes (*(s.realizes_));
+        else
+          realizes_.reset (0);
 
-      implementation_ = s.implementation_;
+        implementation_ = s.implementation_;
 
-      instance_ = s.instance_;
+        instance_ = s.instance_;
 
-      connection_ = s.connection_;
+        connection_ = s.connection_;
 
-      externalProperty_ = s.externalProperty_;
+        externalProperty_ = s.externalProperty_;
 
-      dependsOn_ = s.dependsOn_;
+        dependsOn_ = s.dependsOn_;
 
-      artifact_ = s.artifact_;
+        artifact_ = s.artifact_;
 
-      infoProperty_ = s.infoProperty_;
+        infoProperty_ = s.infoProperty_;
 
-      localityConstraint_ = s.localityConstraint_;
+        localityConstraint_ = s.localityConstraint_;
+      }
 
       return *this;
     }
 
 
     // deploymentPlan
-    //
     bool deploymentPlan::
     label_p () const
     {
       return label_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& deploymentPlan::
+    ::XMLSchema::string<ACE_TCHAR> const& deploymentPlan::
     label () const
     {
       return *label_;
     }
 
     void deploymentPlan::
-    label (::XMLSchema::string< ACE_TCHAR > const& e)
+    label (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (label_.get ())
       {
@@ -334,27 +316,26 @@ namespace DAnCE
 
       else
       {
-        label_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
 
     // deploymentPlan
-    //
     bool deploymentPlan::
     UUID_p () const
     {
       return UUID_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& deploymentPlan::
+    ::XMLSchema::string<ACE_TCHAR> const& deploymentPlan::
     UUID () const
     {
       return *UUID_;
     }
 
     void deploymentPlan::
-    UUID (::XMLSchema::string< ACE_TCHAR > const& e)
+    UUID (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (UUID_.get ())
       {
@@ -363,13 +344,12 @@ namespace DAnCE
 
       else
       {
-        UUID_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
 
     // deploymentPlan
-    //
     bool deploymentPlan::
     realizes_p () const
     {
@@ -392,13 +372,12 @@ namespace DAnCE
 
       else
       {
-        realizes_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > (new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (e));
+        realizes_ = std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > (new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (e));
         realizes_->container (this);
       }
     }
 
     // deploymentPlan
-    //
     deploymentPlan::implementation_iterator deploymentPlan::
     begin_implementation ()
     {
@@ -436,7 +415,6 @@ namespace DAnCE
     }
 
     // deploymentPlan
-    //
     deploymentPlan::instance_iterator deploymentPlan::
     begin_instance ()
     {
@@ -474,7 +452,6 @@ namespace DAnCE
     }
 
     // deploymentPlan
-    //
     deploymentPlan::connection_iterator deploymentPlan::
     begin_connection ()
     {
@@ -512,7 +489,6 @@ namespace DAnCE
     }
 
     // deploymentPlan
-    //
     deploymentPlan::externalProperty_iterator deploymentPlan::
     begin_externalProperty ()
     {
@@ -550,7 +526,6 @@ namespace DAnCE
     }
 
     // deploymentPlan
-    //
     deploymentPlan::dependsOn_iterator deploymentPlan::
     begin_dependsOn ()
     {
@@ -588,7 +563,6 @@ namespace DAnCE
     }
 
     // deploymentPlan
-    //
     deploymentPlan::artifact_iterator deploymentPlan::
     begin_artifact ()
     {
@@ -626,7 +600,6 @@ namespace DAnCE
     }
 
     // deploymentPlan
-    //
     deploymentPlan::infoProperty_iterator deploymentPlan::
     begin_infoProperty ()
     {
@@ -664,7 +637,6 @@ namespace DAnCE
     }
 
     // deploymentPlan
-    //
     deploymentPlan::localityConstraint_iterator deploymentPlan::
     begin_localityConstraint ()
     {
@@ -708,7 +680,6 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // PlanSubcomponentPropertyReference
-    //
 
     PlanSubcomponentPropertyReference::
     PlanSubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -720,17 +691,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("propertyName"))
         {
-          propertyName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          propertyName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           propertyName_->container (this);
         }
 
         else if (n == ACE_TEXT("instance"))
         {
-          instance_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::InstanceDeploymentDescription > (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (e));
+          instance_ = std::auto_ptr< ::DAnCE::Config_Handlers::InstanceDeploymentDescription > (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (e));
           instance_->container (this);
         }
 
@@ -741,7 +712,6 @@ namespace DAnCE
     }
 
     // PlanPropertyMapping
-    //
 
     PlanPropertyMapping::
     PlanPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -753,23 +723,23 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_source (t);
         }
 
         else if (n == ACE_TEXT("externalName"))
         {
-          externalName_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+          externalName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
           externalName_->container (this);
         }
 
@@ -786,7 +756,6 @@ namespace DAnCE
     }
 
     // deploymentPlan
-    //
 
     deploymentPlan::
     deploymentPlan (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -798,17 +767,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           label (t);
         }
 
         else if (n == ACE_TEXT("UUID"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           UUID (t);
         }
 
@@ -899,7 +868,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -913,7 +882,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -927,7 +896,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -943,8 +912,6 @@ namespace DAnCE
     namespace Traversal
     {
       // PlanSubcomponentPropertyReference
-      //
-      //
 
       void PlanSubcomponentPropertyReference::
       traverse (Type& o)
@@ -1009,8 +976,6 @@ namespace DAnCE
       }
 
       // PlanPropertyMapping
-      //
-      //
 
       void PlanPropertyMapping::
       traverse (Type& o)
@@ -1060,7 +1025,6 @@ namespace DAnCE
       source (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanPropertyMapping::source_iterator b (o.begin_source()), e (o.end_source());
 
         if (b != e)
@@ -1082,7 +1046,6 @@ namespace DAnCE
       source (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanPropertyMapping::source_const_iterator b (o.begin_source()), e (o.end_source());
 
         if (b != e)
@@ -1156,7 +1119,6 @@ namespace DAnCE
       delegatesTo (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanPropertyMapping::delegatesTo_iterator b (o.begin_delegatesTo()), e (o.end_delegatesTo());
 
         if (b != e)
@@ -1176,7 +1138,6 @@ namespace DAnCE
       delegatesTo (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PlanPropertyMapping::delegatesTo_const_iterator b (o.begin_delegatesTo()), e (o.end_delegatesTo());
 
         if (b != e)
@@ -1233,8 +1194,6 @@ namespace DAnCE
       }
 
       // deploymentPlan
-      //
-      //
 
       void deploymentPlan::
       traverse (Type& o)
@@ -1358,7 +1317,6 @@ namespace DAnCE
       implementation (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::implementation_iterator b (o.begin_implementation()), e (o.end_implementation());
 
         if (b != e)
@@ -1380,7 +1338,6 @@ namespace DAnCE
       implementation (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::implementation_const_iterator b (o.begin_implementation()), e (o.end_implementation());
 
         if (b != e)
@@ -1442,7 +1399,6 @@ namespace DAnCE
       instance (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::instance_iterator b (o.begin_instance()), e (o.end_instance());
 
         if (b != e)
@@ -1464,7 +1420,6 @@ namespace DAnCE
       instance (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::instance_const_iterator b (o.begin_instance()), e (o.end_instance());
 
         if (b != e)
@@ -1526,7 +1481,6 @@ namespace DAnCE
       connection (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::connection_iterator b (o.begin_connection()), e (o.end_connection());
 
         if (b != e)
@@ -1548,7 +1502,6 @@ namespace DAnCE
       connection (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::connection_const_iterator b (o.begin_connection()), e (o.end_connection());
 
         if (b != e)
@@ -1610,7 +1563,6 @@ namespace DAnCE
       externalProperty (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::externalProperty_iterator b (o.begin_externalProperty()), e (o.end_externalProperty());
 
         if (b != e)
@@ -1632,7 +1584,6 @@ namespace DAnCE
       externalProperty (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::externalProperty_const_iterator b (o.begin_externalProperty()), e (o.end_externalProperty());
 
         if (b != e)
@@ -1694,7 +1645,6 @@ namespace DAnCE
       dependsOn (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::dependsOn_iterator b (o.begin_dependsOn()), e (o.end_dependsOn());
 
         if (b != e)
@@ -1716,7 +1666,6 @@ namespace DAnCE
       dependsOn (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::dependsOn_const_iterator b (o.begin_dependsOn()), e (o.end_dependsOn());
 
         if (b != e)
@@ -1778,7 +1727,6 @@ namespace DAnCE
       artifact (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::artifact_iterator b (o.begin_artifact()), e (o.end_artifact());
 
         if (b != e)
@@ -1800,7 +1748,6 @@ namespace DAnCE
       artifact (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::artifact_const_iterator b (o.begin_artifact()), e (o.end_artifact());
 
         if (b != e)
@@ -1862,7 +1809,6 @@ namespace DAnCE
       infoProperty (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::infoProperty_iterator b (o.begin_infoProperty()), e (o.end_infoProperty());
 
         if (b != e)
@@ -1884,7 +1830,6 @@ namespace DAnCE
       infoProperty (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::infoProperty_const_iterator b (o.begin_infoProperty()), e (o.end_infoProperty());
 
         if (b != e)
@@ -1946,7 +1891,6 @@ namespace DAnCE
       localityConstraint (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::localityConstraint_iterator b (o.begin_localityConstraint()), e (o.end_localityConstraint());
 
         if (b != e)
@@ -1968,7 +1912,6 @@ namespace DAnCE
       localityConstraint (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::deploymentPlan::localityConstraint_const_iterator b (o.begin_localityConstraint()), e (o.end_localityConstraint());
 
         if (b != e)
@@ -2046,9 +1989,6 @@ namespace DAnCE
     namespace Writer
     {
       // PlanSubcomponentPropertyReference
-      //
-      //
-
       PlanSubcomponentPropertyReference::
       PlanSubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -2069,7 +2009,7 @@ namespace DAnCE
       void PlanSubcomponentPropertyReference::
       propertyName (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("propertyName"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("propertyName"), top_ ()));
         Traversal::PlanSubcomponentPropertyReference::propertyName (o);
         pop_ ();
       }
@@ -2077,15 +2017,12 @@ namespace DAnCE
       void PlanSubcomponentPropertyReference::
       instance (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("instance"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("instance"), top_ ()));
         Traversal::PlanSubcomponentPropertyReference::instance (o);
         pop_ ();
       }
 
       // PlanPropertyMapping
-      //
-      //
-
       PlanPropertyMapping::
       PlanPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -2106,7 +2043,7 @@ namespace DAnCE
       void PlanPropertyMapping::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("name"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
         Traversal::PlanPropertyMapping::name (o);
         pop_ ();
       }
@@ -2114,7 +2051,7 @@ namespace DAnCE
       void PlanPropertyMapping::
       source_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("source"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("source"), top_ ()));
       }
 
       void PlanPropertyMapping::
@@ -2133,7 +2070,7 @@ namespace DAnCE
       void PlanPropertyMapping::
       externalName (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("externalName"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("externalName"), top_ ()));
         Traversal::PlanPropertyMapping::externalName (o);
         pop_ ();
       }
@@ -2141,7 +2078,7 @@ namespace DAnCE
       void PlanPropertyMapping::
       delegatesTo_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("delegatesTo"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("delegatesTo"), top_ ()));
       }
 
       void PlanPropertyMapping::
@@ -2158,9 +2095,6 @@ namespace DAnCE
       }
 
       // deploymentPlan
-      //
-      //
-
       deploymentPlan::
       deploymentPlan (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -2181,7 +2115,7 @@ namespace DAnCE
       void deploymentPlan::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("label"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
         Traversal::deploymentPlan::label (o);
         pop_ ();
       }
@@ -2189,7 +2123,7 @@ namespace DAnCE
       void deploymentPlan::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
         Traversal::deploymentPlan::UUID (o);
         pop_ ();
       }
@@ -2197,7 +2131,7 @@ namespace DAnCE
       void deploymentPlan::
       realizes (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("realizes"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("realizes"), top_ ()));
         Traversal::deploymentPlan::realizes (o);
         pop_ ();
       }
@@ -2205,7 +2139,7 @@ namespace DAnCE
       void deploymentPlan::
       implementation_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("implementation"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("implementation"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2224,7 +2158,7 @@ namespace DAnCE
       void deploymentPlan::
       instance_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("instance"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("instance"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2243,7 +2177,7 @@ namespace DAnCE
       void deploymentPlan::
       connection_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("connection"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("connection"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2262,7 +2196,7 @@ namespace DAnCE
       void deploymentPlan::
       externalProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("externalProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("externalProperty"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2281,7 +2215,7 @@ namespace DAnCE
       void deploymentPlan::
       dependsOn_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("dependsOn"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("dependsOn"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2300,7 +2234,7 @@ namespace DAnCE
       void deploymentPlan::
       artifact_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("artifact"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("artifact"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2319,7 +2253,7 @@ namespace DAnCE
       void deploymentPlan::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2338,7 +2272,7 @@ namespace DAnCE
       void deploymentPlan::
       localityConstraint_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("localityConstraint"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("localityConstraint"), top_ ()));
       }
 
       void deploymentPlan::

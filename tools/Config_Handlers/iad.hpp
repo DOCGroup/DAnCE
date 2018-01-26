@@ -8,19 +8,11 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #ifndef IAD_HPP
 #define IAD_HPP
 
 #include "XSC_XML_Handlers_Export.h"
 // Forward declarations.
-//
 namespace DAnCE
 {
   namespace Config_Handlers
@@ -52,35 +44,32 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < NamedImplementationArtifact, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > _ptr;
 
       // name
-      //
       public:
-      ::XMLSchema::string< ACE_TCHAR > const& name () const;
-      void name (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& name () const;
+      void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > name_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
 
       // referencedArtifact
-      //
       public:
       ::DAnCE::Config_Handlers::ImplementationArtifactDescription const& referencedArtifact () const;
       void referencedArtifact (::DAnCE::Config_Handlers::ImplementationArtifactDescription const& );
 
       protected:
-      ::std::auto_ptr< ::DAnCE::Config_Handlers::ImplementationArtifactDescription > referencedArtifact_;
+      std::auto_ptr< ::DAnCE::Config_Handlers::ImplementationArtifactDescription > referencedArtifact_;
 
       public:
-      NamedImplementationArtifact (::XMLSchema::string< ACE_TCHAR > const& name__,
+      NamedImplementationArtifact (::XMLSchema::string<ACE_TCHAR> const& name__,
                                    ::DAnCE::Config_Handlers::ImplementationArtifactDescription const& referencedArtifact__);
 
       NamedImplementationArtifact (::XSCRT::XML::Element< ACE_TCHAR > const&);
       NamedImplementationArtifact (NamedImplementationArtifact const& s);
 
-      NamedImplementationArtifact&
-      operator= (NamedImplementationArtifact const& s);
+      NamedImplementationArtifact& operator= (NamedImplementationArtifact const& s);
 
       private:
       char regulator__;
@@ -92,128 +81,124 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < ImplementationArtifactDescription, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationArtifactDescription, ACE_Null_Mutex > _ptr;
 
       // label
-      //
       public:
       bool label_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& label () const;
-      void label (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& label () const;
+      void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > label_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
 
       // UUID
-      //
       public:
       bool UUID_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& UUID () const;
-      void UUID (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& UUID () const;
+      void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > UUID_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
 
       // location
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::iterator location_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > >::const_iterator location_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::iterator location_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::const_iterator location_const_iterator;
       location_iterator begin_location ();
       location_iterator end_location ();
       location_const_iterator begin_location () const;
       location_const_iterator end_location () const;
-      void add_location ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > const& );
-      XSCRT::Type* location_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void add_location ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
+      XSCRT::Type* get_location_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_location_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_location (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex > > location_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > location_;
 
       // dependsOn
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > >::iterator dependsOn_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > >::const_iterator dependsOn_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > >::iterator dependsOn_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > >::const_iterator dependsOn_const_iterator;
       dependsOn_iterator begin_dependsOn ();
       dependsOn_iterator end_dependsOn ();
       dependsOn_const_iterator begin_dependsOn () const;
       dependsOn_const_iterator end_dependsOn () const;
       void add_dependsOn ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > const& );
-      XSCRT::Type* dependsOn_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_dependsOn_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_dependsOn_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_dependsOn (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > > dependsOn_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > > dependsOn_;
 
       // execParameter
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator execParameter_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator execParameter_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator execParameter_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator execParameter_const_iterator;
       execParameter_iterator begin_execParameter ();
       execParameter_iterator end_execParameter ();
       execParameter_const_iterator begin_execParameter () const;
       execParameter_const_iterator end_execParameter () const;
       void add_execParameter ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* execParameter_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_execParameter_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_execParameter_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_execParameter (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > execParameter_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > execParameter_;
 
       // infoProperty
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator infoProperty_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator infoProperty_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator infoProperty_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
       infoProperty_iterator end_infoProperty ();
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_infoProperty (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > infoProperty_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > infoProperty_;
 
       // deployRequirement
-      //
       public:
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > >::iterator deployRequirement_iterator;
-      typedef ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > >::const_iterator deployRequirement_const_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > >::iterator deployRequirement_iterator;
+      typedef std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > >::const_iterator deployRequirement_const_iterator;
       deployRequirement_iterator begin_deployRequirement ();
       deployRequirement_iterator end_deployRequirement ();
       deployRequirement_const_iterator begin_deployRequirement () const;
       deployRequirement_const_iterator end_deployRequirement () const;
       void add_deployRequirement ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > const& );
-      XSCRT::Type* deployRequirement_ptr ( std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_deployRequirement_ptr ( std::basic_string<ACE_TCHAR> idref );
+      void set_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref );
       size_t count_deployRequirement (void) const;
 
       protected:
-      ::std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > > deployRequirement_;
+      std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > > deployRequirement_;
 
       // contentLocation
-      //
       public:
       bool contentLocation_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& contentLocation () const;
-      void contentLocation (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& contentLocation () const;
+      void contentLocation (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > contentLocation_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_;
 
       // href
-      //
       public:
       bool href_p () const;
-      ::XMLSchema::string< ACE_TCHAR > const& href () const;
-      ::XMLSchema::string< ACE_TCHAR >& href ();
-      void href (::XMLSchema::string< ACE_TCHAR > const& );
+      ::XMLSchema::string<ACE_TCHAR> const& href () const;
+      ::XMLSchema::string<ACE_TCHAR>& href ();
+      void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > href_;
+      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
 
       public:
       ImplementationArtifactDescription ();
@@ -221,8 +206,7 @@ namespace DAnCE
       ImplementationArtifactDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
       ImplementationArtifactDescription (ImplementationArtifactDescription const& s);
 
-      ImplementationArtifactDescription&
-      operator= (ImplementationArtifactDescription const& s);
+      ImplementationArtifactDescription& operator= (ImplementationArtifactDescription const& s);
 
       private:
       char regulator__;

@@ -4,7 +4,7 @@ project (XSC_XML_Generation) : install, xscdefaults {
   xscflags += --cxx-banner-file $(DANCE_ROOT)/docs/schema/xsc-banner.cpp
   xscflags += --cxx-header-banner-file $(DANCE_ROOT)/docs/schema/xsc-banner.h
   xscflags += --cxx-export-symbol XSC_XML_Handlers_Export
-  xscflags += --cxx-namespace-regex  "%.*Deployment.*DAnCE/Config_Handlers%" //<%quote%>
+  xscflags += --cxx-namespace-regex "/.*Deployment.*/DAnCE::Config_Handlers/"
   xscflags += --cxx-export-header XSC_XML_Handlers_Export.h
   xscflags += --search-path "$(DANCE_ROOT)/docs/schema"
 

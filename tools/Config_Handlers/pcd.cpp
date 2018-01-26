@@ -8,13 +8,6 @@
  * please contact the current XSC maintainer:
  *             Will Otte <wotte@dre.vanderbilt.edu>
  */
-
-// Fix for Borland compilers, which seem to have a broken
-// <string> include.
-#ifdef __BORLANDC__
-# include <string.h>
-#endif
-
 #include "pcd.hpp"
 
 namespace DAnCE
@@ -22,36 +15,33 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // ComponentPackageImport
-    //
 
-    ComponentPackageImport::
-    ComponentPackageImport ()
-    :
+    ComponentPackageImport::ComponentPackageImport () :
     ::XSCRT::Type (),
     regulator__ ()
     {
     }
 
-    ComponentPackageImport::
-    ComponentPackageImport (ComponentPackageImport const& s)
-    :
-    ::XSCRT::Type (),
+    ComponentPackageImport::ComponentPackageImport (ComponentPackageImport const& s) :
+    ::XSCRT::Type (s),
     location_ (s.location_),
     regulator__ ()
     {
     }
 
-    ComponentPackageImport& ComponentPackageImport::
-    operator= (ComponentPackageImport const& s)
+    ComponentPackageImport&
+    ComponentPackageImport::operator= (ComponentPackageImport const& s)
     {
-      location_ = s.location_;
+      if (&s != this)
+      {
+        location_ = s.location_;
+      }
 
       return *this;
     }
 
 
     // ComponentPackageImport
-    //
     ComponentPackageImport::location_iterator ComponentPackageImport::
     begin_location ()
     {
@@ -77,7 +67,7 @@ namespace DAnCE
     }
 
     void ComponentPackageImport::
-    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  const& e)
+    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
     {
       location_.push_back (e);
     }
@@ -90,28 +80,24 @@ namespace DAnCE
 
 
     // PackageConfiguration
-    //
 
-    PackageConfiguration::
-    PackageConfiguration ()
-    :
+    PackageConfiguration::PackageConfiguration () :
+    ::XSCRT::Type (),
     regulator__ ()
     {
     }
 
-    PackageConfiguration::
-    PackageConfiguration (PackageConfiguration const& s)
-    :
-    ::XSCRT::Type (),
-    label_ (s.label_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.UUID_) : 0),
+    PackageConfiguration::PackageConfiguration (PackageConfiguration const& s) :
+    ::XSCRT::Type (s),
+    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
+    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
     basePackage_ (s.basePackage_.get () ? new ::DAnCE::Config_Handlers::ComponentPackageDescription (*s.basePackage_) : 0),
     specializedConfig_ (s.specializedConfig_.get () ? new ::DAnCE::Config_Handlers::PackageConfiguration (*s.specializedConfig_) : 0),
     importedPackage_ (s.importedPackage_.get () ? new ::DAnCE::Config_Handlers::ComponentPackageImport (*s.importedPackage_) : 0),
     referencedPackage_ (s.referencedPackage_.get () ? new ::DAnCE::Config_Handlers::ComponentPackageReference (*s.referencedPackage_) : 0),
     selectRequirement_ (s.selectRequirement_),
     configProperty_ (s.configProperty_),
-    contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string< ACE_TCHAR > (*s.contentLocation_) : 0),
+    contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.contentLocation_) : 0),
     regulator__ ()
     {
       if (label_.get ()) label_->container (this);
@@ -123,68 +109,70 @@ namespace DAnCE
       if (contentLocation_.get ()) contentLocation_->container (this);
     }
 
-    PackageConfiguration& PackageConfiguration::
-    operator= (PackageConfiguration const& s)
+    PackageConfiguration&
+    PackageConfiguration::operator= (PackageConfiguration const& s)
     {
-      if (s.label_.get ())
-        label (*(s.label_));
-      else
-        label_.reset (0);
+      if (&s != this)
+      {
+        if (s.label_.get ())
+          label (*(s.label_));
+        else
+          label_.reset (0);
 
-      if (s.UUID_.get ())
-        UUID (*(s.UUID_));
-      else
-        UUID_.reset (0);
+        if (s.UUID_.get ())
+          UUID (*(s.UUID_));
+        else
+          UUID_.reset (0);
 
-      if (s.basePackage_.get ())
-        basePackage (*(s.basePackage_));
-      else
-        basePackage_.reset (0);
+        if (s.basePackage_.get ())
+          basePackage (*(s.basePackage_));
+        else
+          basePackage_.reset (0);
 
-      if (s.specializedConfig_.get ())
-        specializedConfig (*(s.specializedConfig_));
-      else
-        specializedConfig_.reset (0);
+        if (s.specializedConfig_.get ())
+          specializedConfig (*(s.specializedConfig_));
+        else
+          specializedConfig_.reset (0);
 
-      if (s.importedPackage_.get ())
-        importedPackage (*(s.importedPackage_));
-      else
-        importedPackage_.reset (0);
+        if (s.importedPackage_.get ())
+          importedPackage (*(s.importedPackage_));
+        else
+          importedPackage_.reset (0);
 
-      if (s.referencedPackage_.get ())
-        referencedPackage (*(s.referencedPackage_));
-      else
-        referencedPackage_.reset (0);
+        if (s.referencedPackage_.get ())
+          referencedPackage (*(s.referencedPackage_));
+        else
+          referencedPackage_.reset (0);
 
-      selectRequirement_ = s.selectRequirement_;
+        selectRequirement_ = s.selectRequirement_;
 
-      configProperty_ = s.configProperty_;
+        configProperty_ = s.configProperty_;
 
-      if (s.contentLocation_.get ())
-        contentLocation (*(s.contentLocation_));
-      else
-        contentLocation_.reset (0);
+        if (s.contentLocation_.get ())
+          contentLocation (*(s.contentLocation_));
+        else
+          contentLocation_.reset (0);
+      }
 
       return *this;
     }
 
 
     // PackageConfiguration
-    //
     bool PackageConfiguration::
     label_p () const
     {
       return label_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& PackageConfiguration::
+    ::XMLSchema::string<ACE_TCHAR> const& PackageConfiguration::
     label () const
     {
       return *label_;
     }
 
     void PackageConfiguration::
-    label (::XMLSchema::string< ACE_TCHAR > const& e)
+    label (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (label_.get ())
       {
@@ -193,27 +181,26 @@ namespace DAnCE
 
       else
       {
-        label_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
 
     // PackageConfiguration
-    //
     bool PackageConfiguration::
     UUID_p () const
     {
       return UUID_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& PackageConfiguration::
+    ::XMLSchema::string<ACE_TCHAR> const& PackageConfiguration::
     UUID () const
     {
       return *UUID_;
     }
 
     void PackageConfiguration::
-    UUID (::XMLSchema::string< ACE_TCHAR > const& e)
+    UUID (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (UUID_.get ())
       {
@@ -222,13 +209,12 @@ namespace DAnCE
 
       else
       {
-        UUID_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
 
     // PackageConfiguration
-    //
     bool PackageConfiguration::
     basePackage_p () const
     {
@@ -251,13 +237,12 @@ namespace DAnCE
 
       else
       {
-        basePackage_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > (new ::DAnCE::Config_Handlers::ComponentPackageDescription (e));
+        basePackage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > (new ::DAnCE::Config_Handlers::ComponentPackageDescription (e));
         basePackage_->container (this);
       }
     }
 
     // PackageConfiguration
-    //
     bool PackageConfiguration::
     specializedConfig_p () const
     {
@@ -280,13 +265,12 @@ namespace DAnCE
 
       else
       {
-        specializedConfig_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
+        specializedConfig_ = std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
         specializedConfig_->container (this);
       }
     }
 
     // PackageConfiguration
-    //
     bool PackageConfiguration::
     importedPackage_p () const
     {
@@ -309,13 +293,12 @@ namespace DAnCE
 
       else
       {
-        importedPackage_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > (new ::DAnCE::Config_Handlers::ComponentPackageImport (e));
+        importedPackage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > (new ::DAnCE::Config_Handlers::ComponentPackageImport (e));
         importedPackage_->container (this);
       }
     }
 
     // PackageConfiguration
-    //
     bool PackageConfiguration::
     referencedPackage_p () const
     {
@@ -338,13 +321,12 @@ namespace DAnCE
 
       else
       {
-        referencedPackage_ = ::std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > (new ::DAnCE::Config_Handlers::ComponentPackageReference (e));
+        referencedPackage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > (new ::DAnCE::Config_Handlers::ComponentPackageReference (e));
         referencedPackage_->container (this);
       }
     }
 
     // PackageConfiguration
-    //
     PackageConfiguration::selectRequirement_iterator PackageConfiguration::
     begin_selectRequirement ()
     {
@@ -382,7 +364,6 @@ namespace DAnCE
     }
 
     // PackageConfiguration
-    //
     PackageConfiguration::configProperty_iterator PackageConfiguration::
     begin_configProperty ()
     {
@@ -420,21 +401,20 @@ namespace DAnCE
     }
 
     // PackageConfiguration
-    //
     bool PackageConfiguration::
     contentLocation_p () const
     {
       return contentLocation_.get () != 0;
     }
 
-    ::XMLSchema::string< ACE_TCHAR > const& PackageConfiguration::
+    ::XMLSchema::string<ACE_TCHAR> const& PackageConfiguration::
     contentLocation () const
     {
       return *contentLocation_;
     }
 
     void PackageConfiguration::
-    contentLocation (::XMLSchema::string< ACE_TCHAR > const& e)
+    contentLocation (::XMLSchema::string<ACE_TCHAR> const& e)
     {
       if (contentLocation_.get ())
       {
@@ -443,7 +423,7 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = ::std::auto_ptr< ::XMLSchema::string< ACE_TCHAR > > (new ::XMLSchema::string< ACE_TCHAR > (e));
+        contentLocation_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
         contentLocation_->container (this);
       }
     }
@@ -455,7 +435,6 @@ namespace DAnCE
   namespace Config_Handlers
   {
     // ComponentPackageImport
-    //
 
     ComponentPackageImport::
     ComponentPackageImport (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -467,11 +446,11 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("location"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string< ACE_TCHAR >, ACE_Null_Mutex >  t (new ::XMLSchema::string< ACE_TCHAR > (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_location (t);
         }
 
@@ -482,7 +461,6 @@ namespace DAnCE
     }
 
     // PackageConfiguration
-    //
 
     PackageConfiguration::
     PackageConfiguration (::XSCRT::XML::Element< ACE_TCHAR > const& e)
@@ -494,17 +472,17 @@ namespace DAnCE
       while (p.more_elements ())
       {
         ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        ::std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           label (t);
         }
 
         else if (n == ACE_TEXT("UUID"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           UUID (t);
         }
 
@@ -546,7 +524,7 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("contentLocation"))
         {
-          ::XMLSchema::string< ACE_TCHAR > t (e);
+          ::XMLSchema::string<ACE_TCHAR> t (e);
           contentLocation (t);
         }
 
@@ -583,7 +561,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -597,7 +575,7 @@ namespace DAnCE
           ::XSCRT::ExtendedTypeInfo nf (id);
 
           nf.add_base (::XSCRT::ExtendedTypeInfo::Access::public_, false, typeid (::XSCRT::Type));
-          ::XSCRT::extended_type_info_map ().insert (::std::make_pair (id, nf));
+          ::XSCRT::extended_type_info_map ().insert (std::make_pair (id, nf));
         }
       };
 
@@ -613,8 +591,6 @@ namespace DAnCE
     namespace Traversal
     {
       // ComponentPackageImport
-      //
-      //
 
       void ComponentPackageImport::
       traverse (Type& o)
@@ -646,7 +622,6 @@ namespace DAnCE
       location (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentPackageImport::location_iterator b (o.begin_location()), e (o.end_location());
 
         if (b != e)
@@ -668,7 +643,6 @@ namespace DAnCE
       location (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::ComponentPackageImport::location_const_iterator b (o.begin_location()), e (o.end_location());
 
         if (b != e)
@@ -737,8 +711,6 @@ namespace DAnCE
       }
 
       // PackageConfiguration
-      //
-      //
 
       void PackageConfiguration::
       traverse (Type& o)
@@ -932,7 +904,6 @@ namespace DAnCE
       selectRequirement (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PackageConfiguration::selectRequirement_iterator b (o.begin_selectRequirement()), e (o.end_selectRequirement());
 
         if (b != e)
@@ -954,7 +925,6 @@ namespace DAnCE
       selectRequirement (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PackageConfiguration::selectRequirement_const_iterator b (o.begin_selectRequirement()), e (o.end_selectRequirement());
 
         if (b != e)
@@ -1016,7 +986,6 @@ namespace DAnCE
       configProperty (Type& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PackageConfiguration::configProperty_iterator b (o.begin_configProperty()), e (o.end_configProperty());
 
         if (b != e)
@@ -1038,7 +1007,6 @@ namespace DAnCE
       configProperty (Type const& o)
       {
         // VC6 anathema strikes again
-        //
         ::DAnCE::Config_Handlers::PackageConfiguration::configProperty_const_iterator b (o.begin_configProperty()), e (o.end_configProperty());
 
         if (b != e)
@@ -1138,9 +1106,6 @@ namespace DAnCE
     namespace Writer
     {
       // ComponentPackageImport
-      //
-      //
-
       ComponentPackageImport::
       ComponentPackageImport (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -1161,7 +1126,7 @@ namespace DAnCE
       void ComponentPackageImport::
       location_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("location"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("location"), top_ ()));
       }
 
       void ComponentPackageImport::
@@ -1178,9 +1143,6 @@ namespace DAnCE
       }
 
       // PackageConfiguration
-      //
-      //
-
       PackageConfiguration::
       PackageConfiguration (::XSCRT::XML::Element< ACE_TCHAR >& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
@@ -1201,7 +1163,7 @@ namespace DAnCE
       void PackageConfiguration::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("label"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
         Traversal::PackageConfiguration::label (o);
         pop_ ();
       }
@@ -1209,7 +1171,7 @@ namespace DAnCE
       void PackageConfiguration::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
         Traversal::PackageConfiguration::UUID (o);
         pop_ ();
       }
@@ -1217,7 +1179,7 @@ namespace DAnCE
       void PackageConfiguration::
       basePackage (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("basePackage"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("basePackage"), top_ ()));
         Traversal::PackageConfiguration::basePackage (o);
         pop_ ();
       }
@@ -1225,7 +1187,7 @@ namespace DAnCE
       void PackageConfiguration::
       specializedConfig (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("specializedConfig"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("specializedConfig"), top_ ()));
         Traversal::PackageConfiguration::specializedConfig (o);
         pop_ ();
       }
@@ -1233,7 +1195,7 @@ namespace DAnCE
       void PackageConfiguration::
       importedPackage (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("importedPackage"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("importedPackage"), top_ ()));
         Traversal::PackageConfiguration::importedPackage (o);
         pop_ ();
       }
@@ -1241,7 +1203,7 @@ namespace DAnCE
       void PackageConfiguration::
       referencedPackage (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("referencedPackage"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("referencedPackage"), top_ ()));
         Traversal::PackageConfiguration::referencedPackage (o);
         pop_ ();
       }
@@ -1249,7 +1211,7 @@ namespace DAnCE
       void PackageConfiguration::
       selectRequirement_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("selectRequirement"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("selectRequirement"), top_ ()));
       }
 
       void PackageConfiguration::
@@ -1268,7 +1230,7 @@ namespace DAnCE
       void PackageConfiguration::
       configProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("configProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("configProperty"), top_ ()));
       }
 
       void PackageConfiguration::
@@ -1287,7 +1249,7 @@ namespace DAnCE
       void PackageConfiguration::
       contentLocation (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT ("contentLocation"), top_ ()));
+        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("contentLocation"), top_ ()));
         Traversal::PackageConfiguration::contentLocation (o);
         pop_ ();
       }
