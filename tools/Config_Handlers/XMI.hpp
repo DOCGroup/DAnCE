@@ -276,10 +276,10 @@ namespace XMI
   namespace Writer
   {
     struct Extension : Traversal::Extension,
-    virtual ::XSCRT::Writer< ACE_TCHAR >
+    virtual ::XSCRT::Writer<ACE_TCHAR>
     {
       typedef ::XMI::Extension Type;
-      Extension (::XSCRT::XML::Element<ACE_TCHAR>&);
+      explicit Extension (::XSCRT::XML::Element<ACE_TCHAR>&);
 
       virtual void
       traverse (Type &o)

@@ -5706,10 +5706,10 @@ namespace DAnCE
     namespace Writer
     {
       struct IdRef : Traversal::IdRef,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::IdRef Type;
-        IdRef (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit IdRef (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -5743,9 +5743,9 @@ namespace DAnCE
       };
 
       struct TCKind : Traversal::TCKind,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
-        TCKind (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit TCKind (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -5761,10 +5761,10 @@ namespace DAnCE
       };
 
       struct DataType : Traversal::DataType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::DataType Type;
-        DataType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit DataType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -5861,10 +5861,10 @@ namespace DAnCE
       };
 
       struct DataValue : Traversal::DataValue,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::DataValue Type;
-        DataValue (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit DataValue (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6285,10 +6285,10 @@ namespace DAnCE
       };
 
       struct AliasType : Traversal::AliasType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::AliasType Type;
-        AliasType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit AliasType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6331,10 +6331,10 @@ namespace DAnCE
       };
 
       struct EnumType : Traversal::EnumType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::EnumType Type;
-        EnumType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit EnumType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6395,10 +6395,10 @@ namespace DAnCE
       };
 
       struct BoundedStringType : Traversal::BoundedStringType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::BoundedStringType Type;
-        BoundedStringType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit BoundedStringType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6441,10 +6441,10 @@ namespace DAnCE
       };
 
       struct StructType : Traversal::StructType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::StructType Type;
-        StructType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit StructType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6505,10 +6505,10 @@ namespace DAnCE
       };
 
       struct StructMemberType : Traversal::StructMemberType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::StructMemberType Type;
-        StructMemberType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit StructMemberType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6542,10 +6542,10 @@ namespace DAnCE
       };
 
       struct ValueType : Traversal::ValueType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ValueType Type;
-        ValueType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ValueType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6624,10 +6624,10 @@ namespace DAnCE
       };
 
       struct ValueMemberType : Traversal::ValueMemberType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ValueMemberType Type;
-        ValueMemberType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ValueMemberType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6670,10 +6670,10 @@ namespace DAnCE
       };
 
       struct NamedValue : Traversal::NamedValue,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::NamedValue Type;
-        NamedValue (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit NamedValue (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6707,10 +6707,10 @@ namespace DAnCE
       };
 
       struct ArrayType : Traversal::ArrayType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ArrayType Type;
-        ArrayType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ArrayType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6744,10 +6744,10 @@ namespace DAnCE
       };
 
       struct SequenceType : Traversal::SequenceType,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::SequenceType Type;
-        SequenceType (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit SequenceType (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6781,10 +6781,10 @@ namespace DAnCE
       };
 
       struct Any : Traversal::Any,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::Any Type;
-        Any (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit Any (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6818,10 +6818,10 @@ namespace DAnCE
       };
 
       struct Property : Traversal::Property,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::Property Type;
-        Property (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit Property (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6855,9 +6855,9 @@ namespace DAnCE
       };
 
       struct SatisfierPropertyKind : Traversal::SatisfierPropertyKind,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
-        SatisfierPropertyKind (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit SatisfierPropertyKind (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6873,10 +6873,10 @@ namespace DAnCE
       };
 
       struct SatisfierProperty : Traversal::SatisfierProperty,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::SatisfierProperty Type;
-        SatisfierProperty (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit SatisfierProperty (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -6928,10 +6928,10 @@ namespace DAnCE
       };
 
       struct Resource : Traversal::Resource,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::Resource Type;
-        Resource (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit Resource (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7010,10 +7010,10 @@ namespace DAnCE
       };
 
       struct Requirement : Traversal::Requirement,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::Requirement Type;
-        Requirement (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit Requirement (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7074,10 +7074,10 @@ namespace DAnCE
       };
 
       struct ResourceDeploymentDescription : Traversal::ResourceDeploymentDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ResourceDeploymentDescription Type;
-        ResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7138,10 +7138,10 @@ namespace DAnCE
       };
 
       struct ArtifactDeploymentDescription : Traversal::ArtifactDeploymentDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ArtifactDeploymentDescription Type;
-        ArtifactDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ArtifactDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7319,10 +7319,10 @@ namespace DAnCE
       };
 
       struct MonolithicDeploymentDescription : Traversal::MonolithicDeploymentDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::MonolithicDeploymentDescription Type;
-        MonolithicDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit MonolithicDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7464,9 +7464,9 @@ namespace DAnCE
       };
 
       struct ResourceUsageKind : Traversal::ResourceUsageKind,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
-        ResourceUsageKind (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ResourceUsageKind (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7482,10 +7482,10 @@ namespace DAnCE
       };
 
       struct InstanceResourceDeploymentDescription : Traversal::InstanceResourceDeploymentDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription Type;
-        InstanceResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit InstanceResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7555,10 +7555,10 @@ namespace DAnCE
       };
 
       struct InstanceDeploymentDescription : Traversal::InstanceDeploymentDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::InstanceDeploymentDescription Type;
-        InstanceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit InstanceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7682,9 +7682,9 @@ namespace DAnCE
       };
 
       struct CCMComponentPortKind : Traversal::CCMComponentPortKind,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
-        CCMComponentPortKind (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit CCMComponentPortKind (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7700,10 +7700,10 @@ namespace DAnCE
       };
 
       struct ComponentPortDescription : Traversal::ComponentPortDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ComponentPortDescription Type;
-        ComponentPortDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ComponentPortDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7836,10 +7836,10 @@ namespace DAnCE
       };
 
       struct ComponentPropertyDescription : Traversal::ComponentPropertyDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ComponentPropertyDescription Type;
-        ComponentPropertyDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ComponentPropertyDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7873,10 +7873,10 @@ namespace DAnCE
       };
 
       struct ComponentExternalPortEndpoint : Traversal::ComponentExternalPortEndpoint,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint Type;
-        ComponentExternalPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ComponentExternalPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7901,10 +7901,10 @@ namespace DAnCE
       };
 
       struct PlanSubcomponentPortEndpoint : Traversal::PlanSubcomponentPortEndpoint,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::PlanSubcomponentPortEndpoint Type;
-        PlanSubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit PlanSubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -7956,10 +7956,10 @@ namespace DAnCE
       };
 
       struct ExternalReferenceEndpoint : Traversal::ExternalReferenceEndpoint,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ExternalReferenceEndpoint Type;
-        ExternalReferenceEndpoint (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ExternalReferenceEndpoint (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -8029,10 +8029,10 @@ namespace DAnCE
       };
 
       struct ConnectionResourceDeploymentDescription : Traversal::ConnectionResourceDeploymentDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription Type;
-        ConnectionResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ConnectionResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -8102,10 +8102,10 @@ namespace DAnCE
       };
 
       struct PlanConnectionDescription : Traversal::PlanConnectionDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::PlanConnectionDescription Type;
-        PlanConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit PlanConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -8274,10 +8274,10 @@ namespace DAnCE
       };
 
       struct ImplementationDependency : Traversal::ImplementationDependency,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ImplementationDependency Type;
-        ImplementationDependency (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ImplementationDependency (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -8302,10 +8302,10 @@ namespace DAnCE
       };
 
       struct Capability : Traversal::Capability,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::Capability Type;
-        Capability (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit Capability (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -8384,10 +8384,10 @@ namespace DAnCE
       };
 
       struct ImplementationRequirement : Traversal::ImplementationRequirement,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ImplementationRequirement Type;
-        ImplementationRequirement (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ImplementationRequirement (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -8475,10 +8475,10 @@ namespace DAnCE
       };
 
       struct SubcomponentPortEndpoint : Traversal::SubcomponentPortEndpoint,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::SubcomponentPortEndpoint Type;
-        SubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit SubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -8512,10 +8512,10 @@ namespace DAnCE
       };
 
       struct AssemblyConnectionDescription : Traversal::AssemblyConnectionDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::AssemblyConnectionDescription Type;
-        AssemblyConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit AssemblyConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -8648,9 +8648,9 @@ namespace DAnCE
       };
 
       struct PlanLocalityKind : Traversal::PlanLocalityKind,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
-        PlanLocalityKind (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit PlanLocalityKind (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -8666,10 +8666,10 @@ namespace DAnCE
       };
 
       struct PlanLocality : Traversal::PlanLocality,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::PlanLocality Type;
-        PlanLocality (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit PlanLocality (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

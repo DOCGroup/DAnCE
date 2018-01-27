@@ -284,7 +284,7 @@ namespace DAnCE
       // TopLevelPackageDescription
       TopLevelPackageDescription::
       TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

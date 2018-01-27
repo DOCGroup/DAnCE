@@ -666,10 +666,10 @@ namespace DAnCE
     namespace Writer
     {
       struct PackagedComponentImplementation : Traversal::PackagedComponentImplementation,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::PackagedComponentImplementation Type;
-        PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -703,10 +703,10 @@ namespace DAnCE
       };
 
       struct ComponentPackageDescription : Traversal::ComponentPackageDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ComponentPackageDescription Type;
-        ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -839,10 +839,10 @@ namespace DAnCE
       };
 
       struct ConnectorPackageDescription : Traversal::ConnectorPackageDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ConnectorPackageDescription Type;
-        ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

@@ -1282,7 +1282,7 @@ namespace DAnCE
       // ComponentInterfaceDescription
       ComponentInterfaceDescription::
       ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

@@ -489,10 +489,10 @@ namespace DAnCE
     namespace Writer
     {
       struct ComponentInterfaceDescription : Traversal::ComponentInterfaceDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ComponentInterfaceDescription Type;
-        ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

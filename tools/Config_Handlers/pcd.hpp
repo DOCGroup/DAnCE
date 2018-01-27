@@ -436,10 +436,10 @@ namespace DAnCE
     namespace Writer
     {
       struct ComponentPackageImport : Traversal::ComponentPackageImport,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ComponentPackageImport Type;
-        ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -482,10 +482,10 @@ namespace DAnCE
       };
 
       struct PackageConfiguration : Traversal::PackageConfiguration,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::PackageConfiguration Type;
-        PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

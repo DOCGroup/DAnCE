@@ -756,7 +756,7 @@ namespace XMI
     // Extension
     Extension::
     Extension (::XSCRT::XML::Element<ACE_TCHAR>& e)
-    : ::XSCRT::Writer< ACE_TCHAR > (e)
+    : ::XSCRT::Writer<ACE_TCHAR> (e)
     {
     }
 
@@ -868,10 +868,10 @@ namespace XMI
       virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::ID< ACE_TCHAR >, ACE_TCHAR >,
       virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::string< ACE_TCHAR >, ACE_TCHAR >,
       virtual ::XMLSchema::Writer::IDREF<ACE_TCHAR>,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         W (::XSCRT::XML::Element<ACE_TCHAR>& e)
-        : ::XSCRT::Writer< ACE_TCHAR > (e)
+        : ::XSCRT::Writer<ACE_TCHAR> (e)
         {
         }
       };

@@ -1259,7 +1259,7 @@ namespace DAnCE
       // NamedImplementationArtifact
       NamedImplementationArtifact::
       NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -1293,7 +1293,7 @@ namespace DAnCE
       // ImplementationArtifactDescription
       ImplementationArtifactDescription::
       ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

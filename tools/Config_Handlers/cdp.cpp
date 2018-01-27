@@ -1991,7 +1991,7 @@ namespace DAnCE
       // PlanSubcomponentPropertyReference
       PlanSubcomponentPropertyReference::
       PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -2025,7 +2025,7 @@ namespace DAnCE
       // PlanPropertyMapping
       PlanPropertyMapping::
       PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -2097,7 +2097,7 @@ namespace DAnCE
       // deploymentPlan
       deploymentPlan::
       deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

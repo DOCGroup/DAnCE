@@ -767,10 +767,10 @@ namespace DAnCE
     namespace Writer
     {
       struct PlanSubcomponentPropertyReference : Traversal::PlanSubcomponentPropertyReference,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference Type;
-        PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -804,10 +804,10 @@ namespace DAnCE
       };
 
       struct PlanPropertyMapping : Traversal::PlanPropertyMapping,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::PlanPropertyMapping Type;
-        PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -895,10 +895,10 @@ namespace DAnCE
       };
 
       struct deploymentPlan : Traversal::deploymentPlan,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::deploymentPlan Type;
-        deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

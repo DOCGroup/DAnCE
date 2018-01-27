@@ -5098,7 +5098,7 @@ namespace DAnCE
       // ComponentPackageReference
       ComponentPackageReference::
       ComponentPackageReference (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -5140,7 +5140,7 @@ namespace DAnCE
       // SubcomponentInstantiationDescription
       SubcomponentInstantiationDescription::
       SubcomponentInstantiationDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -5245,7 +5245,7 @@ namespace DAnCE
       // SubcomponentPropertyReference
       SubcomponentPropertyReference::
       SubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -5279,7 +5279,7 @@ namespace DAnCE
       // AssemblyPropertyMapping
       AssemblyPropertyMapping::
       AssemblyPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -5333,7 +5333,7 @@ namespace DAnCE
 
       LocalityKind::
       LocalityKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -5371,7 +5371,7 @@ namespace DAnCE
       // Locality
       Locality::
       Locality (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -5405,7 +5405,7 @@ namespace DAnCE
       // ComponentAssemblyDescription
       ComponentAssemblyDescription::
       ComponentAssemblyDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -5499,7 +5499,7 @@ namespace DAnCE
       // MonolithicImplementationDescription
       MonolithicImplementationDescription::
       MonolithicImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -5593,7 +5593,7 @@ namespace DAnCE
       // ComponentImplementationDescription
       ComponentImplementationDescription::
       ComponentImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -5736,7 +5736,7 @@ namespace DAnCE
       // ConnectorImplementationDescription
       ConnectorImplementationDescription::
       ConnectorImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

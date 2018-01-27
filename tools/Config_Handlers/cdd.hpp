@@ -1063,10 +1063,10 @@ namespace DAnCE
     namespace Writer
     {
       struct Domain : Traversal::Domain,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::Domain Type;
-        Domain (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit Domain (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1235,10 +1235,10 @@ namespace DAnCE
       };
 
       struct Bridge : Traversal::Bridge,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::Bridge Type;
-        Bridge (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit Bridge (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1326,10 +1326,10 @@ namespace DAnCE
       };
 
       struct Interconnect : Traversal::Interconnect,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::Interconnect Type;
-        Interconnect (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit Interconnect (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1444,10 +1444,10 @@ namespace DAnCE
       };
 
       struct Node : Traversal::Node,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::Node Type;
-        Node (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit Node (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1562,10 +1562,10 @@ namespace DAnCE
       };
 
       struct SharedResource : Traversal::SharedResource,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::SharedResource Type;
-        SharedResource (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit SharedResource (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

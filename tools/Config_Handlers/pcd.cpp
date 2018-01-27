@@ -1108,7 +1108,7 @@ namespace DAnCE
       // ComponentPackageImport
       ComponentPackageImport::
       ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -1145,7 +1145,7 @@ namespace DAnCE
       // PackageConfiguration
       PackageConfiguration::
       PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

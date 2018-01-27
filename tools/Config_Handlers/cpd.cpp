@@ -1765,7 +1765,7 @@ namespace DAnCE
       // PackagedComponentImplementation
       PackagedComponentImplementation::
       PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -1799,7 +1799,7 @@ namespace DAnCE
       // ComponentPackageDescription
       ComponentPackageDescription::
       ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -1907,7 +1907,7 @@ namespace DAnCE
       // ConnectorPackageDescription
       ConnectorPackageDescription::
       ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

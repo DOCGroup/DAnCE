@@ -15079,7 +15079,7 @@ namespace DAnCE
       // IdRef
       IdRef::
       IdRef (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15116,7 +15116,7 @@ namespace DAnCE
 
       TCKind::
       TCKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15185,7 +15185,7 @@ namespace DAnCE
       // DataType
       DataType::
       DataType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15276,7 +15276,7 @@ namespace DAnCE
       // DataValue
       DataValue::
       DataValue (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15579,7 +15579,7 @@ namespace DAnCE
       // AliasType
       AliasType::
       AliasType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15621,7 +15621,7 @@ namespace DAnCE
       // EnumType
       EnumType::
       EnumType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15674,7 +15674,7 @@ namespace DAnCE
       // BoundedStringType
       BoundedStringType::
       BoundedStringType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15711,7 +15711,7 @@ namespace DAnCE
       // StructType
       StructType::
       StructType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15764,7 +15764,7 @@ namespace DAnCE
       // StructMemberType
       StructMemberType::
       StructMemberType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15798,7 +15798,7 @@ namespace DAnCE
       // ValueType
       ValueType::
       ValueType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15867,7 +15867,7 @@ namespace DAnCE
       // ValueMemberType
       ValueMemberType::
       ValueMemberType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15909,7 +15909,7 @@ namespace DAnCE
       // NamedValue
       NamedValue::
       NamedValue (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15943,7 +15943,7 @@ namespace DAnCE
       // ArrayType
       ArrayType::
       ArrayType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15977,7 +15977,7 @@ namespace DAnCE
       // SequenceType
       SequenceType::
       SequenceType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16011,7 +16011,7 @@ namespace DAnCE
       // Any
       Any::
       Any (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16045,7 +16045,7 @@ namespace DAnCE
       // Property
       Property::
       Property (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16080,7 +16080,7 @@ namespace DAnCE
 
       SatisfierPropertyKind::
       SatisfierPropertyKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16118,7 +16118,7 @@ namespace DAnCE
       // SatisfierProperty
       SatisfierProperty::
       SatisfierProperty (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16168,7 +16168,7 @@ namespace DAnCE
       // Resource
       Resource::
       Resource (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16232,7 +16232,7 @@ namespace DAnCE
       // Requirement
       Requirement::
       Requirement (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16285,7 +16285,7 @@ namespace DAnCE
       // ResourceDeploymentDescription
       ResourceDeploymentDescription::
       ResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16338,7 +16338,7 @@ namespace DAnCE
       // ArtifactDeploymentDescription
       ArtifactDeploymentDescription::
       ArtifactDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16476,7 +16476,7 @@ namespace DAnCE
       // MonolithicDeploymentDescription
       MonolithicDeploymentDescription::
       MonolithicDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16588,7 +16588,7 @@ namespace DAnCE
 
       ResourceUsageKind::
       ResourceUsageKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16625,7 +16625,7 @@ namespace DAnCE
       // InstanceResourceDeploymentDescription
       InstanceResourceDeploymentDescription::
       InstanceResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16686,7 +16686,7 @@ namespace DAnCE
       // InstanceDeploymentDescription
       InstanceDeploymentDescription::
       InstanceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16792,7 +16792,7 @@ namespace DAnCE
 
       CCMComponentPortKind::
       CCMComponentPortKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16832,7 +16832,7 @@ namespace DAnCE
       // ComponentPortDescription
       ComponentPortDescription::
       ComponentPortDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16944,7 +16944,7 @@ namespace DAnCE
       // ComponentPropertyDescription
       ComponentPropertyDescription::
       ComponentPropertyDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16978,7 +16978,7 @@ namespace DAnCE
       // ComponentExternalPortEndpoint
       ComponentExternalPortEndpoint::
       ComponentExternalPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17004,7 +17004,7 @@ namespace DAnCE
       // PlanSubcomponentPortEndpoint
       PlanSubcomponentPortEndpoint::
       PlanSubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17054,7 +17054,7 @@ namespace DAnCE
       // ExternalReferenceEndpoint
       ExternalReferenceEndpoint::
       ExternalReferenceEndpoint (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17115,7 +17115,7 @@ namespace DAnCE
       // ConnectionResourceDeploymentDescription
       ConnectionResourceDeploymentDescription::
       ConnectionResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17176,7 +17176,7 @@ namespace DAnCE
       // PlanConnectionDescription
       PlanConnectionDescription::
       PlanConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17305,7 +17305,7 @@ namespace DAnCE
       // ImplementationDependency
       ImplementationDependency::
       ImplementationDependency (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17331,7 +17331,7 @@ namespace DAnCE
       // Capability
       Capability::
       Capability (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17395,7 +17395,7 @@ namespace DAnCE
       // ImplementationRequirement
       ImplementationRequirement::
       ImplementationRequirement (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17472,7 +17472,7 @@ namespace DAnCE
       // SubcomponentPortEndpoint
       SubcomponentPortEndpoint::
       SubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17506,7 +17506,7 @@ namespace DAnCE
       // AssemblyConnectionDescription
       AssemblyConnectionDescription::
       AssemblyConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17609,7 +17609,7 @@ namespace DAnCE
 
       PlanLocalityKind::
       PlanLocalityKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17644,7 +17644,7 @@ namespace DAnCE
       // PlanLocality
       PlanLocality::
       PlanLocality (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

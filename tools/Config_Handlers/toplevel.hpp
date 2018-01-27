@@ -153,10 +153,10 @@ namespace DAnCE
     namespace Writer
     {
       struct TopLevelPackageDescription : Traversal::TopLevelPackageDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::TopLevelPackageDescription Type;
-        TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

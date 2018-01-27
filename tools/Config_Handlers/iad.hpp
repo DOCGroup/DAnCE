@@ -493,10 +493,10 @@ namespace DAnCE
     namespace Writer
     {
       struct NamedImplementationArtifact : Traversal::NamedImplementationArtifact,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::NamedImplementationArtifact Type;
-        NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -530,10 +530,10 @@ namespace DAnCE
       };
 
       struct ImplementationArtifactDescription : Traversal::ImplementationArtifactDescription,
-      virtual ::XSCRT::Writer< ACE_TCHAR >
+      virtual ::XSCRT::Writer<ACE_TCHAR>
       {
         typedef ::DAnCE::Config_Handlers::ImplementationArtifactDescription Type;
-        ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
+        explicit ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

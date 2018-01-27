@@ -2798,7 +2798,7 @@ namespace DAnCE
       // Domain
       Domain::
       Domain (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -2927,7 +2927,7 @@ namespace DAnCE
       // Bridge
       Bridge::
       Bridge (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -2999,7 +2999,7 @@ namespace DAnCE
       // Interconnect
       Interconnect::
       Interconnect (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -3090,7 +3090,7 @@ namespace DAnCE
       // Node
       Node::
       Node (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -3181,7 +3181,7 @@ namespace DAnCE
       // SharedResource
       SharedResource::
       SharedResource (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
