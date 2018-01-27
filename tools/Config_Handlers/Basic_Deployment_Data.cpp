@@ -1197,7 +1197,7 @@ namespace DAnCE
 
     EnumType::EnumType (::XMLSchema::string<ACE_TCHAR> const& name__,
                         ::XMLSchema::string<ACE_TCHAR> const& typeId__,
-                        std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > const& member__) :
+                        std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > const& member__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     typeId_ (new ::XMLSchema::string<ACE_TCHAR> (typeId__)),
@@ -2228,7 +2228,7 @@ namespace DAnCE
     // Resource
 
     Resource::Resource (::XMLSchema::string<ACE_TCHAR> const& name__,
-                        std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > const& resourceType__) :
+                        std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > const& resourceType__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     resourceType_ (resourceType__),
@@ -5241,7 +5241,7 @@ namespace DAnCE
     // PlanLocality
 
     PlanLocality::PlanLocality (::DAnCE::Config_Handlers::PlanLocalityKind const& constraint__,
-                                std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex > > const& constrainedInstance__) :
+                                std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex > > const& constrainedInstance__) :
     ::XSCRT::Type (),
     constraint_ (new ::DAnCE::Config_Handlers::PlanLocalityKind (constraint__)),
     constrainedInstance_ (constrainedInstance__),

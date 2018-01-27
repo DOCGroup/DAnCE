@@ -82,7 +82,7 @@ namespace DAnCE
 
     PlanPropertyMapping::PlanPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
                                               ::XMLSchema::string<ACE_TCHAR> const& externalName__,
-                                              std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__) :
+                                              std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     externalName_ (new ::XMLSchema::string<ACE_TCHAR> (externalName__)),

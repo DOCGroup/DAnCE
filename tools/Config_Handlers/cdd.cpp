@@ -16,7 +16,7 @@ namespace DAnCE
   {
     // Domain
 
-    Domain::Domain (std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& node__) :
+    Domain::Domain (std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& node__) :
     ::XSCRT::Type (),
     node_ (node__),
     regulator__ ()
@@ -313,7 +313,7 @@ namespace DAnCE
     // Bridge
 
     Bridge::Bridge (::XMLSchema::string<ACE_TCHAR> const& name__,
-                    std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex > > const& connect__) :
+                    std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex > > const& connect__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     connect_ (connect__),
@@ -474,7 +474,7 @@ namespace DAnCE
     // Interconnect
 
     Interconnect::Interconnect (::XMLSchema::string<ACE_TCHAR> const& name__,
-                                std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& connect__) :
+                                std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& connect__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     connect_ (connect__),
