@@ -23,7 +23,7 @@ def parse_args ():
                        type="string", help="UUID for the generated plan")
     parser.add_option ("-n", "--namespace", dest="namespace", action="store", default="",
                        type="string", help="IDL namespace any components may be in")
-    
+
     (options, arguments) = parser.parse_args ()
 
     return (options, arguments)
@@ -38,7 +38,7 @@ def main ():
     retval += generator.header.template (opts.uuid)
 
     artifacts = {}
-    
+
     if opts.namespace != "":
         opts.namespace += "_"
 
@@ -62,29 +62,29 @@ def main ():
     if opts.homes is not None:
         for item in opts.homes:
             retval += generator.home_inst.template (item)
-    
+
     if opts.homed_components is not None:
         for item in opts.homed_components:
             retval += generator.homed_comp_inst.template (item)
-            
+
     if opts.components is not None:
         for item in opts.components:
             retval += generator.comp_inst.template (item, "", "", "NodeOne")
-        
+
     #artifacts
     if artifacts is not None:
         for item in artifacts.keys():
             retval += generator.artifact.template(item)
 
     retval += generator.footer.template ()
-    
+
     outfile = open (opts.output, 'w')
     outfile.write (retval)
     outfile.close ()
-    
+
 
 if __name__ == "__main__":
     main ()
 
-    
-    
+
+

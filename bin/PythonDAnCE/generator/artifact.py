@@ -21,5 +21,5 @@ def template (component_name):
     <source/>
     <node/>
     <location>${component_name}_stub</location>
-  </artifact>  
+  </artifact>
   """

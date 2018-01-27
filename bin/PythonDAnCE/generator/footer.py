@@ -6,4 +6,4 @@ def template ():
     """
 </Deployment:DeploymentPlan>
 """
-    
+
