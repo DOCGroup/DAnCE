@@ -141,7 +141,7 @@ namespace DAnCE
       selectRequirement_const_iterator begin_selectRequirement () const;
       selectRequirement_const_iterator end_selectRequirement () const;
       void add_selectRequirement ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_selectRequirement_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_selectRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_selectRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_selectRequirement (void) const;
 
@@ -157,7 +157,7 @@ namespace DAnCE
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
       void add_configProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_configProperty_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_configProperty (void) const;
 
@@ -274,7 +274,7 @@ namespace DAnCE
       delegatesTo_const_iterator begin_delegatesTo () const;
       delegatesTo_const_iterator end_delegatesTo () const;
       void add_delegatesTo ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPropertyReference, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_delegatesTo_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_delegatesTo_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_delegatesTo_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_delegatesTo (void) const;
 
@@ -387,7 +387,7 @@ namespace DAnCE
       instance_const_iterator begin_instance () const;
       instance_const_iterator end_instance () const;
       void add_instance ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentInstantiationDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_instance_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_instance_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_instance_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_instance (void) const;
 
@@ -403,7 +403,7 @@ namespace DAnCE
       connection_const_iterator begin_connection () const;
       connection_const_iterator end_connection () const;
       void add_connection ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyConnectionDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_connection_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_connection_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_connection_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_connection (void) const;
 
@@ -419,7 +419,7 @@ namespace DAnCE
       externalProperty_const_iterator begin_externalProperty () const;
       externalProperty_const_iterator end_externalProperty () const;
       void add_externalProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyPropertyMapping, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_externalProperty_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_externalProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_externalProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_externalProperty (void) const;
 
@@ -435,7 +435,7 @@ namespace DAnCE
       locality_const_iterator begin_locality () const;
       locality_const_iterator end_locality () const;
       void add_locality ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Locality, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_locality_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_locality_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_locality_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_locality (void) const;
 
@@ -471,7 +471,7 @@ namespace DAnCE
       nodeExecParameter_const_iterator begin_nodeExecParameter () const;
       nodeExecParameter_const_iterator end_nodeExecParameter () const;
       void add_nodeExecParameter ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_nodeExecParameter_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_nodeExecParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_nodeExecParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_nodeExecParameter (void) const;
 
@@ -487,7 +487,7 @@ namespace DAnCE
       componentExecParameter_const_iterator begin_componentExecParameter () const;
       componentExecParameter_const_iterator end_componentExecParameter () const;
       void add_componentExecParameter ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_componentExecParameter_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_componentExecParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_componentExecParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_componentExecParameter (void) const;
 
@@ -503,7 +503,7 @@ namespace DAnCE
       deployRequirement_const_iterator begin_deployRequirement () const;
       deployRequirement_const_iterator end_deployRequirement () const;
       void add_deployRequirement ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationRequirement, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_deployRequirement (void) const;
 
@@ -519,7 +519,7 @@ namespace DAnCE
       primaryArtifact_const_iterator begin_primaryArtifact () const;
       primaryArtifact_const_iterator end_primaryArtifact () const;
       void add_primaryArtifact ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_primaryArtifact_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_primaryArtifact_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_primaryArtifact_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_primaryArtifact (void) const;
 
@@ -600,7 +600,7 @@ namespace DAnCE
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
       void add_configProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_configProperty_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_configProperty (void) const;
 
@@ -616,7 +616,7 @@ namespace DAnCE
       capability_const_iterator begin_capability () const;
       capability_const_iterator end_capability () const;
       void add_capability ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_capability_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_capability_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_capability_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_capability (void) const;
 
@@ -632,7 +632,7 @@ namespace DAnCE
       dependsOn_const_iterator begin_dependsOn () const;
       dependsOn_const_iterator end_dependsOn () const;
       void add_dependsOn ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_dependsOn_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_dependsOn (void) const;
 
@@ -648,7 +648,7 @@ namespace DAnCE
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_infoProperty (void) const;
 
@@ -739,7 +739,7 @@ namespace DAnCE
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
       void add_configProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_configProperty_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_configProperty (void) const;
 
@@ -755,7 +755,7 @@ namespace DAnCE
       capability_const_iterator begin_capability () const;
       capability_const_iterator end_capability () const;
       void add_capability ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_capability_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_capability_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_capability_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_capability (void) const;
 
@@ -771,7 +771,7 @@ namespace DAnCE
       dependsOn_const_iterator begin_dependsOn () const;
       dependsOn_const_iterator end_dependsOn () const;
       void add_dependsOn ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_dependsOn_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_dependsOn (void) const;
 
@@ -787,7 +787,7 @@ namespace DAnCE
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_infoProperty (void) const;
 

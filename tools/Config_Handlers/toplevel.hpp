@@ -54,7 +54,7 @@ namespace DAnCE
       package_const_iterator begin_package () const;
       package_const_iterator end_package () const;
       void add_package ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_package_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_package_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_package_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_package (void) const;
 

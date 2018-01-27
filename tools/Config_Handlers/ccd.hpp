@@ -81,7 +81,7 @@ namespace DAnCE
       supportedType_const_iterator begin_supportedType () const;
       supportedType_const_iterator end_supportedType () const;
       void add_supportedType ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_supportedType_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_supportedType_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_supportedType_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_supportedType (void) const;
 
@@ -97,7 +97,7 @@ namespace DAnCE
       idlFile_const_iterator begin_idlFile () const;
       idlFile_const_iterator end_idlFile () const;
       void add_idlFile ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_idlFile_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_idlFile_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_idlFile_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_idlFile (void) const;
 
@@ -113,7 +113,7 @@ namespace DAnCE
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
       void add_configProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_configProperty_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_configProperty (void) const;
 
@@ -129,7 +129,7 @@ namespace DAnCE
       port_const_iterator begin_port () const;
       port_const_iterator end_port () const;
       void add_port ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPortDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_port_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_port_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_port_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_port (void) const;
 
@@ -145,7 +145,7 @@ namespace DAnCE
       property_const_iterator begin_property () const;
       property_const_iterator end_property () const;
       void add_property ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPropertyDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_property_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_property_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_property_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_property (void) const;
 
@@ -161,7 +161,7 @@ namespace DAnCE
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref);
+      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_infoProperty (void) const;
 
