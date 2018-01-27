@@ -225,7 +225,7 @@ namespace DAnCE
     }
 
     void ImplementationArtifactDescription::
-    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
     {
       location_.push_back (e);
     }
@@ -262,7 +262,7 @@ namespace DAnCE
     }
 
     void ImplementationArtifactDescription::
-    add_dependsOn (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex >  const& e)
+    add_dependsOn (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex>  const& e)
     {
       dependsOn_.push_back (e);
     }
@@ -299,7 +299,7 @@ namespace DAnCE
     }
 
     void ImplementationArtifactDescription::
-    add_execParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_execParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
     {
       execParameter_.push_back (e);
     }
@@ -336,7 +336,7 @@ namespace DAnCE
     }
 
     void ImplementationArtifactDescription::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
     {
       infoProperty_.push_back (e);
     }
@@ -373,7 +373,7 @@ namespace DAnCE
     }
 
     void ImplementationArtifactDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  const& e)
+    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -512,31 +512,31 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("location"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_location (t);
         }
 
         else if (n == ACE_TEXT("dependsOn"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::NamedImplementationArtifact (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::NamedImplementationArtifact (e));
           add_dependsOn (t);
         }
 
         else if (n == ACE_TEXT("execParameter"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_execParameter (t);
         }
 
         else if (n == ACE_TEXT("infoProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_infoProperty (t);
         }
 
         else if (n == ACE_TEXT("deployRequirement"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Requirement (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Requirement (e));
           add_deployRequirement (t);
         }
 

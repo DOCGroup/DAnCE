@@ -16,7 +16,7 @@ namespace DAnCE
   {
     // Domain
 
-    Domain::Domain (std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& node__) :
+    Domain::Domain (std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex> > const& node__) :
     ::XSCRT::Type (),
     node_ (node__),
     regulator__ ()
@@ -150,7 +150,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_node (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex >  const& e)
+    add_node (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex>  const& e)
     {
       node_.push_back (e);
     }
@@ -187,7 +187,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_interconnect (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex >  const& e)
+    add_interconnect (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  const& e)
     {
       interconnect_.push_back (e);
     }
@@ -224,7 +224,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_bridge (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex >  const& e)
+    add_bridge (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex>  const& e)
     {
       bridge_.push_back (e);
     }
@@ -261,7 +261,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_sharedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex >  const& e)
+    add_sharedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex>  const& e)
     {
       sharedResource_.push_back (e);
     }
@@ -298,7 +298,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
     {
       infoProperty_.push_back (e);
     }
@@ -313,7 +313,7 @@ namespace DAnCE
     // Bridge
 
     Bridge::Bridge (::XMLSchema::string<ACE_TCHAR> const& name__,
-                    std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex > > const& connect__) :
+                    std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex> > const& connect__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     connect_ (connect__),
@@ -422,7 +422,7 @@ namespace DAnCE
     }
 
     void Bridge::
-    add_connect (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex >  const& e)
+    add_connect (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  const& e)
     {
       connect_.push_back (e);
     }
@@ -459,7 +459,7 @@ namespace DAnCE
     }
 
     void Bridge::
-    add_resource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex >  const& e)
+    add_resource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  const& e)
     {
       resource_.push_back (e);
     }
@@ -474,7 +474,7 @@ namespace DAnCE
     // Interconnect
 
     Interconnect::Interconnect (::XMLSchema::string<ACE_TCHAR> const& name__,
-                                std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& connect__) :
+                                std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex> > const& connect__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     connect_ (connect__),
@@ -586,7 +586,7 @@ namespace DAnCE
     }
 
     void Interconnect::
-    add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex >  const& e)
+    add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex>  const& e)
     {
       connection_.push_back (e);
     }
@@ -623,7 +623,7 @@ namespace DAnCE
     }
 
     void Interconnect::
-    add_connect (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex >  const& e)
+    add_connect (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex>  const& e)
     {
       connect_.push_back (e);
     }
@@ -660,7 +660,7 @@ namespace DAnCE
     }
 
     void Interconnect::
-    add_resource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex >  const& e)
+    add_resource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  const& e)
     {
       resource_.push_back (e);
     }
@@ -785,7 +785,7 @@ namespace DAnCE
     }
 
     void Node::
-    add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex >  const& e)
+    add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  const& e)
     {
       connection_.push_back (e);
     }
@@ -822,7 +822,7 @@ namespace DAnCE
     }
 
     void Node::
-    add_sharedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex >  const& e)
+    add_sharedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex>  const& e)
     {
       sharedResource_.push_back (e);
     }
@@ -859,7 +859,7 @@ namespace DAnCE
     }
 
     void Node::
-    add_resource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex >  const& e)
+    add_resource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  const& e)
     {
       resource_.push_back (e);
     }
@@ -1008,31 +1008,31 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("node"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Node (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Node (e));
           add_node (t);
         }
 
         else if (n == ACE_TEXT("interconnect"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Interconnect (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Interconnect (e));
           add_interconnect (t);
         }
 
         else if (n == ACE_TEXT("bridge"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Bridge (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Bridge (e));
           add_bridge (t);
         }
 
         else if (n == ACE_TEXT("sharedResource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::SharedResource (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::SharedResource (e));
           add_sharedResource (t);
         }
 
         else if (n == ACE_TEXT("infoProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_infoProperty (t);
         }
 
@@ -1070,13 +1070,13 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("connect"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Interconnect (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Interconnect (e));
           add_connect (t);
         }
 
         else if (n == ACE_TEXT("resource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Resource (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Resource (e));
           add_resource (t);
         }
 
@@ -1114,19 +1114,19 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("connection"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Bridge (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Bridge (e));
           add_connection (t);
         }
 
         else if (n == ACE_TEXT("connect"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Node (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Node (e));
           add_connect (t);
         }
 
         else if (n == ACE_TEXT("resource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Resource (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Resource (e));
           add_resource (t);
         }
 
@@ -1164,19 +1164,19 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("connection"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Interconnect (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Interconnect (e));
           add_connection (t);
         }
 
         else if (n == ACE_TEXT("sharedResource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::SharedResource (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::SharedResource (e));
           add_sharedResource (t);
         }
 
         else if (n == ACE_TEXT("resource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Resource (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Resource (e));
           add_resource (t);
         }
 

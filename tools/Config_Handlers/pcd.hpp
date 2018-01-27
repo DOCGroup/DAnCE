@@ -46,23 +46,24 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPackageImport, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPackageImport, ACE_Null_Mutex> _ptr;
 
       // location
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::iterator location_iterator;
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > >::const_iterator location_const_iterator;
+      typedef std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> > location_type;
+      typedef location_type::iterator location_iterator;
+      typedef location_type::const_iterator location_const_iterator;
       location_iterator begin_location ();
       location_iterator end_location ();
       location_const_iterator begin_location () const;
       location_const_iterator end_location () const;
-      void add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
+      void add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> const&);
       XSCRT::Type* get_location_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_location_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_location () const;
 
       protected:
-      std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > location_;
+      location_type location_;
 
       public:
       ComponentPackageImport ();
@@ -82,7 +83,7 @@ namespace DAnCE
       typedef ::XSCRT::Type Base;
 
       public:
-      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex > _ptr;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex> _ptr;
 
       // label
       public:
@@ -140,35 +141,37 @@ namespace DAnCE
 
       // selectRequirement
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > >::iterator selectRequirement_iterator;
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > >::const_iterator selectRequirement_const_iterator;
+      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> > selectRequirement_type;
+      typedef selectRequirement_type::iterator selectRequirement_iterator;
+      typedef selectRequirement_type::const_iterator selectRequirement_const_iterator;
       selectRequirement_iterator begin_selectRequirement ();
       selectRequirement_iterator end_selectRequirement ();
       selectRequirement_const_iterator begin_selectRequirement () const;
       selectRequirement_const_iterator end_selectRequirement () const;
-      void add_selectRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > const& );
+      void add_selectRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> const&);
       XSCRT::Type* get_selectRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_selectRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_selectRequirement () const;
 
       protected:
-      std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > > selectRequirement_;
+      selectRequirement_type selectRequirement_;
 
       // configProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::iterator configProperty_iterator;
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > >::const_iterator configProperty_const_iterator;
+      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > configProperty_type;
+      typedef configProperty_type::iterator configProperty_iterator;
+      typedef configProperty_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
       configProperty_iterator end_configProperty ();
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
-      void add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
+      void add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
       XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_configProperty () const;
 
       protected:
-      std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > > configProperty_;
+      configProperty_type configProperty_;
 
       // contentLocation
       public:

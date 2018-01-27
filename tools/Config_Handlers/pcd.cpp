@@ -67,7 +67,7 @@ namespace DAnCE
     }
 
     void ComponentPackageImport::
-    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
     {
       location_.push_back (e);
     }
@@ -352,7 +352,7 @@ namespace DAnCE
     }
 
     void PackageConfiguration::
-    add_selectRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  const& e)
+    add_selectRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  const& e)
     {
       selectRequirement_.push_back (e);
     }
@@ -389,7 +389,7 @@ namespace DAnCE
     }
 
     void PackageConfiguration::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
     {
       configProperty_.push_back (e);
     }
@@ -450,7 +450,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("location"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_location (t);
         }
 
@@ -512,13 +512,13 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("selectRequirement"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Requirement (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Requirement (e));
           add_selectRequirement (t);
         }
 
         else if (n == ACE_TEXT("configProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_configProperty (t);
         }
 

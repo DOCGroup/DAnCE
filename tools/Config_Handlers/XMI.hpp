@@ -36,7 +36,7 @@ namespace XMI
     typedef ::XSCRT::Type Base;
 
     public:
-    typedef ACE_Refcounted_Auto_Ptr < ::XMI::Extension, ACE_Null_Mutex > _ptr;
+    typedef ACE_Refcounted_Auto_Ptr < ::XMI::Extension, ACE_Null_Mutex> _ptr;
 
     // id
     public:
