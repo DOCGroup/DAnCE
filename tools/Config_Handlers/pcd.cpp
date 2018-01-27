@@ -437,16 +437,16 @@ namespace DAnCE
     // ComponentPackageImport
 
     ComponentPackageImport::
-    ComponentPackageImport (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("location"))
         {
@@ -463,16 +463,16 @@ namespace DAnCE
     // PackageConfiguration
 
     PackageConfiguration::
-    PackageConfiguration (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -1107,7 +1107,7 @@ namespace DAnCE
     {
       // ComponentPackageImport
       ComponentPackageImport::
-      ComponentPackageImport (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -1126,7 +1126,7 @@ namespace DAnCE
       void ComponentPackageImport::
       location_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("location"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("location"), top_ ()));
       }
 
       void ComponentPackageImport::
@@ -1144,7 +1144,7 @@ namespace DAnCE
 
       // PackageConfiguration
       PackageConfiguration::
-      PackageConfiguration (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -1163,7 +1163,7 @@ namespace DAnCE
       void PackageConfiguration::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::PackageConfiguration::label (o);
         pop_ ();
       }
@@ -1171,7 +1171,7 @@ namespace DAnCE
       void PackageConfiguration::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("UUID"), top_ ()));
         Traversal::PackageConfiguration::UUID (o);
         pop_ ();
       }
@@ -1179,7 +1179,7 @@ namespace DAnCE
       void PackageConfiguration::
       basePackage (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("basePackage"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("basePackage"), top_ ()));
         Traversal::PackageConfiguration::basePackage (o);
         pop_ ();
       }
@@ -1187,7 +1187,7 @@ namespace DAnCE
       void PackageConfiguration::
       specializedConfig (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("specializedConfig"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("specializedConfig"), top_ ()));
         Traversal::PackageConfiguration::specializedConfig (o);
         pop_ ();
       }
@@ -1195,7 +1195,7 @@ namespace DAnCE
       void PackageConfiguration::
       importedPackage (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("importedPackage"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("importedPackage"), top_ ()));
         Traversal::PackageConfiguration::importedPackage (o);
         pop_ ();
       }
@@ -1203,7 +1203,7 @@ namespace DAnCE
       void PackageConfiguration::
       referencedPackage (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("referencedPackage"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("referencedPackage"), top_ ()));
         Traversal::PackageConfiguration::referencedPackage (o);
         pop_ ();
       }
@@ -1211,7 +1211,7 @@ namespace DAnCE
       void PackageConfiguration::
       selectRequirement_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("selectRequirement"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("selectRequirement"), top_ ()));
       }
 
       void PackageConfiguration::
@@ -1230,7 +1230,7 @@ namespace DAnCE
       void PackageConfiguration::
       configProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("configProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("configProperty"), top_ ()));
       }
 
       void PackageConfiguration::
@@ -1249,7 +1249,7 @@ namespace DAnCE
       void PackageConfiguration::
       contentLocation (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("contentLocation"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("contentLocation"), top_ ()));
         Traversal::PackageConfiguration::contentLocation (o);
         pop_ ();
       }

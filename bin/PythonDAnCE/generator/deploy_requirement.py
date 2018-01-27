@@ -9,4 +9,4 @@ def template (requirement_name, requirement_type) :
       <resourceType>${requirement_type}</resourceType>
     </deployRequirement>
     """
-    
+

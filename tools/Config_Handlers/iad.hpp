@@ -66,7 +66,7 @@ namespace DAnCE
       NamedImplementationArtifact (::XMLSchema::string<ACE_TCHAR> const& name__,
                                    ::DAnCE::Config_Handlers::ImplementationArtifactDescription const& referencedArtifact__);
 
-      NamedImplementationArtifact (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR> const&);
       NamedImplementationArtifact (NamedImplementationArtifact const& s);
 
       NamedImplementationArtifact& operator= (NamedImplementationArtifact const& s);
@@ -110,8 +110,8 @@ namespace DAnCE
       location_const_iterator begin_location () const;
       location_const_iterator end_location () const;
       void add_location ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_location_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_location_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_location_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_location_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_location (void) const;
 
       protected:
@@ -126,8 +126,8 @@ namespace DAnCE
       dependsOn_const_iterator begin_dependsOn () const;
       dependsOn_const_iterator end_dependsOn () const;
       void add_dependsOn ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_dependsOn_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_dependsOn_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_dependsOn (void) const;
 
       protected:
@@ -142,8 +142,8 @@ namespace DAnCE
       execParameter_const_iterator begin_execParameter () const;
       execParameter_const_iterator end_execParameter () const;
       void add_execParameter ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_execParameter_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_execParameter_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_execParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_execParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_execParameter (void) const;
 
       protected:
@@ -158,8 +158,8 @@ namespace DAnCE
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_infoProperty (void) const;
 
       protected:
@@ -174,8 +174,8 @@ namespace DAnCE
       deployRequirement_const_iterator begin_deployRequirement () const;
       deployRequirement_const_iterator end_deployRequirement () const;
       void add_deployRequirement ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_deployRequirement_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_deployRequirement (void) const;
 
       protected:
@@ -203,7 +203,7 @@ namespace DAnCE
       public:
       ImplementationArtifactDescription ();
 
-      ImplementationArtifactDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ImplementationArtifactDescription (ImplementationArtifactDescription const& s);
 
       ImplementationArtifactDescription& operator= (ImplementationArtifactDescription const& s);
@@ -496,7 +496,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::NamedImplementationArtifact Type;
-        NamedImplementationArtifact (::XSCRT::XML::Element< ACE_TCHAR >&);
+        NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -533,7 +533,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ImplementationArtifactDescription Type;
-        ImplementationArtifactDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

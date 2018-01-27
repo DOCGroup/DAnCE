@@ -87,16 +87,16 @@ namespace DAnCE
     // TopLevelPackageDescription
 
     TopLevelPackageDescription::
-    TopLevelPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("package"))
         {
@@ -283,7 +283,7 @@ namespace DAnCE
     {
       // TopLevelPackageDescription
       TopLevelPackageDescription::
-      TopLevelPackageDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -302,7 +302,7 @@ namespace DAnCE
       void TopLevelPackageDescription::
       package_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("package"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("package"), top_ ()));
       }
 
       void TopLevelPackageDescription::

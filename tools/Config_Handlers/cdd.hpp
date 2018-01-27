@@ -76,8 +76,8 @@ namespace DAnCE
       node_const_iterator begin_node () const;
       node_const_iterator end_node () const;
       void add_node ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_node_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_node_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_node_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_node_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_node (void) const;
 
       protected:
@@ -92,8 +92,8 @@ namespace DAnCE
       interconnect_const_iterator begin_interconnect () const;
       interconnect_const_iterator end_interconnect () const;
       void add_interconnect ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_interconnect_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_interconnect_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_interconnect_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_interconnect_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_interconnect (void) const;
 
       protected:
@@ -108,8 +108,8 @@ namespace DAnCE
       bridge_const_iterator begin_bridge () const;
       bridge_const_iterator end_bridge () const;
       void add_bridge ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_bridge_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_bridge_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_bridge_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_bridge_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_bridge (void) const;
 
       protected:
@@ -124,8 +124,8 @@ namespace DAnCE
       sharedResource_const_iterator begin_sharedResource () const;
       sharedResource_const_iterator end_sharedResource () const;
       void add_sharedResource ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_sharedResource_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_sharedResource_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_sharedResource_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_sharedResource_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_sharedResource (void) const;
 
       protected:
@@ -140,8 +140,8 @@ namespace DAnCE
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_infoProperty (void) const;
 
       protected:
@@ -150,7 +150,7 @@ namespace DAnCE
       public:
       Domain (std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& node__);
 
-      Domain (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit Domain (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Domain (Domain const& s);
 
       Domain& operator= (Domain const& s);
@@ -193,8 +193,8 @@ namespace DAnCE
       connect_const_iterator begin_connect () const;
       connect_const_iterator end_connect () const;
       void add_connect ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_connect_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_connect_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_connect_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_connect_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_connect (void) const;
 
       protected:
@@ -209,8 +209,8 @@ namespace DAnCE
       resource_const_iterator begin_resource () const;
       resource_const_iterator end_resource () const;
       void add_resource ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_resource_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_resource_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_resource_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_resource_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_resource (void) const;
 
       protected:
@@ -220,7 +220,7 @@ namespace DAnCE
       Bridge (::XMLSchema::string<ACE_TCHAR> const& name__,
               std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex > > const& connect__);
 
-      Bridge (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit Bridge (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Bridge (Bridge const& s);
 
       Bridge& operator= (Bridge const& s);
@@ -263,8 +263,8 @@ namespace DAnCE
       connection_const_iterator begin_connection () const;
       connection_const_iterator end_connection () const;
       void add_connection ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_connection_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_connection_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_connection_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_connection_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_connection (void) const;
 
       protected:
@@ -279,8 +279,8 @@ namespace DAnCE
       connect_const_iterator begin_connect () const;
       connect_const_iterator end_connect () const;
       void add_connect ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_connect_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_connect_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_connect_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_connect_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_connect (void) const;
 
       protected:
@@ -295,8 +295,8 @@ namespace DAnCE
       resource_const_iterator begin_resource () const;
       resource_const_iterator end_resource () const;
       void add_resource ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_resource_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_resource_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_resource_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_resource_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_resource (void) const;
 
       protected:
@@ -306,7 +306,7 @@ namespace DAnCE
       Interconnect (::XMLSchema::string<ACE_TCHAR> const& name__,
                     std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& connect__);
 
-      Interconnect (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit Interconnect (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Interconnect (Interconnect const& s);
 
       Interconnect& operator= (Interconnect const& s);
@@ -349,8 +349,8 @@ namespace DAnCE
       connection_const_iterator begin_connection () const;
       connection_const_iterator end_connection () const;
       void add_connection ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_connection_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_connection_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_connection_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_connection_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_connection (void) const;
 
       protected:
@@ -365,8 +365,8 @@ namespace DAnCE
       sharedResource_const_iterator begin_sharedResource () const;
       sharedResource_const_iterator end_sharedResource () const;
       void add_sharedResource ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_sharedResource_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_sharedResource_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_sharedResource_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_sharedResource_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_sharedResource (void) const;
 
       protected:
@@ -381,8 +381,8 @@ namespace DAnCE
       resource_const_iterator begin_resource () const;
       resource_const_iterator end_resource () const;
       void add_resource ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_resource_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_resource_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_resource_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_resource_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_resource (void) const;
 
       protected:
@@ -391,7 +391,7 @@ namespace DAnCE
       public:
       Node (::XMLSchema::string<ACE_TCHAR> const& name__);
 
-      Node (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit Node (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Node (Node const& s);
 
       Node& operator= (Node const& s);
@@ -446,7 +446,7 @@ namespace DAnCE
                       ::DAnCE::Config_Handlers::Node const& node__,
                       ::DAnCE::Config_Handlers::SatisfierProperty const& property__);
 
-      SharedResource (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit SharedResource (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SharedResource (SharedResource const& s);
 
       SharedResource& operator= (SharedResource const& s);
@@ -1066,7 +1066,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::Domain Type;
-        Domain (::XSCRT::XML::Element< ACE_TCHAR >&);
+        Domain (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1238,7 +1238,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::Bridge Type;
-        Bridge (::XSCRT::XML::Element< ACE_TCHAR >&);
+        Bridge (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1329,7 +1329,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::Interconnect Type;
-        Interconnect (::XSCRT::XML::Element< ACE_TCHAR >&);
+        Interconnect (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1447,7 +1447,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::Node Type;
-        Node (::XSCRT::XML::Element< ACE_TCHAR >&);
+        Node (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1565,7 +1565,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::SharedResource Type;
-        SharedResource (::XSCRT::XML::Element< ACE_TCHAR >&);
+        SharedResource (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

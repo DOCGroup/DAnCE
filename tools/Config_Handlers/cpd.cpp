@@ -664,16 +664,16 @@ namespace DAnCE
     // PackagedComponentImplementation
 
     PackagedComponentImplementation::
-    PackagedComponentImplementation (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
@@ -696,16 +696,16 @@ namespace DAnCE
     // ComponentPackageDescription
 
     ComponentPackageDescription::
-    ComponentPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -750,8 +750,8 @@ namespace DAnCE
 
       while (p.more_attributes ())
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (p.next_attribute ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
           ::XMLSchema::string<ACE_TCHAR> t (a);
@@ -767,16 +767,16 @@ namespace DAnCE
     // ConnectorPackageDescription
 
     ConnectorPackageDescription::
-    ConnectorPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -821,8 +821,8 @@ namespace DAnCE
 
       while (p.more_attributes ())
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (p.next_attribute ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
           ::XMLSchema::string<ACE_TCHAR> t (a);
@@ -1764,7 +1764,7 @@ namespace DAnCE
     {
       // PackagedComponentImplementation
       PackagedComponentImplementation::
-      PackagedComponentImplementation (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -1783,7 +1783,7 @@ namespace DAnCE
       void PackagedComponentImplementation::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("name"), top_ ()));
         Traversal::PackagedComponentImplementation::name (o);
         pop_ ();
       }
@@ -1791,14 +1791,14 @@ namespace DAnCE
       void PackagedComponentImplementation::
       referencedImplementation (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("referencedImplementation"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("referencedImplementation"), top_ ()));
         Traversal::PackagedComponentImplementation::referencedImplementation (o);
         pop_ ();
       }
 
       // ComponentPackageDescription
       ComponentPackageDescription::
-      ComponentPackageDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -1817,7 +1817,7 @@ namespace DAnCE
       void ComponentPackageDescription::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::ComponentPackageDescription::label (o);
         pop_ ();
       }
@@ -1825,7 +1825,7 @@ namespace DAnCE
       void ComponentPackageDescription::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("UUID"), top_ ()));
         Traversal::ComponentPackageDescription::UUID (o);
         pop_ ();
       }
@@ -1833,7 +1833,7 @@ namespace DAnCE
       void ComponentPackageDescription::
       realizes (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("realizes"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("realizes"), top_ ()));
         Traversal::ComponentPackageDescription::realizes (o);
         pop_ ();
       }
@@ -1841,7 +1841,7 @@ namespace DAnCE
       void ComponentPackageDescription::
       configProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("configProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("configProperty"), top_ ()));
       }
 
       void ComponentPackageDescription::
@@ -1860,7 +1860,7 @@ namespace DAnCE
       void ComponentPackageDescription::
       implementation_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("implementation"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("implementation"), top_ ()));
       }
 
       void ComponentPackageDescription::
@@ -1879,7 +1879,7 @@ namespace DAnCE
       void ComponentPackageDescription::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void ComponentPackageDescription::
@@ -1898,7 +1898,7 @@ namespace DAnCE
       void ComponentPackageDescription::
       href (Type const& o)
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
         attr_ (&a);
         Traversal::ComponentPackageDescription::href (o);
         attr_ (0);
@@ -1906,7 +1906,7 @@ namespace DAnCE
 
       // ConnectorPackageDescription
       ConnectorPackageDescription::
-      ConnectorPackageDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -1925,7 +1925,7 @@ namespace DAnCE
       void ConnectorPackageDescription::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::ConnectorPackageDescription::label (o);
         pop_ ();
       }
@@ -1933,7 +1933,7 @@ namespace DAnCE
       void ConnectorPackageDescription::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("UUID"), top_ ()));
         Traversal::ConnectorPackageDescription::UUID (o);
         pop_ ();
       }
@@ -1941,7 +1941,7 @@ namespace DAnCE
       void ConnectorPackageDescription::
       realizes (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("realizes"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("realizes"), top_ ()));
         Traversal::ConnectorPackageDescription::realizes (o);
         pop_ ();
       }
@@ -1949,7 +1949,7 @@ namespace DAnCE
       void ConnectorPackageDescription::
       configProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("configProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("configProperty"), top_ ()));
       }
 
       void ConnectorPackageDescription::
@@ -1968,7 +1968,7 @@ namespace DAnCE
       void ConnectorPackageDescription::
       implementation_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("implementation"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("implementation"), top_ ()));
       }
 
       void ConnectorPackageDescription::
@@ -1987,7 +1987,7 @@ namespace DAnCE
       void ConnectorPackageDescription::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void ConnectorPackageDescription::
@@ -2006,7 +2006,7 @@ namespace DAnCE
       void ConnectorPackageDescription::
       href (Type const& o)
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
         attr_ (&a);
         Traversal::ConnectorPackageDescription::href (o);
         attr_ (0);

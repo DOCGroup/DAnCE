@@ -983,16 +983,16 @@ namespace DAnCE
     // Domain
 
     Domain::
-    Domain (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    Domain (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("UUID"))
         {
@@ -1045,16 +1045,16 @@ namespace DAnCE
     // Bridge
 
     Bridge::
-    Bridge (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    Bridge (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
@@ -1089,16 +1089,16 @@ namespace DAnCE
     // Interconnect
 
     Interconnect::
-    Interconnect (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    Interconnect (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
@@ -1139,16 +1139,16 @@ namespace DAnCE
     // Node
 
     Node::
-    Node (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    Node (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
@@ -1189,16 +1189,16 @@ namespace DAnCE
     // SharedResource
 
     SharedResource::
-    SharedResource (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    SharedResource (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
@@ -2797,7 +2797,7 @@ namespace DAnCE
     {
       // Domain
       Domain::
-      Domain (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      Domain (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -2816,7 +2816,7 @@ namespace DAnCE
       void Domain::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("UUID"), top_ ()));
         Traversal::Domain::UUID (o);
         pop_ ();
       }
@@ -2824,7 +2824,7 @@ namespace DAnCE
       void Domain::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::Domain::label (o);
         pop_ ();
       }
@@ -2832,7 +2832,7 @@ namespace DAnCE
       void Domain::
       node_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("node"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("node"), top_ ()));
       }
 
       void Domain::
@@ -2851,7 +2851,7 @@ namespace DAnCE
       void Domain::
       interconnect_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("interconnect"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("interconnect"), top_ ()));
       }
 
       void Domain::
@@ -2870,7 +2870,7 @@ namespace DAnCE
       void Domain::
       bridge_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("bridge"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("bridge"), top_ ()));
       }
 
       void Domain::
@@ -2889,7 +2889,7 @@ namespace DAnCE
       void Domain::
       sharedResource_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("sharedResource"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("sharedResource"), top_ ()));
       }
 
       void Domain::
@@ -2908,7 +2908,7 @@ namespace DAnCE
       void Domain::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void Domain::
@@ -2926,7 +2926,7 @@ namespace DAnCE
 
       // Bridge
       Bridge::
-      Bridge (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      Bridge (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -2945,7 +2945,7 @@ namespace DAnCE
       void Bridge::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("name"), top_ ()));
         Traversal::Bridge::name (o);
         pop_ ();
       }
@@ -2953,7 +2953,7 @@ namespace DAnCE
       void Bridge::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::Bridge::label (o);
         pop_ ();
       }
@@ -2961,7 +2961,7 @@ namespace DAnCE
       void Bridge::
       connect_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("connect"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("connect"), top_ ()));
       }
 
       void Bridge::
@@ -2980,7 +2980,7 @@ namespace DAnCE
       void Bridge::
       resource_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("resource"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("resource"), top_ ()));
       }
 
       void Bridge::
@@ -2998,7 +2998,7 @@ namespace DAnCE
 
       // Interconnect
       Interconnect::
-      Interconnect (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      Interconnect (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -3017,7 +3017,7 @@ namespace DAnCE
       void Interconnect::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("name"), top_ ()));
         Traversal::Interconnect::name (o);
         pop_ ();
       }
@@ -3025,7 +3025,7 @@ namespace DAnCE
       void Interconnect::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::Interconnect::label (o);
         pop_ ();
       }
@@ -3033,7 +3033,7 @@ namespace DAnCE
       void Interconnect::
       connection_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("connection"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("connection"), top_ ()));
       }
 
       void Interconnect::
@@ -3052,7 +3052,7 @@ namespace DAnCE
       void Interconnect::
       connect_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("connect"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("connect"), top_ ()));
       }
 
       void Interconnect::
@@ -3071,7 +3071,7 @@ namespace DAnCE
       void Interconnect::
       resource_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("resource"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("resource"), top_ ()));
       }
 
       void Interconnect::
@@ -3089,7 +3089,7 @@ namespace DAnCE
 
       // Node
       Node::
-      Node (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      Node (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -3108,7 +3108,7 @@ namespace DAnCE
       void Node::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("name"), top_ ()));
         Traversal::Node::name (o);
         pop_ ();
       }
@@ -3116,7 +3116,7 @@ namespace DAnCE
       void Node::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::Node::label (o);
         pop_ ();
       }
@@ -3124,7 +3124,7 @@ namespace DAnCE
       void Node::
       connection_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("connection"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("connection"), top_ ()));
       }
 
       void Node::
@@ -3143,7 +3143,7 @@ namespace DAnCE
       void Node::
       sharedResource_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("sharedResource"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("sharedResource"), top_ ()));
       }
 
       void Node::
@@ -3162,7 +3162,7 @@ namespace DAnCE
       void Node::
       resource_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("resource"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("resource"), top_ ()));
       }
 
       void Node::
@@ -3180,7 +3180,7 @@ namespace DAnCE
 
       // SharedResource
       SharedResource::
-      SharedResource (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      SharedResource (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -3199,7 +3199,7 @@ namespace DAnCE
       void SharedResource::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("name"), top_ ()));
         Traversal::SharedResource::name (o);
         pop_ ();
       }
@@ -3207,7 +3207,7 @@ namespace DAnCE
       void SharedResource::
       resourceType (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("resourceType"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("resourceType"), top_ ()));
         Traversal::SharedResource::resourceType (o);
         pop_ ();
       }
@@ -3215,7 +3215,7 @@ namespace DAnCE
       void SharedResource::
       node (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("node"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("node"), top_ ()));
         Traversal::SharedResource::node (o);
         pop_ ();
       }
@@ -3223,7 +3223,7 @@ namespace DAnCE
       void SharedResource::
       property (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("property"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("property"), top_ ()));
         Traversal::SharedResource::property (o);
         pop_ ();
       }

@@ -67,7 +67,7 @@ namespace DAnCE
       PackagedComponentImplementation (::XMLSchema::string<ACE_TCHAR> const& name__,
                                        ::DAnCE::Config_Handlers::ComponentImplementationDescription const& referencedImplementation__);
 
-      PackagedComponentImplementation (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PackagedComponentImplementation (PackagedComponentImplementation const& s);
 
       PackagedComponentImplementation& operator= (PackagedComponentImplementation const& s);
@@ -120,8 +120,8 @@ namespace DAnCE
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
       void add_configProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_configProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_configProperty_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_configProperty (void) const;
 
       protected:
@@ -136,8 +136,8 @@ namespace DAnCE
       implementation_const_iterator begin_implementation () const;
       implementation_const_iterator end_implementation () const;
       void add_implementation ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_implementation_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_implementation_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_implementation_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_implementation_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_implementation (void) const;
 
       protected:
@@ -152,8 +152,8 @@ namespace DAnCE
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_infoProperty (void) const;
 
       protected:
@@ -172,7 +172,7 @@ namespace DAnCE
       public:
       ComponentPackageDescription ();
 
-      ComponentPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPackageDescription (ComponentPackageDescription const& s);
 
       ComponentPackageDescription& operator= (ComponentPackageDescription const& s);
@@ -225,8 +225,8 @@ namespace DAnCE
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
       void add_configProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_configProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_configProperty_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_configProperty (void) const;
 
       protected:
@@ -241,8 +241,8 @@ namespace DAnCE
       implementation_const_iterator begin_implementation () const;
       implementation_const_iterator end_implementation () const;
       void add_implementation ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_implementation_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_implementation_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_implementation_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_implementation_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_implementation (void) const;
 
       protected:
@@ -257,8 +257,8 @@ namespace DAnCE
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
       void add_infoProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_infoProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_infoProperty_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_infoProperty (void) const;
 
       protected:
@@ -277,7 +277,7 @@ namespace DAnCE
       public:
       ConnectorPackageDescription ();
 
-      ConnectorPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ConnectorPackageDescription (ConnectorPackageDescription const& s);
 
       ConnectorPackageDescription& operator= (ConnectorPackageDescription const& s);
@@ -669,7 +669,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::PackagedComponentImplementation Type;
-        PackagedComponentImplementation (::XSCRT::XML::Element< ACE_TCHAR >&);
+        PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -706,7 +706,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ComponentPackageDescription Type;
-        ComponentPackageDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -842,7 +842,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ConnectorPackageDescription Type;
-        ConnectorPackageDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

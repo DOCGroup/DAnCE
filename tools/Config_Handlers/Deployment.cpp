@@ -44,7 +44,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () == ACE_TEXT("domain"))
         {
           ::DAnCE::Config_Handlers::Domain r (e);
@@ -77,7 +77,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () == ACE_TEXT("DeploymentPlan"))
         {
           ::DAnCE::Config_Handlers::deploymentPlan r (e);
@@ -110,7 +110,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () == ACE_TEXT("implementationArtifactDescription"))
         {
           ::DAnCE::Config_Handlers::ImplementationArtifactDescription r (e);
@@ -143,7 +143,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () == ACE_TEXT("componentInterfaceDescription"))
         {
           ::DAnCE::Config_Handlers::ComponentInterfaceDescription r (e);
@@ -176,7 +176,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () == ACE_TEXT("componentImplementationDescription"))
         {
           ::DAnCE::Config_Handlers::ComponentImplementationDescription r (e);
@@ -209,7 +209,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () == ACE_TEXT("componentPackageDescription"))
         {
           ::DAnCE::Config_Handlers::ComponentPackageDescription r (e);
@@ -242,7 +242,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () == ACE_TEXT("packageConfiguration"))
         {
           ::DAnCE::Config_Handlers::PackageConfiguration r (e);
@@ -275,7 +275,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () == ACE_TEXT("topLevelPackageDescription"))
         {
           ::DAnCE::Config_Handlers::TopLevelPackageDescription r (e);
@@ -342,7 +342,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () != ACE_TEXT ("domain"))
         {
           throw 1;
@@ -385,7 +385,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::Property,
         virtual ::XSCRT::Writer< ACE_TCHAR >
         {
-          W (::XSCRT::XML::Element< ACE_TCHAR >& e)
+          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer< ACE_TCHAR > (e)
           {
           }
@@ -407,7 +407,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () != ACE_TEXT ("DeploymentPlan"))
         {
           throw 1;
@@ -466,7 +466,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::PlanLocalityKind,
         virtual ::XSCRT::Writer< ACE_TCHAR >
         {
-          W (::XSCRT::XML::Element< ACE_TCHAR >& e)
+          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer< ACE_TCHAR > (e)
           {
           }
@@ -488,7 +488,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () != ACE_TEXT ("implementationArtifactDescription"))
         {
           throw 1;
@@ -526,7 +526,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::Requirement,
         virtual ::XSCRT::Writer< ACE_TCHAR >
         {
-          W (::XSCRT::XML::Element< ACE_TCHAR >& e)
+          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer< ACE_TCHAR > (e)
           {
           }
@@ -548,7 +548,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () != ACE_TEXT ("componentInterfaceDescription"))
         {
           throw 1;
@@ -587,7 +587,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ComponentPropertyDescription,
         virtual ::XSCRT::Writer< ACE_TCHAR >
         {
-          W (::XSCRT::XML::Element< ACE_TCHAR >& e)
+          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer< ACE_TCHAR > (e)
           {
           }
@@ -609,7 +609,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () != ACE_TEXT ("componentImplementationDescription"))
         {
           throw 1;
@@ -676,7 +676,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
         virtual ::XSCRT::Writer< ACE_TCHAR >
         {
-          W (::XSCRT::XML::Element< ACE_TCHAR >& e)
+          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer< ACE_TCHAR > (e)
           {
           }
@@ -698,7 +698,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () != ACE_TEXT ("componentPackageDescription"))
         {
           throw 1;
@@ -765,7 +765,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
         virtual ::XSCRT::Writer< ACE_TCHAR >
         {
-          W (::XSCRT::XML::Element< ACE_TCHAR >& e)
+          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer< ACE_TCHAR > (e)
           {
           }
@@ -787,7 +787,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () != ACE_TEXT ("packageConfiguration"))
         {
           throw 1;
@@ -854,7 +854,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
         virtual ::XSCRT::Writer< ACE_TCHAR >
         {
-          W (::XSCRT::XML::Element< ACE_TCHAR >& e)
+          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer< ACE_TCHAR > (e)
           {
           }
@@ -876,7 +876,7 @@ namespace DAnCE
           throw 1;
         }
 
-        ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+        ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
         if (e.name () != ACE_TEXT ("topLevelPackageDescription"))
         {
           throw 1;
@@ -944,7 +944,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
         virtual ::XSCRT::Writer< ACE_TCHAR >
         {
-          W (::XSCRT::XML::Element< ACE_TCHAR >& e)
+          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer< ACE_TCHAR > (e)
           {
           }

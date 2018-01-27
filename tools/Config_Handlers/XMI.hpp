@@ -86,7 +86,7 @@ namespace XMI
     void idref (::XMLSchema::IDREF<ACE_TCHAR> const& );
     ::XSCRT::Type* get_idref_ptr ();
 
-    void set_idref_ptr (std::basic_string<ACE_TCHAR> idref );
+    void set_idref_ptr (const std::basic_string<ACE_TCHAR>& idref);
 
     protected:
     std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_;
@@ -124,7 +124,7 @@ namespace XMI
     public:
     Extension ();
 
-    Extension (::XSCRT::XML::Element< ACE_TCHAR > const&);
+    explicit Extension (::XSCRT::XML::Element<ACE_TCHAR> const&);
     Extension (Extension const& s);
 
     Extension& operator= (Extension const& s);
@@ -279,7 +279,7 @@ namespace XMI
     virtual ::XSCRT::Writer< ACE_TCHAR >
     {
       typedef ::XMI::Extension Type;
-      Extension (::XSCRT::XML::Element< ACE_TCHAR >&);
+      Extension (::XSCRT::XML::Element<ACE_TCHAR>&);
 
       virtual void
       traverse (Type &o)
