@@ -466,16 +466,16 @@ namespace DAnCE
     // ComponentInterfaceDescription
 
     ComponentInterfaceDescription::
-    ComponentInterfaceDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -544,8 +544,8 @@ namespace DAnCE
 
       while (p.more_attributes ())
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (p.next_attribute ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
           ::XMLSchema::string<ACE_TCHAR> t (a);
@@ -1281,7 +1281,7 @@ namespace DAnCE
     {
       // ComponentInterfaceDescription
       ComponentInterfaceDescription::
-      ComponentInterfaceDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -1300,7 +1300,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::ComponentInterfaceDescription::label (o);
         pop_ ();
       }
@@ -1308,7 +1308,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("UUID"), top_ ()));
         Traversal::ComponentInterfaceDescription::UUID (o);
         pop_ ();
       }
@@ -1316,7 +1316,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       specificType (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("specificType"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("specificType"), top_ ()));
         Traversal::ComponentInterfaceDescription::specificType (o);
         pop_ ();
       }
@@ -1324,7 +1324,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       supportedType_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("supportedType"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("supportedType"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1343,7 +1343,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       idlFile_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("idlFile"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("idlFile"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1362,7 +1362,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       configProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("configProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("configProperty"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1381,7 +1381,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       port_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("port"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("port"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1400,7 +1400,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       property_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("property"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("property"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1419,7 +1419,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void ComponentInterfaceDescription::
@@ -1438,7 +1438,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       contentLocation (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("contentLocation"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("contentLocation"), top_ ()));
         Traversal::ComponentInterfaceDescription::contentLocation (o);
         pop_ ();
       }
@@ -1446,7 +1446,7 @@ namespace DAnCE
       void ComponentInterfaceDescription::
       href (Type const& o)
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
         attr_ (&a);
         Traversal::ComponentInterfaceDescription::href (o);
         attr_ (0);

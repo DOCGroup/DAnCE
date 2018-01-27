@@ -89,7 +89,7 @@ namespace DAnCE
       public:
       ComponentPackageReference (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& requiredType__);
 
-      ComponentPackageReference (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ComponentPackageReference (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPackageReference (ComponentPackageReference const& s);
 
       ComponentPackageReference& operator= (ComponentPackageReference const& s);
@@ -195,7 +195,7 @@ namespace DAnCE
       public:
       SubcomponentInstantiationDescription (::XMLSchema::string<ACE_TCHAR> const& name__);
 
-      SubcomponentInstantiationDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit SubcomponentInstantiationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SubcomponentInstantiationDescription (SubcomponentInstantiationDescription const& s);
 
       SubcomponentInstantiationDescription& operator= (SubcomponentInstantiationDescription const& s);
@@ -232,7 +232,7 @@ namespace DAnCE
       SubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
                                      ::DAnCE::Config_Handlers::IdRef const& instance__);
 
-      SubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit SubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SubcomponentPropertyReference (SubcomponentPropertyReference const& s);
 
       SubcomponentPropertyReference& operator= (SubcomponentPropertyReference const& s);
@@ -285,7 +285,7 @@ namespace DAnCE
       AssemblyPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
                                ::XMLSchema::string<ACE_TCHAR> const& externalName__);
 
-      AssemblyPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit AssemblyPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR> const&);
       AssemblyPropertyMapping (AssemblyPropertyMapping const& s);
 
       AssemblyPropertyMapping& operator= (AssemblyPropertyMapping const& s);
@@ -298,8 +298,8 @@ namespace DAnCE
     class XSC_XML_Handlers_Export LocalityKind : public ::XSCRT::Type
     {
       public:
-      LocalityKind (::XSCRT::XML::Element< ACE_TCHAR > const&);
-      LocalityKind (::XSCRT::XML::Attribute< ACE_TCHAR > const&);
+      explicit LocalityKind (::XSCRT::XML::Element<ACE_TCHAR> const&);
+      explicit LocalityKind (::XSCRT::XML::Attribute<ACE_TCHAR> const&);
 
       static LocalityKind const SameNodeAnyProcess;
       static LocalityKind const SameNodeSameProcess;
@@ -361,7 +361,7 @@ namespace DAnCE
       Locality (::DAnCE::Config_Handlers::LocalityKind const& constraint__,
                 ::DAnCE::Config_Handlers::IdRef const& constrainedInstance__);
 
-      Locality (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit Locality (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Locality (Locality const& s);
 
       Locality& operator= (Locality const& s);
@@ -445,7 +445,7 @@ namespace DAnCE
       public:
       ComponentAssemblyDescription ();
 
-      ComponentAssemblyDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ComponentAssemblyDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentAssemblyDescription (ComponentAssemblyDescription const& s);
 
       ComponentAssemblyDescription& operator= (ComponentAssemblyDescription const& s);
@@ -529,7 +529,7 @@ namespace DAnCE
       public:
       MonolithicImplementationDescription ();
 
-      MonolithicImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit MonolithicImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       MonolithicImplementationDescription (MonolithicImplementationDescription const& s);
 
       MonolithicImplementationDescription& operator= (MonolithicImplementationDescription const& s);
@@ -668,7 +668,7 @@ namespace DAnCE
       public:
       ComponentImplementationDescription ();
 
-      ComponentImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ComponentImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentImplementationDescription (ComponentImplementationDescription const& s);
 
       ComponentImplementationDescription& operator= (ComponentImplementationDescription const& s);
@@ -807,7 +807,7 @@ namespace DAnCE
       public:
       ConnectorImplementationDescription ();
 
-      ConnectorImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ConnectorImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ConnectorImplementationDescription (ConnectorImplementationDescription const& s);
 
       ConnectorImplementationDescription& operator= (ConnectorImplementationDescription const& s);
@@ -1887,7 +1887,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ComponentPackageReference Type;
-        ComponentPackageReference (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ComponentPackageReference (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1933,7 +1933,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::SubcomponentInstantiationDescription Type;
-        SubcomponentInstantiationDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        SubcomponentInstantiationDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -2060,7 +2060,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::SubcomponentPropertyReference Type;
-        SubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR >&);
+        SubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -2097,7 +2097,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::AssemblyPropertyMapping Type;
-        AssemblyPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR >&);
+        AssemblyPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -2160,7 +2160,7 @@ namespace DAnCE
       struct LocalityKind : Traversal::LocalityKind,
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
-        LocalityKind (::XSCRT::XML::Element< ACE_TCHAR >&);
+        LocalityKind (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -2179,7 +2179,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::Locality Type;
-        Locality (::XSCRT::XML::Element< ACE_TCHAR >&);
+        Locality (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -2216,7 +2216,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ComponentAssemblyDescription Type;
-        ComponentAssemblyDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ComponentAssemblyDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -2343,7 +2343,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::MonolithicImplementationDescription Type;
-        MonolithicImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        MonolithicImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -2470,7 +2470,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ComponentImplementationDescription Type;
-        ComponentImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ComponentImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -2651,7 +2651,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ConnectorImplementationDescription Type;
-        ConnectorImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ConnectorImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

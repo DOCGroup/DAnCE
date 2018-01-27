@@ -682,16 +682,16 @@ namespace DAnCE
     // PlanSubcomponentPropertyReference
 
     PlanSubcomponentPropertyReference::
-    PlanSubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("propertyName"))
         {
@@ -714,16 +714,16 @@ namespace DAnCE
     // PlanPropertyMapping
 
     PlanPropertyMapping::
-    PlanPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
@@ -758,16 +758,16 @@ namespace DAnCE
     // deploymentPlan
 
     deploymentPlan::
-    deploymentPlan (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -1990,7 +1990,7 @@ namespace DAnCE
     {
       // PlanSubcomponentPropertyReference
       PlanSubcomponentPropertyReference::
-      PlanSubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -2009,7 +2009,7 @@ namespace DAnCE
       void PlanSubcomponentPropertyReference::
       propertyName (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("propertyName"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("propertyName"), top_ ()));
         Traversal::PlanSubcomponentPropertyReference::propertyName (o);
         pop_ ();
       }
@@ -2017,14 +2017,14 @@ namespace DAnCE
       void PlanSubcomponentPropertyReference::
       instance (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("instance"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("instance"), top_ ()));
         Traversal::PlanSubcomponentPropertyReference::instance (o);
         pop_ ();
       }
 
       // PlanPropertyMapping
       PlanPropertyMapping::
-      PlanPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -2043,7 +2043,7 @@ namespace DAnCE
       void PlanPropertyMapping::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("name"), top_ ()));
         Traversal::PlanPropertyMapping::name (o);
         pop_ ();
       }
@@ -2051,7 +2051,7 @@ namespace DAnCE
       void PlanPropertyMapping::
       source_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("source"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("source"), top_ ()));
       }
 
       void PlanPropertyMapping::
@@ -2070,7 +2070,7 @@ namespace DAnCE
       void PlanPropertyMapping::
       externalName (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("externalName"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("externalName"), top_ ()));
         Traversal::PlanPropertyMapping::externalName (o);
         pop_ ();
       }
@@ -2078,7 +2078,7 @@ namespace DAnCE
       void PlanPropertyMapping::
       delegatesTo_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("delegatesTo"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("delegatesTo"), top_ ()));
       }
 
       void PlanPropertyMapping::
@@ -2096,7 +2096,7 @@ namespace DAnCE
 
       // deploymentPlan
       deploymentPlan::
-      deploymentPlan (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -2115,7 +2115,7 @@ namespace DAnCE
       void deploymentPlan::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::deploymentPlan::label (o);
         pop_ ();
       }
@@ -2123,7 +2123,7 @@ namespace DAnCE
       void deploymentPlan::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("UUID"), top_ ()));
         Traversal::deploymentPlan::UUID (o);
         pop_ ();
       }
@@ -2131,7 +2131,7 @@ namespace DAnCE
       void deploymentPlan::
       realizes (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("realizes"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("realizes"), top_ ()));
         Traversal::deploymentPlan::realizes (o);
         pop_ ();
       }
@@ -2139,7 +2139,7 @@ namespace DAnCE
       void deploymentPlan::
       implementation_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("implementation"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("implementation"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2158,7 +2158,7 @@ namespace DAnCE
       void deploymentPlan::
       instance_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("instance"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("instance"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2177,7 +2177,7 @@ namespace DAnCE
       void deploymentPlan::
       connection_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("connection"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("connection"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2196,7 +2196,7 @@ namespace DAnCE
       void deploymentPlan::
       externalProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("externalProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("externalProperty"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2215,7 +2215,7 @@ namespace DAnCE
       void deploymentPlan::
       dependsOn_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("dependsOn"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("dependsOn"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2234,7 +2234,7 @@ namespace DAnCE
       void deploymentPlan::
       artifact_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("artifact"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("artifact"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2253,7 +2253,7 @@ namespace DAnCE
       void deploymentPlan::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void deploymentPlan::
@@ -2272,7 +2272,7 @@ namespace DAnCE
       void deploymentPlan::
       localityConstraint_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("localityConstraint"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("localityConstraint"), top_ ()));
       }
 
       void deploymentPlan::

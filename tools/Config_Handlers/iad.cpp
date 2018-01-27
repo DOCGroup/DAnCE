@@ -455,16 +455,16 @@ namespace DAnCE
     // NamedImplementationArtifact
 
     NamedImplementationArtifact::
-    NamedImplementationArtifact (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
@@ -487,16 +487,16 @@ namespace DAnCE
     // ImplementationArtifactDescription
 
     ImplementationArtifactDescription::
-    ImplementationArtifactDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -553,8 +553,8 @@ namespace DAnCE
 
       while (p.more_attributes ())
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (p.next_attribute ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
           ::XMLSchema::string<ACE_TCHAR> t (a);
@@ -1258,7 +1258,7 @@ namespace DAnCE
     {
       // NamedImplementationArtifact
       NamedImplementationArtifact::
-      NamedImplementationArtifact (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -1277,7 +1277,7 @@ namespace DAnCE
       void NamedImplementationArtifact::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("name"), top_ ()));
         Traversal::NamedImplementationArtifact::name (o);
         pop_ ();
       }
@@ -1285,14 +1285,14 @@ namespace DAnCE
       void NamedImplementationArtifact::
       referencedArtifact (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("referencedArtifact"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("referencedArtifact"), top_ ()));
         Traversal::NamedImplementationArtifact::referencedArtifact (o);
         pop_ ();
       }
 
       // ImplementationArtifactDescription
       ImplementationArtifactDescription::
-      ImplementationArtifactDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -1311,7 +1311,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::ImplementationArtifactDescription::label (o);
         pop_ ();
       }
@@ -1319,7 +1319,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("UUID"), top_ ()));
         Traversal::ImplementationArtifactDescription::UUID (o);
         pop_ ();
       }
@@ -1327,7 +1327,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       location_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("location"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("location"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1346,7 +1346,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       dependsOn_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("dependsOn"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("dependsOn"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1365,7 +1365,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       execParameter_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("execParameter"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("execParameter"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1384,7 +1384,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1403,7 +1403,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       deployRequirement_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("deployRequirement"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("deployRequirement"), top_ ()));
       }
 
       void ImplementationArtifactDescription::
@@ -1422,7 +1422,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       contentLocation (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("contentLocation"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("contentLocation"), top_ ()));
         Traversal::ImplementationArtifactDescription::contentLocation (o);
         pop_ ();
       }
@@ -1430,7 +1430,7 @@ namespace DAnCE
       void ImplementationArtifactDescription::
       href (Type const& o)
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
         attr_ (&a);
         Traversal::ImplementationArtifactDescription::href (o);
         attr_ (0);

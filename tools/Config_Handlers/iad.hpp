@@ -66,7 +66,7 @@ namespace DAnCE
       NamedImplementationArtifact (::XMLSchema::string<ACE_TCHAR> const& name__,
                                    ::DAnCE::Config_Handlers::ImplementationArtifactDescription const& referencedArtifact__);
 
-      NamedImplementationArtifact (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR> const&);
       NamedImplementationArtifact (NamedImplementationArtifact const& s);
 
       NamedImplementationArtifact& operator= (NamedImplementationArtifact const& s);
@@ -203,7 +203,7 @@ namespace DAnCE
       public:
       ImplementationArtifactDescription ();
 
-      ImplementationArtifactDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ImplementationArtifactDescription (ImplementationArtifactDescription const& s);
 
       ImplementationArtifactDescription& operator= (ImplementationArtifactDescription const& s);
@@ -496,7 +496,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::NamedImplementationArtifact Type;
-        NamedImplementationArtifact (::XSCRT::XML::Element< ACE_TCHAR >&);
+        NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -533,7 +533,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ImplementationArtifactDescription Type;
-        ImplementationArtifactDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

@@ -190,7 +190,7 @@ namespace DAnCE
       public:
       ComponentInterfaceDescription ();
 
-      ComponentInterfaceDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentInterfaceDescription (ComponentInterfaceDescription const& s);
 
       ComponentInterfaceDescription& operator= (ComponentInterfaceDescription const& s);
@@ -492,7 +492,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ComponentInterfaceDescription Type;
-        ComponentInterfaceDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

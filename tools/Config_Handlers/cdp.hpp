@@ -67,7 +67,7 @@ namespace DAnCE
       PlanSubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
                                          ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& instance__);
 
-      PlanSubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanSubcomponentPropertyReference (PlanSubcomponentPropertyReference const& s);
 
       PlanSubcomponentPropertyReference& operator= (PlanSubcomponentPropertyReference const& s);
@@ -137,7 +137,7 @@ namespace DAnCE
                            ::XMLSchema::string<ACE_TCHAR> const& externalName__,
                            std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__);
 
-      PlanPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanPropertyMapping (PlanPropertyMapping const& s);
 
       PlanPropertyMapping& operator= (PlanPropertyMapping const& s);
@@ -312,7 +312,7 @@ namespace DAnCE
       public:
       deploymentPlan ();
 
-      deploymentPlan (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR> const&);
       deploymentPlan (deploymentPlan const& s);
 
       deploymentPlan& operator= (deploymentPlan const& s);
@@ -770,7 +770,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference Type;
-        PlanSubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR >&);
+        PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -807,7 +807,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::PlanPropertyMapping Type;
-        PlanPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR >&);
+        PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -898,7 +898,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::deploymentPlan Type;
-        deploymentPlan (::XSCRT::XML::Element< ACE_TCHAR >&);
+        deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

@@ -64,7 +64,7 @@ namespace DAnCE
       public:
       TopLevelPackageDescription ();
 
-      TopLevelPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       TopLevelPackageDescription (TopLevelPackageDescription const& s);
 
       TopLevelPackageDescription& operator= (TopLevelPackageDescription const& s);
@@ -156,7 +156,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::TopLevelPackageDescription Type;
-        TopLevelPackageDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

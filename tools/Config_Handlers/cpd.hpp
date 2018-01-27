@@ -67,7 +67,7 @@ namespace DAnCE
       PackagedComponentImplementation (::XMLSchema::string<ACE_TCHAR> const& name__,
                                        ::DAnCE::Config_Handlers::ComponentImplementationDescription const& referencedImplementation__);
 
-      PackagedComponentImplementation (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PackagedComponentImplementation (PackagedComponentImplementation const& s);
 
       PackagedComponentImplementation& operator= (PackagedComponentImplementation const& s);
@@ -172,7 +172,7 @@ namespace DAnCE
       public:
       ComponentPackageDescription ();
 
-      ComponentPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPackageDescription (ComponentPackageDescription const& s);
 
       ComponentPackageDescription& operator= (ComponentPackageDescription const& s);
@@ -277,7 +277,7 @@ namespace DAnCE
       public:
       ConnectorPackageDescription ();
 
-      ConnectorPackageDescription (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ConnectorPackageDescription (ConnectorPackageDescription const& s);
 
       ConnectorPackageDescription& operator= (ConnectorPackageDescription const& s);
@@ -669,7 +669,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::PackagedComponentImplementation Type;
-        PackagedComponentImplementation (::XSCRT::XML::Element< ACE_TCHAR >&);
+        PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -706,7 +706,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ComponentPackageDescription Type;
-        ComponentPackageDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -842,7 +842,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ConnectorPackageDescription Type;
-        ConnectorPackageDescription (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

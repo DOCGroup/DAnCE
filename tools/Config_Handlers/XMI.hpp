@@ -124,7 +124,7 @@ namespace XMI
     public:
     Extension ();
 
-    Extension (::XSCRT::XML::Element< ACE_TCHAR > const&);
+    explicit Extension (::XSCRT::XML::Element<ACE_TCHAR> const&);
     Extension (Extension const& s);
 
     Extension& operator= (Extension const& s);
@@ -279,7 +279,7 @@ namespace XMI
     virtual ::XSCRT::Writer< ACE_TCHAR >
     {
       typedef ::XMI::Extension Type;
-      Extension (::XSCRT::XML::Element< ACE_TCHAR >&);
+      Extension (::XSCRT::XML::Element<ACE_TCHAR>&);
 
       virtual void
       traverse (Type &o)

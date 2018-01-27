@@ -1865,16 +1865,16 @@ namespace DAnCE
     // ComponentPackageReference
 
     ComponentPackageReference::
-    ComponentPackageReference (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    ComponentPackageReference (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("requiredUUID"))
         {
@@ -1903,16 +1903,16 @@ namespace DAnCE
     // SubcomponentInstantiationDescription
 
     SubcomponentInstantiationDescription::
-    SubcomponentInstantiationDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    SubcomponentInstantiationDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
@@ -1963,8 +1963,8 @@ namespace DAnCE
 
       while (p.more_attributes ())
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (p.next_attribute ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("id"))
         {
           ::XMLSchema::ID<ACE_TCHAR> t (a);
@@ -1983,16 +1983,16 @@ namespace DAnCE
     // SubcomponentPropertyReference
 
     SubcomponentPropertyReference::
-    SubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    SubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("propertyName"))
         {
@@ -2015,16 +2015,16 @@ namespace DAnCE
     // AssemblyPropertyMapping
 
     AssemblyPropertyMapping::
-    AssemblyPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    AssemblyPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("name"))
         {
@@ -2053,10 +2053,10 @@ namespace DAnCE
     // LocalityKind
 
     LocalityKind::
-    LocalityKind (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    LocalityKind (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     : ::XSCRT::Type (e)
     {
-      std::basic_string< ACE_TCHAR > v (e.value ());
+      std::basic_string<ACE_TCHAR> v (e.value ());
 
       if (v == ACE_TEXT ("SameNodeAnyProcess")) v_ = SameNodeAnyProcess_l;
       else if (v == ACE_TEXT ("SameNodeSameProcess")) v_ = SameNodeSameProcess_l;
@@ -2070,10 +2070,10 @@ namespace DAnCE
     }
 
     LocalityKind::
-    LocalityKind (::XSCRT::XML::Attribute< ACE_TCHAR > const& a)
+    LocalityKind (::XSCRT::XML::Attribute<ACE_TCHAR> const& a)
     : ::XSCRT::Type (a)
     {
-      std::basic_string< ACE_TCHAR > v (a.value ());
+      std::basic_string<ACE_TCHAR> v (a.value ());
 
       if (v == ACE_TEXT ("SameNodeAnyProcess")) v_ = SameNodeAnyProcess_l;
       else if (v == ACE_TEXT ("SameNodeSameProcess")) v_ = SameNodeSameProcess_l;
@@ -2096,16 +2096,16 @@ namespace DAnCE
     // Locality
 
     Locality::
-    Locality (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    Locality (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("constraint"))
         {
@@ -2128,16 +2128,16 @@ namespace DAnCE
     // ComponentAssemblyDescription
 
     ComponentAssemblyDescription::
-    ComponentAssemblyDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    ComponentAssemblyDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("instance"))
         {
@@ -2172,16 +2172,16 @@ namespace DAnCE
     // MonolithicImplementationDescription
 
     MonolithicImplementationDescription::
-    MonolithicImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    MonolithicImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("nodeExecParameter"))
         {
@@ -2216,16 +2216,16 @@ namespace DAnCE
     // ComponentImplementationDescription
 
     ComponentImplementationDescription::
-    ComponentImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    ComponentImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -2288,8 +2288,8 @@ namespace DAnCE
 
       while (p.more_attributes ())
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (p.next_attribute ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
           ::XMLSchema::string<ACE_TCHAR> t (a);
@@ -2305,16 +2305,16 @@ namespace DAnCE
     // ConnectorImplementationDescription
 
     ConnectorImplementationDescription::
-    ConnectorImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+    ConnectorImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
     :Base (e), regulator__ ()
     {
 
-      ::XSCRT::Parser< ACE_TCHAR > p (e);
+      ::XSCRT::Parser<ACE_TCHAR> p (e);
 
       while (p.more_elements ())
       {
-        ::XSCRT::XML::Element< ACE_TCHAR > e (p.next_element ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (e.name ()));
+        ::XSCRT::XML::Element<ACE_TCHAR> e (p.next_element ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (e.name ()));
 
         if (n == ACE_TEXT("label"))
         {
@@ -2377,8 +2377,8 @@ namespace DAnCE
 
       while (p.more_attributes ())
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-        std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (p.next_attribute ());
+        std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (a.name ()));
         if (n == ACE_TEXT ("href"))
         {
           ::XMLSchema::string<ACE_TCHAR> t (a);
@@ -5097,7 +5097,7 @@ namespace DAnCE
     {
       // ComponentPackageReference
       ComponentPackageReference::
-      ComponentPackageReference (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      ComponentPackageReference (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5116,7 +5116,7 @@ namespace DAnCE
       void ComponentPackageReference::
       requiredUUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("requiredUUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("requiredUUID"), top_ ()));
         Traversal::ComponentPackageReference::requiredUUID (o);
         pop_ ();
       }
@@ -5124,7 +5124,7 @@ namespace DAnCE
       void ComponentPackageReference::
       requiredName (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("requiredName"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("requiredName"), top_ ()));
         Traversal::ComponentPackageReference::requiredName (o);
         pop_ ();
       }
@@ -5132,14 +5132,14 @@ namespace DAnCE
       void ComponentPackageReference::
       requiredType (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("requiredType"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("requiredType"), top_ ()));
         Traversal::ComponentPackageReference::requiredType (o);
         pop_ ();
       }
 
       // SubcomponentInstantiationDescription
       SubcomponentInstantiationDescription::
-      SubcomponentInstantiationDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      SubcomponentInstantiationDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5158,7 +5158,7 @@ namespace DAnCE
       void SubcomponentInstantiationDescription::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("name"), top_ ()));
         Traversal::SubcomponentInstantiationDescription::name (o);
         pop_ ();
       }
@@ -5166,7 +5166,7 @@ namespace DAnCE
       void SubcomponentInstantiationDescription::
       basePackage (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("basePackage"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("basePackage"), top_ ()));
         Traversal::SubcomponentInstantiationDescription::basePackage (o);
         pop_ ();
       }
@@ -5174,7 +5174,7 @@ namespace DAnCE
       void SubcomponentInstantiationDescription::
       specializedConfig (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("specializedConfig"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("specializedConfig"), top_ ()));
         Traversal::SubcomponentInstantiationDescription::specializedConfig (o);
         pop_ ();
       }
@@ -5182,7 +5182,7 @@ namespace DAnCE
       void SubcomponentInstantiationDescription::
       selectRequirement_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("selectRequirement"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("selectRequirement"), top_ ()));
       }
 
       void SubcomponentInstantiationDescription::
@@ -5201,7 +5201,7 @@ namespace DAnCE
       void SubcomponentInstantiationDescription::
       configProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("configProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("configProperty"), top_ ()));
       }
 
       void SubcomponentInstantiationDescription::
@@ -5220,7 +5220,7 @@ namespace DAnCE
       void SubcomponentInstantiationDescription::
       referencedPackage (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("referencedPackage"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("referencedPackage"), top_ ()));
         Traversal::SubcomponentInstantiationDescription::referencedPackage (o);
         pop_ ();
       }
@@ -5228,7 +5228,7 @@ namespace DAnCE
       void SubcomponentInstantiationDescription::
       importedPackage (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("importedPackage"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("importedPackage"), top_ ()));
         Traversal::SubcomponentInstantiationDescription::importedPackage (o);
         pop_ ();
       }
@@ -5236,7 +5236,7 @@ namespace DAnCE
       void SubcomponentInstantiationDescription::
       id (Type const& o)
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("id"), ACE_TEXT (""), top_ ());
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("id"), ACE_TEXT (""), top_ ());
         attr_ (&a);
         Traversal::SubcomponentInstantiationDescription::id (o);
         attr_ (0);
@@ -5244,7 +5244,7 @@ namespace DAnCE
 
       // SubcomponentPropertyReference
       SubcomponentPropertyReference::
-      SubcomponentPropertyReference (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      SubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5263,7 +5263,7 @@ namespace DAnCE
       void SubcomponentPropertyReference::
       propertyName (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("propertyName"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("propertyName"), top_ ()));
         Traversal::SubcomponentPropertyReference::propertyName (o);
         pop_ ();
       }
@@ -5271,14 +5271,14 @@ namespace DAnCE
       void SubcomponentPropertyReference::
       instance (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("instance"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("instance"), top_ ()));
         Traversal::SubcomponentPropertyReference::instance (o);
         pop_ ();
       }
 
       // AssemblyPropertyMapping
       AssemblyPropertyMapping::
-      AssemblyPropertyMapping (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      AssemblyPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5297,7 +5297,7 @@ namespace DAnCE
       void AssemblyPropertyMapping::
       name (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("name"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("name"), top_ ()));
         Traversal::AssemblyPropertyMapping::name (o);
         pop_ ();
       }
@@ -5305,7 +5305,7 @@ namespace DAnCE
       void AssemblyPropertyMapping::
       externalName (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("externalName"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("externalName"), top_ ()));
         Traversal::AssemblyPropertyMapping::externalName (o);
         pop_ ();
       }
@@ -5313,7 +5313,7 @@ namespace DAnCE
       void AssemblyPropertyMapping::
       delegatesTo_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("delegatesTo"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("delegatesTo"), top_ ()));
       }
 
       void AssemblyPropertyMapping::
@@ -5332,7 +5332,7 @@ namespace DAnCE
       // LocalityKind
 
       LocalityKind::
-      LocalityKind (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      LocalityKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5345,7 +5345,7 @@ namespace DAnCE
       void LocalityKind::
       traverse (Type const& o)
       {
-        std::basic_string< ACE_TCHAR > s;
+        std::basic_string<ACE_TCHAR> s;
 
         if (o == ::DAnCE::Config_Handlers::LocalityKind::SameNodeAnyProcess) s = ACE_TEXT ("SameNodeAnyProcess");
         else if (o == ::DAnCE::Config_Handlers::LocalityKind::SameNodeSameProcess) s = ACE_TEXT ("SameNodeSameProcess");
@@ -5370,7 +5370,7 @@ namespace DAnCE
 
       // Locality
       Locality::
-      Locality (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      Locality (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5389,7 +5389,7 @@ namespace DAnCE
       void Locality::
       constraint (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("constraint"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("constraint"), top_ ()));
         Traversal::Locality::constraint (o);
         pop_ ();
       }
@@ -5397,14 +5397,14 @@ namespace DAnCE
       void Locality::
       constrainedInstance (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("constrainedInstance"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("constrainedInstance"), top_ ()));
         Traversal::Locality::constrainedInstance (o);
         pop_ ();
       }
 
       // ComponentAssemblyDescription
       ComponentAssemblyDescription::
-      ComponentAssemblyDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      ComponentAssemblyDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5423,7 +5423,7 @@ namespace DAnCE
       void ComponentAssemblyDescription::
       instance_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("instance"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("instance"), top_ ()));
       }
 
       void ComponentAssemblyDescription::
@@ -5442,7 +5442,7 @@ namespace DAnCE
       void ComponentAssemblyDescription::
       connection_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("connection"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("connection"), top_ ()));
       }
 
       void ComponentAssemblyDescription::
@@ -5461,7 +5461,7 @@ namespace DAnCE
       void ComponentAssemblyDescription::
       externalProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("externalProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("externalProperty"), top_ ()));
       }
 
       void ComponentAssemblyDescription::
@@ -5480,7 +5480,7 @@ namespace DAnCE
       void ComponentAssemblyDescription::
       locality_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("locality"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("locality"), top_ ()));
       }
 
       void ComponentAssemblyDescription::
@@ -5498,7 +5498,7 @@ namespace DAnCE
 
       // MonolithicImplementationDescription
       MonolithicImplementationDescription::
-      MonolithicImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      MonolithicImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5517,7 +5517,7 @@ namespace DAnCE
       void MonolithicImplementationDescription::
       nodeExecParameter_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("nodeExecParameter"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("nodeExecParameter"), top_ ()));
       }
 
       void MonolithicImplementationDescription::
@@ -5536,7 +5536,7 @@ namespace DAnCE
       void MonolithicImplementationDescription::
       componentExecParameter_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("componentExecParameter"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("componentExecParameter"), top_ ()));
       }
 
       void MonolithicImplementationDescription::
@@ -5555,7 +5555,7 @@ namespace DAnCE
       void MonolithicImplementationDescription::
       deployRequirement_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("deployRequirement"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("deployRequirement"), top_ ()));
       }
 
       void MonolithicImplementationDescription::
@@ -5574,7 +5574,7 @@ namespace DAnCE
       void MonolithicImplementationDescription::
       primaryArtifact_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("primaryArtifact"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("primaryArtifact"), top_ ()));
       }
 
       void MonolithicImplementationDescription::
@@ -5592,7 +5592,7 @@ namespace DAnCE
 
       // ComponentImplementationDescription
       ComponentImplementationDescription::
-      ComponentImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      ComponentImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5611,7 +5611,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::ComponentImplementationDescription::label (o);
         pop_ ();
       }
@@ -5619,7 +5619,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("UUID"), top_ ()));
         Traversal::ComponentImplementationDescription::UUID (o);
         pop_ ();
       }
@@ -5627,7 +5627,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       implements (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("implements"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("implements"), top_ ()));
         Traversal::ComponentImplementationDescription::implements (o);
         pop_ ();
       }
@@ -5635,7 +5635,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       assemblyImpl (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("assemblyImpl"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("assemblyImpl"), top_ ()));
         Traversal::ComponentImplementationDescription::assemblyImpl (o);
         pop_ ();
       }
@@ -5643,7 +5643,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       monolithicImpl (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("monolithicImpl"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("monolithicImpl"), top_ ()));
         Traversal::ComponentImplementationDescription::monolithicImpl (o);
         pop_ ();
       }
@@ -5651,7 +5651,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       configProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("configProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("configProperty"), top_ ()));
       }
 
       void ComponentImplementationDescription::
@@ -5670,7 +5670,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       capability_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("capability"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("capability"), top_ ()));
       }
 
       void ComponentImplementationDescription::
@@ -5689,7 +5689,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       dependsOn_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("dependsOn"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("dependsOn"), top_ ()));
       }
 
       void ComponentImplementationDescription::
@@ -5708,7 +5708,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void ComponentImplementationDescription::
@@ -5727,7 +5727,7 @@ namespace DAnCE
       void ComponentImplementationDescription::
       href (Type const& o)
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
         attr_ (&a);
         Traversal::ComponentImplementationDescription::href (o);
         attr_ (0);
@@ -5735,7 +5735,7 @@ namespace DAnCE
 
       // ConnectorImplementationDescription
       ConnectorImplementationDescription::
-      ConnectorImplementationDescription (::XSCRT::XML::Element< ACE_TCHAR >& e)
+      ConnectorImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
       : ::XSCRT::Writer< ACE_TCHAR > (e)
       {
       }
@@ -5754,7 +5754,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       label (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("label"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("label"), top_ ()));
         Traversal::ConnectorImplementationDescription::label (o);
         pop_ ();
       }
@@ -5762,7 +5762,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       UUID (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("UUID"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("UUID"), top_ ()));
         Traversal::ConnectorImplementationDescription::UUID (o);
         pop_ ();
       }
@@ -5770,7 +5770,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       implements (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("implements"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("implements"), top_ ()));
         Traversal::ConnectorImplementationDescription::implements (o);
         pop_ ();
       }
@@ -5778,7 +5778,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       assemblyImpl (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("assemblyImpl"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("assemblyImpl"), top_ ()));
         Traversal::ConnectorImplementationDescription::assemblyImpl (o);
         pop_ ();
       }
@@ -5786,7 +5786,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       monolithicImpl (Type const& o)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("monolithicImpl"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("monolithicImpl"), top_ ()));
         Traversal::ConnectorImplementationDescription::monolithicImpl (o);
         pop_ ();
       }
@@ -5794,7 +5794,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       configProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("configProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("configProperty"), top_ ()));
       }
 
       void ConnectorImplementationDescription::
@@ -5813,7 +5813,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       capability_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("capability"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("capability"), top_ ()));
       }
 
       void ConnectorImplementationDescription::
@@ -5832,7 +5832,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       dependsOn_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("dependsOn"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("dependsOn"), top_ ()));
       }
 
       void ConnectorImplementationDescription::
@@ -5851,7 +5851,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       infoProperty_pre (Type const&)
       {
-        push_ (::XSCRT::XML::Element< ACE_TCHAR > (ACE_TEXT("infoProperty"), top_ ()));
+        push_ (::XSCRT::XML::Element<ACE_TCHAR> (ACE_TEXT("infoProperty"), top_ ()));
       }
 
       void ConnectorImplementationDescription::
@@ -5870,7 +5870,7 @@ namespace DAnCE
       void ConnectorImplementationDescription::
       href (Type const& o)
       {
-        ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
+        ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
         attr_ (&a);
         Traversal::ConnectorImplementationDescription::href (o);
         attr_ (0);

@@ -67,7 +67,7 @@ namespace DAnCE
       public:
       ComponentPackageImport ();
 
-      ComponentPackageImport (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPackageImport (ComponentPackageImport const& s);
 
       ComponentPackageImport& operator= (ComponentPackageImport const& s);
@@ -182,7 +182,7 @@ namespace DAnCE
       public:
       PackageConfiguration ();
 
-      PackageConfiguration (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PackageConfiguration (PackageConfiguration const& s);
 
       PackageConfiguration& operator= (PackageConfiguration const& s);
@@ -439,7 +439,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::ComponentPackageImport Type;
-        ComponentPackageImport (::XSCRT::XML::Element< ACE_TCHAR >&);
+        ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -485,7 +485,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::PackageConfiguration Type;
-        PackageConfiguration (::XSCRT::XML::Element< ACE_TCHAR >&);
+        PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)

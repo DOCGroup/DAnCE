@@ -367,16 +367,16 @@ namespace XMI
   // Extension
 
   Extension::
-  Extension (::XSCRT::XML::Element< ACE_TCHAR > const& e)
+  Extension (::XSCRT::XML::Element<ACE_TCHAR> const& e)
   :Base (e), regulator__ ()
   {
 
-    ::XSCRT::Parser< ACE_TCHAR > p (e);
+    ::XSCRT::Parser<ACE_TCHAR> p (e);
 
     while (p.more_attributes ())
     {
-      ::XSCRT::XML::Attribute< ACE_TCHAR > a (p.next_attribute ());
-      std::basic_string< ACE_TCHAR > n (::XSCRT::XML::uq_name (a.name ()));
+      ::XSCRT::XML::Attribute<ACE_TCHAR> a (p.next_attribute ());
+      std::basic_string<ACE_TCHAR> n (::XSCRT::XML::uq_name (a.name ()));
       if (n == ACE_TEXT ("id"))
       {
         ::XMLSchema::ID<ACE_TCHAR> t (a);
@@ -457,7 +457,7 @@ namespace XMI
         throw 1;
       }
 
-      ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+      ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
       if (e.name () == ACE_TEXT("extension"))
       {
         ::XMI::Extension r (e);
@@ -755,7 +755,7 @@ namespace XMI
   {
     // Extension
     Extension::
-    Extension (::XSCRT::XML::Element< ACE_TCHAR >& e)
+    Extension (::XSCRT::XML::Element<ACE_TCHAR>& e)
     : ::XSCRT::Writer< ACE_TCHAR > (e)
     {
     }
@@ -774,7 +774,7 @@ namespace XMI
     void Extension::
     id (Type const& o)
     {
-      ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("id"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
+      ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("id"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
       attr_ (&a);
       Traversal::Extension::id (o);
       attr_ (0);
@@ -783,7 +783,7 @@ namespace XMI
     void Extension::
     label (Type const& o)
     {
-      ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("label"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
+      ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("label"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
       attr_ (&a);
       Traversal::Extension::label (o);
       attr_ (0);
@@ -792,7 +792,7 @@ namespace XMI
     void Extension::
     uuid (Type const& o)
     {
-      ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("uuid"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
+      ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("uuid"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
       attr_ (&a);
       Traversal::Extension::uuid (o);
       attr_ (0);
@@ -801,7 +801,7 @@ namespace XMI
     void Extension::
     href (Type const& o)
     {
-      ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
+      ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("href"), ACE_TEXT (""), top_ ());
       attr_ (&a);
       Traversal::Extension::href (o);
       attr_ (0);
@@ -810,7 +810,7 @@ namespace XMI
     void Extension::
     idref (Type const& o)
     {
-      ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("idref"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
+      ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("idref"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
       attr_ (&a);
       Traversal::Extension::idref (o);
       attr_ (0);
@@ -819,7 +819,7 @@ namespace XMI
     void Extension::
     version (Type const& o)
     {
-      ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("version"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
+      ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("version"), ACE_TEXT ("http://www.omg.org/XMI"), ACE_TEXT (""), top_ ());
       attr_ (&a);
       Traversal::Extension::version (o);
       attr_ (0);
@@ -828,7 +828,7 @@ namespace XMI
     void Extension::
     extender (Type const& o)
     {
-      ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("extender"), ACE_TEXT (""), top_ ());
+      ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("extender"), ACE_TEXT (""), top_ ());
       attr_ (&a);
       Traversal::Extension::extender (o);
       attr_ (0);
@@ -837,7 +837,7 @@ namespace XMI
     void Extension::
     extenderID (Type const& o)
     {
-      ::XSCRT::XML::Attribute< ACE_TCHAR > a (ACE_TEXT ("extenderID"), ACE_TEXT (""), top_ ());
+      ::XSCRT::XML::Attribute<ACE_TCHAR> a (ACE_TEXT ("extenderID"), ACE_TEXT (""), top_ ());
       attr_ (&a);
       Traversal::Extension::extenderID (o);
       attr_ (0);
@@ -858,7 +858,7 @@ namespace XMI
         throw 1;
       }
 
-      ::XSCRT::XML::Element< ACE_TCHAR > e (dom_element);
+      ::XSCRT::XML::Element<ACE_TCHAR> e (dom_element);
       if (e.name () != ACE_TEXT ("extension"))
       {
         throw 1;
@@ -870,7 +870,7 @@ namespace XMI
       virtual ::XMLSchema::Writer::IDREF<ACE_TCHAR>,
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
-        W (::XSCRT::XML::Element< ACE_TCHAR >& e)
+        W (::XSCRT::XML::Element<ACE_TCHAR>& e)
         : ::XSCRT::Writer< ACE_TCHAR > (e)
         {
         }

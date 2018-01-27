@@ -150,7 +150,7 @@ namespace DAnCE
       public:
       Domain (std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& node__);
 
-      Domain (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit Domain (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Domain (Domain const& s);
 
       Domain& operator= (Domain const& s);
@@ -220,7 +220,7 @@ namespace DAnCE
       Bridge (::XMLSchema::string<ACE_TCHAR> const& name__,
               std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex > > const& connect__);
 
-      Bridge (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit Bridge (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Bridge (Bridge const& s);
 
       Bridge& operator= (Bridge const& s);
@@ -306,7 +306,7 @@ namespace DAnCE
       Interconnect (::XMLSchema::string<ACE_TCHAR> const& name__,
                     std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex > > const& connect__);
 
-      Interconnect (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit Interconnect (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Interconnect (Interconnect const& s);
 
       Interconnect& operator= (Interconnect const& s);
@@ -391,7 +391,7 @@ namespace DAnCE
       public:
       Node (::XMLSchema::string<ACE_TCHAR> const& name__);
 
-      Node (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit Node (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Node (Node const& s);
 
       Node& operator= (Node const& s);
@@ -446,7 +446,7 @@ namespace DAnCE
                       ::DAnCE::Config_Handlers::Node const& node__,
                       ::DAnCE::Config_Handlers::SatisfierProperty const& property__);
 
-      SharedResource (::XSCRT::XML::Element< ACE_TCHAR > const&);
+      explicit SharedResource (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SharedResource (SharedResource const& s);
 
       SharedResource& operator= (SharedResource const& s);
@@ -1066,7 +1066,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::Domain Type;
-        Domain (::XSCRT::XML::Element< ACE_TCHAR >&);
+        Domain (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1238,7 +1238,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::Bridge Type;
-        Bridge (::XSCRT::XML::Element< ACE_TCHAR >&);
+        Bridge (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1329,7 +1329,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::Interconnect Type;
-        Interconnect (::XSCRT::XML::Element< ACE_TCHAR >&);
+        Interconnect (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1447,7 +1447,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::Node Type;
-        Node (::XSCRT::XML::Element< ACE_TCHAR >&);
+        Node (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
@@ -1565,7 +1565,7 @@ namespace DAnCE
       virtual ::XSCRT::Writer< ACE_TCHAR >
       {
         typedef ::DAnCE::Config_Handlers::SharedResource Type;
-        SharedResource (::XSCRT::XML::Element< ACE_TCHAR >&);
+        SharedResource (::XSCRT::XML::Element<ACE_TCHAR>&);
 
         virtual void
         traverse (Type &o)
