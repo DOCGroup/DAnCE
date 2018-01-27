@@ -67,7 +67,7 @@ namespace DAnCE
     }
 
     void TopLevelPackageDescription::
-    add_package (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex >  const& e)
+    add_package (TopLevelPackageDescription::package_value_type const& e)
     {
       package_.push_back (e);
     }
@@ -100,7 +100,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("package"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
           add_package (t);
         }
 
@@ -284,7 +284,7 @@ namespace DAnCE
       // TopLevelPackageDescription
       TopLevelPackageDescription::
       TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

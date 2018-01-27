@@ -112,7 +112,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = ComponentInterfaceDescription::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -140,7 +140,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = ComponentInterfaceDescription::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -168,7 +168,7 @@ namespace DAnCE
 
       else
       {
-        specificType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        specificType_ = ComponentInterfaceDescription::specificType_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         specificType_->container (this);
       }
     }
@@ -199,7 +199,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_supportedType (ComponentInterfaceDescription::supportedType_value_type const& e)
     {
       supportedType_.push_back (e);
     }
@@ -236,7 +236,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_idlFile (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_idlFile (ComponentInterfaceDescription::idlFile_value_type const& e)
     {
       idlFile_.push_back (e);
     }
@@ -273,7 +273,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_configProperty (ComponentInterfaceDescription::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }
@@ -310,7 +310,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_port (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPortDescription, ACE_Null_Mutex >  const& e)
+    add_port (ComponentInterfaceDescription::port_value_type const& e)
     {
       port_.push_back (e);
     }
@@ -347,7 +347,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPropertyDescription, ACE_Null_Mutex >  const& e)
+    add_property (ComponentInterfaceDescription::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -384,7 +384,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_infoProperty (ComponentInterfaceDescription::infoProperty_value_type const& e)
     {
       infoProperty_.push_back (e);
     }
@@ -418,7 +418,7 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        contentLocation_ = ComponentInterfaceDescription::contentLocation_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         contentLocation_->container (this);
       }
     }
@@ -452,7 +452,7 @@ namespace DAnCE
 
       else
       {
-        href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        href_ = ComponentInterfaceDescription::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -497,37 +497,37 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("supportedType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_supportedType (t);
         }
 
         else if (n == ACE_TEXT("idlFile"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_idlFile (t);
         }
 
         else if (n == ACE_TEXT("configProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_configProperty (t);
         }
 
         else if (n == ACE_TEXT("port"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPortDescription, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ComponentPortDescription (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPortDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ComponentPortDescription (e));
           add_port (t);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPropertyDescription, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ComponentPropertyDescription (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPropertyDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ComponentPropertyDescription (e));
           add_property (t);
         }
 
         else if (n == ACE_TEXT("infoProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_infoProperty (t);
         }
 
@@ -1282,7 +1282,7 @@ namespace DAnCE
       // ComponentInterfaceDescription
       ComponentInterfaceDescription::
       ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

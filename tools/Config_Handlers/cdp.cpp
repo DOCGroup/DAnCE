@@ -82,7 +82,7 @@ namespace DAnCE
 
     PlanPropertyMapping::PlanPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
                                               ::XMLSchema::string<ACE_TCHAR> const& externalName__,
-                                              std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex > > const& delegatesTo__) :
+                                              delegatesTo_container_type const& delegatesTo__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     externalName_ (new ::XMLSchema::string<ACE_TCHAR> (externalName__)),
@@ -162,7 +162,7 @@ namespace DAnCE
     }
 
     void PlanPropertyMapping::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_source (PlanPropertyMapping::source_value_type const& e)
     {
       source_.push_back (e);
     }
@@ -212,7 +212,7 @@ namespace DAnCE
     }
 
     void PlanPropertyMapping::
-    add_delegatesTo (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex >  const& e)
+    add_delegatesTo (PlanPropertyMapping::delegatesTo_value_type const& e)
     {
       delegatesTo_.push_back (e);
     }
@@ -316,7 +316,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = deploymentPlan::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -344,7 +344,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = deploymentPlan::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -372,7 +372,7 @@ namespace DAnCE
 
       else
       {
-        realizes_ = std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > (new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (e));
+        realizes_ = deploymentPlan::realizes_autoptr_type (new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (e));
         realizes_->container (this);
       }
     }
@@ -403,7 +403,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_implementation (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex >  const& e)
+    add_implementation (deploymentPlan::implementation_value_type const& e)
     {
       implementation_.push_back (e);
     }
@@ -440,7 +440,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_instance (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex >  const& e)
+    add_instance (deploymentPlan::instance_value_type const& e)
     {
       instance_.push_back (e);
     }
@@ -477,7 +477,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex >  const& e)
+    add_connection (deploymentPlan::connection_value_type const& e)
     {
       connection_.push_back (e);
     }
@@ -514,7 +514,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_externalProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex >  const& e)
+    add_externalProperty (deploymentPlan::externalProperty_value_type const& e)
     {
       externalProperty_.push_back (e);
     }
@@ -551,7 +551,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_dependsOn (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex >  const& e)
+    add_dependsOn (deploymentPlan::dependsOn_value_type const& e)
     {
       dependsOn_.push_back (e);
     }
@@ -588,7 +588,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_artifact (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex >  const& e)
+    add_artifact (deploymentPlan::artifact_value_type const& e)
     {
       artifact_.push_back (e);
     }
@@ -625,7 +625,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_infoProperty (deploymentPlan::infoProperty_value_type const& e)
     {
       infoProperty_.push_back (e);
     }
@@ -662,7 +662,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_localityConstraint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex >  const& e)
+    add_localityConstraint (deploymentPlan::localityConstraint_value_type const& e)
     {
       localityConstraint_.push_back (e);
     }
@@ -695,13 +695,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("propertyName"))
         {
-          propertyName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          propertyName_ = PlanSubcomponentPropertyReference::propertyName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           propertyName_->container (this);
         }
 
         else if (n == ACE_TEXT("instance"))
         {
-          instance_ = std::auto_ptr< ::DAnCE::Config_Handlers::InstanceDeploymentDescription > (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (e));
+          instance_ = PlanSubcomponentPropertyReference::instance_autoptr_type (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (e));
           instance_->container (this);
         }
 
@@ -727,25 +727,25 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = PlanPropertyMapping::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_source (t);
         }
 
         else if (n == ACE_TEXT("externalName"))
         {
-          externalName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          externalName_ = PlanPropertyMapping::externalName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           externalName_->container (this);
         }
 
         else if (n == ACE_TEXT("delegatesTo"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference (e));
           add_delegatesTo (t);
         }
 
@@ -789,49 +789,49 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("implementation"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::MonolithicDeploymentDescription (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::MonolithicDeploymentDescription (e));
           add_implementation (t);
         }
 
         else if (n == ACE_TEXT("instance"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (e));
           add_instance (t);
         }
 
         else if (n == ACE_TEXT("connection"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::PlanConnectionDescription (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::PlanConnectionDescription (e));
           add_connection (t);
         }
 
         else if (n == ACE_TEXT("externalProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::PlanPropertyMapping (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::PlanPropertyMapping (e));
           add_externalProperty (t);
         }
 
         else if (n == ACE_TEXT("dependsOn"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ImplementationDependency (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ImplementationDependency (e));
           add_dependsOn (t);
         }
 
         else if (n == ACE_TEXT("artifact"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ArtifactDeploymentDescription (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ArtifactDeploymentDescription (e));
           add_artifact (t);
         }
 
         else if (n == ACE_TEXT("infoProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_infoProperty (t);
         }
 
         else if (n == ACE_TEXT("localityConstraint"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::PlanLocality (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::PlanLocality (e));
           add_localityConstraint (t);
         }
 
@@ -1991,7 +1991,7 @@ namespace DAnCE
       // PlanSubcomponentPropertyReference
       PlanSubcomponentPropertyReference::
       PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -2025,7 +2025,7 @@ namespace DAnCE
       // PlanPropertyMapping
       PlanPropertyMapping::
       PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -2097,7 +2097,7 @@ namespace DAnCE
       // deploymentPlan
       deploymentPlan::
       deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

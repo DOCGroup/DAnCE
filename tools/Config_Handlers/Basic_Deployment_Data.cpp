@@ -76,7 +76,7 @@ namespace DAnCE
 
       else
       {
-        href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        href_ = IdRef::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -124,7 +124,7 @@ namespace DAnCE
 
       else
       {
-        idref_ = std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > (new ::XMLSchema::IDREF<ACE_TCHAR> (e));
+        idref_ = IdRef::idref_autoptr_type (new ::XMLSchema::IDREF<ACE_TCHAR> (e));
         idref_->container (this);
       }
     }
@@ -276,7 +276,7 @@ namespace DAnCE
 
       else
       {
-        enum__ = std::auto_ptr< ::DAnCE::Config_Handlers::EnumType > (new ::DAnCE::Config_Handlers::EnumType (e));
+        enum__ = DataType::enum__autoptr_type (new ::DAnCE::Config_Handlers::EnumType (e));
         enum__->container (this);
       }
     }
@@ -304,7 +304,7 @@ namespace DAnCE
 
       else
       {
-        struct__ = std::auto_ptr< ::DAnCE::Config_Handlers::StructType > (new ::DAnCE::Config_Handlers::StructType (e));
+        struct__ = DataType::struct__autoptr_type (new ::DAnCE::Config_Handlers::StructType (e));
         struct__->container (this);
       }
     }
@@ -332,7 +332,7 @@ namespace DAnCE
 
       else
       {
-        value_ = std::auto_ptr< ::DAnCE::Config_Handlers::ValueType > (new ::DAnCE::Config_Handlers::ValueType (e));
+        value_ = DataType::value_autoptr_type (new ::DAnCE::Config_Handlers::ValueType (e));
         value_->container (this);
       }
     }
@@ -360,7 +360,7 @@ namespace DAnCE
 
       else
       {
-        sequence_ = std::auto_ptr< ::DAnCE::Config_Handlers::SequenceType > (new ::DAnCE::Config_Handlers::SequenceType (e));
+        sequence_ = DataType::sequence_autoptr_type (new ::DAnCE::Config_Handlers::SequenceType (e));
         sequence_->container (this);
       }
     }
@@ -388,7 +388,7 @@ namespace DAnCE
 
       else
       {
-        alias_ = std::auto_ptr< ::DAnCE::Config_Handlers::AliasType > (new ::DAnCE::Config_Handlers::AliasType (e));
+        alias_ = DataType::alias_autoptr_type (new ::DAnCE::Config_Handlers::AliasType (e));
         alias_->container (this);
       }
     }
@@ -416,7 +416,7 @@ namespace DAnCE
 
       else
       {
-        array_ = std::auto_ptr< ::DAnCE::Config_Handlers::ArrayType > (new ::DAnCE::Config_Handlers::ArrayType (e));
+        array_ = DataType::array_autoptr_type (new ::DAnCE::Config_Handlers::ArrayType (e));
         array_->container (this);
       }
     }
@@ -444,7 +444,7 @@ namespace DAnCE
 
       else
       {
-        boundedString_ = std::auto_ptr< ::DAnCE::Config_Handlers::BoundedStringType > (new ::DAnCE::Config_Handlers::BoundedStringType (e));
+        boundedString_ = DataType::boundedString_autoptr_type (new ::DAnCE::Config_Handlers::BoundedStringType (e));
         boundedString_->container (this);
       }
     }
@@ -478,7 +478,7 @@ namespace DAnCE
 
       else
       {
-        id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
+        id_ = DataType::id_autoptr_type (new ::XMLSchema::ID<ACE_TCHAR> (e));
         id_->container (this);
       }
     }
@@ -579,7 +579,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_short (ACE_Refcounted_Auto_Ptr < ::XMLSchema::short_, ACE_Null_Mutex >  const& e)
+    add_short (DataValue::short_value_type const& e)
     {
       short__.push_back (e);
     }
@@ -616,7 +616,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_long (ACE_Refcounted_Auto_Ptr < ::XMLSchema::int_, ACE_Null_Mutex >  const& e)
+    add_long (DataValue::long_value_type const& e)
     {
       long__.push_back (e);
     }
@@ -653,7 +653,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_ushort (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedShort, ACE_Null_Mutex >  const& e)
+    add_ushort (DataValue::ushort_value_type const& e)
     {
       ushort_.push_back (e);
     }
@@ -690,7 +690,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_ulong (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex >  const& e)
+    add_ulong (DataValue::ulong_value_type const& e)
     {
       ulong_.push_back (e);
     }
@@ -727,7 +727,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_float (ACE_Refcounted_Auto_Ptr < ::XMLSchema::float_, ACE_Null_Mutex >  const& e)
+    add_float (DataValue::float_value_type const& e)
     {
       float__.push_back (e);
     }
@@ -764,7 +764,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_double (ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex >  const& e)
+    add_double (DataValue::double_value_type const& e)
     {
       double__.push_back (e);
     }
@@ -801,7 +801,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_boolean (ACE_Refcounted_Auto_Ptr < ::XMLSchema::boolean, ACE_Null_Mutex >  const& e)
+    add_boolean (DataValue::boolean_value_type const& e)
     {
       boolean_.push_back (e);
     }
@@ -838,7 +838,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_octet (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedByte, ACE_Null_Mutex >  const& e)
+    add_octet (DataValue::octet_value_type const& e)
     {
       octet_.push_back (e);
     }
@@ -875,7 +875,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_enum (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_enum (DataValue::enum_value_type const& e)
     {
       enum__.push_back (e);
     }
@@ -912,7 +912,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_string (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_string (DataValue::string_value_type const& e)
     {
       string_.push_back (e);
     }
@@ -949,7 +949,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_longlong (ACE_Refcounted_Auto_Ptr < ::XMLSchema::long_, ACE_Null_Mutex >  const& e)
+    add_longlong (DataValue::longlong_value_type const& e)
     {
       longlong_.push_back (e);
     }
@@ -986,7 +986,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_ulonglong (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedLong, ACE_Null_Mutex >  const& e)
+    add_ulonglong (DataValue::ulonglong_value_type const& e)
     {
       ulonglong_.push_back (e);
     }
@@ -1023,7 +1023,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_longdouble (ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex >  const& e)
+    add_longdouble (DataValue::longdouble_value_type const& e)
     {
       longdouble_.push_back (e);
     }
@@ -1060,7 +1060,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_element (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::DataValue, ACE_Null_Mutex >  const& e)
+    add_element (DataValue::element_value_type const& e)
     {
       element_.push_back (e);
     }
@@ -1097,7 +1097,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_member (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedValue, ACE_Null_Mutex >  const& e)
+    add_member (DataValue::member_value_type const& e)
     {
       member_.push_back (e);
     }
@@ -1197,7 +1197,7 @@ namespace DAnCE
 
     EnumType::EnumType (::XMLSchema::string<ACE_TCHAR> const& name__,
                         ::XMLSchema::string<ACE_TCHAR> const& typeId__,
-                        std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > const& member__) :
+                        member_container_type const& member__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     typeId_ (new ::XMLSchema::string<ACE_TCHAR> (typeId__)),
@@ -1287,7 +1287,7 @@ namespace DAnCE
     }
 
     void EnumType::
-    add_member (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_member (EnumType::member_value_type const& e)
     {
       member_.push_back (e);
     }
@@ -1352,7 +1352,7 @@ namespace DAnCE
     }
 
     void BoundedStringType::
-    add_bound (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex >  const& e)
+    add_bound (BoundedStringType::bound_value_type const& e)
     {
       bound_.push_back (e);
     }
@@ -1456,7 +1456,7 @@ namespace DAnCE
     }
 
     void StructType::
-    add_member (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::StructMemberType, ACE_Null_Mutex >  const& e)
+    add_member (StructType::member_value_type const& e)
     {
       member_.push_back (e);
     }
@@ -1664,7 +1664,7 @@ namespace DAnCE
     }
 
     void ValueType::
-    add_member (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ValueMemberType, ACE_Null_Mutex >  const& e)
+    add_member (ValueType::member_value_type const& e)
     {
       member_.push_back (e);
     }
@@ -1948,7 +1948,7 @@ namespace DAnCE
 
       else
       {
-        bound_ = std::auto_ptr< ::XMLSchema::unsignedInt > (new ::XMLSchema::unsignedInt (e));
+        bound_ = SequenceType::bound_autoptr_type (new ::XMLSchema::unsignedInt (e));
         bound_->container (this);
       }
     }
@@ -2228,7 +2228,7 @@ namespace DAnCE
     // Resource
 
     Resource::Resource (::XMLSchema::string<ACE_TCHAR> const& name__,
-                        std::list< ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > > const& resourceType__) :
+                        resourceType_container_type const& resourceType__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     resourceType_ (resourceType__),
@@ -2302,7 +2302,7 @@ namespace DAnCE
     }
 
     void Resource::
-    add_resourceType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_resourceType (Resource::resourceType_value_type const& e)
     {
       resourceType_.push_back (e);
     }
@@ -2339,7 +2339,7 @@ namespace DAnCE
     }
 
     void Resource::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex >  const& e)
+    add_property (Resource::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -2443,7 +2443,7 @@ namespace DAnCE
     }
 
     void Requirement::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_property (Requirement::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -2547,7 +2547,7 @@ namespace DAnCE
     }
 
     void ResourceDeploymentDescription::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_property (ResourceDeploymentDescription::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -2655,7 +2655,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_source (ArtifactDeploymentDescription::source_value_type const& e)
     {
       source_.push_back (e);
     }
@@ -2705,7 +2705,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_location (ArtifactDeploymentDescription::location_value_type const& e)
     {
       location_.push_back (e);
     }
@@ -2742,7 +2742,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_execParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_execParameter (ArtifactDeploymentDescription::execParameter_value_type const& e)
     {
       execParameter_.push_back (e);
     }
@@ -2779,7 +2779,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  const& e)
+    add_deployRequirement (ArtifactDeploymentDescription::deployRequirement_value_type const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -2816,7 +2816,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_deployedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ResourceDeploymentDescription, ACE_Null_Mutex >  const& e)
+    add_deployedResource (ArtifactDeploymentDescription::deployedResource_value_type const& e)
     {
       deployedResource_.push_back (e);
     }
@@ -2856,7 +2856,7 @@ namespace DAnCE
 
       else
       {
-        id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
+        id_ = ArtifactDeploymentDescription::id_autoptr_type (new ::XMLSchema::ID<ACE_TCHAR> (e));
         id_->container (this);
       }
     }
@@ -2948,7 +2948,7 @@ namespace DAnCE
     }
 
     void MonolithicDeploymentDescription::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_source (MonolithicDeploymentDescription::source_value_type const& e)
     {
       source_.push_back (e);
     }
@@ -2985,7 +2985,7 @@ namespace DAnCE
     }
 
     void MonolithicDeploymentDescription::
-    add_artifact (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex >  const& e)
+    add_artifact (MonolithicDeploymentDescription::artifact_value_type const& e)
     {
       artifact_.push_back (e);
     }
@@ -3022,7 +3022,7 @@ namespace DAnCE
     }
 
     void MonolithicDeploymentDescription::
-    add_execParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_execParameter (MonolithicDeploymentDescription::execParameter_value_type const& e)
     {
       execParameter_.push_back (e);
     }
@@ -3059,7 +3059,7 @@ namespace DAnCE
     }
 
     void MonolithicDeploymentDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  const& e)
+    add_deployRequirement (MonolithicDeploymentDescription::deployRequirement_value_type const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -3099,7 +3099,7 @@ namespace DAnCE
 
       else
       {
-        id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
+        id_ = MonolithicDeploymentDescription::id_autoptr_type (new ::XMLSchema::ID<ACE_TCHAR> (e));
         id_->container (this);
       }
     }
@@ -3243,7 +3243,7 @@ namespace DAnCE
     }
 
     void InstanceResourceDeploymentDescription::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_property (InstanceResourceDeploymentDescription::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -3402,7 +3402,7 @@ namespace DAnCE
     }
 
     void InstanceDeploymentDescription::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_configProperty (InstanceDeploymentDescription::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }
@@ -3439,7 +3439,7 @@ namespace DAnCE
     }
 
     void InstanceDeploymentDescription::
-    add_deployedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription, ACE_Null_Mutex >  const& e)
+    add_deployedResource (InstanceDeploymentDescription::deployedResource_value_type const& e)
     {
       deployedResource_.push_back (e);
     }
@@ -3473,7 +3473,7 @@ namespace DAnCE
 
       else
       {
-        deployedSharedResource_ = std::auto_ptr< ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription > (new ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription (e));
+        deployedSharedResource_ = InstanceDeploymentDescription::deployedSharedResource_autoptr_type (new ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription (e));
         deployedSharedResource_->container (this);
       }
     }
@@ -3507,7 +3507,7 @@ namespace DAnCE
 
       else
       {
-        id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
+        id_ = InstanceDeploymentDescription::id_autoptr_type (new ::XMLSchema::ID<ACE_TCHAR> (e));
         id_->container (this);
       }
     }
@@ -3653,7 +3653,7 @@ namespace DAnCE
 
       else
       {
-        specificType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        specificType_ = ComponentPortDescription::specificType_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         specificType_->container (this);
       }
     }
@@ -3684,7 +3684,7 @@ namespace DAnCE
     }
 
     void ComponentPortDescription::
-    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_supportedType (ComponentPortDescription::supportedType_value_type const& e)
     {
       supportedType_.push_back (e);
     }
@@ -3786,7 +3786,7 @@ namespace DAnCE
     }
 
     void ComponentPortDescription::
-    add_templateParam (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_templateParam (ComponentPortDescription::templateParam_value_type const& e)
     {
       templateParam_.push_back (e);
     }
@@ -3993,7 +3993,7 @@ namespace DAnCE
 
       else
       {
-        provider_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        provider_ = PlanSubcomponentPortEndpoint::provider_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         provider_->container (this);
       }
     }
@@ -4121,7 +4121,7 @@ namespace DAnCE
 
       else
       {
-        portName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        portName_ = ExternalReferenceEndpoint::portName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         portName_->container (this);
       }
     }
@@ -4152,7 +4152,7 @@ namespace DAnCE
     }
 
     void ExternalReferenceEndpoint::
-    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_supportedType (ExternalReferenceEndpoint::supportedType_value_type const& e)
     {
       supportedType_.push_back (e);
     }
@@ -4276,7 +4276,7 @@ namespace DAnCE
     }
 
     void ConnectionResourceDeploymentDescription::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_property (ConnectionResourceDeploymentDescription::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -4376,7 +4376,7 @@ namespace DAnCE
 
       else
       {
-        source_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        source_ = PlanConnectionDescription::source_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         source_->container (this);
       }
     }
@@ -4407,7 +4407,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  const& e)
+    add_deployRequirement (PlanConnectionDescription::deployRequirement_value_type const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -4444,7 +4444,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_externalEndpoint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex >  const& e)
+    add_externalEndpoint (PlanConnectionDescription::externalEndpoint_value_type const& e)
     {
       externalEndpoint_.push_back (e);
     }
@@ -4481,7 +4481,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_internalEndpoint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPortEndpoint, ACE_Null_Mutex >  const& e)
+    add_internalEndpoint (PlanConnectionDescription::internalEndpoint_value_type const& e)
     {
       internalEndpoint_.push_back (e);
     }
@@ -4518,7 +4518,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_externalReference (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex >  const& e)
+    add_externalReference (PlanConnectionDescription::externalReference_value_type const& e)
     {
       externalReference_.push_back (e);
     }
@@ -4555,7 +4555,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_deployedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription, ACE_Null_Mutex >  const& e)
+    add_deployedResource (PlanConnectionDescription::deployedResource_value_type const& e)
     {
       deployedResource_.push_back (e);
     }
@@ -4686,7 +4686,7 @@ namespace DAnCE
     }
 
     void Capability::
-    add_resourceType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  const& e)
+    add_resourceType (Capability::resourceType_value_type const& e)
     {
       resourceType_.push_back (e);
     }
@@ -4723,7 +4723,7 @@ namespace DAnCE
     }
 
     void Capability::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex >  const& e)
+    add_property (Capability::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -4819,7 +4819,7 @@ namespace DAnCE
 
       else
       {
-        resourceUsage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > (new ::DAnCE::Config_Handlers::ResourceUsageKind (e));
+        resourceUsage_ = ImplementationRequirement::resourceUsage_autoptr_type (new ::DAnCE::Config_Handlers::ResourceUsageKind (e));
         resourceUsage_->container (this);
       }
     }
@@ -4847,7 +4847,7 @@ namespace DAnCE
 
       else
       {
-        resourcePort_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        resourcePort_ = ImplementationRequirement::resourcePort_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         resourcePort_->container (this);
       }
     }
@@ -4875,7 +4875,7 @@ namespace DAnCE
 
       else
       {
-        componentPort_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        componentPort_ = ImplementationRequirement::componentPort_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         componentPort_->container (this);
       }
     }
@@ -4932,7 +4932,7 @@ namespace DAnCE
     }
 
     void ImplementationRequirement::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  const& e)
+    add_property (ImplementationRequirement::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -5089,7 +5089,7 @@ namespace DAnCE
     }
 
     void AssemblyConnectionDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  const& e)
+    add_deployRequirement (AssemblyConnectionDescription::deployRequirement_value_type const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -5126,7 +5126,7 @@ namespace DAnCE
     }
 
     void AssemblyConnectionDescription::
-    add_internalEndpoint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPortEndpoint, ACE_Null_Mutex >  const& e)
+    add_internalEndpoint (AssemblyConnectionDescription::internalEndpoint_value_type const& e)
     {
       internalEndpoint_.push_back (e);
     }
@@ -5163,7 +5163,7 @@ namespace DAnCE
     }
 
     void AssemblyConnectionDescription::
-    add_externalEndpoint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex >  const& e)
+    add_externalEndpoint (AssemblyConnectionDescription::externalEndpoint_value_type const& e)
     {
       externalEndpoint_.push_back (e);
     }
@@ -5200,7 +5200,7 @@ namespace DAnCE
     }
 
     void AssemblyConnectionDescription::
-    add_externalReference (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex >  const& e)
+    add_externalReference (AssemblyConnectionDescription::externalReference_value_type const& e)
     {
       externalReference_.push_back (e);
     }
@@ -5241,7 +5241,7 @@ namespace DAnCE
     // PlanLocality
 
     PlanLocality::PlanLocality (::DAnCE::Config_Handlers::PlanLocalityKind const& constraint__,
-                                std::list< ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex > > const& constrainedInstance__) :
+                                constrainedInstance_container_type const& constrainedInstance__) :
     ::XSCRT::Type (),
     constraint_ (new ::DAnCE::Config_Handlers::PlanLocalityKind (constraint__)),
     constrainedInstance_ (constrainedInstance__),
@@ -5312,7 +5312,7 @@ namespace DAnCE
     }
 
     void PlanLocality::
-    add_constrainedInstance (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex >  const& e)
+    add_constrainedInstance (PlanLocality::constrainedInstance_value_type const& e)
     {
       constrainedInstance_.push_back (e);
     }
@@ -5516,7 +5516,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("kind"))
         {
-          kind_ = std::auto_ptr< ::DAnCE::Config_Handlers::TCKind > (new ::DAnCE::Config_Handlers::TCKind (e));
+          kind_ = DataType::kind_autoptr_type (new ::DAnCE::Config_Handlers::TCKind (e));
           kind_->container (this);
         }
 
@@ -5602,91 +5602,91 @@ namespace DAnCE
 
         if (n == ACE_TEXT("short"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::short_, ACE_Null_Mutex >  t (new ::XMLSchema::short_ (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::short_, ACE_Null_Mutex>  t (new ::XMLSchema::short_ (e));
           add_short (t);
         }
 
         else if (n == ACE_TEXT("long"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::int_, ACE_Null_Mutex >  t (new ::XMLSchema::int_ (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::int_, ACE_Null_Mutex>  t (new ::XMLSchema::int_ (e));
           add_long (t);
         }
 
         else if (n == ACE_TEXT("ushort"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedShort, ACE_Null_Mutex >  t (new ::XMLSchema::unsignedShort (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedShort, ACE_Null_Mutex>  t (new ::XMLSchema::unsignedShort (e));
           add_ushort (t);
         }
 
         else if (n == ACE_TEXT("ulong"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex >  t (new ::XMLSchema::unsignedInt (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex>  t (new ::XMLSchema::unsignedInt (e));
           add_ulong (t);
         }
 
         else if (n == ACE_TEXT("float"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::float_, ACE_Null_Mutex >  t (new ::XMLSchema::float_ (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::float_, ACE_Null_Mutex>  t (new ::XMLSchema::float_ (e));
           add_float (t);
         }
 
         else if (n == ACE_TEXT("double"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex >  t (new ::XMLSchema::double_ (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex>  t (new ::XMLSchema::double_ (e));
           add_double (t);
         }
 
         else if (n == ACE_TEXT("boolean"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::boolean, ACE_Null_Mutex >  t (new ::XMLSchema::boolean (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::boolean, ACE_Null_Mutex>  t (new ::XMLSchema::boolean (e));
           add_boolean (t);
         }
 
         else if (n == ACE_TEXT("octet"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedByte, ACE_Null_Mutex >  t (new ::XMLSchema::unsignedByte (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedByte, ACE_Null_Mutex>  t (new ::XMLSchema::unsignedByte (e));
           add_octet (t);
         }
 
         else if (n == ACE_TEXT("enum"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_enum (t);
         }
 
         else if (n == ACE_TEXT("string"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_string (t);
         }
 
         else if (n == ACE_TEXT("longlong"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::long_, ACE_Null_Mutex >  t (new ::XMLSchema::long_ (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::long_, ACE_Null_Mutex>  t (new ::XMLSchema::long_ (e));
           add_longlong (t);
         }
 
         else if (n == ACE_TEXT("ulonglong"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedLong, ACE_Null_Mutex >  t (new ::XMLSchema::unsignedLong (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedLong, ACE_Null_Mutex>  t (new ::XMLSchema::unsignedLong (e));
           add_ulonglong (t);
         }
 
         else if (n == ACE_TEXT("longdouble"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex >  t (new ::XMLSchema::double_ (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex>  t (new ::XMLSchema::double_ (e));
           add_longdouble (t);
         }
 
         else if (n == ACE_TEXT("element"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::DataValue, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::DataValue (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::DataValue, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::DataValue (e));
           add_element (t);
         }
 
         else if (n == ACE_TEXT("member"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedValue, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::NamedValue (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedValue, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::NamedValue (e));
           add_member (t);
         }
 
@@ -5712,19 +5712,19 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = AliasType::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("typeId"))
         {
-          typeId_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          typeId_ = AliasType::typeId_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           typeId_->container (this);
         }
 
         else if (n == ACE_TEXT("elementType"))
         {
-          elementType_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          elementType_ = AliasType::elementType_autoptr_type (new ::DAnCE::Config_Handlers::DataType (e));
           elementType_->container (this);
         }
 
@@ -5750,19 +5750,19 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = EnumType::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("typeId"))
         {
-          typeId_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          typeId_ = EnumType::typeId_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           typeId_->container (this);
         }
 
         else if (n == ACE_TEXT("member"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_member (t);
         }
 
@@ -5788,7 +5788,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("bound"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex >  t (new ::XMLSchema::unsignedInt (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex>  t (new ::XMLSchema::unsignedInt (e));
           add_bound (t);
         }
 
@@ -5814,19 +5814,19 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = StructType::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("typeId"))
         {
-          typeId_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          typeId_ = StructType::typeId_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           typeId_->container (this);
         }
 
         else if (n == ACE_TEXT("member"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::StructMemberType, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::StructMemberType (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::StructMemberType, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::StructMemberType (e));
           add_member (t);
         }
 
@@ -5852,13 +5852,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = StructMemberType::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("type"))
         {
-          type_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          type_ = StructMemberType::type_autoptr_type (new ::DAnCE::Config_Handlers::DataType (e));
           type_->container (this);
         }
 
@@ -5884,31 +5884,31 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = ValueType::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("typeId"))
         {
-          typeId_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          typeId_ = ValueType::typeId_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           typeId_->container (this);
         }
 
         else if (n == ACE_TEXT("modifier"))
         {
-          modifier_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          modifier_ = ValueType::modifier_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           modifier_->container (this);
         }
 
         else if (n == ACE_TEXT("baseType"))
         {
-          baseType_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          baseType_ = ValueType::baseType_autoptr_type (new ::DAnCE::Config_Handlers::DataType (e));
           baseType_->container (this);
         }
 
         else if (n == ACE_TEXT("member"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ValueMemberType, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ValueMemberType (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ValueMemberType, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ValueMemberType (e));
           add_member (t);
         }
 
@@ -5934,19 +5934,19 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = ValueMemberType::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("visibility"))
         {
-          visibility_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          visibility_ = ValueMemberType::visibility_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           visibility_->container (this);
         }
 
         else if (n == ACE_TEXT("type"))
         {
-          type_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          type_ = ValueMemberType::type_autoptr_type (new ::DAnCE::Config_Handlers::DataType (e));
           type_->container (this);
         }
 
@@ -5972,13 +5972,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = NamedValue::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("value"))
         {
-          value_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > (new ::DAnCE::Config_Handlers::DataValue (e));
+          value_ = NamedValue::value_autoptr_type (new ::DAnCE::Config_Handlers::DataValue (e));
           value_->container (this);
         }
 
@@ -6004,13 +6004,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("length"))
         {
-          length_ = std::auto_ptr< ::XMLSchema::unsignedInt > (new ::XMLSchema::unsignedInt (e));
+          length_ = ArrayType::length_autoptr_type (new ::XMLSchema::unsignedInt (e));
           length_->container (this);
         }
 
         else if (n == ACE_TEXT("elementType"))
         {
-          elementType_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          elementType_ = ArrayType::elementType_autoptr_type (new ::DAnCE::Config_Handlers::DataType (e));
           elementType_->container (this);
         }
 
@@ -6042,7 +6042,7 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("elementType"))
         {
-          elementType_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          elementType_ = SequenceType::elementType_autoptr_type (new ::DAnCE::Config_Handlers::DataType (e));
           elementType_->container (this);
         }
 
@@ -6068,13 +6068,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("type"))
         {
-          type_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          type_ = Any::type_autoptr_type (new ::DAnCE::Config_Handlers::DataType (e));
           type_->container (this);
         }
 
         else if (n == ACE_TEXT("value"))
         {
-          value_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > (new ::DAnCE::Config_Handlers::DataValue (e));
+          value_ = Any::value_autoptr_type (new ::DAnCE::Config_Handlers::DataValue (e));
           value_->container (this);
         }
 
@@ -6100,13 +6100,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Property::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("value"))
         {
-          value_ = std::auto_ptr< ::DAnCE::Config_Handlers::Any > (new ::DAnCE::Config_Handlers::Any (e));
+          value_ = Property::value_autoptr_type (new ::DAnCE::Config_Handlers::Any (e));
           value_->container (this);
         }
 
@@ -6175,25 +6175,25 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = SatisfierProperty::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("kind"))
         {
-          kind_ = std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierPropertyKind > (new ::DAnCE::Config_Handlers::SatisfierPropertyKind (e));
+          kind_ = SatisfierProperty::kind_autoptr_type (new ::DAnCE::Config_Handlers::SatisfierPropertyKind (e));
           kind_->container (this);
         }
 
         else if (n == ACE_TEXT("dynamic"))
         {
-          dynamic_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          dynamic_ = SatisfierProperty::dynamic_autoptr_type (new ::XMLSchema::boolean (e));
           dynamic_->container (this);
         }
 
         else if (n == ACE_TEXT("value"))
         {
-          value_ = std::auto_ptr< ::DAnCE::Config_Handlers::Any > (new ::DAnCE::Config_Handlers::Any (e));
+          value_ = SatisfierProperty::value_autoptr_type (new ::DAnCE::Config_Handlers::Any (e));
           value_->container (this);
         }
 
@@ -6219,19 +6219,19 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Resource::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_resourceType (t);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::SatisfierProperty (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::SatisfierProperty (e));
           add_property (t);
         }
 
@@ -6257,19 +6257,19 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Requirement::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          resourceType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          resourceType_ = Requirement::resourceType_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceType_->container (this);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_property (t);
         }
 
@@ -6295,19 +6295,19 @@ namespace DAnCE
 
         if (n == ACE_TEXT("requirementName"))
         {
-          requirementName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          requirementName_ = ResourceDeploymentDescription::requirementName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           requirementName_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceName"))
         {
-          resourceName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          resourceName_ = ResourceDeploymentDescription::resourceName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceName_->container (this);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_property (t);
         }
 
@@ -6333,43 +6333,43 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = ArtifactDeploymentDescription::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_source (t);
         }
 
         else if (n == ACE_TEXT("node"))
         {
-          node_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          node_ = ArtifactDeploymentDescription::node_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           node_->container (this);
         }
 
         else if (n == ACE_TEXT("location"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_location (t);
         }
 
         else if (n == ACE_TEXT("execParameter"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_execParameter (t);
         }
 
         else if (n == ACE_TEXT("deployRequirement"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Requirement (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Requirement (e));
           add_deployRequirement (t);
         }
 
         else if (n == ACE_TEXT("deployedResource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ResourceDeploymentDescription, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ResourceDeploymentDescription (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ResourceDeploymentDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ResourceDeploymentDescription (e));
           add_deployedResource (t);
         }
 
@@ -6413,31 +6413,31 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = MonolithicDeploymentDescription::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_source (t);
         }
 
         else if (n == ACE_TEXT("artifact"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::IdRef (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::IdRef (e));
           add_artifact (t);
         }
 
         else if (n == ACE_TEXT("execParameter"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_execParameter (t);
         }
 
         else if (n == ACE_TEXT("deployRequirement"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Requirement (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Requirement (e));
           add_deployRequirement (t);
         }
 
@@ -6521,25 +6521,25 @@ namespace DAnCE
 
         if (n == ACE_TEXT("resourceUsage"))
         {
-          resourceUsage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > (new ::DAnCE::Config_Handlers::ResourceUsageKind (e));
+          resourceUsage_ = InstanceResourceDeploymentDescription::resourceUsage_autoptr_type (new ::DAnCE::Config_Handlers::ResourceUsageKind (e));
           resourceUsage_->container (this);
         }
 
         else if (n == ACE_TEXT("requirementName"))
         {
-          requirementName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          requirementName_ = InstanceResourceDeploymentDescription::requirementName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           requirementName_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceName"))
         {
-          resourceName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          resourceName_ = InstanceResourceDeploymentDescription::resourceName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceName_->container (this);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_property (t);
         }
 
@@ -6565,37 +6565,37 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = InstanceDeploymentDescription::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("node"))
         {
-          node_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          node_ = InstanceDeploymentDescription::node_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           node_->container (this);
         }
 
         else if (n == ACE_TEXT("source"))
         {
-          source_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          source_ = InstanceDeploymentDescription::source_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           source_->container (this);
         }
 
         else if (n == ACE_TEXT("implementation"))
         {
-          implementation_ = std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > (new ::DAnCE::Config_Handlers::IdRef (e));
+          implementation_ = InstanceDeploymentDescription::implementation_autoptr_type (new ::DAnCE::Config_Handlers::IdRef (e));
           implementation_->container (this);
         }
 
         else if (n == ACE_TEXT("configProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_configProperty (t);
         }
 
         else if (n == ACE_TEXT("deployedResource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription (e));
           add_deployedResource (t);
         }
 
@@ -6694,7 +6694,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = ComponentPortDescription::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -6706,43 +6706,43 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("supportedType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_supportedType (t);
         }
 
         else if (n == ACE_TEXT("provider"))
         {
-          provider_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          provider_ = ComponentPortDescription::provider_autoptr_type (new ::XMLSchema::boolean (e));
           provider_->container (this);
         }
 
         else if (n == ACE_TEXT("exclusiveProvider"))
         {
-          exclusiveProvider_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          exclusiveProvider_ = ComponentPortDescription::exclusiveProvider_autoptr_type (new ::XMLSchema::boolean (e));
           exclusiveProvider_->container (this);
         }
 
         else if (n == ACE_TEXT("exclusiveUser"))
         {
-          exclusiveUser_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          exclusiveUser_ = ComponentPortDescription::exclusiveUser_autoptr_type (new ::XMLSchema::boolean (e));
           exclusiveUser_->container (this);
         }
 
         else if (n == ACE_TEXT("optional"))
         {
-          optional_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          optional_ = ComponentPortDescription::optional_autoptr_type (new ::XMLSchema::boolean (e));
           optional_->container (this);
         }
 
         else if (n == ACE_TEXT("kind"))
         {
-          kind_ = std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > (new ::DAnCE::Config_Handlers::CCMComponentPortKind (e));
+          kind_ = ComponentPortDescription::kind_autoptr_type (new ::DAnCE::Config_Handlers::CCMComponentPortKind (e));
           kind_->container (this);
         }
 
         else if (n == ACE_TEXT("templateParam"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_templateParam (t);
         }
 
@@ -6768,13 +6768,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = ComponentPropertyDescription::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("type"))
         {
-          type_ = std::auto_ptr< ::DAnCE::Config_Handlers::DataType > (new ::DAnCE::Config_Handlers::DataType (e));
+          type_ = ComponentPropertyDescription::type_autoptr_type (new ::DAnCE::Config_Handlers::DataType (e));
           type_->container (this);
         }
 
@@ -6800,7 +6800,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("portName"))
         {
-          portName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          portName_ = ComponentExternalPortEndpoint::portName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           portName_->container (this);
         }
 
@@ -6826,7 +6826,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("portName"))
         {
-          portName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          portName_ = PlanSubcomponentPortEndpoint::portName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           portName_->container (this);
         }
 
@@ -6838,13 +6838,13 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("kind"))
         {
-          kind_ = std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > (new ::DAnCE::Config_Handlers::CCMComponentPortKind (e));
+          kind_ = PlanSubcomponentPortEndpoint::kind_autoptr_type (new ::DAnCE::Config_Handlers::CCMComponentPortKind (e));
           kind_->container (this);
         }
 
         else if (n == ACE_TEXT("instance"))
         {
-          instance_ = std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > (new ::DAnCE::Config_Handlers::IdRef (e));
+          instance_ = PlanSubcomponentPortEndpoint::instance_autoptr_type (new ::DAnCE::Config_Handlers::IdRef (e));
           instance_->container (this);
         }
 
@@ -6870,13 +6870,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("location"))
         {
-          location_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          location_ = ExternalReferenceEndpoint::location_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           location_->container (this);
         }
 
         else if (n == ACE_TEXT("provider"))
         {
-          provider_ = std::auto_ptr< ::XMLSchema::boolean > (new ::XMLSchema::boolean (e));
+          provider_ = ExternalReferenceEndpoint::provider_autoptr_type (new ::XMLSchema::boolean (e));
           provider_->container (this);
         }
 
@@ -6888,7 +6888,7 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("supportedType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_supportedType (t);
         }
 
@@ -6914,25 +6914,25 @@ namespace DAnCE
 
         if (n == ACE_TEXT("targetName"))
         {
-          targetName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          targetName_ = ConnectionResourceDeploymentDescription::targetName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           targetName_->container (this);
         }
 
         else if (n == ACE_TEXT("requirementName"))
         {
-          requirementName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          requirementName_ = ConnectionResourceDeploymentDescription::requirementName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           requirementName_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceName"))
         {
-          resourceName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          resourceName_ = ConnectionResourceDeploymentDescription::resourceName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceName_->container (this);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_property (t);
         }
 
@@ -6958,7 +6958,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = PlanConnectionDescription::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -6970,31 +6970,31 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("deployRequirement"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Requirement (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Requirement (e));
           add_deployRequirement (t);
         }
 
         else if (n == ACE_TEXT("externalEndpoint"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint (e));
           add_externalEndpoint (t);
         }
 
         else if (n == ACE_TEXT("internalEndpoint"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPortEndpoint, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::PlanSubcomponentPortEndpoint (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPortEndpoint, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::PlanSubcomponentPortEndpoint (e));
           add_internalEndpoint (t);
         }
 
         else if (n == ACE_TEXT("externalReference"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ExternalReferenceEndpoint (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ExternalReferenceEndpoint (e));
           add_externalReference (t);
         }
 
         else if (n == ACE_TEXT("deployedResource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription (e));
           add_deployedResource (t);
         }
 
@@ -7020,7 +7020,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("requiredType"))
         {
-          requiredType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          requiredType_ = ImplementationDependency::requiredType_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           requiredType_->container (this);
         }
 
@@ -7046,19 +7046,19 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Capability::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex >  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_resourceType (t);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::SatisfierProperty (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::SatisfierProperty (e));
           add_property (t);
         }
 
@@ -7102,19 +7102,19 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          resourceType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          resourceType_ = ImplementationRequirement::resourceType_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceType_->container (this);
         }
 
         else if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = ImplementationRequirement::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Property (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
           add_property (t);
         }
 
@@ -7140,13 +7140,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("portName"))
         {
-          portName_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          portName_ = SubcomponentPortEndpoint::portName_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           portName_->container (this);
         }
 
         else if (n == ACE_TEXT("instance"))
         {
-          instance_ = std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > (new ::DAnCE::Config_Handlers::IdRef (e));
+          instance_ = SubcomponentPortEndpoint::instance_autoptr_type (new ::DAnCE::Config_Handlers::IdRef (e));
           instance_->container (this);
         }
 
@@ -7172,31 +7172,31 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = AssemblyConnectionDescription::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("deployRequirement"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::Requirement (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Requirement (e));
           add_deployRequirement (t);
         }
 
         else if (n == ACE_TEXT("internalEndpoint"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPortEndpoint, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::SubcomponentPortEndpoint (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPortEndpoint, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::SubcomponentPortEndpoint (e));
           add_internalEndpoint (t);
         }
 
         else if (n == ACE_TEXT("externalEndpoint"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint (e));
           add_externalEndpoint (t);
         }
 
         else if (n == ACE_TEXT("externalReference"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::ExternalReferenceEndpoint (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ExternalReferenceEndpoint (e));
           add_externalReference (t);
         }
 
@@ -7256,13 +7256,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("constraint"))
         {
-          constraint_ = std::auto_ptr< ::DAnCE::Config_Handlers::PlanLocalityKind > (new ::DAnCE::Config_Handlers::PlanLocalityKind (e));
+          constraint_ = PlanLocality::constraint_autoptr_type (new ::DAnCE::Config_Handlers::PlanLocalityKind (e));
           constraint_->container (this);
         }
 
         else if (n == ACE_TEXT("constrainedInstance"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex >  t (new ::DAnCE::Config_Handlers::IdRef (e));
+          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::IdRef (e));
           add_constrainedInstance (t);
         }
 
@@ -15079,7 +15079,7 @@ namespace DAnCE
       // IdRef
       IdRef::
       IdRef (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15116,7 +15116,7 @@ namespace DAnCE
 
       TCKind::
       TCKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15185,7 +15185,7 @@ namespace DAnCE
       // DataType
       DataType::
       DataType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15276,7 +15276,7 @@ namespace DAnCE
       // DataValue
       DataValue::
       DataValue (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15579,7 +15579,7 @@ namespace DAnCE
       // AliasType
       AliasType::
       AliasType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15621,7 +15621,7 @@ namespace DAnCE
       // EnumType
       EnumType::
       EnumType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15674,7 +15674,7 @@ namespace DAnCE
       // BoundedStringType
       BoundedStringType::
       BoundedStringType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15711,7 +15711,7 @@ namespace DAnCE
       // StructType
       StructType::
       StructType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15764,7 +15764,7 @@ namespace DAnCE
       // StructMemberType
       StructMemberType::
       StructMemberType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15798,7 +15798,7 @@ namespace DAnCE
       // ValueType
       ValueType::
       ValueType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15867,7 +15867,7 @@ namespace DAnCE
       // ValueMemberType
       ValueMemberType::
       ValueMemberType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15909,7 +15909,7 @@ namespace DAnCE
       // NamedValue
       NamedValue::
       NamedValue (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15943,7 +15943,7 @@ namespace DAnCE
       // ArrayType
       ArrayType::
       ArrayType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -15977,7 +15977,7 @@ namespace DAnCE
       // SequenceType
       SequenceType::
       SequenceType (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16011,7 +16011,7 @@ namespace DAnCE
       // Any
       Any::
       Any (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16045,7 +16045,7 @@ namespace DAnCE
       // Property
       Property::
       Property (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16080,7 +16080,7 @@ namespace DAnCE
 
       SatisfierPropertyKind::
       SatisfierPropertyKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16118,7 +16118,7 @@ namespace DAnCE
       // SatisfierProperty
       SatisfierProperty::
       SatisfierProperty (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16168,7 +16168,7 @@ namespace DAnCE
       // Resource
       Resource::
       Resource (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16232,7 +16232,7 @@ namespace DAnCE
       // Requirement
       Requirement::
       Requirement (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16285,7 +16285,7 @@ namespace DAnCE
       // ResourceDeploymentDescription
       ResourceDeploymentDescription::
       ResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16338,7 +16338,7 @@ namespace DAnCE
       // ArtifactDeploymentDescription
       ArtifactDeploymentDescription::
       ArtifactDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16476,7 +16476,7 @@ namespace DAnCE
       // MonolithicDeploymentDescription
       MonolithicDeploymentDescription::
       MonolithicDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16588,7 +16588,7 @@ namespace DAnCE
 
       ResourceUsageKind::
       ResourceUsageKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16625,7 +16625,7 @@ namespace DAnCE
       // InstanceResourceDeploymentDescription
       InstanceResourceDeploymentDescription::
       InstanceResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16686,7 +16686,7 @@ namespace DAnCE
       // InstanceDeploymentDescription
       InstanceDeploymentDescription::
       InstanceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16792,7 +16792,7 @@ namespace DAnCE
 
       CCMComponentPortKind::
       CCMComponentPortKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16832,7 +16832,7 @@ namespace DAnCE
       // ComponentPortDescription
       ComponentPortDescription::
       ComponentPortDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16944,7 +16944,7 @@ namespace DAnCE
       // ComponentPropertyDescription
       ComponentPropertyDescription::
       ComponentPropertyDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -16978,7 +16978,7 @@ namespace DAnCE
       // ComponentExternalPortEndpoint
       ComponentExternalPortEndpoint::
       ComponentExternalPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17004,7 +17004,7 @@ namespace DAnCE
       // PlanSubcomponentPortEndpoint
       PlanSubcomponentPortEndpoint::
       PlanSubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17054,7 +17054,7 @@ namespace DAnCE
       // ExternalReferenceEndpoint
       ExternalReferenceEndpoint::
       ExternalReferenceEndpoint (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17115,7 +17115,7 @@ namespace DAnCE
       // ConnectionResourceDeploymentDescription
       ConnectionResourceDeploymentDescription::
       ConnectionResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17176,7 +17176,7 @@ namespace DAnCE
       // PlanConnectionDescription
       PlanConnectionDescription::
       PlanConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17305,7 +17305,7 @@ namespace DAnCE
       // ImplementationDependency
       ImplementationDependency::
       ImplementationDependency (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17331,7 +17331,7 @@ namespace DAnCE
       // Capability
       Capability::
       Capability (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17395,7 +17395,7 @@ namespace DAnCE
       // ImplementationRequirement
       ImplementationRequirement::
       ImplementationRequirement (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17472,7 +17472,7 @@ namespace DAnCE
       // SubcomponentPortEndpoint
       SubcomponentPortEndpoint::
       SubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17506,7 +17506,7 @@ namespace DAnCE
       // AssemblyConnectionDescription
       AssemblyConnectionDescription::
       AssemblyConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17609,7 +17609,7 @@ namespace DAnCE
 
       PlanLocalityKind::
       PlanLocalityKind (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 
@@ -17644,7 +17644,7 @@ namespace DAnCE
       // PlanLocality
       PlanLocality::
       PlanLocality (::XSCRT::XML::Element<ACE_TCHAR>& e)
-      : ::XSCRT::Writer< ACE_TCHAR > (e)
+      : ::XSCRT::Writer<ACE_TCHAR> (e)
       {
       }
 

@@ -383,10 +383,10 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::NamedValue,
         virtual ::DAnCE::Config_Handlers::Writer::SharedResource,
         virtual ::DAnCE::Config_Handlers::Writer::Property,
-        virtual ::XSCRT::Writer< ACE_TCHAR >
+        virtual ::XSCRT::Writer<ACE_TCHAR>
         {
           W (::XSCRT::XML::Element<ACE_TCHAR>& e)
-          : ::XSCRT::Writer< ACE_TCHAR > (e)
+          : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
         };
@@ -464,10 +464,10 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ResourceDeploymentDescription,
         virtual ::DAnCE::Config_Handlers::Writer::PlanLocality,
         virtual ::DAnCE::Config_Handlers::Writer::PlanLocalityKind,
-        virtual ::XSCRT::Writer< ACE_TCHAR >
+        virtual ::XSCRT::Writer<ACE_TCHAR>
         {
           W (::XSCRT::XML::Element<ACE_TCHAR>& e)
-          : ::XSCRT::Writer< ACE_TCHAR > (e)
+          : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
         };
@@ -524,10 +524,10 @@ namespace DAnCE
         virtual ::XMLSchema::Writer::FundamentalType< ::XMLSchema::unsignedLong, ACE_TCHAR >,
         virtual ::DAnCE::Config_Handlers::Writer::NamedValue,
         virtual ::DAnCE::Config_Handlers::Writer::Requirement,
-        virtual ::XSCRT::Writer< ACE_TCHAR >
+        virtual ::XSCRT::Writer<ACE_TCHAR>
         {
           W (::XSCRT::XML::Element<ACE_TCHAR>& e)
-          : ::XSCRT::Writer< ACE_TCHAR > (e)
+          : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
         };
@@ -585,10 +585,10 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ComponentPortDescription,
         virtual ::DAnCE::Config_Handlers::Writer::CCMComponentPortKind,
         virtual ::DAnCE::Config_Handlers::Writer::ComponentPropertyDescription,
-        virtual ::XSCRT::Writer< ACE_TCHAR >
+        virtual ::XSCRT::Writer<ACE_TCHAR>
         {
           W (::XSCRT::XML::Element<ACE_TCHAR>& e)
-          : ::XSCRT::Writer< ACE_TCHAR > (e)
+          : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
         };
@@ -674,10 +674,10 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SatisfierProperty,
         virtual ::DAnCE::Config_Handlers::Writer::SatisfierPropertyKind,
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
-        virtual ::XSCRT::Writer< ACE_TCHAR >
+        virtual ::XSCRT::Writer<ACE_TCHAR>
         {
           W (::XSCRT::XML::Element<ACE_TCHAR>& e)
-          : ::XSCRT::Writer< ACE_TCHAR > (e)
+          : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
         };
@@ -763,10 +763,10 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SatisfierProperty,
         virtual ::DAnCE::Config_Handlers::Writer::SatisfierPropertyKind,
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
-        virtual ::XSCRT::Writer< ACE_TCHAR >
+        virtual ::XSCRT::Writer<ACE_TCHAR>
         {
           W (::XSCRT::XML::Element<ACE_TCHAR>& e)
-          : ::XSCRT::Writer< ACE_TCHAR > (e)
+          : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
         };
@@ -852,10 +852,10 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SatisfierProperty,
         virtual ::DAnCE::Config_Handlers::Writer::SatisfierPropertyKind,
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
-        virtual ::XSCRT::Writer< ACE_TCHAR >
+        virtual ::XSCRT::Writer<ACE_TCHAR>
         {
           W (::XSCRT::XML::Element<ACE_TCHAR>& e)
-          : ::XSCRT::Writer< ACE_TCHAR > (e)
+          : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
         };
@@ -942,10 +942,10 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::SatisfierProperty,
         virtual ::DAnCE::Config_Handlers::Writer::SatisfierPropertyKind,
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
-        virtual ::XSCRT::Writer< ACE_TCHAR >
+        virtual ::XSCRT::Writer<ACE_TCHAR>
         {
           W (::XSCRT::XML::Element<ACE_TCHAR>& e)
-          : ::XSCRT::Writer< ACE_TCHAR > (e)
+          : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
         };
