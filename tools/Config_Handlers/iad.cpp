@@ -166,7 +166,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = ImplementationArtifactDescription::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -194,7 +194,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = ImplementationArtifactDescription::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -407,7 +407,7 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        contentLocation_ = ImplementationArtifactDescription::contentLocation_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         contentLocation_->container (this);
       }
     }
@@ -441,7 +441,7 @@ namespace DAnCE
 
       else
       {
-        href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        href_ = ImplementationArtifactDescription::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -468,13 +468,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = NamedImplementationArtifact::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("referencedArtifact"))
         {
-          referencedArtifact_ = std::auto_ptr< ::DAnCE::Config_Handlers::ImplementationArtifactDescription > (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (e));
+          referencedArtifact_ = NamedImplementationArtifact::referencedArtifact_autoptr_type (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (e));
           referencedArtifact_->container (this);
         }
 

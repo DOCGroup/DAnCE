@@ -56,7 +56,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
+      UUID_autoptr_type UUID_;
 
       // label
       public:
@@ -65,12 +66,13 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
+      label_autoptr_type label_;
 
       // node
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex> node_value_type;
-      typedef std::list< node_value_type> node_container_type;
+      typedef std::list<node_value_type> node_container_type;
       typedef node_container_type::iterator node_iterator;
       typedef node_container_type::const_iterator node_const_iterator;
       node_iterator begin_node ();
@@ -86,7 +88,7 @@ namespace DAnCE
       // interconnect
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex> interconnect_value_type;
-      typedef std::list< interconnect_value_type> interconnect_container_type;
+      typedef std::list<interconnect_value_type> interconnect_container_type;
       typedef interconnect_container_type::iterator interconnect_iterator;
       typedef interconnect_container_type::const_iterator interconnect_const_iterator;
       interconnect_iterator begin_interconnect ();
@@ -102,7 +104,7 @@ namespace DAnCE
       // bridge
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex> bridge_value_type;
-      typedef std::list< bridge_value_type> bridge_container_type;
+      typedef std::list<bridge_value_type> bridge_container_type;
       typedef bridge_container_type::iterator bridge_iterator;
       typedef bridge_container_type::const_iterator bridge_const_iterator;
       bridge_iterator begin_bridge ();
@@ -118,7 +120,7 @@ namespace DAnCE
       // sharedResource
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex> sharedResource_value_type;
-      typedef std::list< sharedResource_value_type> sharedResource_container_type;
+      typedef std::list<sharedResource_value_type> sharedResource_container_type;
       typedef sharedResource_container_type::iterator sharedResource_iterator;
       typedef sharedResource_container_type::const_iterator sharedResource_const_iterator;
       sharedResource_iterator begin_sharedResource ();
@@ -134,7 +136,7 @@ namespace DAnCE
       // infoProperty
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> infoProperty_value_type;
-      typedef std::list< infoProperty_value_type> infoProperty_container_type;
+      typedef std::list<infoProperty_value_type> infoProperty_container_type;
       typedef infoProperty_container_type::iterator infoProperty_iterator;
       typedef infoProperty_container_type::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
@@ -148,7 +150,7 @@ namespace DAnCE
       infoProperty_container_type infoProperty_;
 
       public:
-      Domain (std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex> > const& node__);
+      Domain (node_container_type const& node__);
 
       explicit Domain (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Domain (Domain const& s);
@@ -173,7 +175,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // label
       public:
@@ -182,12 +185,13 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
+      label_autoptr_type label_;
 
       // connect
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex> connect_value_type;
-      typedef std::list< connect_value_type> connect_container_type;
+      typedef std::list<connect_value_type> connect_container_type;
       typedef connect_container_type::iterator connect_iterator;
       typedef connect_container_type::const_iterator connect_const_iterator;
       connect_iterator begin_connect ();
@@ -203,7 +207,7 @@ namespace DAnCE
       // resource
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex> resource_value_type;
-      typedef std::list< resource_value_type> resource_container_type;
+      typedef std::list<resource_value_type> resource_container_type;
       typedef resource_container_type::iterator resource_iterator;
       typedef resource_container_type::const_iterator resource_const_iterator;
       resource_iterator begin_resource ();
@@ -218,7 +222,7 @@ namespace DAnCE
 
       public:
       Bridge (::XMLSchema::string<ACE_TCHAR> const& name__,
-              std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex> > const& connect__);
+              connect_container_type const& connect__);
 
       explicit Bridge (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Bridge (Bridge const& s);
@@ -243,7 +247,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // label
       public:
@@ -252,12 +257,13 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
+      label_autoptr_type label_;
 
       // connection
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex> connection_value_type;
-      typedef std::list< connection_value_type> connection_container_type;
+      typedef std::list<connection_value_type> connection_container_type;
       typedef connection_container_type::iterator connection_iterator;
       typedef connection_container_type::const_iterator connection_const_iterator;
       connection_iterator begin_connection ();
@@ -273,7 +279,7 @@ namespace DAnCE
       // connect
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex> connect_value_type;
-      typedef std::list< connect_value_type> connect_container_type;
+      typedef std::list<connect_value_type> connect_container_type;
       typedef connect_container_type::iterator connect_iterator;
       typedef connect_container_type::const_iterator connect_const_iterator;
       connect_iterator begin_connect ();
@@ -289,7 +295,7 @@ namespace DAnCE
       // resource
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex> resource_value_type;
-      typedef std::list< resource_value_type> resource_container_type;
+      typedef std::list<resource_value_type> resource_container_type;
       typedef resource_container_type::iterator resource_iterator;
       typedef resource_container_type::const_iterator resource_const_iterator;
       resource_iterator begin_resource ();
@@ -304,7 +310,7 @@ namespace DAnCE
 
       public:
       Interconnect (::XMLSchema::string<ACE_TCHAR> const& name__,
-                    std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex> > const& connect__);
+                    connect_container_type const& connect__);
 
       explicit Interconnect (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Interconnect (Interconnect const& s);
@@ -329,7 +335,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // label
       public:
@@ -338,12 +345,13 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
+      label_autoptr_type label_;
 
       // connection
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex> connection_value_type;
-      typedef std::list< connection_value_type> connection_container_type;
+      typedef std::list<connection_value_type> connection_container_type;
       typedef connection_container_type::iterator connection_iterator;
       typedef connection_container_type::const_iterator connection_const_iterator;
       connection_iterator begin_connection ();
@@ -359,7 +367,7 @@ namespace DAnCE
       // sharedResource
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex> sharedResource_value_type;
-      typedef std::list< sharedResource_value_type> sharedResource_container_type;
+      typedef std::list<sharedResource_value_type> sharedResource_container_type;
       typedef sharedResource_container_type::iterator sharedResource_iterator;
       typedef sharedResource_container_type::const_iterator sharedResource_const_iterator;
       sharedResource_iterator begin_sharedResource ();
@@ -375,7 +383,7 @@ namespace DAnCE
       // resource
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex> resource_value_type;
-      typedef std::list< resource_value_type> resource_container_type;
+      typedef std::list<resource_value_type> resource_container_type;
       typedef resource_container_type::iterator resource_iterator;
       typedef resource_container_type::const_iterator resource_const_iterator;
       resource_iterator begin_resource ();
@@ -414,7 +422,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // resourceType
       public:
@@ -422,7 +431,8 @@ namespace DAnCE
       void resourceType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_autoptr_type;
+      resourceType_autoptr_type resourceType_;
 
       // node
       public:
@@ -430,7 +440,8 @@ namespace DAnCE
       void node (::DAnCE::Config_Handlers::Node const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::Node > node_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::Node > node_autoptr_type;
+      node_autoptr_type node_;
 
       // property
       public:
@@ -438,7 +449,8 @@ namespace DAnCE
       void property (::DAnCE::Config_Handlers::SatisfierProperty const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierProperty > property_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierProperty > property_autoptr_type;
+      property_autoptr_type property_;
 
       public:
       SharedResource (::XMLSchema::string<ACE_TCHAR> const& name__,

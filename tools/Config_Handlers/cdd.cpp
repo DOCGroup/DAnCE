@@ -16,7 +16,7 @@ namespace DAnCE
   {
     // Domain
 
-    Domain::Domain (std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex> > const& node__) :
+    Domain::Domain (node_container_type const& node__) :
     ::XSCRT::Type (),
     node_ (node__),
     regulator__ ()
@@ -91,7 +91,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = Domain::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -119,7 +119,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = Domain::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -313,7 +313,7 @@ namespace DAnCE
     // Bridge
 
     Bridge::Bridge (::XMLSchema::string<ACE_TCHAR> const& name__,
-                    std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex> > const& connect__) :
+                    connect_container_type const& connect__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     connect_ (connect__),
@@ -391,7 +391,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = Bridge::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -474,7 +474,7 @@ namespace DAnCE
     // Interconnect
 
     Interconnect::Interconnect (::XMLSchema::string<ACE_TCHAR> const& name__,
-                                std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex> > const& connect__) :
+                                connect_container_type const& connect__) :
     ::XSCRT::Type (),
     name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
     connect_ (connect__),
@@ -555,7 +555,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = Interconnect::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -754,7 +754,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = Node::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -1058,7 +1058,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Bridge::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -1102,7 +1102,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Interconnect::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -1152,7 +1152,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Node::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -1202,25 +1202,25 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = SharedResource::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          resourceType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+          resourceType_ = SharedResource::resourceType_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceType_->container (this);
         }
 
         else if (n == ACE_TEXT("node"))
         {
-          node_ = std::auto_ptr< ::DAnCE::Config_Handlers::Node > (new ::DAnCE::Config_Handlers::Node (e));
+          node_ = SharedResource::node_autoptr_type (new ::DAnCE::Config_Handlers::Node (e));
           node_->container (this);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          property_ = std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierProperty > (new ::DAnCE::Config_Handlers::SatisfierProperty (e));
+          property_ = SharedResource::property_autoptr_type (new ::DAnCE::Config_Handlers::SatisfierProperty (e));
           property_->container (this);
         }
 

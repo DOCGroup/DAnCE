@@ -104,7 +104,7 @@ namespace XMI
 
     else
     {
-      id_ = std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > (new ::XMLSchema::ID<ACE_TCHAR> (e));
+      id_ = Extension::id_autoptr_type (new ::XMLSchema::ID<ACE_TCHAR> (e));
       id_->container (this);
     }
   }
@@ -138,7 +138,7 @@ namespace XMI
 
     else
     {
-      label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+      label_ = Extension::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       label_->container (this);
     }
   }
@@ -172,7 +172,7 @@ namespace XMI
 
     else
     {
-      uuid_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+      uuid_ = Extension::uuid_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       uuid_->container (this);
     }
   }
@@ -206,7 +206,7 @@ namespace XMI
 
     else
     {
-      href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+      href_ = Extension::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       href_->container (this);
     }
   }
@@ -254,7 +254,7 @@ namespace XMI
 
     else
     {
-      idref_ = std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > (new ::XMLSchema::IDREF<ACE_TCHAR> (e));
+      idref_ = Extension::idref_autoptr_type (new ::XMLSchema::IDREF<ACE_TCHAR> (e));
       idref_->container (this);
     }
   }
@@ -288,7 +288,7 @@ namespace XMI
 
     else
     {
-      version_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+      version_ = Extension::version_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       version_->container (this);
     }
   }
@@ -322,7 +322,7 @@ namespace XMI
 
     else
     {
-      extender_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+      extender_ = Extension::extender_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       extender_->container (this);
     }
   }
@@ -356,7 +356,7 @@ namespace XMI
 
     else
     {
-      extenderID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+      extenderID_ = Extension::extenderID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       extenderID_->container (this);
     }
   }

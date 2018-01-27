@@ -51,7 +51,7 @@ namespace DAnCE
       // location
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> location_value_type;
-      typedef std::list< location_value_type> location_container_type;
+      typedef std::list<location_value_type> location_container_type;
       typedef location_container_type::iterator location_iterator;
       typedef location_container_type::const_iterator location_const_iterator;
       location_iterator begin_location ();
@@ -91,7 +91,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
+      label_autoptr_type label_;
 
       // UUID
       public:
@@ -100,7 +101,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
+      UUID_autoptr_type UUID_;
 
       // basePackage
       public:
@@ -109,7 +111,8 @@ namespace DAnCE
       void basePackage (::DAnCE::Config_Handlers::ComponentPackageDescription const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > basePackage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > basePackage_autoptr_type;
+      basePackage_autoptr_type basePackage_;
 
       // specializedConfig
       public:
@@ -118,7 +121,8 @@ namespace DAnCE
       void specializedConfig (::DAnCE::Config_Handlers::PackageConfiguration const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > specializedConfig_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > specializedConfig_autoptr_type;
+      specializedConfig_autoptr_type specializedConfig_;
 
       // importedPackage
       public:
@@ -127,7 +131,8 @@ namespace DAnCE
       void importedPackage (::DAnCE::Config_Handlers::ComponentPackageImport const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > importedPackage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > importedPackage_autoptr_type;
+      importedPackage_autoptr_type importedPackage_;
 
       // referencedPackage
       public:
@@ -136,12 +141,13 @@ namespace DAnCE
       void referencedPackage (::DAnCE::Config_Handlers::ComponentPackageReference const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > referencedPackage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > referencedPackage_autoptr_type;
+      referencedPackage_autoptr_type referencedPackage_;
 
       // selectRequirement
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> selectRequirement_value_type;
-      typedef std::list< selectRequirement_value_type> selectRequirement_container_type;
+      typedef std::list<selectRequirement_value_type> selectRequirement_container_type;
       typedef selectRequirement_container_type::iterator selectRequirement_iterator;
       typedef selectRequirement_container_type::const_iterator selectRequirement_const_iterator;
       selectRequirement_iterator begin_selectRequirement ();
@@ -157,7 +163,7 @@ namespace DAnCE
       // configProperty
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
-      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef std::list<configProperty_value_type> configProperty_container_type;
       typedef configProperty_container_type::iterator configProperty_iterator;
       typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
@@ -177,7 +183,8 @@ namespace DAnCE
       void contentLocation (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_autoptr_type;
+      contentLocation_autoptr_type contentLocation_;
 
       public:
       PackageConfiguration ();

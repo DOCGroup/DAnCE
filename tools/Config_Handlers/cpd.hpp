@@ -53,7 +53,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // referencedImplementation
       public:
@@ -61,7 +62,8 @@ namespace DAnCE
       void referencedImplementation (::DAnCE::Config_Handlers::ComponentImplementationDescription const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentImplementationDescription > referencedImplementation_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentImplementationDescription > referencedImplementation_autoptr_type;
+      referencedImplementation_autoptr_type referencedImplementation_;
 
       public:
       PackagedComponentImplementation (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -91,7 +93,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
+      label_autoptr_type label_;
 
       // UUID
       public:
@@ -100,7 +103,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
+      UUID_autoptr_type UUID_;
 
       // realizes
       public:
@@ -109,12 +113,13 @@ namespace DAnCE
       void realizes (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_autoptr_type;
+      realizes_autoptr_type realizes_;
 
       // configProperty
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
-      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef std::list<configProperty_value_type> configProperty_container_type;
       typedef configProperty_container_type::iterator configProperty_iterator;
       typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
@@ -130,7 +135,7 @@ namespace DAnCE
       // implementation
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex> implementation_value_type;
-      typedef std::list< implementation_value_type> implementation_container_type;
+      typedef std::list<implementation_value_type> implementation_container_type;
       typedef implementation_container_type::iterator implementation_iterator;
       typedef implementation_container_type::const_iterator implementation_const_iterator;
       implementation_iterator begin_implementation ();
@@ -146,7 +151,7 @@ namespace DAnCE
       // infoProperty
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> infoProperty_value_type;
-      typedef std::list< infoProperty_value_type> infoProperty_container_type;
+      typedef std::list<infoProperty_value_type> infoProperty_container_type;
       typedef infoProperty_container_type::iterator infoProperty_iterator;
       typedef infoProperty_container_type::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
@@ -167,7 +172,8 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_autoptr_type;
+      href_autoptr_type href_;
 
       public:
       ComponentPackageDescription ();
@@ -196,7 +202,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
+      label_autoptr_type label_;
 
       // UUID
       public:
@@ -205,7 +212,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
+      UUID_autoptr_type UUID_;
 
       // realizes
       public:
@@ -214,12 +222,13 @@ namespace DAnCE
       void realizes (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_autoptr_type;
+      realizes_autoptr_type realizes_;
 
       // configProperty
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
-      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef std::list<configProperty_value_type> configProperty_container_type;
       typedef configProperty_container_type::iterator configProperty_iterator;
       typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
@@ -235,7 +244,7 @@ namespace DAnCE
       // implementation
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex> implementation_value_type;
-      typedef std::list< implementation_value_type> implementation_container_type;
+      typedef std::list<implementation_value_type> implementation_container_type;
       typedef implementation_container_type::iterator implementation_iterator;
       typedef implementation_container_type::const_iterator implementation_const_iterator;
       implementation_iterator begin_implementation ();
@@ -251,7 +260,7 @@ namespace DAnCE
       // infoProperty
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> infoProperty_value_type;
-      typedef std::list< infoProperty_value_type> infoProperty_container_type;
+      typedef std::list<infoProperty_value_type> infoProperty_container_type;
       typedef infoProperty_container_type::iterator infoProperty_iterator;
       typedef infoProperty_container_type::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
@@ -272,7 +281,8 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_autoptr_type;
+      href_autoptr_type href_;
 
       public:
       ConnectorPackageDescription ();

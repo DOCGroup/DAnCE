@@ -52,7 +52,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // referencedArtifact
       public:
@@ -60,7 +61,8 @@ namespace DAnCE
       void referencedArtifact (::DAnCE::Config_Handlers::ImplementationArtifactDescription const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ImplementationArtifactDescription > referencedArtifact_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ImplementationArtifactDescription > referencedArtifact_autoptr_type;
+      referencedArtifact_autoptr_type referencedArtifact_;
 
       public:
       NamedImplementationArtifact (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -90,7 +92,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
+      label_autoptr_type label_;
 
       // UUID
       public:
@@ -99,12 +102,13 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
+      UUID_autoptr_type UUID_;
 
       // location
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> location_value_type;
-      typedef std::list< location_value_type> location_container_type;
+      typedef std::list<location_value_type> location_container_type;
       typedef location_container_type::iterator location_iterator;
       typedef location_container_type::const_iterator location_const_iterator;
       location_iterator begin_location ();
@@ -120,7 +124,7 @@ namespace DAnCE
       // dependsOn
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex> dependsOn_value_type;
-      typedef std::list< dependsOn_value_type> dependsOn_container_type;
+      typedef std::list<dependsOn_value_type> dependsOn_container_type;
       typedef dependsOn_container_type::iterator dependsOn_iterator;
       typedef dependsOn_container_type::const_iterator dependsOn_const_iterator;
       dependsOn_iterator begin_dependsOn ();
@@ -136,7 +140,7 @@ namespace DAnCE
       // execParameter
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> execParameter_value_type;
-      typedef std::list< execParameter_value_type> execParameter_container_type;
+      typedef std::list<execParameter_value_type> execParameter_container_type;
       typedef execParameter_container_type::iterator execParameter_iterator;
       typedef execParameter_container_type::const_iterator execParameter_const_iterator;
       execParameter_iterator begin_execParameter ();
@@ -152,7 +156,7 @@ namespace DAnCE
       // infoProperty
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> infoProperty_value_type;
-      typedef std::list< infoProperty_value_type> infoProperty_container_type;
+      typedef std::list<infoProperty_value_type> infoProperty_container_type;
       typedef infoProperty_container_type::iterator infoProperty_iterator;
       typedef infoProperty_container_type::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
@@ -168,7 +172,7 @@ namespace DAnCE
       // deployRequirement
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> deployRequirement_value_type;
-      typedef std::list< deployRequirement_value_type> deployRequirement_container_type;
+      typedef std::list<deployRequirement_value_type> deployRequirement_container_type;
       typedef deployRequirement_container_type::iterator deployRequirement_iterator;
       typedef deployRequirement_container_type::const_iterator deployRequirement_const_iterator;
       deployRequirement_iterator begin_deployRequirement ();
@@ -188,7 +192,8 @@ namespace DAnCE
       void contentLocation (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_autoptr_type;
+      contentLocation_autoptr_type contentLocation_;
 
       // href
       public:
@@ -198,7 +203,8 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_autoptr_type;
+      href_autoptr_type href_;
 
       public:
       ImplementationArtifactDescription ();

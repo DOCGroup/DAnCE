@@ -181,7 +181,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = PackageConfiguration::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -209,7 +209,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = PackageConfiguration::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -237,7 +237,7 @@ namespace DAnCE
 
       else
       {
-        basePackage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > (new ::DAnCE::Config_Handlers::ComponentPackageDescription (e));
+        basePackage_ = PackageConfiguration::basePackage_autoptr_type (new ::DAnCE::Config_Handlers::ComponentPackageDescription (e));
         basePackage_->container (this);
       }
     }
@@ -265,7 +265,7 @@ namespace DAnCE
 
       else
       {
-        specializedConfig_ = std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
+        specializedConfig_ = PackageConfiguration::specializedConfig_autoptr_type (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
         specializedConfig_->container (this);
       }
     }
@@ -293,7 +293,7 @@ namespace DAnCE
 
       else
       {
-        importedPackage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > (new ::DAnCE::Config_Handlers::ComponentPackageImport (e));
+        importedPackage_ = PackageConfiguration::importedPackage_autoptr_type (new ::DAnCE::Config_Handlers::ComponentPackageImport (e));
         importedPackage_->container (this);
       }
     }
@@ -321,7 +321,7 @@ namespace DAnCE
 
       else
       {
-        referencedPackage_ = std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > (new ::DAnCE::Config_Handlers::ComponentPackageReference (e));
+        referencedPackage_ = PackageConfiguration::referencedPackage_autoptr_type (new ::DAnCE::Config_Handlers::ComponentPackageReference (e));
         referencedPackage_->container (this);
       }
     }
@@ -423,7 +423,7 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        contentLocation_ = PackageConfiguration::contentLocation_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         contentLocation_->container (this);
       }
     }

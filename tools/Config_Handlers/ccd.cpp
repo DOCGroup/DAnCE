@@ -112,7 +112,7 @@ namespace DAnCE
 
       else
       {
-        label_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = ComponentInterfaceDescription::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -140,7 +140,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = ComponentInterfaceDescription::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -168,7 +168,7 @@ namespace DAnCE
 
       else
       {
-        specificType_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        specificType_ = ComponentInterfaceDescription::specificType_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         specificType_->container (this);
       }
     }
@@ -418,7 +418,7 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        contentLocation_ = ComponentInterfaceDescription::contentLocation_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         contentLocation_->container (this);
       }
     }
@@ -452,7 +452,7 @@ namespace DAnCE
 
       else
       {
-        href_ = std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > (new ::XMLSchema::string<ACE_TCHAR> (e));
+        href_ = ComponentInterfaceDescription::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }

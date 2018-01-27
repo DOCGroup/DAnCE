@@ -46,7 +46,8 @@ namespace XMI
     void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_;
+    typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_autoptr_type;
+    id_autoptr_type id_;
 
     // label
     public:
@@ -56,7 +57,8 @@ namespace XMI
     void label (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_;
+    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
+    label_autoptr_type label_;
 
     // uuid
     public:
@@ -66,7 +68,8 @@ namespace XMI
     void uuid (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > uuid_;
+    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > uuid_autoptr_type;
+    uuid_autoptr_type uuid_;
 
     // href
     public:
@@ -76,7 +79,8 @@ namespace XMI
     void href (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
+    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_autoptr_type;
+    href_autoptr_type href_;
 
     // idref
     public:
@@ -89,7 +93,8 @@ namespace XMI
     void set_idref_ptr (const std::basic_string<ACE_TCHAR>& idref);
 
     protected:
-    std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_;
+    typedef std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_autoptr_type;
+    idref_autoptr_type idref_;
 
     // version
     public:
@@ -99,7 +104,8 @@ namespace XMI
     void version (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > version_;
+    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > version_autoptr_type;
+    version_autoptr_type version_;
 
     // extender
     public:
@@ -109,7 +115,8 @@ namespace XMI
     void extender (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > extender_;
+    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > extender_autoptr_type;
+    extender_autoptr_type extender_;
 
     // extenderID
     public:
@@ -119,7 +126,8 @@ namespace XMI
     void extenderID (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > extenderID_;
+    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > extenderID_autoptr_type;
+    extenderID_autoptr_type extenderID_;
 
     public:
     Extension ();

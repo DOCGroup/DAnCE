@@ -93,7 +93,8 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_autoptr_type;
+      href_autoptr_type href_;
 
       // idref
       public:
@@ -106,7 +107,8 @@ namespace DAnCE
       void set_idref_ptr (const std::basic_string<ACE_TCHAR>& idref);
 
       protected:
-      std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_;
+      typedef std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_autoptr_type;
+      idref_autoptr_type idref_;
 
       public:
       IdRef ();
@@ -204,7 +206,8 @@ namespace DAnCE
       void kind (::DAnCE::Config_Handlers::TCKind const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::TCKind > kind_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::TCKind > kind_autoptr_type;
+      kind_autoptr_type kind_;
 
       // enum
       public:
@@ -213,7 +216,8 @@ namespace DAnCE
       void enum_ (::DAnCE::Config_Handlers::EnumType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::EnumType > enum__;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::EnumType > enum__autoptr_type;
+      enum__autoptr_type enum__;
 
       // struct
       public:
@@ -222,7 +226,8 @@ namespace DAnCE
       void struct_ (::DAnCE::Config_Handlers::StructType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::StructType > struct__;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::StructType > struct__autoptr_type;
+      struct__autoptr_type struct__;
 
       // value
       public:
@@ -231,7 +236,8 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::ValueType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ValueType > value_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ValueType > value_autoptr_type;
+      value_autoptr_type value_;
 
       // sequence
       public:
@@ -240,7 +246,8 @@ namespace DAnCE
       void sequence (::DAnCE::Config_Handlers::SequenceType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::SequenceType > sequence_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::SequenceType > sequence_autoptr_type;
+      sequence_autoptr_type sequence_;
 
       // alias
       public:
@@ -249,7 +256,8 @@ namespace DAnCE
       void alias (::DAnCE::Config_Handlers::AliasType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::AliasType > alias_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::AliasType > alias_autoptr_type;
+      alias_autoptr_type alias_;
 
       // array
       public:
@@ -258,7 +266,8 @@ namespace DAnCE
       void array (::DAnCE::Config_Handlers::ArrayType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ArrayType > array_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ArrayType > array_autoptr_type;
+      array_autoptr_type array_;
 
       // boundedString
       public:
@@ -267,7 +276,8 @@ namespace DAnCE
       void boundedString (::DAnCE::Config_Handlers::BoundedStringType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::BoundedStringType > boundedString_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::BoundedStringType > boundedString_autoptr_type;
+      boundedString_autoptr_type boundedString_;
 
       // id
       public:
@@ -277,7 +287,8 @@ namespace DAnCE
       void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_;
+      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_autoptr_type;
+      id_autoptr_type id_;
 
       public:
       DataType (::DAnCE::Config_Handlers::TCKind const& kind__);
@@ -302,7 +313,7 @@ namespace DAnCE
       // short
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::short_, ACE_Null_Mutex> short_value_type;
-      typedef std::list< short_value_type> short_container_type;
+      typedef std::list<short_value_type> short_container_type;
       typedef short_container_type::iterator short_iterator;
       typedef short_container_type::const_iterator short_const_iterator;
       short_iterator begin_short ();
@@ -318,7 +329,7 @@ namespace DAnCE
       // long
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::int_, ACE_Null_Mutex> long_value_type;
-      typedef std::list< long_value_type> long_container_type;
+      typedef std::list<long_value_type> long_container_type;
       typedef long_container_type::iterator long_iterator;
       typedef long_container_type::const_iterator long_const_iterator;
       long_iterator begin_long ();
@@ -334,7 +345,7 @@ namespace DAnCE
       // ushort
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedShort, ACE_Null_Mutex> ushort_value_type;
-      typedef std::list< ushort_value_type> ushort_container_type;
+      typedef std::list<ushort_value_type> ushort_container_type;
       typedef ushort_container_type::iterator ushort_iterator;
       typedef ushort_container_type::const_iterator ushort_const_iterator;
       ushort_iterator begin_ushort ();
@@ -350,7 +361,7 @@ namespace DAnCE
       // ulong
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex> ulong_value_type;
-      typedef std::list< ulong_value_type> ulong_container_type;
+      typedef std::list<ulong_value_type> ulong_container_type;
       typedef ulong_container_type::iterator ulong_iterator;
       typedef ulong_container_type::const_iterator ulong_const_iterator;
       ulong_iterator begin_ulong ();
@@ -366,7 +377,7 @@ namespace DAnCE
       // float
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::float_, ACE_Null_Mutex> float_value_type;
-      typedef std::list< float_value_type> float_container_type;
+      typedef std::list<float_value_type> float_container_type;
       typedef float_container_type::iterator float_iterator;
       typedef float_container_type::const_iterator float_const_iterator;
       float_iterator begin_float ();
@@ -382,7 +393,7 @@ namespace DAnCE
       // double
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex> double_value_type;
-      typedef std::list< double_value_type> double_container_type;
+      typedef std::list<double_value_type> double_container_type;
       typedef double_container_type::iterator double_iterator;
       typedef double_container_type::const_iterator double_const_iterator;
       double_iterator begin_double ();
@@ -398,7 +409,7 @@ namespace DAnCE
       // boolean
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::boolean, ACE_Null_Mutex> boolean_value_type;
-      typedef std::list< boolean_value_type> boolean_container_type;
+      typedef std::list<boolean_value_type> boolean_container_type;
       typedef boolean_container_type::iterator boolean_iterator;
       typedef boolean_container_type::const_iterator boolean_const_iterator;
       boolean_iterator begin_boolean ();
@@ -414,7 +425,7 @@ namespace DAnCE
       // octet
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedByte, ACE_Null_Mutex> octet_value_type;
-      typedef std::list< octet_value_type> octet_container_type;
+      typedef std::list<octet_value_type> octet_container_type;
       typedef octet_container_type::iterator octet_iterator;
       typedef octet_container_type::const_iterator octet_const_iterator;
       octet_iterator begin_octet ();
@@ -430,7 +441,7 @@ namespace DAnCE
       // enum
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> enum_value_type;
-      typedef std::list< enum_value_type> enum_container_type;
+      typedef std::list<enum_value_type> enum_container_type;
       typedef enum_container_type::iterator enum_iterator;
       typedef enum_container_type::const_iterator enum_const_iterator;
       enum_iterator begin_enum ();
@@ -446,7 +457,7 @@ namespace DAnCE
       // string
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> string_value_type;
-      typedef std::list< string_value_type> string_container_type;
+      typedef std::list<string_value_type> string_container_type;
       typedef string_container_type::iterator string_iterator;
       typedef string_container_type::const_iterator string_const_iterator;
       string_iterator begin_string ();
@@ -462,7 +473,7 @@ namespace DAnCE
       // longlong
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::long_, ACE_Null_Mutex> longlong_value_type;
-      typedef std::list< longlong_value_type> longlong_container_type;
+      typedef std::list<longlong_value_type> longlong_container_type;
       typedef longlong_container_type::iterator longlong_iterator;
       typedef longlong_container_type::const_iterator longlong_const_iterator;
       longlong_iterator begin_longlong ();
@@ -478,7 +489,7 @@ namespace DAnCE
       // ulonglong
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedLong, ACE_Null_Mutex> ulonglong_value_type;
-      typedef std::list< ulonglong_value_type> ulonglong_container_type;
+      typedef std::list<ulonglong_value_type> ulonglong_container_type;
       typedef ulonglong_container_type::iterator ulonglong_iterator;
       typedef ulonglong_container_type::const_iterator ulonglong_const_iterator;
       ulonglong_iterator begin_ulonglong ();
@@ -494,7 +505,7 @@ namespace DAnCE
       // longdouble
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex> longdouble_value_type;
-      typedef std::list< longdouble_value_type> longdouble_container_type;
+      typedef std::list<longdouble_value_type> longdouble_container_type;
       typedef longdouble_container_type::iterator longdouble_iterator;
       typedef longdouble_container_type::const_iterator longdouble_const_iterator;
       longdouble_iterator begin_longdouble ();
@@ -510,7 +521,7 @@ namespace DAnCE
       // element
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::DataValue, ACE_Null_Mutex> element_value_type;
-      typedef std::list< element_value_type> element_container_type;
+      typedef std::list<element_value_type> element_container_type;
       typedef element_container_type::iterator element_iterator;
       typedef element_container_type::const_iterator element_const_iterator;
       element_iterator begin_element ();
@@ -526,7 +537,7 @@ namespace DAnCE
       // member
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedValue, ACE_Null_Mutex> member_value_type;
-      typedef std::list< member_value_type> member_container_type;
+      typedef std::list<member_value_type> member_container_type;
       typedef member_container_type::iterator member_iterator;
       typedef member_container_type::const_iterator member_const_iterator;
       member_iterator begin_member ();
@@ -565,7 +576,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // typeId
       public:
@@ -573,7 +585,8 @@ namespace DAnCE
       void typeId (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_autoptr_type;
+      typeId_autoptr_type typeId_;
 
       // elementType
       public:
@@ -581,7 +594,8 @@ namespace DAnCE
       void elementType (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataType > elementType_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > elementType_autoptr_type;
+      elementType_autoptr_type elementType_;
 
       public:
       AliasType (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -611,7 +625,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // typeId
       public:
@@ -619,12 +634,13 @@ namespace DAnCE
       void typeId (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_autoptr_type;
+      typeId_autoptr_type typeId_;
 
       // member
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> member_value_type;
-      typedef std::list< member_value_type> member_container_type;
+      typedef std::list<member_value_type> member_container_type;
       typedef member_container_type::iterator member_iterator;
       typedef member_container_type::const_iterator member_const_iterator;
       member_iterator begin_member ();
@@ -640,7 +656,7 @@ namespace DAnCE
       public:
       EnumType (::XMLSchema::string<ACE_TCHAR> const& name__,
                 ::XMLSchema::string<ACE_TCHAR> const& typeId__,
-                std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> > const& member__);
+                member_container_type const& member__);
 
       explicit EnumType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       EnumType (EnumType const& s);
@@ -662,7 +678,7 @@ namespace DAnCE
       // bound
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex> bound_value_type;
-      typedef std::list< bound_value_type> bound_container_type;
+      typedef std::list<bound_value_type> bound_container_type;
       typedef bound_container_type::iterator bound_iterator;
       typedef bound_container_type::const_iterator bound_const_iterator;
       bound_iterator begin_bound ();
@@ -701,7 +717,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // typeId
       public:
@@ -709,12 +726,13 @@ namespace DAnCE
       void typeId (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_autoptr_type;
+      typeId_autoptr_type typeId_;
 
       // member
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::StructMemberType, ACE_Null_Mutex> member_value_type;
-      typedef std::list< member_value_type> member_container_type;
+      typedef std::list<member_value_type> member_container_type;
       typedef member_container_type::iterator member_iterator;
       typedef member_container_type::const_iterator member_const_iterator;
       member_iterator begin_member ();
@@ -754,7 +772,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // type
       public:
@@ -762,7 +781,8 @@ namespace DAnCE
       void type (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_autoptr_type;
+      type_autoptr_type type_;
 
       public:
       StructMemberType (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -791,7 +811,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // typeId
       public:
@@ -799,7 +820,8 @@ namespace DAnCE
       void typeId (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_autoptr_type;
+      typeId_autoptr_type typeId_;
 
       // modifier
       public:
@@ -807,7 +829,8 @@ namespace DAnCE
       void modifier (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > modifier_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > modifier_autoptr_type;
+      modifier_autoptr_type modifier_;
 
       // baseType
       public:
@@ -815,12 +838,13 @@ namespace DAnCE
       void baseType (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataType > baseType_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > baseType_autoptr_type;
+      baseType_autoptr_type baseType_;
 
       // member
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ValueMemberType, ACE_Null_Mutex> member_value_type;
-      typedef std::list< member_value_type> member_container_type;
+      typedef std::list<member_value_type> member_container_type;
       typedef member_container_type::iterator member_iterator;
       typedef member_container_type::const_iterator member_const_iterator;
       member_iterator begin_member ();
@@ -862,7 +886,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // visibility
       public:
@@ -870,7 +895,8 @@ namespace DAnCE
       void visibility (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > visibility_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > visibility_autoptr_type;
+      visibility_autoptr_type visibility_;
 
       // type
       public:
@@ -878,7 +904,8 @@ namespace DAnCE
       void type (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_autoptr_type;
+      type_autoptr_type type_;
 
       public:
       ValueMemberType (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -908,7 +935,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // value
       public:
@@ -916,7 +944,8 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::DataValue const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > value_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > value_autoptr_type;
+      value_autoptr_type value_;
 
       public:
       NamedValue (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -945,7 +974,8 @@ namespace DAnCE
       void length (::XMLSchema::unsignedInt const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::unsignedInt > length_;
+      typedef std::auto_ptr< ::XMLSchema::unsignedInt > length_autoptr_type;
+      length_autoptr_type length_;
 
       // elementType
       public:
@@ -953,7 +983,8 @@ namespace DAnCE
       void elementType (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataType > elementType_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > elementType_autoptr_type;
+      elementType_autoptr_type elementType_;
 
       public:
       ArrayType (::XMLSchema::unsignedInt const& length__,
@@ -983,7 +1014,8 @@ namespace DAnCE
       void bound (::XMLSchema::unsignedInt const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::unsignedInt > bound_;
+      typedef std::auto_ptr< ::XMLSchema::unsignedInt > bound_autoptr_type;
+      bound_autoptr_type bound_;
 
       // elementType
       public:
@@ -991,7 +1023,8 @@ namespace DAnCE
       void elementType (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataType > elementType_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > elementType_autoptr_type;
+      elementType_autoptr_type elementType_;
 
       public:
       SequenceType (::DAnCE::Config_Handlers::DataType const& elementType__);
@@ -1019,7 +1052,8 @@ namespace DAnCE
       void type (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_autoptr_type;
+      type_autoptr_type type_;
 
       // value
       public:
@@ -1027,7 +1061,8 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::DataValue const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > value_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > value_autoptr_type;
+      value_autoptr_type value_;
 
       public:
       Any (::DAnCE::Config_Handlers::DataType const& type__,
@@ -1056,7 +1091,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // value
       public:
@@ -1064,7 +1100,8 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::Any const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::Any > value_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::Any > value_autoptr_type;
+      value_autoptr_type value_;
 
       public:
       Property (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -1132,7 +1169,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // kind
       public:
@@ -1140,7 +1178,8 @@ namespace DAnCE
       void kind (::DAnCE::Config_Handlers::SatisfierPropertyKind const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierPropertyKind > kind_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierPropertyKind > kind_autoptr_type;
+      kind_autoptr_type kind_;
 
       // dynamic
       public:
@@ -1148,7 +1187,8 @@ namespace DAnCE
       void dynamic (::XMLSchema::boolean const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::boolean > dynamic_;
+      typedef std::auto_ptr< ::XMLSchema::boolean > dynamic_autoptr_type;
+      dynamic_autoptr_type dynamic_;
 
       // value
       public:
@@ -1156,7 +1196,8 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::Any const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::Any > value_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::Any > value_autoptr_type;
+      value_autoptr_type value_;
 
       public:
       SatisfierProperty (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -1187,12 +1228,13 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // resourceType
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> resourceType_value_type;
-      typedef std::list< resourceType_value_type> resourceType_container_type;
+      typedef std::list<resourceType_value_type> resourceType_container_type;
       typedef resourceType_container_type::iterator resourceType_iterator;
       typedef resourceType_container_type::const_iterator resourceType_const_iterator;
       resourceType_iterator begin_resourceType ();
@@ -1208,7 +1250,7 @@ namespace DAnCE
       // property
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex> property_value_type;
-      typedef std::list< property_value_type> property_container_type;
+      typedef std::list<property_value_type> property_container_type;
       typedef property_container_type::iterator property_iterator;
       typedef property_container_type::const_iterator property_const_iterator;
       property_iterator begin_property ();
@@ -1223,7 +1265,7 @@ namespace DAnCE
 
       public:
       Resource (::XMLSchema::string<ACE_TCHAR> const& name__,
-                std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> > const& resourceType__);
+                resourceType_container_type const& resourceType__);
 
       explicit Resource (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Resource (Resource const& s);
@@ -1248,7 +1290,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // resourceType
       public:
@@ -1256,12 +1299,13 @@ namespace DAnCE
       void resourceType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_autoptr_type;
+      resourceType_autoptr_type resourceType_;
 
       // property
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> property_value_type;
-      typedef std::list< property_value_type> property_container_type;
+      typedef std::list<property_value_type> property_container_type;
       typedef property_container_type::iterator property_iterator;
       typedef property_container_type::const_iterator property_const_iterator;
       property_iterator begin_property ();
@@ -1301,7 +1345,8 @@ namespace DAnCE
       void requirementName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requirementName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requirementName_autoptr_type;
+      requirementName_autoptr_type requirementName_;
 
       // resourceName
       public:
@@ -1309,12 +1354,13 @@ namespace DAnCE
       void resourceName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceName_autoptr_type;
+      resourceName_autoptr_type resourceName_;
 
       // property
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> property_value_type;
-      typedef std::list< property_value_type> property_container_type;
+      typedef std::list<property_value_type> property_container_type;
       typedef property_container_type::iterator property_iterator;
       typedef property_container_type::const_iterator property_const_iterator;
       property_iterator begin_property ();
@@ -1354,12 +1400,13 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // source
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> source_value_type;
-      typedef std::list< source_value_type> source_container_type;
+      typedef std::list<source_value_type> source_container_type;
       typedef source_container_type::iterator source_iterator;
       typedef source_container_type::const_iterator source_const_iterator;
       source_iterator begin_source ();
@@ -1378,12 +1425,13 @@ namespace DAnCE
       void node (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > node_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > node_autoptr_type;
+      node_autoptr_type node_;
 
       // location
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> location_value_type;
-      typedef std::list< location_value_type> location_container_type;
+      typedef std::list<location_value_type> location_container_type;
       typedef location_container_type::iterator location_iterator;
       typedef location_container_type::const_iterator location_const_iterator;
       location_iterator begin_location ();
@@ -1399,7 +1447,7 @@ namespace DAnCE
       // execParameter
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> execParameter_value_type;
-      typedef std::list< execParameter_value_type> execParameter_container_type;
+      typedef std::list<execParameter_value_type> execParameter_container_type;
       typedef execParameter_container_type::iterator execParameter_iterator;
       typedef execParameter_container_type::const_iterator execParameter_const_iterator;
       execParameter_iterator begin_execParameter ();
@@ -1415,7 +1463,7 @@ namespace DAnCE
       // deployRequirement
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> deployRequirement_value_type;
-      typedef std::list< deployRequirement_value_type> deployRequirement_container_type;
+      typedef std::list<deployRequirement_value_type> deployRequirement_container_type;
       typedef deployRequirement_container_type::iterator deployRequirement_iterator;
       typedef deployRequirement_container_type::const_iterator deployRequirement_const_iterator;
       deployRequirement_iterator begin_deployRequirement ();
@@ -1431,7 +1479,7 @@ namespace DAnCE
       // deployedResource
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ResourceDeploymentDescription, ACE_Null_Mutex> deployedResource_value_type;
-      typedef std::list< deployedResource_value_type> deployedResource_container_type;
+      typedef std::list<deployedResource_value_type> deployedResource_container_type;
       typedef deployedResource_container_type::iterator deployedResource_iterator;
       typedef deployedResource_container_type::const_iterator deployedResource_const_iterator;
       deployedResource_iterator begin_deployedResource ();
@@ -1452,7 +1500,8 @@ namespace DAnCE
       void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_;
+      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_autoptr_type;
+      id_autoptr_type id_;
 
       public:
       ArtifactDeploymentDescription (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -1481,12 +1530,13 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // source
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> source_value_type;
-      typedef std::list< source_value_type> source_container_type;
+      typedef std::list<source_value_type> source_container_type;
       typedef source_container_type::iterator source_iterator;
       typedef source_container_type::const_iterator source_const_iterator;
       source_iterator begin_source ();
@@ -1502,7 +1552,7 @@ namespace DAnCE
       // artifact
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex> artifact_value_type;
-      typedef std::list< artifact_value_type> artifact_container_type;
+      typedef std::list<artifact_value_type> artifact_container_type;
       typedef artifact_container_type::iterator artifact_iterator;
       typedef artifact_container_type::const_iterator artifact_const_iterator;
       artifact_iterator begin_artifact ();
@@ -1518,7 +1568,7 @@ namespace DAnCE
       // execParameter
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> execParameter_value_type;
-      typedef std::list< execParameter_value_type> execParameter_container_type;
+      typedef std::list<execParameter_value_type> execParameter_container_type;
       typedef execParameter_container_type::iterator execParameter_iterator;
       typedef execParameter_container_type::const_iterator execParameter_const_iterator;
       execParameter_iterator begin_execParameter ();
@@ -1534,7 +1584,7 @@ namespace DAnCE
       // deployRequirement
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> deployRequirement_value_type;
-      typedef std::list< deployRequirement_value_type> deployRequirement_container_type;
+      typedef std::list<deployRequirement_value_type> deployRequirement_container_type;
       typedef deployRequirement_container_type::iterator deployRequirement_iterator;
       typedef deployRequirement_container_type::const_iterator deployRequirement_const_iterator;
       deployRequirement_iterator begin_deployRequirement ();
@@ -1555,7 +1605,8 @@ namespace DAnCE
       void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_;
+      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_autoptr_type;
+      id_autoptr_type id_;
 
       public:
       MonolithicDeploymentDescription (::XMLSchema::string<ACE_TCHAR> const& name__);
@@ -1621,7 +1672,8 @@ namespace DAnCE
       void resourceUsage (::DAnCE::Config_Handlers::ResourceUsageKind const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > resourceUsage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > resourceUsage_autoptr_type;
+      resourceUsage_autoptr_type resourceUsage_;
 
       // requirementName
       public:
@@ -1629,7 +1681,8 @@ namespace DAnCE
       void requirementName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requirementName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requirementName_autoptr_type;
+      requirementName_autoptr_type requirementName_;
 
       // resourceName
       public:
@@ -1637,12 +1690,13 @@ namespace DAnCE
       void resourceName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceName_autoptr_type;
+      resourceName_autoptr_type resourceName_;
 
       // property
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> property_value_type;
-      typedef std::list< property_value_type> property_container_type;
+      typedef std::list<property_value_type> property_container_type;
       typedef property_container_type::iterator property_iterator;
       typedef property_container_type::const_iterator property_const_iterator;
       property_iterator begin_property ();
@@ -1683,7 +1737,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // node
       public:
@@ -1691,7 +1746,8 @@ namespace DAnCE
       void node (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > node_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > node_autoptr_type;
+      node_autoptr_type node_;
 
       // source
       public:
@@ -1699,7 +1755,8 @@ namespace DAnCE
       void source (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > source_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > source_autoptr_type;
+      source_autoptr_type source_;
 
       // implementation
       public:
@@ -1707,12 +1764,13 @@ namespace DAnCE
       void implementation (::DAnCE::Config_Handlers::IdRef const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > implementation_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > implementation_autoptr_type;
+      implementation_autoptr_type implementation_;
 
       // configProperty
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
-      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef std::list<configProperty_value_type> configProperty_container_type;
       typedef configProperty_container_type::iterator configProperty_iterator;
       typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
@@ -1728,7 +1786,7 @@ namespace DAnCE
       // deployedResource
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription, ACE_Null_Mutex> deployedResource_value_type;
-      typedef std::list< deployedResource_value_type> deployedResource_container_type;
+      typedef std::list<deployedResource_value_type> deployedResource_container_type;
       typedef deployedResource_container_type::iterator deployedResource_iterator;
       typedef deployedResource_container_type::const_iterator deployedResource_const_iterator;
       deployedResource_iterator begin_deployedResource ();
@@ -1748,7 +1806,8 @@ namespace DAnCE
       void deployedSharedResource (::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription > deployedSharedResource_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription > deployedSharedResource_autoptr_type;
+      deployedSharedResource_autoptr_type deployedSharedResource_;
 
       // id
       public:
@@ -1758,7 +1817,8 @@ namespace DAnCE
       void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_;
+      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_autoptr_type;
+      id_autoptr_type id_;
 
       public:
       InstanceDeploymentDescription (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -1830,7 +1890,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // specificType
       public:
@@ -1839,12 +1900,13 @@ namespace DAnCE
       void specificType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > specificType_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > specificType_autoptr_type;
+      specificType_autoptr_type specificType_;
 
       // supportedType
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> supportedType_value_type;
-      typedef std::list< supportedType_value_type> supportedType_container_type;
+      typedef std::list<supportedType_value_type> supportedType_container_type;
       typedef supportedType_container_type::iterator supportedType_iterator;
       typedef supportedType_container_type::const_iterator supportedType_const_iterator;
       supportedType_iterator begin_supportedType ();
@@ -1863,7 +1925,8 @@ namespace DAnCE
       void provider (::XMLSchema::boolean const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::boolean > provider_;
+      typedef std::auto_ptr< ::XMLSchema::boolean > provider_autoptr_type;
+      provider_autoptr_type provider_;
 
       // exclusiveProvider
       public:
@@ -1871,7 +1934,8 @@ namespace DAnCE
       void exclusiveProvider (::XMLSchema::boolean const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::boolean > exclusiveProvider_;
+      typedef std::auto_ptr< ::XMLSchema::boolean > exclusiveProvider_autoptr_type;
+      exclusiveProvider_autoptr_type exclusiveProvider_;
 
       // exclusiveUser
       public:
@@ -1879,7 +1943,8 @@ namespace DAnCE
       void exclusiveUser (::XMLSchema::boolean const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::boolean > exclusiveUser_;
+      typedef std::auto_ptr< ::XMLSchema::boolean > exclusiveUser_autoptr_type;
+      exclusiveUser_autoptr_type exclusiveUser_;
 
       // optional
       public:
@@ -1887,7 +1952,8 @@ namespace DAnCE
       void optional (::XMLSchema::boolean const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::boolean > optional_;
+      typedef std::auto_ptr< ::XMLSchema::boolean > optional_autoptr_type;
+      optional_autoptr_type optional_;
 
       // kind
       public:
@@ -1895,12 +1961,13 @@ namespace DAnCE
       void kind (::DAnCE::Config_Handlers::CCMComponentPortKind const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > kind_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > kind_autoptr_type;
+      kind_autoptr_type kind_;
 
       // templateParam
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> templateParam_value_type;
-      typedef std::list< templateParam_value_type> templateParam_container_type;
+      typedef std::list<templateParam_value_type> templateParam_container_type;
       typedef templateParam_container_type::iterator templateParam_iterator;
       typedef templateParam_container_type::const_iterator templateParam_const_iterator;
       templateParam_iterator begin_templateParam ();
@@ -1944,7 +2011,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // type
       public:
@@ -1952,7 +2020,8 @@ namespace DAnCE
       void type (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_autoptr_type;
+      type_autoptr_type type_;
 
       public:
       ComponentPropertyDescription (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -1981,7 +2050,8 @@ namespace DAnCE
       void portName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_autoptr_type;
+      portName_autoptr_type portName_;
 
       public:
       ComponentExternalPortEndpoint (::XMLSchema::string<ACE_TCHAR> const& portName__);
@@ -2009,7 +2079,8 @@ namespace DAnCE
       void portName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_autoptr_type;
+      portName_autoptr_type portName_;
 
       // provider
       public:
@@ -2018,7 +2089,8 @@ namespace DAnCE
       void provider (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > provider_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > provider_autoptr_type;
+      provider_autoptr_type provider_;
 
       // kind
       public:
@@ -2026,7 +2098,8 @@ namespace DAnCE
       void kind (::DAnCE::Config_Handlers::CCMComponentPortKind const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > kind_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > kind_autoptr_type;
+      kind_autoptr_type kind_;
 
       // instance
       public:
@@ -2034,7 +2107,8 @@ namespace DAnCE
       void instance (::DAnCE::Config_Handlers::IdRef const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > instance_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > instance_autoptr_type;
+      instance_autoptr_type instance_;
 
       public:
       PlanSubcomponentPortEndpoint (::XMLSchema::string<ACE_TCHAR> const& portName__,
@@ -2064,7 +2138,8 @@ namespace DAnCE
       void location (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > location_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > location_autoptr_type;
+      location_autoptr_type location_;
 
       // provider
       public:
@@ -2072,7 +2147,8 @@ namespace DAnCE
       void provider (::XMLSchema::boolean const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::boolean > provider_;
+      typedef std::auto_ptr< ::XMLSchema::boolean > provider_autoptr_type;
+      provider_autoptr_type provider_;
 
       // portName
       public:
@@ -2081,12 +2157,13 @@ namespace DAnCE
       void portName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_autoptr_type;
+      portName_autoptr_type portName_;
 
       // supportedType
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> supportedType_value_type;
-      typedef std::list< supportedType_value_type> supportedType_container_type;
+      typedef std::list<supportedType_value_type> supportedType_container_type;
       typedef supportedType_container_type::iterator supportedType_iterator;
       typedef supportedType_container_type::const_iterator supportedType_const_iterator;
       supportedType_iterator begin_supportedType ();
@@ -2126,7 +2203,8 @@ namespace DAnCE
       void targetName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > targetName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > targetName_autoptr_type;
+      targetName_autoptr_type targetName_;
 
       // requirementName
       public:
@@ -2134,7 +2212,8 @@ namespace DAnCE
       void requirementName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requirementName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requirementName_autoptr_type;
+      requirementName_autoptr_type requirementName_;
 
       // resourceName
       public:
@@ -2142,12 +2221,13 @@ namespace DAnCE
       void resourceName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceName_autoptr_type;
+      resourceName_autoptr_type resourceName_;
 
       // property
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> property_value_type;
-      typedef std::list< property_value_type> property_container_type;
+      typedef std::list<property_value_type> property_container_type;
       typedef property_container_type::iterator property_iterator;
       typedef property_container_type::const_iterator property_const_iterator;
       property_iterator begin_property ();
@@ -2188,7 +2268,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // source
       public:
@@ -2197,12 +2278,13 @@ namespace DAnCE
       void source (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > source_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > source_autoptr_type;
+      source_autoptr_type source_;
 
       // deployRequirement
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> deployRequirement_value_type;
-      typedef std::list< deployRequirement_value_type> deployRequirement_container_type;
+      typedef std::list<deployRequirement_value_type> deployRequirement_container_type;
       typedef deployRequirement_container_type::iterator deployRequirement_iterator;
       typedef deployRequirement_container_type::const_iterator deployRequirement_const_iterator;
       deployRequirement_iterator begin_deployRequirement ();
@@ -2218,7 +2300,7 @@ namespace DAnCE
       // externalEndpoint
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex> externalEndpoint_value_type;
-      typedef std::list< externalEndpoint_value_type> externalEndpoint_container_type;
+      typedef std::list<externalEndpoint_value_type> externalEndpoint_container_type;
       typedef externalEndpoint_container_type::iterator externalEndpoint_iterator;
       typedef externalEndpoint_container_type::const_iterator externalEndpoint_const_iterator;
       externalEndpoint_iterator begin_externalEndpoint ();
@@ -2234,7 +2316,7 @@ namespace DAnCE
       // internalEndpoint
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPortEndpoint, ACE_Null_Mutex> internalEndpoint_value_type;
-      typedef std::list< internalEndpoint_value_type> internalEndpoint_container_type;
+      typedef std::list<internalEndpoint_value_type> internalEndpoint_container_type;
       typedef internalEndpoint_container_type::iterator internalEndpoint_iterator;
       typedef internalEndpoint_container_type::const_iterator internalEndpoint_const_iterator;
       internalEndpoint_iterator begin_internalEndpoint ();
@@ -2250,7 +2332,7 @@ namespace DAnCE
       // externalReference
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex> externalReference_value_type;
-      typedef std::list< externalReference_value_type> externalReference_container_type;
+      typedef std::list<externalReference_value_type> externalReference_container_type;
       typedef externalReference_container_type::iterator externalReference_iterator;
       typedef externalReference_container_type::const_iterator externalReference_const_iterator;
       externalReference_iterator begin_externalReference ();
@@ -2266,7 +2348,7 @@ namespace DAnCE
       // deployedResource
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription, ACE_Null_Mutex> deployedResource_value_type;
-      typedef std::list< deployedResource_value_type> deployedResource_container_type;
+      typedef std::list<deployedResource_value_type> deployedResource_container_type;
       typedef deployedResource_container_type::iterator deployedResource_iterator;
       typedef deployedResource_container_type::const_iterator deployedResource_const_iterator;
       deployedResource_iterator begin_deployedResource ();
@@ -2305,7 +2387,8 @@ namespace DAnCE
       void requiredType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requiredType_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requiredType_autoptr_type;
+      requiredType_autoptr_type requiredType_;
 
       public:
       ImplementationDependency (::XMLSchema::string<ACE_TCHAR> const& requiredType__);
@@ -2333,12 +2416,13 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // resourceType
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> resourceType_value_type;
-      typedef std::list< resourceType_value_type> resourceType_container_type;
+      typedef std::list<resourceType_value_type> resourceType_container_type;
       typedef resourceType_container_type::iterator resourceType_iterator;
       typedef resourceType_container_type::const_iterator resourceType_const_iterator;
       resourceType_iterator begin_resourceType ();
@@ -2354,7 +2438,7 @@ namespace DAnCE
       // property
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex> property_value_type;
-      typedef std::list< property_value_type> property_container_type;
+      typedef std::list<property_value_type> property_container_type;
       typedef property_container_type::iterator property_iterator;
       typedef property_container_type::const_iterator property_const_iterator;
       property_iterator begin_property ();
@@ -2394,7 +2478,8 @@ namespace DAnCE
       void resourceUsage (::DAnCE::Config_Handlers::ResourceUsageKind const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > resourceUsage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > resourceUsage_autoptr_type;
+      resourceUsage_autoptr_type resourceUsage_;
 
       // resourcePort
       public:
@@ -2403,7 +2488,8 @@ namespace DAnCE
       void resourcePort (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourcePort_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourcePort_autoptr_type;
+      resourcePort_autoptr_type resourcePort_;
 
       // componentPort
       public:
@@ -2412,7 +2498,8 @@ namespace DAnCE
       void componentPort (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > componentPort_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > componentPort_autoptr_type;
+      componentPort_autoptr_type componentPort_;
 
       // resourceType
       public:
@@ -2420,7 +2507,8 @@ namespace DAnCE
       void resourceType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_autoptr_type;
+      resourceType_autoptr_type resourceType_;
 
       // name
       public:
@@ -2428,12 +2516,13 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // property
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> property_value_type;
-      typedef std::list< property_value_type> property_container_type;
+      typedef std::list<property_value_type> property_container_type;
       typedef property_container_type::iterator property_iterator;
       typedef property_container_type::const_iterator property_const_iterator;
       property_iterator begin_property ();
@@ -2473,7 +2562,8 @@ namespace DAnCE
       void portName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_autoptr_type;
+      portName_autoptr_type portName_;
 
       // instance
       public:
@@ -2481,7 +2571,8 @@ namespace DAnCE
       void instance (::DAnCE::Config_Handlers::IdRef const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > instance_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > instance_autoptr_type;
+      instance_autoptr_type instance_;
 
       public:
       SubcomponentPortEndpoint (::XMLSchema::string<ACE_TCHAR> const& portName__,
@@ -2510,12 +2601,13 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
+      name_autoptr_type name_;
 
       // deployRequirement
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> deployRequirement_value_type;
-      typedef std::list< deployRequirement_value_type> deployRequirement_container_type;
+      typedef std::list<deployRequirement_value_type> deployRequirement_container_type;
       typedef deployRequirement_container_type::iterator deployRequirement_iterator;
       typedef deployRequirement_container_type::const_iterator deployRequirement_const_iterator;
       deployRequirement_iterator begin_deployRequirement ();
@@ -2531,7 +2623,7 @@ namespace DAnCE
       // internalEndpoint
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPortEndpoint, ACE_Null_Mutex> internalEndpoint_value_type;
-      typedef std::list< internalEndpoint_value_type> internalEndpoint_container_type;
+      typedef std::list<internalEndpoint_value_type> internalEndpoint_container_type;
       typedef internalEndpoint_container_type::iterator internalEndpoint_iterator;
       typedef internalEndpoint_container_type::const_iterator internalEndpoint_const_iterator;
       internalEndpoint_iterator begin_internalEndpoint ();
@@ -2547,7 +2639,7 @@ namespace DAnCE
       // externalEndpoint
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex> externalEndpoint_value_type;
-      typedef std::list< externalEndpoint_value_type> externalEndpoint_container_type;
+      typedef std::list<externalEndpoint_value_type> externalEndpoint_container_type;
       typedef externalEndpoint_container_type::iterator externalEndpoint_iterator;
       typedef externalEndpoint_container_type::const_iterator externalEndpoint_const_iterator;
       externalEndpoint_iterator begin_externalEndpoint ();
@@ -2563,7 +2655,7 @@ namespace DAnCE
       // externalReference
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex> externalReference_value_type;
-      typedef std::list< externalReference_value_type> externalReference_container_type;
+      typedef std::list<externalReference_value_type> externalReference_container_type;
       typedef externalReference_container_type::iterator externalReference_iterator;
       typedef externalReference_container_type::const_iterator externalReference_const_iterator;
       externalReference_iterator begin_externalReference ();
@@ -2638,12 +2730,13 @@ namespace DAnCE
       void constraint (::DAnCE::Config_Handlers::PlanLocalityKind const& );
 
       protected:
-      std::auto_ptr< ::DAnCE::Config_Handlers::PlanLocalityKind > constraint_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::PlanLocalityKind > constraint_autoptr_type;
+      constraint_autoptr_type constraint_;
 
       // constrainedInstance
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex> constrainedInstance_value_type;
-      typedef std::list< constrainedInstance_value_type> constrainedInstance_container_type;
+      typedef std::list<constrainedInstance_value_type> constrainedInstance_container_type;
       typedef constrainedInstance_container_type::iterator constrainedInstance_iterator;
       typedef constrainedInstance_container_type::const_iterator constrainedInstance_const_iterator;
       constrainedInstance_iterator begin_constrainedInstance ();
@@ -2658,7 +2751,7 @@ namespace DAnCE
 
       public:
       PlanLocality (::DAnCE::Config_Handlers::PlanLocalityKind const& constraint__,
-                    std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex> > const& constrainedInstance__);
+                    constrainedInstance_container_type const& constrainedInstance__);
 
       explicit PlanLocality (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanLocality (PlanLocality const& s);

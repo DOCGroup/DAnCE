@@ -48,7 +48,7 @@ namespace DAnCE
       // package
       public:
       typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex> package_value_type;
-      typedef std::list< package_value_type> package_container_type;
+      typedef std::list<package_value_type> package_container_type;
       typedef package_container_type::iterator package_iterator;
       typedef package_container_type::const_iterator package_const_iterator;
       package_iterator begin_package ();
