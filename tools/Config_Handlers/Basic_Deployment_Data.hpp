@@ -103,7 +103,7 @@ namespace DAnCE
       void idref (::XMLSchema::IDREF<ACE_TCHAR> const& );
       ::XSCRT::Type* get_idref_ptr ();
 
-      void set_idref_ptr (std::basic_string<ACE_TCHAR> idref );
+      void set_idref_ptr (const std::basic_string<ACE_TCHAR>& idref);
 
       protected:
       std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_;
@@ -308,8 +308,8 @@ namespace DAnCE
       short_const_iterator begin_short () const;
       short_const_iterator end_short () const;
       void add_short ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::short_, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_short_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_short_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_short_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_short_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_short (void) const;
 
       protected:
@@ -324,8 +324,8 @@ namespace DAnCE
       long_const_iterator begin_long () const;
       long_const_iterator end_long () const;
       void add_long ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::int_, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_long_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_long_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_long_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_long_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_long (void) const;
 
       protected:
@@ -340,8 +340,8 @@ namespace DAnCE
       ushort_const_iterator begin_ushort () const;
       ushort_const_iterator end_ushort () const;
       void add_ushort ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedShort, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_ushort_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_ushort_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_ushort_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_ushort_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_ushort (void) const;
 
       protected:
@@ -356,8 +356,8 @@ namespace DAnCE
       ulong_const_iterator begin_ulong () const;
       ulong_const_iterator end_ulong () const;
       void add_ulong ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_ulong_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_ulong_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_ulong_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_ulong_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_ulong (void) const;
 
       protected:
@@ -372,8 +372,8 @@ namespace DAnCE
       float_const_iterator begin_float () const;
       float_const_iterator end_float () const;
       void add_float ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::float_, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_float_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_float_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_float_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_float_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_float (void) const;
 
       protected:
@@ -388,8 +388,8 @@ namespace DAnCE
       double_const_iterator begin_double () const;
       double_const_iterator end_double () const;
       void add_double ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_double_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_double_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_double_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_double_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_double (void) const;
 
       protected:
@@ -404,8 +404,8 @@ namespace DAnCE
       boolean_const_iterator begin_boolean () const;
       boolean_const_iterator end_boolean () const;
       void add_boolean ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::boolean, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_boolean_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_boolean_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_boolean_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_boolean_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_boolean (void) const;
 
       protected:
@@ -420,8 +420,8 @@ namespace DAnCE
       octet_const_iterator begin_octet () const;
       octet_const_iterator end_octet () const;
       void add_octet ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedByte, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_octet_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_octet_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_octet_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_octet_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_octet (void) const;
 
       protected:
@@ -436,8 +436,8 @@ namespace DAnCE
       enum_const_iterator begin_enum () const;
       enum_const_iterator end_enum () const;
       void add_enum ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_enum_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_enum_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_enum_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_enum_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_enum (void) const;
 
       protected:
@@ -452,8 +452,8 @@ namespace DAnCE
       string_const_iterator begin_string () const;
       string_const_iterator end_string () const;
       void add_string ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_string_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_string_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_string_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_string_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_string (void) const;
 
       protected:
@@ -468,8 +468,8 @@ namespace DAnCE
       longlong_const_iterator begin_longlong () const;
       longlong_const_iterator end_longlong () const;
       void add_longlong ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::long_, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_longlong_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_longlong_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_longlong_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_longlong_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_longlong (void) const;
 
       protected:
@@ -484,8 +484,8 @@ namespace DAnCE
       ulonglong_const_iterator begin_ulonglong () const;
       ulonglong_const_iterator end_ulonglong () const;
       void add_ulonglong ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedLong, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_ulonglong_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_ulonglong_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_ulonglong_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_ulonglong_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_ulonglong (void) const;
 
       protected:
@@ -500,8 +500,8 @@ namespace DAnCE
       longdouble_const_iterator begin_longdouble () const;
       longdouble_const_iterator end_longdouble () const;
       void add_longdouble ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_longdouble_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_longdouble_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_longdouble_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_longdouble_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_longdouble (void) const;
 
       protected:
@@ -516,8 +516,8 @@ namespace DAnCE
       element_const_iterator begin_element () const;
       element_const_iterator end_element () const;
       void add_element ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::DataValue, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_element_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_element_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_element_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_element_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_element (void) const;
 
       protected:
@@ -532,8 +532,8 @@ namespace DAnCE
       member_const_iterator begin_member () const;
       member_const_iterator end_member () const;
       void add_member ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedValue, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_member_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_member_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_member_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_member_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_member (void) const;
 
       protected:
@@ -630,8 +630,8 @@ namespace DAnCE
       member_const_iterator begin_member () const;
       member_const_iterator end_member () const;
       void add_member ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_member_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_member_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_member_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_member_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_member (void) const;
 
       protected:
@@ -668,8 +668,8 @@ namespace DAnCE
       bound_const_iterator begin_bound () const;
       bound_const_iterator end_bound () const;
       void add_bound ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_bound_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_bound_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_bound_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_bound_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_bound (void) const;
 
       protected:
@@ -720,8 +720,8 @@ namespace DAnCE
       member_const_iterator begin_member () const;
       member_const_iterator end_member () const;
       void add_member ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::StructMemberType, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_member_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_member_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_member_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_member_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_member (void) const;
 
       protected:
@@ -826,8 +826,8 @@ namespace DAnCE
       member_const_iterator begin_member () const;
       member_const_iterator end_member () const;
       void add_member ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ValueMemberType, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_member_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_member_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_member_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_member_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_member (void) const;
 
       protected:
@@ -1198,8 +1198,8 @@ namespace DAnCE
       resourceType_const_iterator begin_resourceType () const;
       resourceType_const_iterator end_resourceType () const;
       void add_resourceType ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_resourceType_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_resourceType_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_resourceType_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_resourceType_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_resourceType (void) const;
 
       protected:
@@ -1214,8 +1214,8 @@ namespace DAnCE
       property_const_iterator begin_property () const;
       property_const_iterator end_property () const;
       void add_property ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_property_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_property_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_property_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_property_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_property (void) const;
 
       protected:
@@ -1267,8 +1267,8 @@ namespace DAnCE
       property_const_iterator begin_property () const;
       property_const_iterator end_property () const;
       void add_property ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_property_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_property_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_property_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_property_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_property (void) const;
 
       protected:
@@ -1320,8 +1320,8 @@ namespace DAnCE
       property_const_iterator begin_property () const;
       property_const_iterator end_property () const;
       void add_property ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_property_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_property_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_property_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_property_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_property (void) const;
 
       protected:
@@ -1365,8 +1365,8 @@ namespace DAnCE
       source_const_iterator begin_source () const;
       source_const_iterator end_source () const;
       void add_source ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_source_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_source_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_source_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_source_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_source (void) const;
 
       protected:
@@ -1389,8 +1389,8 @@ namespace DAnCE
       location_const_iterator begin_location () const;
       location_const_iterator end_location () const;
       void add_location ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_location_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_location_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_location_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_location_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_location (void) const;
 
       protected:
@@ -1405,8 +1405,8 @@ namespace DAnCE
       execParameter_const_iterator begin_execParameter () const;
       execParameter_const_iterator end_execParameter () const;
       void add_execParameter ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_execParameter_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_execParameter_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_execParameter_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_execParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_execParameter (void) const;
 
       protected:
@@ -1421,8 +1421,8 @@ namespace DAnCE
       deployRequirement_const_iterator begin_deployRequirement () const;
       deployRequirement_const_iterator end_deployRequirement () const;
       void add_deployRequirement ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_deployRequirement_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_deployRequirement (void) const;
 
       protected:
@@ -1437,8 +1437,8 @@ namespace DAnCE
       deployedResource_const_iterator begin_deployedResource () const;
       deployedResource_const_iterator end_deployedResource () const;
       void add_deployedResource ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ResourceDeploymentDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_deployedResource_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_deployedResource_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_deployedResource_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_deployedResource_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_deployedResource (void) const;
 
       protected:
@@ -1492,8 +1492,8 @@ namespace DAnCE
       source_const_iterator begin_source () const;
       source_const_iterator end_source () const;
       void add_source ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_source_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_source_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_source_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_source_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_source (void) const;
 
       protected:
@@ -1508,8 +1508,8 @@ namespace DAnCE
       artifact_const_iterator begin_artifact () const;
       artifact_const_iterator end_artifact () const;
       void add_artifact ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_artifact_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_artifact_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_artifact_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_artifact_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_artifact (void) const;
 
       protected:
@@ -1524,8 +1524,8 @@ namespace DAnCE
       execParameter_const_iterator begin_execParameter () const;
       execParameter_const_iterator end_execParameter () const;
       void add_execParameter ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_execParameter_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_execParameter_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_execParameter_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_execParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_execParameter (void) const;
 
       protected:
@@ -1540,8 +1540,8 @@ namespace DAnCE
       deployRequirement_const_iterator begin_deployRequirement () const;
       deployRequirement_const_iterator end_deployRequirement () const;
       void add_deployRequirement ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_deployRequirement_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_deployRequirement (void) const;
 
       protected:
@@ -1648,8 +1648,8 @@ namespace DAnCE
       property_const_iterator begin_property () const;
       property_const_iterator end_property () const;
       void add_property ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_property_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_property_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_property_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_property_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_property (void) const;
 
       protected:
@@ -1718,8 +1718,8 @@ namespace DAnCE
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
       void add_configProperty ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_configProperty_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_configProperty_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_configProperty_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_configProperty (void) const;
 
       protected:
@@ -1734,8 +1734,8 @@ namespace DAnCE
       deployedResource_const_iterator begin_deployedResource () const;
       deployedResource_const_iterator end_deployedResource () const;
       void add_deployedResource ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_deployedResource_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_deployedResource_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_deployedResource_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_deployedResource_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_deployedResource (void) const;
 
       protected:
@@ -1850,8 +1850,8 @@ namespace DAnCE
       supportedType_const_iterator begin_supportedType () const;
       supportedType_const_iterator end_supportedType () const;
       void add_supportedType ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_supportedType_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_supportedType_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_supportedType_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_supportedType_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_supportedType (void) const;
 
       protected:
@@ -1906,8 +1906,8 @@ namespace DAnCE
       templateParam_const_iterator begin_templateParam () const;
       templateParam_const_iterator end_templateParam () const;
       void add_templateParam ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_templateParam_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_templateParam_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_templateParam_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_templateParam_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_templateParam (void) const;
 
       protected:
@@ -2092,8 +2092,8 @@ namespace DAnCE
       supportedType_const_iterator begin_supportedType () const;
       supportedType_const_iterator end_supportedType () const;
       void add_supportedType ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_supportedType_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_supportedType_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_supportedType_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_supportedType_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_supportedType (void) const;
 
       protected:
@@ -2153,8 +2153,8 @@ namespace DAnCE
       property_const_iterator begin_property () const;
       property_const_iterator end_property () const;
       void add_property ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_property_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_property_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_property_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_property_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_property (void) const;
 
       protected:
@@ -2208,8 +2208,8 @@ namespace DAnCE
       deployRequirement_const_iterator begin_deployRequirement () const;
       deployRequirement_const_iterator end_deployRequirement () const;
       void add_deployRequirement ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_deployRequirement_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_deployRequirement (void) const;
 
       protected:
@@ -2224,8 +2224,8 @@ namespace DAnCE
       externalEndpoint_const_iterator begin_externalEndpoint () const;
       externalEndpoint_const_iterator end_externalEndpoint () const;
       void add_externalEndpoint ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_externalEndpoint_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_externalEndpoint_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_externalEndpoint_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_externalEndpoint_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_externalEndpoint (void) const;
 
       protected:
@@ -2240,8 +2240,8 @@ namespace DAnCE
       internalEndpoint_const_iterator begin_internalEndpoint () const;
       internalEndpoint_const_iterator end_internalEndpoint () const;
       void add_internalEndpoint ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPortEndpoint, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_internalEndpoint_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_internalEndpoint_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_internalEndpoint_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_internalEndpoint_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_internalEndpoint (void) const;
 
       protected:
@@ -2256,8 +2256,8 @@ namespace DAnCE
       externalReference_const_iterator begin_externalReference () const;
       externalReference_const_iterator end_externalReference () const;
       void add_externalReference ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_externalReference_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_externalReference_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_externalReference_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_externalReference_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_externalReference (void) const;
 
       protected:
@@ -2272,8 +2272,8 @@ namespace DAnCE
       deployedResource_const_iterator begin_deployedResource () const;
       deployedResource_const_iterator end_deployedResource () const;
       void add_deployedResource ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_deployedResource_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_deployedResource_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_deployedResource_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_deployedResource_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_deployedResource (void) const;
 
       protected:
@@ -2344,8 +2344,8 @@ namespace DAnCE
       resourceType_const_iterator begin_resourceType () const;
       resourceType_const_iterator end_resourceType () const;
       void add_resourceType ( ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_resourceType_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_resourceType_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_resourceType_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_resourceType_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_resourceType (void) const;
 
       protected:
@@ -2360,8 +2360,8 @@ namespace DAnCE
       property_const_iterator begin_property () const;
       property_const_iterator end_property () const;
       void add_property ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_property_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_property_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_property_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_property_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_property (void) const;
 
       protected:
@@ -2439,8 +2439,8 @@ namespace DAnCE
       property_const_iterator begin_property () const;
       property_const_iterator end_property () const;
       void add_property ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_property_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_property_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_property_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_property_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_property (void) const;
 
       protected:
@@ -2521,8 +2521,8 @@ namespace DAnCE
       deployRequirement_const_iterator begin_deployRequirement () const;
       deployRequirement_const_iterator end_deployRequirement () const;
       void add_deployRequirement ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_deployRequirement_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_deployRequirement_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_deployRequirement (void) const;
 
       protected:
@@ -2537,8 +2537,8 @@ namespace DAnCE
       internalEndpoint_const_iterator begin_internalEndpoint () const;
       internalEndpoint_const_iterator end_internalEndpoint () const;
       void add_internalEndpoint ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPortEndpoint, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_internalEndpoint_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_internalEndpoint_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_internalEndpoint_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_internalEndpoint_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_internalEndpoint (void) const;
 
       protected:
@@ -2553,8 +2553,8 @@ namespace DAnCE
       externalEndpoint_const_iterator begin_externalEndpoint () const;
       externalEndpoint_const_iterator end_externalEndpoint () const;
       void add_externalEndpoint ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_externalEndpoint_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_externalEndpoint_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_externalEndpoint_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_externalEndpoint_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_externalEndpoint (void) const;
 
       protected:
@@ -2569,8 +2569,8 @@ namespace DAnCE
       externalReference_const_iterator begin_externalReference () const;
       externalReference_const_iterator end_externalReference () const;
       void add_externalReference ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_externalReference_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_externalReference_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_externalReference_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_externalReference_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_externalReference (void) const;
 
       protected:
@@ -2649,8 +2649,8 @@ namespace DAnCE
       constrainedInstance_const_iterator begin_constrainedInstance () const;
       constrainedInstance_const_iterator end_constrainedInstance () const;
       void add_constrainedInstance ( ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex > const& );
-      XSCRT::Type* get_constrainedInstance_ptr ( std::basic_string<ACE_TCHAR> idref );
-      void set_constrainedInstance_ptr (std::basic_string<ACE_TCHAR> idref );
+      XSCRT::Type* get_constrainedInstance_ptr (std::basic_string<ACE_TCHAR> idref);
+      void set_constrainedInstance_ptr (const std::basic_string<ACE_TCHAR>& idref);
       size_t count_constrainedInstance (void) const;
 
       protected:

@@ -86,7 +86,7 @@ namespace XMI
     void idref (::XMLSchema::IDREF<ACE_TCHAR> const& );
     ::XSCRT::Type* get_idref_ptr ();
 
-    void set_idref_ptr (std::basic_string<ACE_TCHAR> idref );
+    void set_idref_ptr (const std::basic_string<ACE_TCHAR>& idref);
 
     protected:
     std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_;
