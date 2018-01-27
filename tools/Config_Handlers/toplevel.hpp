@@ -47,20 +47,19 @@ namespace DAnCE
 
       // package
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex> > package_type;
-      typedef package_type::iterator package_iterator;
-      typedef package_type::const_iterator package_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex> package_value_type;
+      typedef std::list< package_value_type> package_container_type;
+      typedef package_container_type::iterator package_iterator;
+      typedef package_container_type::const_iterator package_const_iterator;
       package_iterator begin_package ();
       package_iterator end_package ();
       package_const_iterator begin_package () const;
       package_const_iterator end_package () const;
-      void add_package (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_package_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_package_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_package (package_value_type const&);
       size_t count_package () const;
 
       protected:
-      package_type package_;
+      package_container_type package_;
 
       public:
       TopLevelPackageDescription ();

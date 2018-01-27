@@ -292,7 +292,7 @@ namespace DAnCE
     }
 
     void SubcomponentInstantiationDescription::
-    add_selectRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  const& e)
+    add_selectRequirement (SubcomponentInstantiationDescription::selectRequirement_value_type const& e)
     {
       selectRequirement_.push_back (e);
     }
@@ -329,7 +329,7 @@ namespace DAnCE
     }
 
     void SubcomponentInstantiationDescription::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_configProperty (SubcomponentInstantiationDescription::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }
@@ -587,7 +587,7 @@ namespace DAnCE
     }
 
     void AssemblyPropertyMapping::
-    add_delegatesTo (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPropertyReference, ACE_Null_Mutex>  const& e)
+    add_delegatesTo (AssemblyPropertyMapping::delegatesTo_value_type const& e)
     {
       delegatesTo_.push_back (e);
     }
@@ -751,7 +751,7 @@ namespace DAnCE
     }
 
     void ComponentAssemblyDescription::
-    add_instance (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentInstantiationDescription, ACE_Null_Mutex>  const& e)
+    add_instance (ComponentAssemblyDescription::instance_value_type const& e)
     {
       instance_.push_back (e);
     }
@@ -788,7 +788,7 @@ namespace DAnCE
     }
 
     void ComponentAssemblyDescription::
-    add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyConnectionDescription, ACE_Null_Mutex>  const& e)
+    add_connection (ComponentAssemblyDescription::connection_value_type const& e)
     {
       connection_.push_back (e);
     }
@@ -825,7 +825,7 @@ namespace DAnCE
     }
 
     void ComponentAssemblyDescription::
-    add_externalProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyPropertyMapping, ACE_Null_Mutex>  const& e)
+    add_externalProperty (ComponentAssemblyDescription::externalProperty_value_type const& e)
     {
       externalProperty_.push_back (e);
     }
@@ -862,7 +862,7 @@ namespace DAnCE
     }
 
     void ComponentAssemblyDescription::
-    add_locality (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Locality, ACE_Null_Mutex>  const& e)
+    add_locality (ComponentAssemblyDescription::locality_value_type const& e)
     {
       locality_.push_back (e);
     }
@@ -936,7 +936,7 @@ namespace DAnCE
     }
 
     void MonolithicImplementationDescription::
-    add_nodeExecParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_nodeExecParameter (MonolithicImplementationDescription::nodeExecParameter_value_type const& e)
     {
       nodeExecParameter_.push_back (e);
     }
@@ -973,7 +973,7 @@ namespace DAnCE
     }
 
     void MonolithicImplementationDescription::
-    add_componentExecParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_componentExecParameter (MonolithicImplementationDescription::componentExecParameter_value_type const& e)
     {
       componentExecParameter_.push_back (e);
     }
@@ -1010,7 +1010,7 @@ namespace DAnCE
     }
 
     void MonolithicImplementationDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationRequirement, ACE_Null_Mutex>  const& e)
+    add_deployRequirement (MonolithicImplementationDescription::deployRequirement_value_type const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -1047,7 +1047,7 @@ namespace DAnCE
     }
 
     void MonolithicImplementationDescription::
-    add_primaryArtifact (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex>  const& e)
+    add_primaryArtifact (MonolithicImplementationDescription::primaryArtifact_value_type const& e)
     {
       primaryArtifact_.push_back (e);
     }
@@ -1301,7 +1301,7 @@ namespace DAnCE
     }
 
     void ComponentImplementationDescription::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_configProperty (ComponentImplementationDescription::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }
@@ -1338,7 +1338,7 @@ namespace DAnCE
     }
 
     void ComponentImplementationDescription::
-    add_capability (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex>  const& e)
+    add_capability (ComponentImplementationDescription::capability_value_type const& e)
     {
       capability_.push_back (e);
     }
@@ -1375,7 +1375,7 @@ namespace DAnCE
     }
 
     void ComponentImplementationDescription::
-    add_dependsOn (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex>  const& e)
+    add_dependsOn (ComponentImplementationDescription::dependsOn_value_type const& e)
     {
       dependsOn_.push_back (e);
     }
@@ -1412,7 +1412,7 @@ namespace DAnCE
     }
 
     void ComponentImplementationDescription::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_infoProperty (ComponentImplementationDescription::infoProperty_value_type const& e)
     {
       infoProperty_.push_back (e);
     }
@@ -1700,7 +1700,7 @@ namespace DAnCE
     }
 
     void ConnectorImplementationDescription::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_configProperty (ConnectorImplementationDescription::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }
@@ -1737,7 +1737,7 @@ namespace DAnCE
     }
 
     void ConnectorImplementationDescription::
-    add_capability (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex>  const& e)
+    add_capability (ConnectorImplementationDescription::capability_value_type const& e)
     {
       capability_.push_back (e);
     }
@@ -1774,7 +1774,7 @@ namespace DAnCE
     }
 
     void ConnectorImplementationDescription::
-    add_dependsOn (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex>  const& e)
+    add_dependsOn (ConnectorImplementationDescription::dependsOn_value_type const& e)
     {
       dependsOn_.push_back (e);
     }
@@ -1811,7 +1811,7 @@ namespace DAnCE
     }
 
     void ConnectorImplementationDescription::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_infoProperty (ConnectorImplementationDescription::infoProperty_value_type const& e)
     {
       infoProperty_.push_back (e);
     }

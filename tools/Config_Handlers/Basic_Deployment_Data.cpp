@@ -579,7 +579,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_short (ACE_Refcounted_Auto_Ptr < ::XMLSchema::short_, ACE_Null_Mutex>  const& e)
+    add_short (DataValue::short_value_type const& e)
     {
       short__.push_back (e);
     }
@@ -616,7 +616,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_long (ACE_Refcounted_Auto_Ptr < ::XMLSchema::int_, ACE_Null_Mutex>  const& e)
+    add_long (DataValue::long_value_type const& e)
     {
       long__.push_back (e);
     }
@@ -653,7 +653,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_ushort (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedShort, ACE_Null_Mutex>  const& e)
+    add_ushort (DataValue::ushort_value_type const& e)
     {
       ushort_.push_back (e);
     }
@@ -690,7 +690,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_ulong (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex>  const& e)
+    add_ulong (DataValue::ulong_value_type const& e)
     {
       ulong_.push_back (e);
     }
@@ -727,7 +727,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_float (ACE_Refcounted_Auto_Ptr < ::XMLSchema::float_, ACE_Null_Mutex>  const& e)
+    add_float (DataValue::float_value_type const& e)
     {
       float__.push_back (e);
     }
@@ -764,7 +764,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_double (ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex>  const& e)
+    add_double (DataValue::double_value_type const& e)
     {
       double__.push_back (e);
     }
@@ -801,7 +801,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_boolean (ACE_Refcounted_Auto_Ptr < ::XMLSchema::boolean, ACE_Null_Mutex>  const& e)
+    add_boolean (DataValue::boolean_value_type const& e)
     {
       boolean_.push_back (e);
     }
@@ -838,7 +838,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_octet (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedByte, ACE_Null_Mutex>  const& e)
+    add_octet (DataValue::octet_value_type const& e)
     {
       octet_.push_back (e);
     }
@@ -875,7 +875,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_enum (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_enum (DataValue::enum_value_type const& e)
     {
       enum__.push_back (e);
     }
@@ -912,7 +912,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_string (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_string (DataValue::string_value_type const& e)
     {
       string_.push_back (e);
     }
@@ -949,7 +949,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_longlong (ACE_Refcounted_Auto_Ptr < ::XMLSchema::long_, ACE_Null_Mutex>  const& e)
+    add_longlong (DataValue::longlong_value_type const& e)
     {
       longlong_.push_back (e);
     }
@@ -986,7 +986,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_ulonglong (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedLong, ACE_Null_Mutex>  const& e)
+    add_ulonglong (DataValue::ulonglong_value_type const& e)
     {
       ulonglong_.push_back (e);
     }
@@ -1023,7 +1023,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_longdouble (ACE_Refcounted_Auto_Ptr < ::XMLSchema::double_, ACE_Null_Mutex>  const& e)
+    add_longdouble (DataValue::longdouble_value_type const& e)
     {
       longdouble_.push_back (e);
     }
@@ -1060,7 +1060,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_element (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::DataValue, ACE_Null_Mutex>  const& e)
+    add_element (DataValue::element_value_type const& e)
     {
       element_.push_back (e);
     }
@@ -1097,7 +1097,7 @@ namespace DAnCE
     }
 
     void DataValue::
-    add_member (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedValue, ACE_Null_Mutex>  const& e)
+    add_member (DataValue::member_value_type const& e)
     {
       member_.push_back (e);
     }
@@ -1287,7 +1287,7 @@ namespace DAnCE
     }
 
     void EnumType::
-    add_member (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_member (EnumType::member_value_type const& e)
     {
       member_.push_back (e);
     }
@@ -1352,7 +1352,7 @@ namespace DAnCE
     }
 
     void BoundedStringType::
-    add_bound (ACE_Refcounted_Auto_Ptr < ::XMLSchema::unsignedInt, ACE_Null_Mutex>  const& e)
+    add_bound (BoundedStringType::bound_value_type const& e)
     {
       bound_.push_back (e);
     }
@@ -1456,7 +1456,7 @@ namespace DAnCE
     }
 
     void StructType::
-    add_member (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::StructMemberType, ACE_Null_Mutex>  const& e)
+    add_member (StructType::member_value_type const& e)
     {
       member_.push_back (e);
     }
@@ -1664,7 +1664,7 @@ namespace DAnCE
     }
 
     void ValueType::
-    add_member (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ValueMemberType, ACE_Null_Mutex>  const& e)
+    add_member (ValueType::member_value_type const& e)
     {
       member_.push_back (e);
     }
@@ -2302,7 +2302,7 @@ namespace DAnCE
     }
 
     void Resource::
-    add_resourceType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_resourceType (Resource::resourceType_value_type const& e)
     {
       resourceType_.push_back (e);
     }
@@ -2339,7 +2339,7 @@ namespace DAnCE
     }
 
     void Resource::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex>  const& e)
+    add_property (Resource::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -2443,7 +2443,7 @@ namespace DAnCE
     }
 
     void Requirement::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_property (Requirement::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -2547,7 +2547,7 @@ namespace DAnCE
     }
 
     void ResourceDeploymentDescription::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_property (ResourceDeploymentDescription::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -2655,7 +2655,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_source (ArtifactDeploymentDescription::source_value_type const& e)
     {
       source_.push_back (e);
     }
@@ -2705,7 +2705,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_location (ArtifactDeploymentDescription::location_value_type const& e)
     {
       location_.push_back (e);
     }
@@ -2742,7 +2742,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_execParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_execParameter (ArtifactDeploymentDescription::execParameter_value_type const& e)
     {
       execParameter_.push_back (e);
     }
@@ -2779,7 +2779,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  const& e)
+    add_deployRequirement (ArtifactDeploymentDescription::deployRequirement_value_type const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -2816,7 +2816,7 @@ namespace DAnCE
     }
 
     void ArtifactDeploymentDescription::
-    add_deployedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ResourceDeploymentDescription, ACE_Null_Mutex>  const& e)
+    add_deployedResource (ArtifactDeploymentDescription::deployedResource_value_type const& e)
     {
       deployedResource_.push_back (e);
     }
@@ -2948,7 +2948,7 @@ namespace DAnCE
     }
 
     void MonolithicDeploymentDescription::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_source (MonolithicDeploymentDescription::source_value_type const& e)
     {
       source_.push_back (e);
     }
@@ -2985,7 +2985,7 @@ namespace DAnCE
     }
 
     void MonolithicDeploymentDescription::
-    add_artifact (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex>  const& e)
+    add_artifact (MonolithicDeploymentDescription::artifact_value_type const& e)
     {
       artifact_.push_back (e);
     }
@@ -3022,7 +3022,7 @@ namespace DAnCE
     }
 
     void MonolithicDeploymentDescription::
-    add_execParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_execParameter (MonolithicDeploymentDescription::execParameter_value_type const& e)
     {
       execParameter_.push_back (e);
     }
@@ -3059,7 +3059,7 @@ namespace DAnCE
     }
 
     void MonolithicDeploymentDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  const& e)
+    add_deployRequirement (MonolithicDeploymentDescription::deployRequirement_value_type const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -3243,7 +3243,7 @@ namespace DAnCE
     }
 
     void InstanceResourceDeploymentDescription::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_property (InstanceResourceDeploymentDescription::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -3402,7 +3402,7 @@ namespace DAnCE
     }
 
     void InstanceDeploymentDescription::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_configProperty (InstanceDeploymentDescription::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }
@@ -3439,7 +3439,7 @@ namespace DAnCE
     }
 
     void InstanceDeploymentDescription::
-    add_deployedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription, ACE_Null_Mutex>  const& e)
+    add_deployedResource (InstanceDeploymentDescription::deployedResource_value_type const& e)
     {
       deployedResource_.push_back (e);
     }
@@ -3684,7 +3684,7 @@ namespace DAnCE
     }
 
     void ComponentPortDescription::
-    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_supportedType (ComponentPortDescription::supportedType_value_type const& e)
     {
       supportedType_.push_back (e);
     }
@@ -3786,7 +3786,7 @@ namespace DAnCE
     }
 
     void ComponentPortDescription::
-    add_templateParam (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_templateParam (ComponentPortDescription::templateParam_value_type const& e)
     {
       templateParam_.push_back (e);
     }
@@ -4152,7 +4152,7 @@ namespace DAnCE
     }
 
     void ExternalReferenceEndpoint::
-    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_supportedType (ExternalReferenceEndpoint::supportedType_value_type const& e)
     {
       supportedType_.push_back (e);
     }
@@ -4276,7 +4276,7 @@ namespace DAnCE
     }
 
     void ConnectionResourceDeploymentDescription::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_property (ConnectionResourceDeploymentDescription::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -4407,7 +4407,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  const& e)
+    add_deployRequirement (PlanConnectionDescription::deployRequirement_value_type const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -4444,7 +4444,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_externalEndpoint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex>  const& e)
+    add_externalEndpoint (PlanConnectionDescription::externalEndpoint_value_type const& e)
     {
       externalEndpoint_.push_back (e);
     }
@@ -4481,7 +4481,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_internalEndpoint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPortEndpoint, ACE_Null_Mutex>  const& e)
+    add_internalEndpoint (PlanConnectionDescription::internalEndpoint_value_type const& e)
     {
       internalEndpoint_.push_back (e);
     }
@@ -4518,7 +4518,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_externalReference (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex>  const& e)
+    add_externalReference (PlanConnectionDescription::externalReference_value_type const& e)
     {
       externalReference_.push_back (e);
     }
@@ -4555,7 +4555,7 @@ namespace DAnCE
     }
 
     void PlanConnectionDescription::
-    add_deployedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectionResourceDeploymentDescription, ACE_Null_Mutex>  const& e)
+    add_deployedResource (PlanConnectionDescription::deployedResource_value_type const& e)
     {
       deployedResource_.push_back (e);
     }
@@ -4686,7 +4686,7 @@ namespace DAnCE
     }
 
     void Capability::
-    add_resourceType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_resourceType (Capability::resourceType_value_type const& e)
     {
       resourceType_.push_back (e);
     }
@@ -4723,7 +4723,7 @@ namespace DAnCE
     }
 
     void Capability::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SatisfierProperty, ACE_Null_Mutex>  const& e)
+    add_property (Capability::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -4932,7 +4932,7 @@ namespace DAnCE
     }
 
     void ImplementationRequirement::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_property (ImplementationRequirement::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -5089,7 +5089,7 @@ namespace DAnCE
     }
 
     void AssemblyConnectionDescription::
-    add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  const& e)
+    add_deployRequirement (AssemblyConnectionDescription::deployRequirement_value_type const& e)
     {
       deployRequirement_.push_back (e);
     }
@@ -5126,7 +5126,7 @@ namespace DAnCE
     }
 
     void AssemblyConnectionDescription::
-    add_internalEndpoint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPortEndpoint, ACE_Null_Mutex>  const& e)
+    add_internalEndpoint (AssemblyConnectionDescription::internalEndpoint_value_type const& e)
     {
       internalEndpoint_.push_back (e);
     }
@@ -5163,7 +5163,7 @@ namespace DAnCE
     }
 
     void AssemblyConnectionDescription::
-    add_externalEndpoint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentExternalPortEndpoint, ACE_Null_Mutex>  const& e)
+    add_externalEndpoint (AssemblyConnectionDescription::externalEndpoint_value_type const& e)
     {
       externalEndpoint_.push_back (e);
     }
@@ -5200,7 +5200,7 @@ namespace DAnCE
     }
 
     void AssemblyConnectionDescription::
-    add_externalReference (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ExternalReferenceEndpoint, ACE_Null_Mutex>  const& e)
+    add_externalReference (AssemblyConnectionDescription::externalReference_value_type const& e)
     {
       externalReference_.push_back (e);
     }
@@ -5312,7 +5312,7 @@ namespace DAnCE
     }
 
     void PlanLocality::
-    add_constrainedInstance (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::IdRef, ACE_Null_Mutex>  const& e)
+    add_constrainedInstance (PlanLocality::constrainedInstance_value_type const& e)
     {
       constrainedInstance_.push_back (e);
     }

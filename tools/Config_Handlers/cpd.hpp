@@ -113,54 +113,51 @@ namespace DAnCE
 
       // configProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > configProperty_type;
-      typedef configProperty_type::iterator configProperty_iterator;
-      typedef configProperty_type::const_iterator configProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
+      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef configProperty_container_type::iterator configProperty_iterator;
+      typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
       configProperty_iterator end_configProperty ();
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
-      void add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_configProperty (configProperty_value_type const&);
       size_t count_configProperty () const;
 
       protected:
-      configProperty_type configProperty_;
+      configProperty_container_type configProperty_;
 
       // implementation
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex> > implementation_type;
-      typedef implementation_type::iterator implementation_iterator;
-      typedef implementation_type::const_iterator implementation_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex> implementation_value_type;
+      typedef std::list< implementation_value_type> implementation_container_type;
+      typedef implementation_container_type::iterator implementation_iterator;
+      typedef implementation_container_type::const_iterator implementation_const_iterator;
       implementation_iterator begin_implementation ();
       implementation_iterator end_implementation ();
       implementation_const_iterator begin_implementation () const;
       implementation_const_iterator end_implementation () const;
-      void add_implementation (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_implementation_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_implementation_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_implementation (implementation_value_type const&);
       size_t count_implementation () const;
 
       protected:
-      implementation_type implementation_;
+      implementation_container_type implementation_;
 
       // infoProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > infoProperty_type;
-      typedef infoProperty_type::iterator infoProperty_iterator;
-      typedef infoProperty_type::const_iterator infoProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> infoProperty_value_type;
+      typedef std::list< infoProperty_value_type> infoProperty_container_type;
+      typedef infoProperty_container_type::iterator infoProperty_iterator;
+      typedef infoProperty_container_type::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
       infoProperty_iterator end_infoProperty ();
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
-      void add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_infoProperty (infoProperty_value_type const&);
       size_t count_infoProperty () const;
 
       protected:
-      infoProperty_type infoProperty_;
+      infoProperty_container_type infoProperty_;
 
       // href
       public:
@@ -221,54 +218,51 @@ namespace DAnCE
 
       // configProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > configProperty_type;
-      typedef configProperty_type::iterator configProperty_iterator;
-      typedef configProperty_type::const_iterator configProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
+      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef configProperty_container_type::iterator configProperty_iterator;
+      typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
       configProperty_iterator end_configProperty ();
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
-      void add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_configProperty (configProperty_value_type const&);
       size_t count_configProperty () const;
 
       protected:
-      configProperty_type configProperty_;
+      configProperty_container_type configProperty_;
 
       // implementation
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex> > implementation_type;
-      typedef implementation_type::iterator implementation_iterator;
-      typedef implementation_type::const_iterator implementation_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex> implementation_value_type;
+      typedef std::list< implementation_value_type> implementation_container_type;
+      typedef implementation_container_type::iterator implementation_iterator;
+      typedef implementation_container_type::const_iterator implementation_const_iterator;
       implementation_iterator begin_implementation ();
       implementation_iterator end_implementation ();
       implementation_const_iterator begin_implementation () const;
       implementation_const_iterator end_implementation () const;
-      void add_implementation (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_implementation_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_implementation_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_implementation (implementation_value_type const&);
       size_t count_implementation () const;
 
       protected:
-      implementation_type implementation_;
+      implementation_container_type implementation_;
 
       // infoProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > infoProperty_type;
-      typedef infoProperty_type::iterator infoProperty_iterator;
-      typedef infoProperty_type::const_iterator infoProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> infoProperty_value_type;
+      typedef std::list< infoProperty_value_type> infoProperty_container_type;
+      typedef infoProperty_container_type::iterator infoProperty_iterator;
+      typedef infoProperty_container_type::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
       infoProperty_iterator end_infoProperty ();
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
-      void add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_infoProperty (infoProperty_value_type const&);
       size_t count_infoProperty () const;
 
       protected:
-      infoProperty_type infoProperty_;
+      infoProperty_container_type infoProperty_;
 
       // href
       public:

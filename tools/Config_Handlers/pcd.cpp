@@ -67,7 +67,7 @@ namespace DAnCE
     }
 
     void ComponentPackageImport::
-    add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_location (ComponentPackageImport::location_value_type const& e)
     {
       location_.push_back (e);
     }
@@ -352,7 +352,7 @@ namespace DAnCE
     }
 
     void PackageConfiguration::
-    add_selectRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  const& e)
+    add_selectRequirement (PackageConfiguration::selectRequirement_value_type const& e)
     {
       selectRequirement_.push_back (e);
     }
@@ -389,7 +389,7 @@ namespace DAnCE
     }
 
     void PackageConfiguration::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_configProperty (PackageConfiguration::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }

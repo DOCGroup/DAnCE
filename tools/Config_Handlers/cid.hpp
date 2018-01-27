@@ -134,37 +134,35 @@ namespace DAnCE
 
       // selectRequirement
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> > selectRequirement_type;
-      typedef selectRequirement_type::iterator selectRequirement_iterator;
-      typedef selectRequirement_type::const_iterator selectRequirement_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> selectRequirement_value_type;
+      typedef std::list< selectRequirement_value_type> selectRequirement_container_type;
+      typedef selectRequirement_container_type::iterator selectRequirement_iterator;
+      typedef selectRequirement_container_type::const_iterator selectRequirement_const_iterator;
       selectRequirement_iterator begin_selectRequirement ();
       selectRequirement_iterator end_selectRequirement ();
       selectRequirement_const_iterator begin_selectRequirement () const;
       selectRequirement_const_iterator end_selectRequirement () const;
-      void add_selectRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_selectRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_selectRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_selectRequirement (selectRequirement_value_type const&);
       size_t count_selectRequirement () const;
 
       protected:
-      selectRequirement_type selectRequirement_;
+      selectRequirement_container_type selectRequirement_;
 
       // configProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > configProperty_type;
-      typedef configProperty_type::iterator configProperty_iterator;
-      typedef configProperty_type::const_iterator configProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
+      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef configProperty_container_type::iterator configProperty_iterator;
+      typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
       configProperty_iterator end_configProperty ();
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
-      void add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_configProperty (configProperty_value_type const&);
       size_t count_configProperty () const;
 
       protected:
-      configProperty_type configProperty_;
+      configProperty_container_type configProperty_;
 
       // referencedPackage
       public:
@@ -269,20 +267,19 @@ namespace DAnCE
 
       // delegatesTo
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPropertyReference, ACE_Null_Mutex> > delegatesTo_type;
-      typedef delegatesTo_type::iterator delegatesTo_iterator;
-      typedef delegatesTo_type::const_iterator delegatesTo_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPropertyReference, ACE_Null_Mutex> delegatesTo_value_type;
+      typedef std::list< delegatesTo_value_type> delegatesTo_container_type;
+      typedef delegatesTo_container_type::iterator delegatesTo_iterator;
+      typedef delegatesTo_container_type::const_iterator delegatesTo_const_iterator;
       delegatesTo_iterator begin_delegatesTo ();
       delegatesTo_iterator end_delegatesTo ();
       delegatesTo_const_iterator begin_delegatesTo () const;
       delegatesTo_const_iterator end_delegatesTo () const;
-      void add_delegatesTo (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentPropertyReference, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_delegatesTo_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_delegatesTo_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_delegatesTo (delegatesTo_value_type const&);
       size_t count_delegatesTo () const;
 
       protected:
-      delegatesTo_type delegatesTo_;
+      delegatesTo_container_type delegatesTo_;
 
       public:
       AssemblyPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -383,71 +380,67 @@ namespace DAnCE
 
       // instance
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentInstantiationDescription, ACE_Null_Mutex> > instance_type;
-      typedef instance_type::iterator instance_iterator;
-      typedef instance_type::const_iterator instance_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentInstantiationDescription, ACE_Null_Mutex> instance_value_type;
+      typedef std::list< instance_value_type> instance_container_type;
+      typedef instance_container_type::iterator instance_iterator;
+      typedef instance_container_type::const_iterator instance_const_iterator;
       instance_iterator begin_instance ();
       instance_iterator end_instance ();
       instance_const_iterator begin_instance () const;
       instance_const_iterator end_instance () const;
-      void add_instance (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SubcomponentInstantiationDescription, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_instance_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_instance_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_instance (instance_value_type const&);
       size_t count_instance () const;
 
       protected:
-      instance_type instance_;
+      instance_container_type instance_;
 
       // connection
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyConnectionDescription, ACE_Null_Mutex> > connection_type;
-      typedef connection_type::iterator connection_iterator;
-      typedef connection_type::const_iterator connection_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyConnectionDescription, ACE_Null_Mutex> connection_value_type;
+      typedef std::list< connection_value_type> connection_container_type;
+      typedef connection_container_type::iterator connection_iterator;
+      typedef connection_container_type::const_iterator connection_const_iterator;
       connection_iterator begin_connection ();
       connection_iterator end_connection ();
       connection_const_iterator begin_connection () const;
       connection_const_iterator end_connection () const;
-      void add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyConnectionDescription, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_connection_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_connection_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_connection (connection_value_type const&);
       size_t count_connection () const;
 
       protected:
-      connection_type connection_;
+      connection_container_type connection_;
 
       // externalProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyPropertyMapping, ACE_Null_Mutex> > externalProperty_type;
-      typedef externalProperty_type::iterator externalProperty_iterator;
-      typedef externalProperty_type::const_iterator externalProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyPropertyMapping, ACE_Null_Mutex> externalProperty_value_type;
+      typedef std::list< externalProperty_value_type> externalProperty_container_type;
+      typedef externalProperty_container_type::iterator externalProperty_iterator;
+      typedef externalProperty_container_type::const_iterator externalProperty_const_iterator;
       externalProperty_iterator begin_externalProperty ();
       externalProperty_iterator end_externalProperty ();
       externalProperty_const_iterator begin_externalProperty () const;
       externalProperty_const_iterator end_externalProperty () const;
-      void add_externalProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::AssemblyPropertyMapping, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_externalProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_externalProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_externalProperty (externalProperty_value_type const&);
       size_t count_externalProperty () const;
 
       protected:
-      externalProperty_type externalProperty_;
+      externalProperty_container_type externalProperty_;
 
       // locality
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Locality, ACE_Null_Mutex> > locality_type;
-      typedef locality_type::iterator locality_iterator;
-      typedef locality_type::const_iterator locality_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Locality, ACE_Null_Mutex> locality_value_type;
+      typedef std::list< locality_value_type> locality_container_type;
+      typedef locality_container_type::iterator locality_iterator;
+      typedef locality_container_type::const_iterator locality_const_iterator;
       locality_iterator begin_locality ();
       locality_iterator end_locality ();
       locality_const_iterator begin_locality () const;
       locality_const_iterator end_locality () const;
-      void add_locality (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Locality, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_locality_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_locality_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_locality (locality_value_type const&);
       size_t count_locality () const;
 
       protected:
-      locality_type locality_;
+      locality_container_type locality_;
 
       public:
       ComponentAssemblyDescription ();
@@ -471,71 +464,67 @@ namespace DAnCE
 
       // nodeExecParameter
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > nodeExecParameter_type;
-      typedef nodeExecParameter_type::iterator nodeExecParameter_iterator;
-      typedef nodeExecParameter_type::const_iterator nodeExecParameter_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> nodeExecParameter_value_type;
+      typedef std::list< nodeExecParameter_value_type> nodeExecParameter_container_type;
+      typedef nodeExecParameter_container_type::iterator nodeExecParameter_iterator;
+      typedef nodeExecParameter_container_type::const_iterator nodeExecParameter_const_iterator;
       nodeExecParameter_iterator begin_nodeExecParameter ();
       nodeExecParameter_iterator end_nodeExecParameter ();
       nodeExecParameter_const_iterator begin_nodeExecParameter () const;
       nodeExecParameter_const_iterator end_nodeExecParameter () const;
-      void add_nodeExecParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_nodeExecParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_nodeExecParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_nodeExecParameter (nodeExecParameter_value_type const&);
       size_t count_nodeExecParameter () const;
 
       protected:
-      nodeExecParameter_type nodeExecParameter_;
+      nodeExecParameter_container_type nodeExecParameter_;
 
       // componentExecParameter
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > componentExecParameter_type;
-      typedef componentExecParameter_type::iterator componentExecParameter_iterator;
-      typedef componentExecParameter_type::const_iterator componentExecParameter_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> componentExecParameter_value_type;
+      typedef std::list< componentExecParameter_value_type> componentExecParameter_container_type;
+      typedef componentExecParameter_container_type::iterator componentExecParameter_iterator;
+      typedef componentExecParameter_container_type::const_iterator componentExecParameter_const_iterator;
       componentExecParameter_iterator begin_componentExecParameter ();
       componentExecParameter_iterator end_componentExecParameter ();
       componentExecParameter_const_iterator begin_componentExecParameter () const;
       componentExecParameter_const_iterator end_componentExecParameter () const;
-      void add_componentExecParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_componentExecParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_componentExecParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_componentExecParameter (componentExecParameter_value_type const&);
       size_t count_componentExecParameter () const;
 
       protected:
-      componentExecParameter_type componentExecParameter_;
+      componentExecParameter_container_type componentExecParameter_;
 
       // deployRequirement
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationRequirement, ACE_Null_Mutex> > deployRequirement_type;
-      typedef deployRequirement_type::iterator deployRequirement_iterator;
-      typedef deployRequirement_type::const_iterator deployRequirement_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationRequirement, ACE_Null_Mutex> deployRequirement_value_type;
+      typedef std::list< deployRequirement_value_type> deployRequirement_container_type;
+      typedef deployRequirement_container_type::iterator deployRequirement_iterator;
+      typedef deployRequirement_container_type::const_iterator deployRequirement_const_iterator;
       deployRequirement_iterator begin_deployRequirement ();
       deployRequirement_iterator end_deployRequirement ();
       deployRequirement_const_iterator begin_deployRequirement () const;
       deployRequirement_const_iterator end_deployRequirement () const;
-      void add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationRequirement, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_deployRequirement (deployRequirement_value_type const&);
       size_t count_deployRequirement () const;
 
       protected:
-      deployRequirement_type deployRequirement_;
+      deployRequirement_container_type deployRequirement_;
 
       // primaryArtifact
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex> > primaryArtifact_type;
-      typedef primaryArtifact_type::iterator primaryArtifact_iterator;
-      typedef primaryArtifact_type::const_iterator primaryArtifact_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex> primaryArtifact_value_type;
+      typedef std::list< primaryArtifact_value_type> primaryArtifact_container_type;
+      typedef primaryArtifact_container_type::iterator primaryArtifact_iterator;
+      typedef primaryArtifact_container_type::const_iterator primaryArtifact_const_iterator;
       primaryArtifact_iterator begin_primaryArtifact ();
       primaryArtifact_iterator end_primaryArtifact ();
       primaryArtifact_const_iterator begin_primaryArtifact () const;
       primaryArtifact_const_iterator end_primaryArtifact () const;
-      void add_primaryArtifact (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_primaryArtifact_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_primaryArtifact_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_primaryArtifact (primaryArtifact_value_type const&);
       size_t count_primaryArtifact () const;
 
       protected:
-      primaryArtifact_type primaryArtifact_;
+      primaryArtifact_container_type primaryArtifact_;
 
       public:
       MonolithicImplementationDescription ();
@@ -604,71 +593,67 @@ namespace DAnCE
 
       // configProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > configProperty_type;
-      typedef configProperty_type::iterator configProperty_iterator;
-      typedef configProperty_type::const_iterator configProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
+      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef configProperty_container_type::iterator configProperty_iterator;
+      typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
       configProperty_iterator end_configProperty ();
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
-      void add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_configProperty (configProperty_value_type const&);
       size_t count_configProperty () const;
 
       protected:
-      configProperty_type configProperty_;
+      configProperty_container_type configProperty_;
 
       // capability
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex> > capability_type;
-      typedef capability_type::iterator capability_iterator;
-      typedef capability_type::const_iterator capability_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex> capability_value_type;
+      typedef std::list< capability_value_type> capability_container_type;
+      typedef capability_container_type::iterator capability_iterator;
+      typedef capability_container_type::const_iterator capability_const_iterator;
       capability_iterator begin_capability ();
       capability_iterator end_capability ();
       capability_const_iterator begin_capability () const;
       capability_const_iterator end_capability () const;
-      void add_capability (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_capability_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_capability_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_capability (capability_value_type const&);
       size_t count_capability () const;
 
       protected:
-      capability_type capability_;
+      capability_container_type capability_;
 
       // dependsOn
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex> > dependsOn_type;
-      typedef dependsOn_type::iterator dependsOn_iterator;
-      typedef dependsOn_type::const_iterator dependsOn_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex> dependsOn_value_type;
+      typedef std::list< dependsOn_value_type> dependsOn_container_type;
+      typedef dependsOn_container_type::iterator dependsOn_iterator;
+      typedef dependsOn_container_type::const_iterator dependsOn_const_iterator;
       dependsOn_iterator begin_dependsOn ();
       dependsOn_iterator end_dependsOn ();
       dependsOn_const_iterator begin_dependsOn () const;
       dependsOn_const_iterator end_dependsOn () const;
-      void add_dependsOn (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_dependsOn (dependsOn_value_type const&);
       size_t count_dependsOn () const;
 
       protected:
-      dependsOn_type dependsOn_;
+      dependsOn_container_type dependsOn_;
 
       // infoProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > infoProperty_type;
-      typedef infoProperty_type::iterator infoProperty_iterator;
-      typedef infoProperty_type::const_iterator infoProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> infoProperty_value_type;
+      typedef std::list< infoProperty_value_type> infoProperty_container_type;
+      typedef infoProperty_container_type::iterator infoProperty_iterator;
+      typedef infoProperty_container_type::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
       infoProperty_iterator end_infoProperty ();
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
-      void add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_infoProperty (infoProperty_value_type const&);
       size_t count_infoProperty () const;
 
       protected:
-      infoProperty_type infoProperty_;
+      infoProperty_container_type infoProperty_;
 
       // href
       public:
@@ -747,71 +732,67 @@ namespace DAnCE
 
       // configProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > configProperty_type;
-      typedef configProperty_type::iterator configProperty_iterator;
-      typedef configProperty_type::const_iterator configProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
+      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef configProperty_container_type::iterator configProperty_iterator;
+      typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
       configProperty_iterator end_configProperty ();
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
-      void add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_configProperty (configProperty_value_type const&);
       size_t count_configProperty () const;
 
       protected:
-      configProperty_type configProperty_;
+      configProperty_container_type configProperty_;
 
       // capability
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex> > capability_type;
-      typedef capability_type::iterator capability_iterator;
-      typedef capability_type::const_iterator capability_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex> capability_value_type;
+      typedef std::list< capability_value_type> capability_container_type;
+      typedef capability_container_type::iterator capability_iterator;
+      typedef capability_container_type::const_iterator capability_const_iterator;
       capability_iterator begin_capability ();
       capability_iterator end_capability ();
       capability_const_iterator begin_capability () const;
       capability_const_iterator end_capability () const;
-      void add_capability (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Capability, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_capability_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_capability_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_capability (capability_value_type const&);
       size_t count_capability () const;
 
       protected:
-      capability_type capability_;
+      capability_container_type capability_;
 
       // dependsOn
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex> > dependsOn_type;
-      typedef dependsOn_type::iterator dependsOn_iterator;
-      typedef dependsOn_type::const_iterator dependsOn_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex> dependsOn_value_type;
+      typedef std::list< dependsOn_value_type> dependsOn_container_type;
+      typedef dependsOn_container_type::iterator dependsOn_iterator;
+      typedef dependsOn_container_type::const_iterator dependsOn_const_iterator;
       dependsOn_iterator begin_dependsOn ();
       dependsOn_iterator end_dependsOn ();
       dependsOn_const_iterator begin_dependsOn () const;
       dependsOn_const_iterator end_dependsOn () const;
-      void add_dependsOn (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_dependsOn (dependsOn_value_type const&);
       size_t count_dependsOn () const;
 
       protected:
-      dependsOn_type dependsOn_;
+      dependsOn_container_type dependsOn_;
 
       // infoProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > infoProperty_type;
-      typedef infoProperty_type::iterator infoProperty_iterator;
-      typedef infoProperty_type::const_iterator infoProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> infoProperty_value_type;
+      typedef std::list< infoProperty_value_type> infoProperty_container_type;
+      typedef infoProperty_container_type::iterator infoProperty_iterator;
+      typedef infoProperty_container_type::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
       infoProperty_iterator end_infoProperty ();
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
-      void add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_infoProperty (infoProperty_value_type const&);
       size_t count_infoProperty () const;
 
       protected:
-      infoProperty_type infoProperty_;
+      infoProperty_container_type infoProperty_;
 
       // href
       public:

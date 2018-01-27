@@ -199,7 +199,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_supportedType (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_supportedType (ComponentInterfaceDescription::supportedType_value_type const& e)
     {
       supportedType_.push_back (e);
     }
@@ -236,7 +236,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_idlFile (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_idlFile (ComponentInterfaceDescription::idlFile_value_type const& e)
     {
       idlFile_.push_back (e);
     }
@@ -273,7 +273,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_configProperty (ComponentInterfaceDescription::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }
@@ -310,7 +310,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_port (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPortDescription, ACE_Null_Mutex>  const& e)
+    add_port (ComponentInterfaceDescription::port_value_type const& e)
     {
       port_.push_back (e);
     }
@@ -347,7 +347,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_property (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPropertyDescription, ACE_Null_Mutex>  const& e)
+    add_property (ComponentInterfaceDescription::property_value_type const& e)
     {
       property_.push_back (e);
     }
@@ -384,7 +384,7 @@ namespace DAnCE
     }
 
     void ComponentInterfaceDescription::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_infoProperty (ComponentInterfaceDescription::infoProperty_value_type const& e)
     {
       infoProperty_.push_back (e);
     }

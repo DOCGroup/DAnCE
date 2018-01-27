@@ -162,7 +162,7 @@ namespace DAnCE
     }
 
     void PlanPropertyMapping::
-    add_source (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  const& e)
+    add_source (PlanPropertyMapping::source_value_type const& e)
     {
       source_.push_back (e);
     }
@@ -212,7 +212,7 @@ namespace DAnCE
     }
 
     void PlanPropertyMapping::
-    add_delegatesTo (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanSubcomponentPropertyReference, ACE_Null_Mutex>  const& e)
+    add_delegatesTo (PlanPropertyMapping::delegatesTo_value_type const& e)
     {
       delegatesTo_.push_back (e);
     }
@@ -403,7 +403,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_implementation (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::MonolithicDeploymentDescription, ACE_Null_Mutex>  const& e)
+    add_implementation (deploymentPlan::implementation_value_type const& e)
     {
       implementation_.push_back (e);
     }
@@ -440,7 +440,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_instance (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::InstanceDeploymentDescription, ACE_Null_Mutex>  const& e)
+    add_instance (deploymentPlan::instance_value_type const& e)
     {
       instance_.push_back (e);
     }
@@ -477,7 +477,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanConnectionDescription, ACE_Null_Mutex>  const& e)
+    add_connection (deploymentPlan::connection_value_type const& e)
     {
       connection_.push_back (e);
     }
@@ -514,7 +514,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_externalProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanPropertyMapping, ACE_Null_Mutex>  const& e)
+    add_externalProperty (deploymentPlan::externalProperty_value_type const& e)
     {
       externalProperty_.push_back (e);
     }
@@ -551,7 +551,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_dependsOn (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ImplementationDependency, ACE_Null_Mutex>  const& e)
+    add_dependsOn (deploymentPlan::dependsOn_value_type const& e)
     {
       dependsOn_.push_back (e);
     }
@@ -588,7 +588,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_artifact (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ArtifactDeploymentDescription, ACE_Null_Mutex>  const& e)
+    add_artifact (deploymentPlan::artifact_value_type const& e)
     {
       artifact_.push_back (e);
     }
@@ -625,7 +625,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_infoProperty (deploymentPlan::infoProperty_value_type const& e)
     {
       infoProperty_.push_back (e);
     }
@@ -662,7 +662,7 @@ namespace DAnCE
     }
 
     void deploymentPlan::
-    add_localityConstraint (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PlanLocality, ACE_Null_Mutex>  const& e)
+    add_localityConstraint (deploymentPlan::localityConstraint_value_type const& e)
     {
       localityConstraint_.push_back (e);
     }

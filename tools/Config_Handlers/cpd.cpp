@@ -247,7 +247,7 @@ namespace DAnCE
     }
 
     void ComponentPackageDescription::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_configProperty (ComponentPackageDescription::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }
@@ -284,7 +284,7 @@ namespace DAnCE
     }
 
     void ComponentPackageDescription::
-    add_implementation (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex>  const& e)
+    add_implementation (ComponentPackageDescription::implementation_value_type const& e)
     {
       implementation_.push_back (e);
     }
@@ -321,7 +321,7 @@ namespace DAnCE
     }
 
     void ComponentPackageDescription::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_infoProperty (ComponentPackageDescription::infoProperty_value_type const& e)
     {
       infoProperty_.push_back (e);
     }
@@ -536,7 +536,7 @@ namespace DAnCE
     }
 
     void ConnectorPackageDescription::
-    add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_configProperty (ConnectorPackageDescription::configProperty_value_type const& e)
     {
       configProperty_.push_back (e);
     }
@@ -573,7 +573,7 @@ namespace DAnCE
     }
 
     void ConnectorPackageDescription::
-    add_implementation (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex>  const& e)
+    add_implementation (ConnectorPackageDescription::implementation_value_type const& e)
     {
       implementation_.push_back (e);
     }
@@ -610,7 +610,7 @@ namespace DAnCE
     }
 
     void ConnectorPackageDescription::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_infoProperty (ConnectorPackageDescription::infoProperty_value_type const& e)
     {
       infoProperty_.push_back (e);
     }

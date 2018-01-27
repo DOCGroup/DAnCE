@@ -50,20 +50,19 @@ namespace DAnCE
 
       // location
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> > location_type;
-      typedef location_type::iterator location_iterator;
-      typedef location_type::const_iterator location_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> location_value_type;
+      typedef std::list< location_value_type> location_container_type;
+      typedef location_container_type::iterator location_iterator;
+      typedef location_container_type::const_iterator location_const_iterator;
       location_iterator begin_location ();
       location_iterator end_location ();
       location_const_iterator begin_location () const;
       location_const_iterator end_location () const;
-      void add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_location_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_location_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_location (location_value_type const&);
       size_t count_location () const;
 
       protected:
-      location_type location_;
+      location_container_type location_;
 
       public:
       ComponentPackageImport ();
@@ -141,37 +140,35 @@ namespace DAnCE
 
       // selectRequirement
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> > selectRequirement_type;
-      typedef selectRequirement_type::iterator selectRequirement_iterator;
-      typedef selectRequirement_type::const_iterator selectRequirement_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> selectRequirement_value_type;
+      typedef std::list< selectRequirement_value_type> selectRequirement_container_type;
+      typedef selectRequirement_container_type::iterator selectRequirement_iterator;
+      typedef selectRequirement_container_type::const_iterator selectRequirement_const_iterator;
       selectRequirement_iterator begin_selectRequirement ();
       selectRequirement_iterator end_selectRequirement ();
       selectRequirement_const_iterator begin_selectRequirement () const;
       selectRequirement_const_iterator end_selectRequirement () const;
-      void add_selectRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_selectRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_selectRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_selectRequirement (selectRequirement_value_type const&);
       size_t count_selectRequirement () const;
 
       protected:
-      selectRequirement_type selectRequirement_;
+      selectRequirement_container_type selectRequirement_;
 
       // configProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > configProperty_type;
-      typedef configProperty_type::iterator configProperty_iterator;
-      typedef configProperty_type::const_iterator configProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> configProperty_value_type;
+      typedef std::list< configProperty_value_type> configProperty_container_type;
+      typedef configProperty_container_type::iterator configProperty_iterator;
+      typedef configProperty_container_type::const_iterator configProperty_const_iterator;
       configProperty_iterator begin_configProperty ();
       configProperty_iterator end_configProperty ();
       configProperty_const_iterator begin_configProperty () const;
       configProperty_const_iterator end_configProperty () const;
-      void add_configProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_configProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_configProperty (configProperty_value_type const&);
       size_t count_configProperty () const;
 
       protected:
-      configProperty_type configProperty_;
+      configProperty_container_type configProperty_;
 
       // contentLocation
       public:

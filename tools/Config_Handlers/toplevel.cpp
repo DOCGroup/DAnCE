@@ -67,7 +67,7 @@ namespace DAnCE
     }
 
     void TopLevelPackageDescription::
-    add_package (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex>  const& e)
+    add_package (TopLevelPackageDescription::package_value_type const& e)
     {
       package_.push_back (e);
     }

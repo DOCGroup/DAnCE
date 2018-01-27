@@ -150,7 +150,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_node (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex>  const& e)
+    add_node (Domain::node_value_type const& e)
     {
       node_.push_back (e);
     }
@@ -187,7 +187,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_interconnect (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  const& e)
+    add_interconnect (Domain::interconnect_value_type const& e)
     {
       interconnect_.push_back (e);
     }
@@ -224,7 +224,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_bridge (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex>  const& e)
+    add_bridge (Domain::bridge_value_type const& e)
     {
       bridge_.push_back (e);
     }
@@ -261,7 +261,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_sharedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex>  const& e)
+    add_sharedResource (Domain::sharedResource_value_type const& e)
     {
       sharedResource_.push_back (e);
     }
@@ -298,7 +298,7 @@ namespace DAnCE
     }
 
     void Domain::
-    add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  const& e)
+    add_infoProperty (Domain::infoProperty_value_type const& e)
     {
       infoProperty_.push_back (e);
     }
@@ -422,7 +422,7 @@ namespace DAnCE
     }
 
     void Bridge::
-    add_connect (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  const& e)
+    add_connect (Bridge::connect_value_type const& e)
     {
       connect_.push_back (e);
     }
@@ -459,7 +459,7 @@ namespace DAnCE
     }
 
     void Bridge::
-    add_resource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  const& e)
+    add_resource (Bridge::resource_value_type const& e)
     {
       resource_.push_back (e);
     }
@@ -586,7 +586,7 @@ namespace DAnCE
     }
 
     void Interconnect::
-    add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex>  const& e)
+    add_connection (Interconnect::connection_value_type const& e)
     {
       connection_.push_back (e);
     }
@@ -623,7 +623,7 @@ namespace DAnCE
     }
 
     void Interconnect::
-    add_connect (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex>  const& e)
+    add_connect (Interconnect::connect_value_type const& e)
     {
       connect_.push_back (e);
     }
@@ -660,7 +660,7 @@ namespace DAnCE
     }
 
     void Interconnect::
-    add_resource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  const& e)
+    add_resource (Interconnect::resource_value_type const& e)
     {
       resource_.push_back (e);
     }
@@ -785,7 +785,7 @@ namespace DAnCE
     }
 
     void Node::
-    add_connection (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  const& e)
+    add_connection (Node::connection_value_type const& e)
     {
       connection_.push_back (e);
     }
@@ -822,7 +822,7 @@ namespace DAnCE
     }
 
     void Node::
-    add_sharedResource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex>  const& e)
+    add_sharedResource (Node::sharedResource_value_type const& e)
     {
       sharedResource_.push_back (e);
     }
@@ -859,7 +859,7 @@ namespace DAnCE
     }
 
     void Node::
-    add_resource (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  const& e)
+    add_resource (Node::resource_value_type const& e)
     {
       resource_.push_back (e);
     }

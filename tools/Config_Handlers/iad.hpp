@@ -103,88 +103,83 @@ namespace DAnCE
 
       // location
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> > location_type;
-      typedef location_type::iterator location_iterator;
-      typedef location_type::const_iterator location_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> location_value_type;
+      typedef std::list< location_value_type> location_container_type;
+      typedef location_container_type::iterator location_iterator;
+      typedef location_container_type::const_iterator location_const_iterator;
       location_iterator begin_location ();
       location_iterator end_location ();
       location_const_iterator begin_location () const;
       location_const_iterator end_location () const;
-      void add_location (ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_location_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_location_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_location (location_value_type const&);
       size_t count_location () const;
 
       protected:
-      location_type location_;
+      location_container_type location_;
 
       // dependsOn
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex> > dependsOn_type;
-      typedef dependsOn_type::iterator dependsOn_iterator;
-      typedef dependsOn_type::const_iterator dependsOn_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex> dependsOn_value_type;
+      typedef std::list< dependsOn_value_type> dependsOn_container_type;
+      typedef dependsOn_container_type::iterator dependsOn_iterator;
+      typedef dependsOn_container_type::const_iterator dependsOn_const_iterator;
       dependsOn_iterator begin_dependsOn ();
       dependsOn_iterator end_dependsOn ();
       dependsOn_const_iterator begin_dependsOn () const;
       dependsOn_const_iterator end_dependsOn () const;
-      void add_dependsOn (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_dependsOn_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_dependsOn (dependsOn_value_type const&);
       size_t count_dependsOn () const;
 
       protected:
-      dependsOn_type dependsOn_;
+      dependsOn_container_type dependsOn_;
 
       // execParameter
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > execParameter_type;
-      typedef execParameter_type::iterator execParameter_iterator;
-      typedef execParameter_type::const_iterator execParameter_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> execParameter_value_type;
+      typedef std::list< execParameter_value_type> execParameter_container_type;
+      typedef execParameter_container_type::iterator execParameter_iterator;
+      typedef execParameter_container_type::const_iterator execParameter_const_iterator;
       execParameter_iterator begin_execParameter ();
       execParameter_iterator end_execParameter ();
       execParameter_const_iterator begin_execParameter () const;
       execParameter_const_iterator end_execParameter () const;
-      void add_execParameter (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_execParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_execParameter_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_execParameter (execParameter_value_type const&);
       size_t count_execParameter () const;
 
       protected:
-      execParameter_type execParameter_;
+      execParameter_container_type execParameter_;
 
       // infoProperty
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> > infoProperty_type;
-      typedef infoProperty_type::iterator infoProperty_iterator;
-      typedef infoProperty_type::const_iterator infoProperty_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> infoProperty_value_type;
+      typedef std::list< infoProperty_value_type> infoProperty_container_type;
+      typedef infoProperty_container_type::iterator infoProperty_iterator;
+      typedef infoProperty_container_type::const_iterator infoProperty_const_iterator;
       infoProperty_iterator begin_infoProperty ();
       infoProperty_iterator end_infoProperty ();
       infoProperty_const_iterator begin_infoProperty () const;
       infoProperty_const_iterator end_infoProperty () const;
-      void add_infoProperty (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_infoProperty_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_infoProperty (infoProperty_value_type const&);
       size_t count_infoProperty () const;
 
       protected:
-      infoProperty_type infoProperty_;
+      infoProperty_container_type infoProperty_;
 
       // deployRequirement
       public:
-      typedef std::list<ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> > deployRequirement_type;
-      typedef deployRequirement_type::iterator deployRequirement_iterator;
-      typedef deployRequirement_type::const_iterator deployRequirement_const_iterator;
+      typedef ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> deployRequirement_value_type;
+      typedef std::list< deployRequirement_value_type> deployRequirement_container_type;
+      typedef deployRequirement_container_type::iterator deployRequirement_iterator;
+      typedef deployRequirement_container_type::const_iterator deployRequirement_const_iterator;
       deployRequirement_iterator begin_deployRequirement ();
       deployRequirement_iterator end_deployRequirement ();
       deployRequirement_const_iterator begin_deployRequirement () const;
       deployRequirement_const_iterator end_deployRequirement () const;
-      void add_deployRequirement (ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex> const&);
-      XSCRT::Type* get_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
-      void set_deployRequirement_ptr (const std::basic_string<ACE_TCHAR>& idref);
+      void add_deployRequirement (deployRequirement_value_type const&);
       size_t count_deployRequirement () const;
 
       protected:
-      deployRequirement_type deployRequirement_;
+      deployRequirement_container_type deployRequirement_;
 
       // contentLocation
       public:
