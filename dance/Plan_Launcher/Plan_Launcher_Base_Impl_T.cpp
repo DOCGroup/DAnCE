@@ -608,7 +608,7 @@ Plan_Launcher_Base_Impl< Manager, AppManager, Application>::destroy_app_manager(
 
       DANCE_ERROR (DANCE_LOG_TERMINAL_ERROR,
                    (LM_ERROR, DLINFO
-                    ACE_TEXT("Plan_Launcher_Base_Impl::destory_app_manager - %C\n"),
+                    ACE_TEXT("Plan_Launcher_Base_Impl::destroy_app_manager - %C\n"),
                     error.c_str ()));
       throw Deployment_Failure (error);
     }
