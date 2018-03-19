@@ -68,9 +68,7 @@ namespace DAnCE
 #include "ace/XML_Utils/XMLSchema/id_map.hpp"
 #include "ace/Refcounted_Auto_Ptr.h"
 #include "ace/Null_Mutex.h"
-#include "ace/TSS_T.h"
 #include "ace/ace_wchar.h"
-#include "ace/Singleton.h"
 
 #include "XMI.hpp"
 

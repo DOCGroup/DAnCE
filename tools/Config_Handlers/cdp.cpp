@@ -10,6 +10,11 @@
  */
 #include "cdp.hpp"
 
+#include "ace/Null_Mutex.h"
+#include "ace/TSS_T.h"
+#include "ace/ace_wchar.h"
+#include "ace/Singleton.h"
+
 namespace DAnCE
 {
   namespace Config_Handlers
