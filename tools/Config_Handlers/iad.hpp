@@ -5,8 +5,8 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #ifndef IAD_HPP
 #define IAD_HPP
@@ -52,8 +52,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
-      name_autoptr_type name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      name_auto_ptr_type name_;
 
       // referencedArtifact
       public:
@@ -61,8 +61,8 @@ namespace DAnCE
       void referencedArtifact (::DAnCE::Config_Handlers::ImplementationArtifactDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ImplementationArtifactDescription > referencedArtifact_autoptr_type;
-      referencedArtifact_autoptr_type referencedArtifact_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ImplementationArtifactDescription > referencedArtifact_auto_ptr_type;
+      referencedArtifact_auto_ptr_type referencedArtifact_;
 
       public:
       NamedImplementationArtifact (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -70,7 +70,6 @@ namespace DAnCE
 
       explicit NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR> const&);
       NamedImplementationArtifact (NamedImplementationArtifact const& s);
-
       NamedImplementationArtifact& operator= (NamedImplementationArtifact const& s);
 
       private:
@@ -92,8 +91,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
-      label_autoptr_type label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      label_auto_ptr_type label_;
 
       // UUID
       public:
@@ -102,8 +101,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
-      UUID_autoptr_type UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      UUID_auto_ptr_type UUID_;
 
       // location
       public:
@@ -192,8 +191,8 @@ namespace DAnCE
       void contentLocation (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_autoptr_type;
-      contentLocation_autoptr_type contentLocation_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_auto_ptr_type;
+      contentLocation_auto_ptr_type contentLocation_;
 
       // href
       public:
@@ -203,15 +202,14 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_autoptr_type;
-      href_autoptr_type href_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_auto_ptr_type;
+      href_auto_ptr_type href_;
 
       public:
       ImplementationArtifactDescription ();
 
       explicit ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ImplementationArtifactDescription (ImplementationArtifactDescription const& s);
-
       ImplementationArtifactDescription& operator= (ImplementationArtifactDescription const& s);
 
       private:

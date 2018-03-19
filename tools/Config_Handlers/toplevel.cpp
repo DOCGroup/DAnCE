@@ -5,8 +5,8 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #include "toplevel.hpp"
 
@@ -57,13 +57,13 @@ namespace DAnCE
     TopLevelPackageDescription::package_const_iterator TopLevelPackageDescription::
     begin_package () const
     {
-      return package_.begin ();
+      return package_.cbegin ();
     }
 
     TopLevelPackageDescription::package_const_iterator TopLevelPackageDescription::
     end_package () const
     {
-      return package_.end ();
+      return package_.cend ();
     }
 
     void TopLevelPackageDescription::
@@ -100,7 +100,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("package"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
+          package_value_type t (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
           add_package (t);
         }
 

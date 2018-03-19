@@ -5,8 +5,8 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #ifndef PCD_HPP
 #define PCD_HPP
@@ -69,7 +69,6 @@ namespace DAnCE
 
       explicit ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPackageImport (ComponentPackageImport const& s);
-
       ComponentPackageImport& operator= (ComponentPackageImport const& s);
 
       private:
@@ -91,8 +90,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
-      label_autoptr_type label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      label_auto_ptr_type label_;
 
       // UUID
       public:
@@ -101,8 +100,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
-      UUID_autoptr_type UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      UUID_auto_ptr_type UUID_;
 
       // basePackage
       public:
@@ -111,8 +110,8 @@ namespace DAnCE
       void basePackage (::DAnCE::Config_Handlers::ComponentPackageDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > basePackage_autoptr_type;
-      basePackage_autoptr_type basePackage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > basePackage_auto_ptr_type;
+      basePackage_auto_ptr_type basePackage_;
 
       // specializedConfig
       public:
@@ -121,8 +120,8 @@ namespace DAnCE
       void specializedConfig (::DAnCE::Config_Handlers::PackageConfiguration const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > specializedConfig_autoptr_type;
-      specializedConfig_autoptr_type specializedConfig_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > specializedConfig_auto_ptr_type;
+      specializedConfig_auto_ptr_type specializedConfig_;
 
       // importedPackage
       public:
@@ -131,8 +130,8 @@ namespace DAnCE
       void importedPackage (::DAnCE::Config_Handlers::ComponentPackageImport const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > importedPackage_autoptr_type;
-      importedPackage_autoptr_type importedPackage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > importedPackage_auto_ptr_type;
+      importedPackage_auto_ptr_type importedPackage_;
 
       // referencedPackage
       public:
@@ -141,8 +140,8 @@ namespace DAnCE
       void referencedPackage (::DAnCE::Config_Handlers::ComponentPackageReference const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > referencedPackage_autoptr_type;
-      referencedPackage_autoptr_type referencedPackage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > referencedPackage_auto_ptr_type;
+      referencedPackage_auto_ptr_type referencedPackage_;
 
       // selectRequirement
       public:
@@ -183,15 +182,14 @@ namespace DAnCE
       void contentLocation (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_autoptr_type;
-      contentLocation_autoptr_type contentLocation_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_auto_ptr_type;
+      contentLocation_auto_ptr_type contentLocation_;
 
       public:
       PackageConfiguration ();
 
       explicit PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PackageConfiguration (PackageConfiguration const& s);
-
       PackageConfiguration& operator= (PackageConfiguration const& s);
 
       private:

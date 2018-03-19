@@ -5,8 +5,8 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #ifndef CDD_HPP
 #define CDD_HPP
@@ -56,8 +56,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
-      UUID_autoptr_type UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      UUID_auto_ptr_type UUID_;
 
       // label
       public:
@@ -66,8 +66,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
-      label_autoptr_type label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      label_auto_ptr_type label_;
 
       // node
       public:
@@ -154,7 +154,6 @@ namespace DAnCE
 
       explicit Domain (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Domain (Domain const& s);
-
       Domain& operator= (Domain const& s);
 
       private:
@@ -175,8 +174,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
-      name_autoptr_type name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      name_auto_ptr_type name_;
 
       // label
       public:
@@ -185,8 +184,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
-      label_autoptr_type label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      label_auto_ptr_type label_;
 
       // connect
       public:
@@ -226,7 +225,6 @@ namespace DAnCE
 
       explicit Bridge (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Bridge (Bridge const& s);
-
       Bridge& operator= (Bridge const& s);
 
       private:
@@ -247,8 +245,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
-      name_autoptr_type name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      name_auto_ptr_type name_;
 
       // label
       public:
@@ -257,8 +255,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
-      label_autoptr_type label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      label_auto_ptr_type label_;
 
       // connection
       public:
@@ -314,7 +312,6 @@ namespace DAnCE
 
       explicit Interconnect (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Interconnect (Interconnect const& s);
-
       Interconnect& operator= (Interconnect const& s);
 
       private:
@@ -335,8 +332,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
-      name_autoptr_type name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      name_auto_ptr_type name_;
 
       // label
       public:
@@ -345,8 +342,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
-      label_autoptr_type label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      label_auto_ptr_type label_;
 
       // connection
       public:
@@ -401,7 +398,6 @@ namespace DAnCE
 
       explicit Node (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Node (Node const& s);
-
       Node& operator= (Node const& s);
 
       private:
@@ -422,8 +418,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
-      name_autoptr_type name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      name_auto_ptr_type name_;
 
       // resourceType
       public:
@@ -431,8 +427,8 @@ namespace DAnCE
       void resourceType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_autoptr_type;
-      resourceType_autoptr_type resourceType_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_auto_ptr_type;
+      resourceType_auto_ptr_type resourceType_;
 
       // node
       public:
@@ -440,8 +436,8 @@ namespace DAnCE
       void node (::DAnCE::Config_Handlers::Node const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::Node > node_autoptr_type;
-      node_autoptr_type node_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::Node > node_auto_ptr_type;
+      node_auto_ptr_type node_;
 
       // property
       public:
@@ -449,8 +445,8 @@ namespace DAnCE
       void property (::DAnCE::Config_Handlers::SatisfierProperty const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierProperty > property_autoptr_type;
-      property_autoptr_type property_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierProperty > property_auto_ptr_type;
+      property_auto_ptr_type property_;
 
       public:
       SharedResource (::XMLSchema::string<ACE_TCHAR> const& name__,
@@ -460,7 +456,6 @@ namespace DAnCE
 
       explicit SharedResource (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SharedResource (SharedResource const& s);
-
       SharedResource& operator= (SharedResource const& s);
 
       private:

@@ -5,8 +5,8 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #include "ccd.hpp"
 
@@ -112,7 +112,7 @@ namespace DAnCE
 
       else
       {
-        label_ = ComponentInterfaceDescription::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = ComponentInterfaceDescription::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -140,7 +140,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = ComponentInterfaceDescription::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = ComponentInterfaceDescription::UUID_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -168,7 +168,7 @@ namespace DAnCE
 
       else
       {
-        specificType_ = ComponentInterfaceDescription::specificType_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        specificType_ = ComponentInterfaceDescription::specificType_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         specificType_->container (this);
       }
     }
@@ -189,13 +189,13 @@ namespace DAnCE
     ComponentInterfaceDescription::supportedType_const_iterator ComponentInterfaceDescription::
     begin_supportedType () const
     {
-      return supportedType_.begin ();
+      return supportedType_.cbegin ();
     }
 
     ComponentInterfaceDescription::supportedType_const_iterator ComponentInterfaceDescription::
     end_supportedType () const
     {
-      return supportedType_.end ();
+      return supportedType_.cend ();
     }
 
     void ComponentInterfaceDescription::
@@ -226,13 +226,13 @@ namespace DAnCE
     ComponentInterfaceDescription::idlFile_const_iterator ComponentInterfaceDescription::
     begin_idlFile () const
     {
-      return idlFile_.begin ();
+      return idlFile_.cbegin ();
     }
 
     ComponentInterfaceDescription::idlFile_const_iterator ComponentInterfaceDescription::
     end_idlFile () const
     {
-      return idlFile_.end ();
+      return idlFile_.cend ();
     }
 
     void ComponentInterfaceDescription::
@@ -263,13 +263,13 @@ namespace DAnCE
     ComponentInterfaceDescription::configProperty_const_iterator ComponentInterfaceDescription::
     begin_configProperty () const
     {
-      return configProperty_.begin ();
+      return configProperty_.cbegin ();
     }
 
     ComponentInterfaceDescription::configProperty_const_iterator ComponentInterfaceDescription::
     end_configProperty () const
     {
-      return configProperty_.end ();
+      return configProperty_.cend ();
     }
 
     void ComponentInterfaceDescription::
@@ -300,13 +300,13 @@ namespace DAnCE
     ComponentInterfaceDescription::port_const_iterator ComponentInterfaceDescription::
     begin_port () const
     {
-      return port_.begin ();
+      return port_.cbegin ();
     }
 
     ComponentInterfaceDescription::port_const_iterator ComponentInterfaceDescription::
     end_port () const
     {
-      return port_.end ();
+      return port_.cend ();
     }
 
     void ComponentInterfaceDescription::
@@ -337,13 +337,13 @@ namespace DAnCE
     ComponentInterfaceDescription::property_const_iterator ComponentInterfaceDescription::
     begin_property () const
     {
-      return property_.begin ();
+      return property_.cbegin ();
     }
 
     ComponentInterfaceDescription::property_const_iterator ComponentInterfaceDescription::
     end_property () const
     {
-      return property_.end ();
+      return property_.cend ();
     }
 
     void ComponentInterfaceDescription::
@@ -374,13 +374,13 @@ namespace DAnCE
     ComponentInterfaceDescription::infoProperty_const_iterator ComponentInterfaceDescription::
     begin_infoProperty () const
     {
-      return infoProperty_.begin ();
+      return infoProperty_.cbegin ();
     }
 
     ComponentInterfaceDescription::infoProperty_const_iterator ComponentInterfaceDescription::
     end_infoProperty () const
     {
-      return infoProperty_.end ();
+      return infoProperty_.cend ();
     }
 
     void ComponentInterfaceDescription::
@@ -418,7 +418,7 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = ComponentInterfaceDescription::contentLocation_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        contentLocation_ = ComponentInterfaceDescription::contentLocation_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         contentLocation_->container (this);
       }
     }
@@ -452,7 +452,7 @@ namespace DAnCE
 
       else
       {
-        href_ = ComponentInterfaceDescription::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        href_ = ComponentInterfaceDescription::href_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -497,37 +497,37 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("supportedType"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          supportedType_value_type t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_supportedType (t);
         }
 
         else if (n == ACE_TEXT("idlFile"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          idlFile_value_type t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_idlFile (t);
         }
 
         else if (n == ACE_TEXT("configProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          configProperty_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_configProperty (t);
         }
 
         else if (n == ACE_TEXT("port"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPortDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ComponentPortDescription (e));
+          port_value_type t (new ::DAnCE::Config_Handlers::ComponentPortDescription (e));
           add_port (t);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ComponentPropertyDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ComponentPropertyDescription (e));
+          property_value_type t (new ::DAnCE::Config_Handlers::ComponentPropertyDescription (e));
           add_property (t);
         }
 
         else if (n == ACE_TEXT("infoProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          infoProperty_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_infoProperty (t);
         }
 

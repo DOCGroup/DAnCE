@@ -5,8 +5,8 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #include "XMI.hpp"
 
@@ -104,7 +104,7 @@ namespace XMI
 
     else
     {
-      id_ = Extension::id_autoptr_type (new ::XMLSchema::ID<ACE_TCHAR> (e));
+      id_ = Extension::id_auto_ptr_type (new ::XMLSchema::ID<ACE_TCHAR> (e));
       id_->container (this);
     }
   }
@@ -138,7 +138,7 @@ namespace XMI
 
     else
     {
-      label_ = Extension::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+      label_ = Extension::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       label_->container (this);
     }
   }
@@ -172,7 +172,7 @@ namespace XMI
 
     else
     {
-      uuid_ = Extension::uuid_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+      uuid_ = Extension::uuid_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       uuid_->container (this);
     }
   }
@@ -206,7 +206,7 @@ namespace XMI
 
     else
     {
-      href_ = Extension::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+      href_ = Extension::href_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       href_->container (this);
     }
   }
@@ -254,7 +254,7 @@ namespace XMI
 
     else
     {
-      idref_ = Extension::idref_autoptr_type (new ::XMLSchema::IDREF<ACE_TCHAR> (e));
+      idref_ = Extension::idref_auto_ptr_type (new ::XMLSchema::IDREF<ACE_TCHAR> (e));
       idref_->container (this);
     }
   }
@@ -288,7 +288,7 @@ namespace XMI
 
     else
     {
-      version_ = Extension::version_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+      version_ = Extension::version_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       version_->container (this);
     }
   }
@@ -322,7 +322,7 @@ namespace XMI
 
     else
     {
-      extender_ = Extension::extender_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+      extender_ = Extension::extender_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       extender_->container (this);
     }
   }
@@ -356,7 +356,7 @@ namespace XMI
 
     else
     {
-      extenderID_ = Extension::extenderID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+      extenderID_ = Extension::extenderID_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
       extenderID_->container (this);
     }
   }
@@ -870,7 +870,7 @@ namespace XMI
       virtual ::XMLSchema::Writer::IDREF<ACE_TCHAR>,
       virtual ::XSCRT::Writer<ACE_TCHAR>
       {
-        W (::XSCRT::XML::Element<ACE_TCHAR>& e)
+        explicit W (::XSCRT::XML::Element<ACE_TCHAR>& e)
         : ::XSCRT::Writer<ACE_TCHAR> (e)
         {
         }
