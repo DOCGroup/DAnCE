@@ -140,13 +140,13 @@ namespace DAnCE
     Domain::node_const_iterator Domain::
     begin_node () const
     {
-      return node_.cbegin ();
+      return node_.begin ();
     }
 
     Domain::node_const_iterator Domain::
     end_node () const
     {
-      return node_.cend ();
+      return node_.end ();
     }
 
     void Domain::
@@ -177,13 +177,13 @@ namespace DAnCE
     Domain::interconnect_const_iterator Domain::
     begin_interconnect () const
     {
-      return interconnect_.cbegin ();
+      return interconnect_.begin ();
     }
 
     Domain::interconnect_const_iterator Domain::
     end_interconnect () const
     {
-      return interconnect_.cend ();
+      return interconnect_.end ();
     }
 
     void Domain::
@@ -214,13 +214,13 @@ namespace DAnCE
     Domain::bridge_const_iterator Domain::
     begin_bridge () const
     {
-      return bridge_.cbegin ();
+      return bridge_.begin ();
     }
 
     Domain::bridge_const_iterator Domain::
     end_bridge () const
     {
-      return bridge_.cend ();
+      return bridge_.end ();
     }
 
     void Domain::
@@ -251,13 +251,13 @@ namespace DAnCE
     Domain::sharedResource_const_iterator Domain::
     begin_sharedResource () const
     {
-      return sharedResource_.cbegin ();
+      return sharedResource_.begin ();
     }
 
     Domain::sharedResource_const_iterator Domain::
     end_sharedResource () const
     {
-      return sharedResource_.cend ();
+      return sharedResource_.end ();
     }
 
     void Domain::
@@ -288,13 +288,13 @@ namespace DAnCE
     Domain::infoProperty_const_iterator Domain::
     begin_infoProperty () const
     {
-      return infoProperty_.cbegin ();
+      return infoProperty_.begin ();
     }
 
     Domain::infoProperty_const_iterator Domain::
     end_infoProperty () const
     {
-      return infoProperty_.cend ();
+      return infoProperty_.end ();
     }
 
     void Domain::
@@ -412,13 +412,13 @@ namespace DAnCE
     Bridge::connect_const_iterator Bridge::
     begin_connect () const
     {
-      return connect_.cbegin ();
+      return connect_.begin ();
     }
 
     Bridge::connect_const_iterator Bridge::
     end_connect () const
     {
-      return connect_.cend ();
+      return connect_.end ();
     }
 
     void Bridge::
@@ -449,13 +449,13 @@ namespace DAnCE
     Bridge::resource_const_iterator Bridge::
     begin_resource () const
     {
-      return resource_.cbegin ();
+      return resource_.begin ();
     }
 
     Bridge::resource_const_iterator Bridge::
     end_resource () const
     {
-      return resource_.cend ();
+      return resource_.end ();
     }
 
     void Bridge::
@@ -576,13 +576,13 @@ namespace DAnCE
     Interconnect::connection_const_iterator Interconnect::
     begin_connection () const
     {
-      return connection_.cbegin ();
+      return connection_.begin ();
     }
 
     Interconnect::connection_const_iterator Interconnect::
     end_connection () const
     {
-      return connection_.cend ();
+      return connection_.end ();
     }
 
     void Interconnect::
@@ -613,13 +613,13 @@ namespace DAnCE
     Interconnect::connect_const_iterator Interconnect::
     begin_connect () const
     {
-      return connect_.cbegin ();
+      return connect_.begin ();
     }
 
     Interconnect::connect_const_iterator Interconnect::
     end_connect () const
     {
-      return connect_.cend ();
+      return connect_.end ();
     }
 
     void Interconnect::
@@ -650,13 +650,13 @@ namespace DAnCE
     Interconnect::resource_const_iterator Interconnect::
     begin_resource () const
     {
-      return resource_.cbegin ();
+      return resource_.begin ();
     }
 
     Interconnect::resource_const_iterator Interconnect::
     end_resource () const
     {
-      return resource_.cend ();
+      return resource_.end ();
     }
 
     void Interconnect::
@@ -775,13 +775,13 @@ namespace DAnCE
     Node::connection_const_iterator Node::
     begin_connection () const
     {
-      return connection_.cbegin ();
+      return connection_.begin ();
     }
 
     Node::connection_const_iterator Node::
     end_connection () const
     {
-      return connection_.cend ();
+      return connection_.end ();
     }
 
     void Node::
@@ -812,13 +812,13 @@ namespace DAnCE
     Node::sharedResource_const_iterator Node::
     begin_sharedResource () const
     {
-      return sharedResource_.cbegin ();
+      return sharedResource_.begin ();
     }
 
     Node::sharedResource_const_iterator Node::
     end_sharedResource () const
     {
-      return sharedResource_.cend ();
+      return sharedResource_.end ();
     }
 
     void Node::
@@ -849,13 +849,13 @@ namespace DAnCE
     Node::resource_const_iterator Node::
     begin_resource () const
     {
-      return resource_.cbegin ();
+      return resource_.begin ();
     }
 
     Node::resource_const_iterator Node::
     end_resource () const
     {
-      return resource_.cend ();
+      return resource_.end ();
     }
 
     void Node::

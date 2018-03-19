@@ -215,13 +215,13 @@ namespace DAnCE
     ImplementationArtifactDescription::location_const_iterator ImplementationArtifactDescription::
     begin_location () const
     {
-      return location_.cbegin ();
+      return location_.begin ();
     }
 
     ImplementationArtifactDescription::location_const_iterator ImplementationArtifactDescription::
     end_location () const
     {
-      return location_.cend ();
+      return location_.end ();
     }
 
     void ImplementationArtifactDescription::
@@ -252,13 +252,13 @@ namespace DAnCE
     ImplementationArtifactDescription::dependsOn_const_iterator ImplementationArtifactDescription::
     begin_dependsOn () const
     {
-      return dependsOn_.cbegin ();
+      return dependsOn_.begin ();
     }
 
     ImplementationArtifactDescription::dependsOn_const_iterator ImplementationArtifactDescription::
     end_dependsOn () const
     {
-      return dependsOn_.cend ();
+      return dependsOn_.end ();
     }
 
     void ImplementationArtifactDescription::
@@ -289,13 +289,13 @@ namespace DAnCE
     ImplementationArtifactDescription::execParameter_const_iterator ImplementationArtifactDescription::
     begin_execParameter () const
     {
-      return execParameter_.cbegin ();
+      return execParameter_.begin ();
     }
 
     ImplementationArtifactDescription::execParameter_const_iterator ImplementationArtifactDescription::
     end_execParameter () const
     {
-      return execParameter_.cend ();
+      return execParameter_.end ();
     }
 
     void ImplementationArtifactDescription::
@@ -326,13 +326,13 @@ namespace DAnCE
     ImplementationArtifactDescription::infoProperty_const_iterator ImplementationArtifactDescription::
     begin_infoProperty () const
     {
-      return infoProperty_.cbegin ();
+      return infoProperty_.begin ();
     }
 
     ImplementationArtifactDescription::infoProperty_const_iterator ImplementationArtifactDescription::
     end_infoProperty () const
     {
-      return infoProperty_.cend ();
+      return infoProperty_.end ();
     }
 
     void ImplementationArtifactDescription::
@@ -363,13 +363,13 @@ namespace DAnCE
     ImplementationArtifactDescription::deployRequirement_const_iterator ImplementationArtifactDescription::
     begin_deployRequirement () const
     {
-      return deployRequirement_.cbegin ();
+      return deployRequirement_.begin ();
     }
 
     ImplementationArtifactDescription::deployRequirement_const_iterator ImplementationArtifactDescription::
     end_deployRequirement () const
     {
-      return deployRequirement_.cend ();
+      return deployRequirement_.end ();
     }
 
     void ImplementationArtifactDescription::

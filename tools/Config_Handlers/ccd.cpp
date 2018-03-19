@@ -189,13 +189,13 @@ namespace DAnCE
     ComponentInterfaceDescription::supportedType_const_iterator ComponentInterfaceDescription::
     begin_supportedType () const
     {
-      return supportedType_.cbegin ();
+      return supportedType_.begin ();
     }
 
     ComponentInterfaceDescription::supportedType_const_iterator ComponentInterfaceDescription::
     end_supportedType () const
     {
-      return supportedType_.cend ();
+      return supportedType_.end ();
     }
 
     void ComponentInterfaceDescription::
@@ -226,13 +226,13 @@ namespace DAnCE
     ComponentInterfaceDescription::idlFile_const_iterator ComponentInterfaceDescription::
     begin_idlFile () const
     {
-      return idlFile_.cbegin ();
+      return idlFile_.begin ();
     }
 
     ComponentInterfaceDescription::idlFile_const_iterator ComponentInterfaceDescription::
     end_idlFile () const
     {
-      return idlFile_.cend ();
+      return idlFile_.end ();
     }
 
     void ComponentInterfaceDescription::
@@ -263,13 +263,13 @@ namespace DAnCE
     ComponentInterfaceDescription::configProperty_const_iterator ComponentInterfaceDescription::
     begin_configProperty () const
     {
-      return configProperty_.cbegin ();
+      return configProperty_.begin ();
     }
 
     ComponentInterfaceDescription::configProperty_const_iterator ComponentInterfaceDescription::
     end_configProperty () const
     {
-      return configProperty_.cend ();
+      return configProperty_.end ();
     }
 
     void ComponentInterfaceDescription::
@@ -300,13 +300,13 @@ namespace DAnCE
     ComponentInterfaceDescription::port_const_iterator ComponentInterfaceDescription::
     begin_port () const
     {
-      return port_.cbegin ();
+      return port_.begin ();
     }
 
     ComponentInterfaceDescription::port_const_iterator ComponentInterfaceDescription::
     end_port () const
     {
-      return port_.cend ();
+      return port_.end ();
     }
 
     void ComponentInterfaceDescription::
@@ -337,13 +337,13 @@ namespace DAnCE
     ComponentInterfaceDescription::property_const_iterator ComponentInterfaceDescription::
     begin_property () const
     {
-      return property_.cbegin ();
+      return property_.begin ();
     }
 
     ComponentInterfaceDescription::property_const_iterator ComponentInterfaceDescription::
     end_property () const
     {
-      return property_.cend ();
+      return property_.end ();
     }
 
     void ComponentInterfaceDescription::
@@ -374,13 +374,13 @@ namespace DAnCE
     ComponentInterfaceDescription::infoProperty_const_iterator ComponentInterfaceDescription::
     begin_infoProperty () const
     {
-      return infoProperty_.cbegin ();
+      return infoProperty_.begin ();
     }
 
     ComponentInterfaceDescription::infoProperty_const_iterator ComponentInterfaceDescription::
     end_infoProperty () const
     {
-      return infoProperty_.cend ();
+      return infoProperty_.end ();
     }
 
     void ComponentInterfaceDescription::

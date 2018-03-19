@@ -152,13 +152,13 @@ namespace DAnCE
     PlanPropertyMapping::source_const_iterator PlanPropertyMapping::
     begin_source () const
     {
-      return source_.cbegin ();
+      return source_.begin ();
     }
 
     PlanPropertyMapping::source_const_iterator PlanPropertyMapping::
     end_source () const
     {
-      return source_.cend ();
+      return source_.end ();
     }
 
     void PlanPropertyMapping::
@@ -202,13 +202,13 @@ namespace DAnCE
     PlanPropertyMapping::delegatesTo_const_iterator PlanPropertyMapping::
     begin_delegatesTo () const
     {
-      return delegatesTo_.cbegin ();
+      return delegatesTo_.begin ();
     }
 
     PlanPropertyMapping::delegatesTo_const_iterator PlanPropertyMapping::
     end_delegatesTo () const
     {
-      return delegatesTo_.cend ();
+      return delegatesTo_.end ();
     }
 
     void PlanPropertyMapping::
@@ -393,13 +393,13 @@ namespace DAnCE
     deploymentPlan::implementation_const_iterator deploymentPlan::
     begin_implementation () const
     {
-      return implementation_.cbegin ();
+      return implementation_.begin ();
     }
 
     deploymentPlan::implementation_const_iterator deploymentPlan::
     end_implementation () const
     {
-      return implementation_.cend ();
+      return implementation_.end ();
     }
 
     void deploymentPlan::
@@ -430,13 +430,13 @@ namespace DAnCE
     deploymentPlan::instance_const_iterator deploymentPlan::
     begin_instance () const
     {
-      return instance_.cbegin ();
+      return instance_.begin ();
     }
 
     deploymentPlan::instance_const_iterator deploymentPlan::
     end_instance () const
     {
-      return instance_.cend ();
+      return instance_.end ();
     }
 
     void deploymentPlan::
@@ -467,13 +467,13 @@ namespace DAnCE
     deploymentPlan::connection_const_iterator deploymentPlan::
     begin_connection () const
     {
-      return connection_.cbegin ();
+      return connection_.begin ();
     }
 
     deploymentPlan::connection_const_iterator deploymentPlan::
     end_connection () const
     {
-      return connection_.cend ();
+      return connection_.end ();
     }
 
     void deploymentPlan::
@@ -504,13 +504,13 @@ namespace DAnCE
     deploymentPlan::externalProperty_const_iterator deploymentPlan::
     begin_externalProperty () const
     {
-      return externalProperty_.cbegin ();
+      return externalProperty_.begin ();
     }
 
     deploymentPlan::externalProperty_const_iterator deploymentPlan::
     end_externalProperty () const
     {
-      return externalProperty_.cend ();
+      return externalProperty_.end ();
     }
 
     void deploymentPlan::
@@ -541,13 +541,13 @@ namespace DAnCE
     deploymentPlan::dependsOn_const_iterator deploymentPlan::
     begin_dependsOn () const
     {
-      return dependsOn_.cbegin ();
+      return dependsOn_.begin ();
     }
 
     deploymentPlan::dependsOn_const_iterator deploymentPlan::
     end_dependsOn () const
     {
-      return dependsOn_.cend ();
+      return dependsOn_.end ();
     }
 
     void deploymentPlan::
@@ -578,13 +578,13 @@ namespace DAnCE
     deploymentPlan::artifact_const_iterator deploymentPlan::
     begin_artifact () const
     {
-      return artifact_.cbegin ();
+      return artifact_.begin ();
     }
 
     deploymentPlan::artifact_const_iterator deploymentPlan::
     end_artifact () const
     {
-      return artifact_.cend ();
+      return artifact_.end ();
     }
 
     void deploymentPlan::
@@ -615,13 +615,13 @@ namespace DAnCE
     deploymentPlan::infoProperty_const_iterator deploymentPlan::
     begin_infoProperty () const
     {
-      return infoProperty_.cbegin ();
+      return infoProperty_.begin ();
     }
 
     deploymentPlan::infoProperty_const_iterator deploymentPlan::
     end_infoProperty () const
     {
-      return infoProperty_.cend ();
+      return infoProperty_.end ();
     }
 
     void deploymentPlan::
@@ -652,13 +652,13 @@ namespace DAnCE
     deploymentPlan::localityConstraint_const_iterator deploymentPlan::
     begin_localityConstraint () const
     {
-      return localityConstraint_.cbegin ();
+      return localityConstraint_.begin ();
     }
 
     deploymentPlan::localityConstraint_const_iterator deploymentPlan::
     end_localityConstraint () const
     {
-      return localityConstraint_.cend ();
+      return localityConstraint_.end ();
     }
 
     void deploymentPlan::

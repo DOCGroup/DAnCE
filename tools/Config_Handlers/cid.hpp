@@ -5,8 +5,8 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #ifndef CID_HPP
 #define CID_HPP
@@ -67,8 +67,8 @@ namespace DAnCE
       void requiredUUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requiredUUID_autoptr_type;
-      requiredUUID_autoptr_type requiredUUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requiredUUID_auto_ptr_type;
+      requiredUUID_auto_ptr_type requiredUUID_;
 
       // requiredName
       public:
@@ -77,8 +77,8 @@ namespace DAnCE
       void requiredName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requiredName_autoptr_type;
-      requiredName_autoptr_type requiredName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requiredName_auto_ptr_type;
+      requiredName_auto_ptr_type requiredName_;
 
       // requiredType
       public:
@@ -86,15 +86,14 @@ namespace DAnCE
       void requiredType (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > requiredType_autoptr_type;
-      requiredType_autoptr_type requiredType_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > requiredType_auto_ptr_type;
+      requiredType_auto_ptr_type requiredType_;
 
       public:
       ComponentPackageReference (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& requiredType__);
 
       explicit ComponentPackageReference (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPackageReference (ComponentPackageReference const& s);
-
       ComponentPackageReference& operator= (ComponentPackageReference const& s);
 
       private:
@@ -115,8 +114,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
-      name_autoptr_type name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      name_auto_ptr_type name_;
 
       // basePackage
       public:
@@ -125,8 +124,8 @@ namespace DAnCE
       void basePackage (::DAnCE::Config_Handlers::ComponentPackageDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > basePackage_autoptr_type;
-      basePackage_autoptr_type basePackage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > basePackage_auto_ptr_type;
+      basePackage_auto_ptr_type basePackage_;
 
       // specializedConfig
       public:
@@ -135,8 +134,8 @@ namespace DAnCE
       void specializedConfig (::DAnCE::Config_Handlers::PackageConfiguration const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > specializedConfig_autoptr_type;
-      specializedConfig_autoptr_type specializedConfig_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > specializedConfig_auto_ptr_type;
+      specializedConfig_auto_ptr_type specializedConfig_;
 
       // selectRequirement
       public:
@@ -177,8 +176,8 @@ namespace DAnCE
       void referencedPackage (::DAnCE::Config_Handlers::ComponentPackageReference const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > referencedPackage_autoptr_type;
-      referencedPackage_autoptr_type referencedPackage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > referencedPackage_auto_ptr_type;
+      referencedPackage_auto_ptr_type referencedPackage_;
 
       // importedPackage
       public:
@@ -187,8 +186,8 @@ namespace DAnCE
       void importedPackage (::DAnCE::Config_Handlers::ComponentPackageImport const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > importedPackage_autoptr_type;
-      importedPackage_autoptr_type importedPackage_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > importedPackage_auto_ptr_type;
+      importedPackage_auto_ptr_type importedPackage_;
 
       // id
       public:
@@ -198,15 +197,14 @@ namespace DAnCE
       void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_autoptr_type;
-      id_autoptr_type id_;
+      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_auto_ptr_type;
+      id_auto_ptr_type id_;
 
       public:
       SubcomponentInstantiationDescription (::XMLSchema::string<ACE_TCHAR> const& name__);
 
       explicit SubcomponentInstantiationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SubcomponentInstantiationDescription (SubcomponentInstantiationDescription const& s);
-
       SubcomponentInstantiationDescription& operator= (SubcomponentInstantiationDescription const& s);
 
       private:
@@ -227,8 +225,8 @@ namespace DAnCE
       void propertyName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > propertyName_autoptr_type;
-      propertyName_autoptr_type propertyName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > propertyName_auto_ptr_type;
+      propertyName_auto_ptr_type propertyName_;
 
       // instance
       public:
@@ -236,8 +234,8 @@ namespace DAnCE
       void instance (::DAnCE::Config_Handlers::IdRef const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > instance_autoptr_type;
-      instance_autoptr_type instance_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > instance_auto_ptr_type;
+      instance_auto_ptr_type instance_;
 
       public:
       SubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
@@ -245,7 +243,6 @@ namespace DAnCE
 
       explicit SubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SubcomponentPropertyReference (SubcomponentPropertyReference const& s);
-
       SubcomponentPropertyReference& operator= (SubcomponentPropertyReference const& s);
 
       private:
@@ -266,8 +263,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
-      name_autoptr_type name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      name_auto_ptr_type name_;
 
       // externalName
       public:
@@ -275,8 +272,8 @@ namespace DAnCE
       void externalName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > externalName_autoptr_type;
-      externalName_autoptr_type externalName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > externalName_auto_ptr_type;
+      externalName_auto_ptr_type externalName_;
 
       // delegatesTo
       public:
@@ -300,7 +297,6 @@ namespace DAnCE
 
       explicit AssemblyPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR> const&);
       AssemblyPropertyMapping (AssemblyPropertyMapping const& s);
-
       AssemblyPropertyMapping& operator= (AssemblyPropertyMapping const& s);
 
       private:
@@ -360,8 +356,8 @@ namespace DAnCE
       void constraint (::DAnCE::Config_Handlers::LocalityKind const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::LocalityKind > constraint_autoptr_type;
-      constraint_autoptr_type constraint_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::LocalityKind > constraint_auto_ptr_type;
+      constraint_auto_ptr_type constraint_;
 
       // constrainedInstance
       public:
@@ -369,8 +365,8 @@ namespace DAnCE
       void constrainedInstance (::DAnCE::Config_Handlers::IdRef const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > constrainedInstance_autoptr_type;
-      constrainedInstance_autoptr_type constrainedInstance_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > constrainedInstance_auto_ptr_type;
+      constrainedInstance_auto_ptr_type constrainedInstance_;
 
       public:
       Locality (::DAnCE::Config_Handlers::LocalityKind const& constraint__,
@@ -378,7 +374,6 @@ namespace DAnCE
 
       explicit Locality (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Locality (Locality const& s);
-
       Locality& operator= (Locality const& s);
 
       private:
@@ -462,7 +457,6 @@ namespace DAnCE
 
       explicit ComponentAssemblyDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentAssemblyDescription (ComponentAssemblyDescription const& s);
-
       ComponentAssemblyDescription& operator= (ComponentAssemblyDescription const& s);
 
       private:
@@ -546,7 +540,6 @@ namespace DAnCE
 
       explicit MonolithicImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       MonolithicImplementationDescription (MonolithicImplementationDescription const& s);
-
       MonolithicImplementationDescription& operator= (MonolithicImplementationDescription const& s);
 
       private:
@@ -568,8 +561,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
-      label_autoptr_type label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      label_auto_ptr_type label_;
 
       // UUID
       public:
@@ -578,8 +571,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
-      UUID_autoptr_type UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      UUID_auto_ptr_type UUID_;
 
       // implements
       public:
@@ -588,8 +581,8 @@ namespace DAnCE
       void implements (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > implements_autoptr_type;
-      implements_autoptr_type implements_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > implements_auto_ptr_type;
+      implements_auto_ptr_type implements_;
 
       // assemblyImpl
       public:
@@ -598,8 +591,8 @@ namespace DAnCE
       void assemblyImpl (::DAnCE::Config_Handlers::ComponentAssemblyDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentAssemblyDescription > assemblyImpl_autoptr_type;
-      assemblyImpl_autoptr_type assemblyImpl_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentAssemblyDescription > assemblyImpl_auto_ptr_type;
+      assemblyImpl_auto_ptr_type assemblyImpl_;
 
       // monolithicImpl
       public:
@@ -608,8 +601,8 @@ namespace DAnCE
       void monolithicImpl (::DAnCE::Config_Handlers::MonolithicImplementationDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::MonolithicImplementationDescription > monolithicImpl_autoptr_type;
-      monolithicImpl_autoptr_type monolithicImpl_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::MonolithicImplementationDescription > monolithicImpl_auto_ptr_type;
+      monolithicImpl_auto_ptr_type monolithicImpl_;
 
       // configProperty
       public:
@@ -683,15 +676,14 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_autoptr_type;
-      href_autoptr_type href_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_auto_ptr_type;
+      href_auto_ptr_type href_;
 
       public:
       ComponentImplementationDescription ();
 
       explicit ComponentImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentImplementationDescription (ComponentImplementationDescription const& s);
-
       ComponentImplementationDescription& operator= (ComponentImplementationDescription const& s);
 
       private:
@@ -713,8 +705,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
-      label_autoptr_type label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      label_auto_ptr_type label_;
 
       // UUID
       public:
@@ -723,8 +715,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
-      UUID_autoptr_type UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      UUID_auto_ptr_type UUID_;
 
       // implements
       public:
@@ -733,8 +725,8 @@ namespace DAnCE
       void implements (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > implements_autoptr_type;
-      implements_autoptr_type implements_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > implements_auto_ptr_type;
+      implements_auto_ptr_type implements_;
 
       // assemblyImpl
       public:
@@ -743,8 +735,8 @@ namespace DAnCE
       void assemblyImpl (::DAnCE::Config_Handlers::ComponentAssemblyDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentAssemblyDescription > assemblyImpl_autoptr_type;
-      assemblyImpl_autoptr_type assemblyImpl_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentAssemblyDescription > assemblyImpl_auto_ptr_type;
+      assemblyImpl_auto_ptr_type assemblyImpl_;
 
       // monolithicImpl
       public:
@@ -753,8 +745,8 @@ namespace DAnCE
       void monolithicImpl (::DAnCE::Config_Handlers::MonolithicImplementationDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::MonolithicImplementationDescription > monolithicImpl_autoptr_type;
-      monolithicImpl_autoptr_type monolithicImpl_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::MonolithicImplementationDescription > monolithicImpl_auto_ptr_type;
+      monolithicImpl_auto_ptr_type monolithicImpl_;
 
       // configProperty
       public:
@@ -828,15 +820,14 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_autoptr_type;
-      href_autoptr_type href_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_auto_ptr_type;
+      href_auto_ptr_type href_;
 
       public:
       ConnectorImplementationDescription ();
 
       explicit ConnectorImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ConnectorImplementationDescription (ConnectorImplementationDescription const& s);
-
       ConnectorImplementationDescription& operator= (ConnectorImplementationDescription const& s);
 
       private:

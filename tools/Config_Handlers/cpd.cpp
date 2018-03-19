@@ -237,13 +237,13 @@ namespace DAnCE
     ComponentPackageDescription::configProperty_const_iterator ComponentPackageDescription::
     begin_configProperty () const
     {
-      return configProperty_.cbegin ();
+      return configProperty_.begin ();
     }
 
     ComponentPackageDescription::configProperty_const_iterator ComponentPackageDescription::
     end_configProperty () const
     {
-      return configProperty_.cend ();
+      return configProperty_.end ();
     }
 
     void ComponentPackageDescription::
@@ -274,13 +274,13 @@ namespace DAnCE
     ComponentPackageDescription::implementation_const_iterator ComponentPackageDescription::
     begin_implementation () const
     {
-      return implementation_.cbegin ();
+      return implementation_.begin ();
     }
 
     ComponentPackageDescription::implementation_const_iterator ComponentPackageDescription::
     end_implementation () const
     {
-      return implementation_.cend ();
+      return implementation_.end ();
     }
 
     void ComponentPackageDescription::
@@ -311,13 +311,13 @@ namespace DAnCE
     ComponentPackageDescription::infoProperty_const_iterator ComponentPackageDescription::
     begin_infoProperty () const
     {
-      return infoProperty_.cbegin ();
+      return infoProperty_.begin ();
     }
 
     ComponentPackageDescription::infoProperty_const_iterator ComponentPackageDescription::
     end_infoProperty () const
     {
-      return infoProperty_.cend ();
+      return infoProperty_.end ();
     }
 
     void ComponentPackageDescription::
@@ -526,13 +526,13 @@ namespace DAnCE
     ConnectorPackageDescription::configProperty_const_iterator ConnectorPackageDescription::
     begin_configProperty () const
     {
-      return configProperty_.cbegin ();
+      return configProperty_.begin ();
     }
 
     ConnectorPackageDescription::configProperty_const_iterator ConnectorPackageDescription::
     end_configProperty () const
     {
-      return configProperty_.cend ();
+      return configProperty_.end ();
     }
 
     void ConnectorPackageDescription::
@@ -563,13 +563,13 @@ namespace DAnCE
     ConnectorPackageDescription::implementation_const_iterator ConnectorPackageDescription::
     begin_implementation () const
     {
-      return implementation_.cbegin ();
+      return implementation_.begin ();
     }
 
     ConnectorPackageDescription::implementation_const_iterator ConnectorPackageDescription::
     end_implementation () const
     {
-      return implementation_.cend ();
+      return implementation_.end ();
     }
 
     void ConnectorPackageDescription::
@@ -600,13 +600,13 @@ namespace DAnCE
     ConnectorPackageDescription::infoProperty_const_iterator ConnectorPackageDescription::
     begin_infoProperty () const
     {
-      return infoProperty_.cbegin ();
+      return infoProperty_.begin ();
     }
 
     ConnectorPackageDescription::infoProperty_const_iterator ConnectorPackageDescription::
     end_infoProperty () const
     {
-      return infoProperty_.cend ();
+      return infoProperty_.end ();
     }
 
     void ConnectorPackageDescription::

@@ -57,13 +57,13 @@ namespace DAnCE
     TopLevelPackageDescription::package_const_iterator TopLevelPackageDescription::
     begin_package () const
     {
-      return package_.cbegin ();
+      return package_.begin ();
     }
 
     TopLevelPackageDescription::package_const_iterator TopLevelPackageDescription::
     end_package () const
     {
-      return package_.cend ();
+      return package_.end ();
     }
 
     void TopLevelPackageDescription::

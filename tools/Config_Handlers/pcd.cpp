@@ -57,13 +57,13 @@ namespace DAnCE
     ComponentPackageImport::location_const_iterator ComponentPackageImport::
     begin_location () const
     {
-      return location_.cbegin ();
+      return location_.begin ();
     }
 
     ComponentPackageImport::location_const_iterator ComponentPackageImport::
     end_location () const
     {
-      return location_.cend ();
+      return location_.end ();
     }
 
     void ComponentPackageImport::
@@ -342,13 +342,13 @@ namespace DAnCE
     PackageConfiguration::selectRequirement_const_iterator PackageConfiguration::
     begin_selectRequirement () const
     {
-      return selectRequirement_.cbegin ();
+      return selectRequirement_.begin ();
     }
 
     PackageConfiguration::selectRequirement_const_iterator PackageConfiguration::
     end_selectRequirement () const
     {
-      return selectRequirement_.cend ();
+      return selectRequirement_.end ();
     }
 
     void PackageConfiguration::
@@ -379,13 +379,13 @@ namespace DAnCE
     PackageConfiguration::configProperty_const_iterator PackageConfiguration::
     begin_configProperty () const
     {
-      return configProperty_.cbegin ();
+      return configProperty_.begin ();
     }
 
     PackageConfiguration::configProperty_const_iterator PackageConfiguration::
     end_configProperty () const
     {
-      return configProperty_.cend ();
+      return configProperty_.end ();
     }
 
     void PackageConfiguration::
