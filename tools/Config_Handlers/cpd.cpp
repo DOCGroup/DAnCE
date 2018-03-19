@@ -5,10 +5,15 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #include "cpd.hpp"
+
+#include "ace/Null_Mutex.h"
+#include "ace/TSS_T.h"
+#include "ace/ace_wchar.h"
+#include "ace/Singleton.h"
 
 namespace DAnCE
 {
@@ -160,7 +165,7 @@ namespace DAnCE
 
       else
       {
-        label_ = ComponentPackageDescription::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = ComponentPackageDescription::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -188,7 +193,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = ComponentPackageDescription::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = ComponentPackageDescription::UUID_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -216,7 +221,7 @@ namespace DAnCE
 
       else
       {
-        realizes_ = ComponentPackageDescription::realizes_autoptr_type (new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (e));
+        realizes_ = ComponentPackageDescription::realizes_auto_ptr_type (new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (e));
         realizes_->container (this);
       }
     }
@@ -361,7 +366,7 @@ namespace DAnCE
 
       else
       {
-        href_ = ComponentPackageDescription::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        href_ = ComponentPackageDescription::href_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -449,7 +454,7 @@ namespace DAnCE
 
       else
       {
-        label_ = ConnectorPackageDescription::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = ConnectorPackageDescription::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -477,7 +482,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = ConnectorPackageDescription::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = ConnectorPackageDescription::UUID_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -505,7 +510,7 @@ namespace DAnCE
 
       else
       {
-        realizes_ = ConnectorPackageDescription::realizes_autoptr_type (new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (e));
+        realizes_ = ConnectorPackageDescription::realizes_auto_ptr_type (new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (e));
         realizes_->container (this);
       }
     }
@@ -650,7 +655,7 @@ namespace DAnCE
 
       else
       {
-        href_ = ConnectorPackageDescription::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        href_ = ConnectorPackageDescription::href_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -677,13 +682,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = PackagedComponentImplementation::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = PackagedComponentImplementation::name_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("referencedImplementation"))
         {
-          referencedImplementation_ = PackagedComponentImplementation::referencedImplementation_autoptr_type (new ::DAnCE::Config_Handlers::ComponentImplementationDescription (e));
+          referencedImplementation_ = PackagedComponentImplementation::referencedImplementation_auto_ptr_type (new ::DAnCE::Config_Handlers::ComponentImplementationDescription (e));
           referencedImplementation_->container (this);
         }
 
@@ -727,19 +732,19 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("configProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          configProperty_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_configProperty (t);
         }
 
         else if (n == ACE_TEXT("implementation"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackagedComponentImplementation, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::PackagedComponentImplementation (e));
+          implementation_value_type t (new ::DAnCE::Config_Handlers::PackagedComponentImplementation (e));
           add_implementation (t);
         }
 
         else if (n == ACE_TEXT("infoProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          infoProperty_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_infoProperty (t);
         }
 
@@ -798,19 +803,19 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("configProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          configProperty_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_configProperty (t);
         }
 
         else if (n == ACE_TEXT("implementation"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::ConnectorImplementationDescription, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::ConnectorImplementationDescription (e));
+          implementation_value_type t (new ::DAnCE::Config_Handlers::ConnectorImplementationDescription (e));
           add_implementation (t);
         }
 
         else if (n == ACE_TEXT("infoProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          infoProperty_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_infoProperty (t);
         }
 

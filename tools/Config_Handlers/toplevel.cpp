@@ -5,10 +5,15 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #include "toplevel.hpp"
+
+#include "ace/Null_Mutex.h"
+#include "ace/TSS_T.h"
+#include "ace/ace_wchar.h"
+#include "ace/Singleton.h"
 
 namespace DAnCE
 {
@@ -100,7 +105,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("package"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::PackageConfiguration, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
+          package_value_type t (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
           add_package (t);
         }
 

@@ -5,10 +5,15 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #include "iad.hpp"
+
+#include "ace/Null_Mutex.h"
+#include "ace/TSS_T.h"
+#include "ace/ace_wchar.h"
+#include "ace/Singleton.h"
 
 namespace DAnCE
 {
@@ -166,7 +171,7 @@ namespace DAnCE
 
       else
       {
-        label_ = ImplementationArtifactDescription::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = ImplementationArtifactDescription::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -194,7 +199,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = ImplementationArtifactDescription::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = ImplementationArtifactDescription::UUID_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -407,7 +412,7 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = ImplementationArtifactDescription::contentLocation_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        contentLocation_ = ImplementationArtifactDescription::contentLocation_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         contentLocation_->container (this);
       }
     }
@@ -441,7 +446,7 @@ namespace DAnCE
 
       else
       {
-        href_ = ImplementationArtifactDescription::href_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        href_ = ImplementationArtifactDescription::href_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         href_->container (this);
       }
     }
@@ -468,13 +473,13 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = NamedImplementationArtifact::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = NamedImplementationArtifact::name_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("referencedArtifact"))
         {
-          referencedArtifact_ = NamedImplementationArtifact::referencedArtifact_autoptr_type (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (e));
+          referencedArtifact_ = NamedImplementationArtifact::referencedArtifact_auto_ptr_type (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (e));
           referencedArtifact_->container (this);
         }
 
@@ -512,31 +517,31 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("location"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          location_value_type t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_location (t);
         }
 
         else if (n == ACE_TEXT("dependsOn"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::NamedImplementationArtifact, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::NamedImplementationArtifact (e));
+          dependsOn_value_type t (new ::DAnCE::Config_Handlers::NamedImplementationArtifact (e));
           add_dependsOn (t);
         }
 
         else if (n == ACE_TEXT("execParameter"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          execParameter_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_execParameter (t);
         }
 
         else if (n == ACE_TEXT("infoProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          infoProperty_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_infoProperty (t);
         }
 
         else if (n == ACE_TEXT("deployRequirement"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Requirement (e));
+          deployRequirement_value_type t (new ::DAnCE::Config_Handlers::Requirement (e));
           add_deployRequirement (t);
         }
 

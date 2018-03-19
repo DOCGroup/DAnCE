@@ -5,10 +5,15 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #include "Deployment.hpp"
+
+#include "ace/Null_Mutex.h"
+#include "ace/TSS_T.h"
+#include "ace/ace_wchar.h"
+#include "ace/Singleton.h"
 
 namespace DAnCE
 {
@@ -385,7 +390,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::Property,
         virtual ::XSCRT::Writer<ACE_TCHAR>
         {
-          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
+          explicit W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
@@ -466,7 +471,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::PlanLocalityKind,
         virtual ::XSCRT::Writer<ACE_TCHAR>
         {
-          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
+          explicit W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
@@ -526,7 +531,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::Requirement,
         virtual ::XSCRT::Writer<ACE_TCHAR>
         {
-          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
+          explicit W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
@@ -587,7 +592,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ComponentPropertyDescription,
         virtual ::XSCRT::Writer<ACE_TCHAR>
         {
-          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
+          explicit W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
@@ -676,7 +681,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
         virtual ::XSCRT::Writer<ACE_TCHAR>
         {
-          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
+          explicit W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
@@ -765,7 +770,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
         virtual ::XSCRT::Writer<ACE_TCHAR>
         {
-          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
+          explicit W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
@@ -854,7 +859,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
         virtual ::XSCRT::Writer<ACE_TCHAR>
         {
-          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
+          explicit W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }
@@ -944,7 +949,7 @@ namespace DAnCE
         virtual ::DAnCE::Config_Handlers::Writer::ImplementationDependency,
         virtual ::XSCRT::Writer<ACE_TCHAR>
         {
-          W (::XSCRT::XML::Element<ACE_TCHAR>& e)
+          explicit W (::XSCRT::XML::Element<ACE_TCHAR>& e)
           : ::XSCRT::Writer<ACE_TCHAR> (e)
           {
           }

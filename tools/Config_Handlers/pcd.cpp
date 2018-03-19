@@ -5,10 +5,15 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #include "pcd.hpp"
+
+#include "ace/Null_Mutex.h"
+#include "ace/TSS_T.h"
+#include "ace/ace_wchar.h"
+#include "ace/Singleton.h"
 
 namespace DAnCE
 {
@@ -181,7 +186,7 @@ namespace DAnCE
 
       else
       {
-        label_ = PackageConfiguration::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = PackageConfiguration::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -209,7 +214,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = PackageConfiguration::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = PackageConfiguration::UUID_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -237,7 +242,7 @@ namespace DAnCE
 
       else
       {
-        basePackage_ = PackageConfiguration::basePackage_autoptr_type (new ::DAnCE::Config_Handlers::ComponentPackageDescription (e));
+        basePackage_ = PackageConfiguration::basePackage_auto_ptr_type (new ::DAnCE::Config_Handlers::ComponentPackageDescription (e));
         basePackage_->container (this);
       }
     }
@@ -265,7 +270,7 @@ namespace DAnCE
 
       else
       {
-        specializedConfig_ = PackageConfiguration::specializedConfig_autoptr_type (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
+        specializedConfig_ = PackageConfiguration::specializedConfig_auto_ptr_type (new ::DAnCE::Config_Handlers::PackageConfiguration (e));
         specializedConfig_->container (this);
       }
     }
@@ -293,7 +298,7 @@ namespace DAnCE
 
       else
       {
-        importedPackage_ = PackageConfiguration::importedPackage_autoptr_type (new ::DAnCE::Config_Handlers::ComponentPackageImport (e));
+        importedPackage_ = PackageConfiguration::importedPackage_auto_ptr_type (new ::DAnCE::Config_Handlers::ComponentPackageImport (e));
         importedPackage_->container (this);
       }
     }
@@ -321,7 +326,7 @@ namespace DAnCE
 
       else
       {
-        referencedPackage_ = PackageConfiguration::referencedPackage_autoptr_type (new ::DAnCE::Config_Handlers::ComponentPackageReference (e));
+        referencedPackage_ = PackageConfiguration::referencedPackage_auto_ptr_type (new ::DAnCE::Config_Handlers::ComponentPackageReference (e));
         referencedPackage_->container (this);
       }
     }
@@ -423,7 +428,7 @@ namespace DAnCE
 
       else
       {
-        contentLocation_ = PackageConfiguration::contentLocation_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        contentLocation_ = PackageConfiguration::contentLocation_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         contentLocation_->container (this);
       }
     }
@@ -450,7 +455,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("location"))
         {
-          ACE_Refcounted_Auto_Ptr < ::XMLSchema::string<ACE_TCHAR>, ACE_Null_Mutex>  t (new ::XMLSchema::string<ACE_TCHAR> (e));
+          location_value_type t (new ::XMLSchema::string<ACE_TCHAR> (e));
           add_location (t);
         }
 
@@ -512,13 +517,13 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("selectRequirement"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Requirement, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Requirement (e));
+          selectRequirement_value_type t (new ::DAnCE::Config_Handlers::Requirement (e));
           add_selectRequirement (t);
         }
 
         else if (n == ACE_TEXT("configProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          configProperty_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_configProperty (t);
         }
 

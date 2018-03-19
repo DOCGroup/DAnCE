@@ -5,10 +5,15 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #include "cdd.hpp"
+
+#include "ace/Null_Mutex.h"
+#include "ace/TSS_T.h"
+#include "ace/ace_wchar.h"
+#include "ace/Singleton.h"
 
 namespace DAnCE
 {
@@ -91,7 +96,7 @@ namespace DAnCE
 
       else
       {
-        UUID_ = Domain::UUID_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        UUID_ = Domain::UUID_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         UUID_->container (this);
       }
     }
@@ -119,7 +124,7 @@ namespace DAnCE
 
       else
       {
-        label_ = Domain::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = Domain::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -391,7 +396,7 @@ namespace DAnCE
 
       else
       {
-        label_ = Bridge::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = Bridge::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -555,7 +560,7 @@ namespace DAnCE
 
       else
       {
-        label_ = Interconnect::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = Interconnect::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -754,7 +759,7 @@ namespace DAnCE
 
       else
       {
-        label_ = Node::label_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+        label_ = Node::label_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
         label_->container (this);
       }
     }
@@ -1008,31 +1013,31 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("node"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Node (e));
+          node_value_type t (new ::DAnCE::Config_Handlers::Node (e));
           add_node (t);
         }
 
         else if (n == ACE_TEXT("interconnect"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Interconnect (e));
+          interconnect_value_type t (new ::DAnCE::Config_Handlers::Interconnect (e));
           add_interconnect (t);
         }
 
         else if (n == ACE_TEXT("bridge"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Bridge (e));
+          bridge_value_type t (new ::DAnCE::Config_Handlers::Bridge (e));
           add_bridge (t);
         }
 
         else if (n == ACE_TEXT("sharedResource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::SharedResource (e));
+          sharedResource_value_type t (new ::DAnCE::Config_Handlers::SharedResource (e));
           add_sharedResource (t);
         }
 
         else if (n == ACE_TEXT("infoProperty"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Property, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Property (e));
+          infoProperty_value_type t (new ::DAnCE::Config_Handlers::Property (e));
           add_infoProperty (t);
         }
 
@@ -1058,7 +1063,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = Bridge::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Bridge::name_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -1070,13 +1075,13 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("connect"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Interconnect (e));
+          connect_value_type t (new ::DAnCE::Config_Handlers::Interconnect (e));
           add_connect (t);
         }
 
         else if (n == ACE_TEXT("resource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Resource (e));
+          resource_value_type t (new ::DAnCE::Config_Handlers::Resource (e));
           add_resource (t);
         }
 
@@ -1102,7 +1107,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = Interconnect::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Interconnect::name_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -1114,19 +1119,19 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("connection"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Bridge, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Bridge (e));
+          connection_value_type t (new ::DAnCE::Config_Handlers::Bridge (e));
           add_connection (t);
         }
 
         else if (n == ACE_TEXT("connect"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Node, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Node (e));
+          connect_value_type t (new ::DAnCE::Config_Handlers::Node (e));
           add_connect (t);
         }
 
         else if (n == ACE_TEXT("resource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Resource (e));
+          resource_value_type t (new ::DAnCE::Config_Handlers::Resource (e));
           add_resource (t);
         }
 
@@ -1152,7 +1157,7 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = Node::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = Node::name_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
@@ -1164,19 +1169,19 @@ namespace DAnCE
 
         else if (n == ACE_TEXT("connection"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Interconnect, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Interconnect (e));
+          connection_value_type t (new ::DAnCE::Config_Handlers::Interconnect (e));
           add_connection (t);
         }
 
         else if (n == ACE_TEXT("sharedResource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::SharedResource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::SharedResource (e));
+          sharedResource_value_type t (new ::DAnCE::Config_Handlers::SharedResource (e));
           add_sharedResource (t);
         }
 
         else if (n == ACE_TEXT("resource"))
         {
-          ACE_Refcounted_Auto_Ptr < ::DAnCE::Config_Handlers::Resource, ACE_Null_Mutex>  t (new ::DAnCE::Config_Handlers::Resource (e));
+          resource_value_type t (new ::DAnCE::Config_Handlers::Resource (e));
           add_resource (t);
         }
 
@@ -1202,25 +1207,25 @@ namespace DAnCE
 
         if (n == ACE_TEXT("name"))
         {
-          name_ = SharedResource::name_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+          name_ = SharedResource::name_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           name_->container (this);
         }
 
         else if (n == ACE_TEXT("resourceType"))
         {
-          resourceType_ = SharedResource::resourceType_autoptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
+          resourceType_ = SharedResource::resourceType_auto_ptr_type (new ::XMLSchema::string<ACE_TCHAR> (e));
           resourceType_->container (this);
         }
 
         else if (n == ACE_TEXT("node"))
         {
-          node_ = SharedResource::node_autoptr_type (new ::DAnCE::Config_Handlers::Node (e));
+          node_ = SharedResource::node_auto_ptr_type (new ::DAnCE::Config_Handlers::Node (e));
           node_->container (this);
         }
 
         else if (n == ACE_TEXT("property"))
         {
-          property_ = SharedResource::property_autoptr_type (new ::DAnCE::Config_Handlers::SatisfierProperty (e));
+          property_ = SharedResource::property_auto_ptr_type (new ::DAnCE::Config_Handlers::SatisfierProperty (e));
           property_->container (this);
         }
 

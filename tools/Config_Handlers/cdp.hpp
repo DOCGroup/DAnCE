@@ -5,8 +5,8 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #ifndef CDP_HPP
 #define CDP_HPP
@@ -30,9 +30,7 @@ namespace DAnCE
 #include "ace/XML_Utils/XMLSchema/id_map.hpp"
 #include "ace/Refcounted_Auto_Ptr.h"
 #include "ace/Null_Mutex.h"
-#include "ace/TSS_T.h"
 #include "ace/ace_wchar.h"
-#include "ace/Singleton.h"
 
 #include "ccd.hpp"
 
@@ -53,8 +51,8 @@ namespace DAnCE
       void propertyName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > propertyName_autoptr_type;
-      propertyName_autoptr_type propertyName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > propertyName_auto_ptr_type;
+      propertyName_auto_ptr_type propertyName_;
 
       // instance
       public:
@@ -62,8 +60,8 @@ namespace DAnCE
       void instance (::DAnCE::Config_Handlers::InstanceDeploymentDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::InstanceDeploymentDescription > instance_autoptr_type;
-      instance_autoptr_type instance_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::InstanceDeploymentDescription > instance_auto_ptr_type;
+      instance_auto_ptr_type instance_;
 
       public:
       PlanSubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
@@ -71,7 +69,6 @@ namespace DAnCE
 
       explicit PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanSubcomponentPropertyReference (PlanSubcomponentPropertyReference const& s);
-
       PlanSubcomponentPropertyReference& operator= (PlanSubcomponentPropertyReference const& s);
 
       private:
@@ -92,8 +89,8 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_autoptr_type;
-      name_autoptr_type name_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      name_auto_ptr_type name_;
 
       // source
       public:
@@ -117,8 +114,8 @@ namespace DAnCE
       void externalName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > externalName_autoptr_type;
-      externalName_autoptr_type externalName_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > externalName_auto_ptr_type;
+      externalName_auto_ptr_type externalName_;
 
       // delegatesTo
       public:
@@ -143,7 +140,6 @@ namespace DAnCE
 
       explicit PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanPropertyMapping (PlanPropertyMapping const& s);
-
       PlanPropertyMapping& operator= (PlanPropertyMapping const& s);
 
       private:
@@ -165,8 +161,8 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_autoptr_type;
-      label_autoptr_type label_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      label_auto_ptr_type label_;
 
       // UUID
       public:
@@ -175,8 +171,8 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_autoptr_type;
-      UUID_autoptr_type UUID_;
+      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      UUID_auto_ptr_type UUID_;
 
       // realizes
       public:
@@ -185,8 +181,8 @@ namespace DAnCE
       void realizes (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_autoptr_type;
-      realizes_autoptr_type realizes_;
+      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_auto_ptr_type;
+      realizes_auto_ptr_type realizes_;
 
       // implementation
       public:
@@ -321,7 +317,6 @@ namespace DAnCE
 
       explicit deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR> const&);
       deploymentPlan (deploymentPlan const& s);
-
       deploymentPlan& operator= (deploymentPlan const& s);
 
       private:

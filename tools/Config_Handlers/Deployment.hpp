@@ -5,8 +5,8 @@
  * when the handlers are recompiled.
  *
  * If you find errors or feel that there are bugfixes to be made,
- * please contact the current XSC maintainer:
- *             Will Otte <wotte@dre.vanderbilt.edu>
+ * please report this to the XSC project at
+ * https://github.com/DOCGroup/XSC
  */
 #ifndef DEPLOYMENT_HPP
 #define DEPLOYMENT_HPP
@@ -27,9 +27,7 @@ namespace DAnCE
 #include "ace/XML_Utils/XMLSchema/id_map.hpp"
 #include "ace/Refcounted_Auto_Ptr.h"
 #include "ace/Null_Mutex.h"
-#include "ace/TSS_T.h"
 #include "ace/ace_wchar.h"
-#include "ace/Singleton.h"
 
 #include "Basic_Deployment_Data.hpp"
 
