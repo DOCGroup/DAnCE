@@ -84,15 +84,6 @@ namespace DAnCE
     }
 
 
-    void
-    DynStruct_Handler::extract_out_of_dynany (const DynamicAny::DynAny_ptr)
-    {
-      DANCE_TRACE("DynStruct_Handler::extract_out_of_dynany");
-
-      DANCE_DEBUG (DANCE_LOG_NONFATAL_ERROR,
-        (LM_ERROR, ACE_TEXT ("Extracting Structs not yet supported\n")));
-    }
-
     CORBA::TypeCode_ptr
     DynStruct_Handler::create_typecode (const DataType &type)
     {
