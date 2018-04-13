@@ -58,7 +58,7 @@ public:
   /// Get file and store it into an ACE_Message_Block. The function
   /// averts subdirectory traversal problems.
   /// NOTE: Be sure to release the message block even if the function returns
-  /// false becuase the return value might be due to unsuccessful allocation
+  /// false because the return value might be due to unsuccessful allocation
 
   ///archive_path is the zip archive with the path
   ///filename is the name of the file to be looked for in the zip archive.
@@ -71,7 +71,7 @@ public:
   ///name of zip archive.
   /// The path is assumed to be an existing directory
 
-  ///zip_archive is the arcive to be uncompressed with full path.
+  ///zip_archive is the archive to be uncompressed with full path.
   ///path is used for creating a directory with the name of zip archive.
   static bool uncompress (char* zip_archive, char* path = 0,
                           bool verbose = true);
