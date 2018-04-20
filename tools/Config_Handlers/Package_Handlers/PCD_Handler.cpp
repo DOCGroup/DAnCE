@@ -54,7 +54,7 @@ namespace DAnCE
         else
           {
             std::string error (
-              "Invliad file passed to package_config, has base ");
+              "Invalid file passed to package_config, has base ");
 
             char *croot = xercesc::XMLString::transcode (root);
 
