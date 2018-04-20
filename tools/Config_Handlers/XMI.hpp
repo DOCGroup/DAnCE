@@ -133,9 +133,6 @@ namespace XMI
     explicit Extension (::XSCRT::XML::Element<ACE_TCHAR> const&);
     Extension (Extension const& s);
     Extension& operator= (Extension const& s);
-
-    private:
-    char regulator__;
   };
 }
 

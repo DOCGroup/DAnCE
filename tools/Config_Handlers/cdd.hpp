@@ -153,9 +153,6 @@ namespace DAnCE
       explicit Domain (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Domain (Domain const& s);
       Domain& operator= (Domain const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -224,9 +221,6 @@ namespace DAnCE
       explicit Bridge (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Bridge (Bridge const& s);
       Bridge& operator= (Bridge const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -311,9 +305,6 @@ namespace DAnCE
       explicit Interconnect (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Interconnect (Interconnect const& s);
       Interconnect& operator= (Interconnect const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -397,9 +388,6 @@ namespace DAnCE
       explicit Node (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Node (Node const& s);
       Node& operator= (Node const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -455,9 +443,6 @@ namespace DAnCE
       explicit SharedResource (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SharedResource (SharedResource const& s);
       SharedResource& operator= (SharedResource const& s);
-
-      private:
-      char regulator__;
     };
   }
 }

@@ -10,9 +10,9 @@
  */
 #include "iad.hpp"
 
+#include "ace/ace_wchar.h"
 #include "ace/Null_Mutex.h"
 #include "ace/TSS_T.h"
-#include "ace/ace_wchar.h"
 #include "ace/Singleton.h"
 
 namespace DAnCE
@@ -22,21 +22,19 @@ namespace DAnCE
     // NamedImplementationArtifact
 
     NamedImplementationArtifact::NamedImplementationArtifact (::XMLSchema::string<ACE_TCHAR> const& name__,
-                                                              ::DAnCE::Config_Handlers::ImplementationArtifactDescription const& referencedArtifact__) :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
-    referencedArtifact_ (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (referencedArtifact__)),
-    regulator__ ()
+                                                              ::DAnCE::Config_Handlers::ImplementationArtifactDescription const& referencedArtifact__)
+    : ::XSCRT::Type ()
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (name__))
+    , referencedArtifact_ (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (referencedArtifact__))
     {
       name_->container (this);
       referencedArtifact_->container (this);
     }
 
     NamedImplementationArtifact::NamedImplementationArtifact (NamedImplementationArtifact const& s) :
-    ::XSCRT::Type (s),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
-    referencedArtifact_ (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (*s.referencedArtifact_)),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_))
+    , referencedArtifact_ (new ::DAnCE::Config_Handlers::ImplementationArtifactDescription (*s.referencedArtifact_))
     {
       name_->container (this);
       referencedArtifact_->container (this);
@@ -85,24 +83,22 @@ namespace DAnCE
 
     // ImplementationArtifactDescription
 
-    ImplementationArtifactDescription::ImplementationArtifactDescription () :
-    ::XSCRT::Type (),
-    regulator__ ()
+    ImplementationArtifactDescription::ImplementationArtifactDescription ()
+    : ::XSCRT::Type ()
     {
     }
 
     ImplementationArtifactDescription::ImplementationArtifactDescription (ImplementationArtifactDescription const& s) :
-    ::XSCRT::Type (s),
-    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
-    location_ (s.location_),
-    dependsOn_ (s.dependsOn_),
-    execParameter_ (s.execParameter_),
-    infoProperty_ (s.infoProperty_),
-    deployRequirement_ (s.deployRequirement_),
-    contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.contentLocation_) : 0),
-    href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0)
+    , UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0)
+    , location_ (s.location_)
+    , dependsOn_ (s.dependsOn_)
+    , execParameter_ (s.execParameter_)
+    , infoProperty_ (s.infoProperty_)
+    , deployRequirement_ (s.deployRequirement_)
+    , contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.contentLocation_) : 0)
+    , href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0)
     {
       if (label_.get ()) label_->container (this);
       if (UUID_.get ()) UUID_->container (this);
@@ -461,7 +457,7 @@ namespace DAnCE
 
     NamedImplementationArtifact::
     NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);
@@ -493,7 +489,7 @@ namespace DAnCE
 
     ImplementationArtifactDescription::
     ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);

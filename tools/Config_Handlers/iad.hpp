@@ -69,9 +69,6 @@ namespace DAnCE
       explicit NamedImplementationArtifact (::XSCRT::XML::Element<ACE_TCHAR> const&);
       NamedImplementationArtifact (NamedImplementationArtifact const& s);
       NamedImplementationArtifact& operator= (NamedImplementationArtifact const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -209,9 +206,6 @@ namespace DAnCE
       explicit ImplementationArtifactDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ImplementationArtifactDescription (ImplementationArtifactDescription const& s);
       ImplementationArtifactDescription& operator= (ImplementationArtifactDescription const& s);
-
-      private:
-      char regulator__;
     };
   }
 }
