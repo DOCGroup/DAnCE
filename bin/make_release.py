@@ -397,7 +397,7 @@ def get_comp_versions (component):
     #                   str (comp_versions[component + "_minor"])
 
 
-def update_latest_tag (which, branch):
+def update_latest_tag (which):
     """ Update one of the Latest_* tags externals to point the new release """
     global opts
     tagname = "Latest_" + which
@@ -410,7 +410,7 @@ def update_latest_tag (which, branch):
     ex ("git tag -a " + tagname + " -m\"" + tagname + "\"")
 
 
-def push_latest_tag (which, branch):
+def push_latest_tag (which):
     """ Update one of the Latest_* tags externals to point the new release """
     global opts
     tagname = "Latest_" + which
@@ -437,11 +437,11 @@ def tag ():
 
             # Update latest tag
             if opts.release_type == "major":
-                update_latest_tag ("Major", tagname)
+                update_latest_tag ("Major")
             elif opts.release_type == "minor":
-                update_latest_tag ("Minor", tagname)
+                update_latest_tag ("Minor")
             elif opts.release_type == "micro":
-                update_latest_tag ("Micro", tagname)
+                update_latest_tag ("Micro")
         else:
             vprint ("Placing tag %s on DAnCE" % (tagname))
             print "Creating tags:\n"
@@ -465,11 +465,11 @@ def push ():
 
             # Update latest tag
             if opts.release_type == "major":
-                push_latest_tag ("Major", tagname)
+                push_latest_tag ("Major")
             elif opts.release_type == "minor":
-                push_latest_tag ("Minor", tagname)
+                push_latest_tag ("Minor")
             elif opts.release_type == "micro":
-                push_latest_tag ("Micro", tagname)
+                push_latest_tag ("Micro")
         else:
             vprint ("Pushing tag %s on DAnCE" % (tagname))
             print "Pushing tags:\n"
@@ -490,7 +490,7 @@ def export_wc (stage_dir):
     print ("Retrieving DAnCE with tag " + tag)
     ex ("git clone --depth 1 --branch " + tag + " " + opts.repo_root + " " + stage_dir + "/DAnCE")
 
-def update_packages (text_files, bin_files, stage_dir, package_dir):
+def update_packages (text_files, bin_files, stage_dir):
     import os
 
     print "Updating packages...."
@@ -670,8 +670,7 @@ def package (stage_dir, package_dir, decorator):
 #    write_file_lists ("fACE" + decorator, text_files, bin_files)
     update_packages ("\n".join (text_files),
                      "\n".join (bin_files),
-                     stage_dir,
-                     package_dir)
+                     stage_dir)
 
     move_packages ("DAnCE" + decorator, stage_dir, package_dir)
 
