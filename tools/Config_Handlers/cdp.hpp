@@ -70,9 +70,6 @@ namespace DAnCE
       explicit PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanSubcomponentPropertyReference (PlanSubcomponentPropertyReference const& s);
       PlanSubcomponentPropertyReference& operator= (PlanSubcomponentPropertyReference const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -141,9 +138,6 @@ namespace DAnCE
       explicit PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanPropertyMapping (PlanPropertyMapping const& s);
       PlanPropertyMapping& operator= (PlanPropertyMapping const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -318,9 +312,6 @@ namespace DAnCE
       explicit deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR> const&);
       deploymentPlan (deploymentPlan const& s);
       deploymentPlan& operator= (deploymentPlan const& s);
-
-      private:
-      char regulator__;
     };
   }
 }

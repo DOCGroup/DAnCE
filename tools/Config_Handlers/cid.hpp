@@ -93,9 +93,6 @@ namespace DAnCE
       explicit ComponentPackageReference (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPackageReference (ComponentPackageReference const& s);
       ComponentPackageReference& operator= (ComponentPackageReference const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -204,9 +201,6 @@ namespace DAnCE
       explicit SubcomponentInstantiationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SubcomponentInstantiationDescription (SubcomponentInstantiationDescription const& s);
       SubcomponentInstantiationDescription& operator= (SubcomponentInstantiationDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -242,9 +236,6 @@ namespace DAnCE
       explicit SubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SubcomponentPropertyReference (SubcomponentPropertyReference const& s);
       SubcomponentPropertyReference& operator= (SubcomponentPropertyReference const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -296,9 +287,6 @@ namespace DAnCE
       explicit AssemblyPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR> const&);
       AssemblyPropertyMapping (AssemblyPropertyMapping const& s);
       AssemblyPropertyMapping& operator= (AssemblyPropertyMapping const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -373,9 +361,6 @@ namespace DAnCE
       explicit Locality (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Locality (Locality const& s);
       Locality& operator= (Locality const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -456,9 +441,6 @@ namespace DAnCE
       explicit ComponentAssemblyDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentAssemblyDescription (ComponentAssemblyDescription const& s);
       ComponentAssemblyDescription& operator= (ComponentAssemblyDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -539,9 +521,6 @@ namespace DAnCE
       explicit MonolithicImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       MonolithicImplementationDescription (MonolithicImplementationDescription const& s);
       MonolithicImplementationDescription& operator= (MonolithicImplementationDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -683,9 +662,6 @@ namespace DAnCE
       explicit ComponentImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentImplementationDescription (ComponentImplementationDescription const& s);
       ComponentImplementationDescription& operator= (ComponentImplementationDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -827,9 +803,6 @@ namespace DAnCE
       explicit ConnectorImplementationDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ConnectorImplementationDescription (ConnectorImplementationDescription const& s);
       ConnectorImplementationDescription& operator= (ConnectorImplementationDescription const& s);
-
-      private:
-      char regulator__;
     };
   }
 }

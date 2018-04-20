@@ -196,9 +196,6 @@ namespace DAnCE
       explicit ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentInterfaceDescription (ComponentInterfaceDescription const& s);
       ComponentInterfaceDescription& operator= (ComponentInterfaceDescription const& s);
-
-      private:
-      char regulator__;
     };
   }
 }

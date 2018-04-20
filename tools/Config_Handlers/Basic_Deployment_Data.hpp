@@ -114,9 +114,6 @@ namespace DAnCE
       explicit IdRef (::XSCRT::XML::Element<ACE_TCHAR> const&);
       IdRef (IdRef const& s);
       IdRef& operator= (IdRef const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -293,9 +290,6 @@ namespace DAnCE
       explicit DataType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       DataType (DataType const& s);
       DataType& operator= (DataType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -552,9 +546,6 @@ namespace DAnCE
       explicit DataValue (::XSCRT::XML::Element<ACE_TCHAR> const&);
       DataValue (DataValue const& s);
       DataValue& operator= (DataValue const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -600,9 +591,6 @@ namespace DAnCE
       explicit AliasType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       AliasType (AliasType const& s);
       AliasType& operator= (AliasType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -655,9 +643,6 @@ namespace DAnCE
       explicit EnumType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       EnumType (EnumType const& s);
       EnumType& operator= (EnumType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -690,9 +675,6 @@ namespace DAnCE
       explicit BoundedStringType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       BoundedStringType (BoundedStringType const& s);
       BoundedStringType& operator= (BoundedStringType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -744,9 +726,6 @@ namespace DAnCE
       explicit StructType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       StructType (StructType const& s);
       StructType& operator= (StructType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -782,9 +761,6 @@ namespace DAnCE
       explicit StructMemberType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       StructMemberType (StructMemberType const& s);
       StructMemberType& operator= (StructMemberType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -856,9 +832,6 @@ namespace DAnCE
       explicit ValueType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ValueType (ValueType const& s);
       ValueType& operator= (ValueType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -904,9 +877,6 @@ namespace DAnCE
       explicit ValueMemberType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ValueMemberType (ValueMemberType const& s);
       ValueMemberType& operator= (ValueMemberType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -942,9 +912,6 @@ namespace DAnCE
       explicit NamedValue (::XSCRT::XML::Element<ACE_TCHAR> const&);
       NamedValue (NamedValue const& s);
       NamedValue& operator= (NamedValue const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -980,9 +947,6 @@ namespace DAnCE
       explicit ArrayType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ArrayType (ArrayType const& s);
       ArrayType& operator= (ArrayType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1018,9 +982,6 @@ namespace DAnCE
       explicit SequenceType (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SequenceType (SequenceType const& s);
       SequenceType& operator= (SequenceType const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1056,9 +1017,6 @@ namespace DAnCE
       explicit Any (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Any (Any const& s);
       Any& operator= (Any const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1094,9 +1052,6 @@ namespace DAnCE
       explicit Property (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Property (Property const& s);
       Property& operator= (Property const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1191,9 +1146,6 @@ namespace DAnCE
       explicit SatisfierProperty (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SatisfierProperty (SatisfierProperty const& s);
       SatisfierProperty& operator= (SatisfierProperty const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1252,9 +1204,6 @@ namespace DAnCE
       explicit Resource (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Resource (Resource const& s);
       Resource& operator= (Resource const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1306,9 +1255,6 @@ namespace DAnCE
       explicit Requirement (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Requirement (Requirement const& s);
       Requirement& operator= (Requirement const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1360,9 +1306,6 @@ namespace DAnCE
       explicit ResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ResourceDeploymentDescription (ResourceDeploymentDescription const& s);
       ResourceDeploymentDescription& operator= (ResourceDeploymentDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1489,9 +1432,6 @@ namespace DAnCE
       explicit ArtifactDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ArtifactDeploymentDescription (ArtifactDeploymentDescription const& s);
       ArtifactDeploymentDescription& operator= (ArtifactDeploymentDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1592,9 +1532,6 @@ namespace DAnCE
       explicit MonolithicDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       MonolithicDeploymentDescription (MonolithicDeploymentDescription const& s);
       MonolithicDeploymentDescription& operator= (MonolithicDeploymentDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1694,9 +1631,6 @@ namespace DAnCE
       explicit InstanceResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       InstanceResourceDeploymentDescription (InstanceResourceDeploymentDescription const& s);
       InstanceResourceDeploymentDescription& operator= (InstanceResourceDeploymentDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1805,9 +1739,6 @@ namespace DAnCE
       explicit InstanceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       InstanceDeploymentDescription (InstanceDeploymentDescription const& s);
       InstanceDeploymentDescription& operator= (InstanceDeploymentDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -1966,9 +1897,6 @@ namespace DAnCE
       explicit ComponentPortDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPortDescription (ComponentPortDescription const& s);
       ComponentPortDescription& operator= (ComponentPortDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2004,9 +1932,6 @@ namespace DAnCE
       explicit ComponentPropertyDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPropertyDescription (ComponentPropertyDescription const& s);
       ComponentPropertyDescription& operator= (ComponentPropertyDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2032,9 +1957,6 @@ namespace DAnCE
       explicit ComponentExternalPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentExternalPortEndpoint (ComponentExternalPortEndpoint const& s);
       ComponentExternalPortEndpoint& operator= (ComponentExternalPortEndpoint const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2090,9 +2012,6 @@ namespace DAnCE
       explicit PlanSubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanSubcomponentPortEndpoint (PlanSubcomponentPortEndpoint const& s);
       PlanSubcomponentPortEndpoint& operator= (PlanSubcomponentPortEndpoint const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2154,9 +2073,6 @@ namespace DAnCE
       explicit ExternalReferenceEndpoint (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ExternalReferenceEndpoint (ExternalReferenceEndpoint const& s);
       ExternalReferenceEndpoint& operator= (ExternalReferenceEndpoint const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2218,9 +2134,6 @@ namespace DAnCE
       explicit ConnectionResourceDeploymentDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ConnectionResourceDeploymentDescription (ConnectionResourceDeploymentDescription const& s);
       ConnectionResourceDeploymentDescription& operator= (ConnectionResourceDeploymentDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2336,9 +2249,6 @@ namespace DAnCE
       explicit PlanConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanConnectionDescription (PlanConnectionDescription const& s);
       PlanConnectionDescription& operator= (PlanConnectionDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2364,9 +2274,6 @@ namespace DAnCE
       explicit ImplementationDependency (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ImplementationDependency (ImplementationDependency const& s);
       ImplementationDependency& operator= (ImplementationDependency const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2424,9 +2331,6 @@ namespace DAnCE
       explicit Capability (::XSCRT::XML::Element<ACE_TCHAR> const&);
       Capability (Capability const& s);
       Capability& operator= (Capability const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2508,9 +2412,6 @@ namespace DAnCE
       explicit ImplementationRequirement (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ImplementationRequirement (ImplementationRequirement const& s);
       ImplementationRequirement& operator= (ImplementationRequirement const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2546,9 +2447,6 @@ namespace DAnCE
       explicit SubcomponentPortEndpoint (::XSCRT::XML::Element<ACE_TCHAR> const&);
       SubcomponentPortEndpoint (SubcomponentPortEndpoint const& s);
       SubcomponentPortEndpoint& operator= (SubcomponentPortEndpoint const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2638,9 +2536,6 @@ namespace DAnCE
       explicit AssemblyConnectionDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       AssemblyConnectionDescription (AssemblyConnectionDescription const& s);
       AssemblyConnectionDescription& operator= (AssemblyConnectionDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -2719,9 +2614,6 @@ namespace DAnCE
       explicit PlanLocality (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PlanLocality (PlanLocality const& s);
       PlanLocality& operator= (PlanLocality const& s);
-
-      private:
-      char regulator__;
     };
   }
 }

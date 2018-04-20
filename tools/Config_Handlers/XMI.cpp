@@ -10,31 +10,29 @@
  */
 #include "XMI.hpp"
 
+#include "ace/ace_wchar.h"
 #include "ace/Null_Mutex.h"
 #include "ace/TSS_T.h"
-#include "ace/ace_wchar.h"
 #include "ace/Singleton.h"
 
 namespace XMI
 {
   // Extension
 
-  Extension::Extension () :
-  regulator__ ()
+  Extension::Extension ()
   {
   }
 
   Extension::Extension (Extension const& s) :
-  ::XSCRT::Type (s),
-  id_ (s.id_.get () ? new ::XMLSchema::ID<ACE_TCHAR> (*s.id_) : 0),
-  label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
-  uuid_ (s.uuid_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.uuid_) : 0),
-  href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0),
-  idref_ (s.idref_.get () ? new ::XMLSchema::IDREF<ACE_TCHAR> (*s.idref_) : 0),
-  version_ (s.version_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.version_) : 0),
-  extender_ (s.extender_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.extender_) : 0),
-  extenderID_ (s.extenderID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.extenderID_) : 0),
-  regulator__ ()
+  ::XSCRT::Type (s)
+  , id_ (s.id_.get () ? new ::XMLSchema::ID<ACE_TCHAR> (*s.id_) : 0)
+  , label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0)
+  , uuid_ (s.uuid_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.uuid_) : 0)
+  , href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0)
+  , idref_ (s.idref_.get () ? new ::XMLSchema::IDREF<ACE_TCHAR> (*s.idref_) : 0)
+  , version_ (s.version_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.version_) : 0)
+  , extender_ (s.extender_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.extender_) : 0)
+  , extenderID_ (s.extenderID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.extenderID_) : 0)
   {
     if (id_.get ()) id_->container (this);
     if (label_.get ()) label_->container (this);
@@ -373,7 +371,7 @@ namespace XMI
 
   Extension::
   Extension (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-  :Base (e), regulator__ ()
+  :Base (e)
   {
 
     ::XSCRT::Parser<ACE_TCHAR> p (e);
@@ -387,8 +385,7 @@ namespace XMI
         ::XMLSchema::ID<ACE_TCHAR> t (a);
         id (t);
         std::basic_string<ACE_TCHAR> temp ((*id_).c_str());
-        (*ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance())->
-        add_id(temp, dynamic_cast<XSCRT::Type*> (this));
+        (*ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance())->add_id(temp, this);
       }
 
       else if (n == ACE_TEXT ("label"))
@@ -415,8 +412,7 @@ namespace XMI
         idref (t);
         std::basic_string<ACE_TCHAR> temp ((*idref_).id().c_str());
 
-        (*ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance())->
-        add_idref(temp, dynamic_cast<XSCRT::Type*> (this));
+        (*ACE_Singleton<ID_Map::TSS_ID_Map, ACE_Null_Mutex>::instance())->add_idref(temp, this);
       }
 
       else if (n == ACE_TEXT ("version"))

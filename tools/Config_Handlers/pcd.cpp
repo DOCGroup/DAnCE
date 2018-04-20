@@ -10,9 +10,9 @@
  */
 #include "pcd.hpp"
 
+#include "ace/ace_wchar.h"
 #include "ace/Null_Mutex.h"
 #include "ace/TSS_T.h"
-#include "ace/ace_wchar.h"
 #include "ace/Singleton.h"
 
 namespace DAnCE
@@ -21,16 +21,14 @@ namespace DAnCE
   {
     // ComponentPackageImport
 
-    ComponentPackageImport::ComponentPackageImport () :
-    ::XSCRT::Type (),
-    regulator__ ()
+    ComponentPackageImport::ComponentPackageImport ()
+    : ::XSCRT::Type ()
     {
     }
 
     ComponentPackageImport::ComponentPackageImport (ComponentPackageImport const& s) :
-    ::XSCRT::Type (s),
-    location_ (s.location_),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , location_ (s.location_)
     {
     }
 
@@ -86,24 +84,22 @@ namespace DAnCE
 
     // PackageConfiguration
 
-    PackageConfiguration::PackageConfiguration () :
-    ::XSCRT::Type (),
-    regulator__ ()
+    PackageConfiguration::PackageConfiguration ()
+    : ::XSCRT::Type ()
     {
     }
 
     PackageConfiguration::PackageConfiguration (PackageConfiguration const& s) :
-    ::XSCRT::Type (s),
-    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
-    basePackage_ (s.basePackage_.get () ? new ::DAnCE::Config_Handlers::ComponentPackageDescription (*s.basePackage_) : 0),
-    specializedConfig_ (s.specializedConfig_.get () ? new ::DAnCE::Config_Handlers::PackageConfiguration (*s.specializedConfig_) : 0),
-    importedPackage_ (s.importedPackage_.get () ? new ::DAnCE::Config_Handlers::ComponentPackageImport (*s.importedPackage_) : 0),
-    referencedPackage_ (s.referencedPackage_.get () ? new ::DAnCE::Config_Handlers::ComponentPackageReference (*s.referencedPackage_) : 0),
-    selectRequirement_ (s.selectRequirement_),
-    configProperty_ (s.configProperty_),
-    contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.contentLocation_) : 0),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0)
+    , UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0)
+    , basePackage_ (s.basePackage_.get () ? new ::DAnCE::Config_Handlers::ComponentPackageDescription (*s.basePackage_) : 0)
+    , specializedConfig_ (s.specializedConfig_.get () ? new ::DAnCE::Config_Handlers::PackageConfiguration (*s.specializedConfig_) : 0)
+    , importedPackage_ (s.importedPackage_.get () ? new ::DAnCE::Config_Handlers::ComponentPackageImport (*s.importedPackage_) : 0)
+    , referencedPackage_ (s.referencedPackage_.get () ? new ::DAnCE::Config_Handlers::ComponentPackageReference (*s.referencedPackage_) : 0)
+    , selectRequirement_ (s.selectRequirement_)
+    , configProperty_ (s.configProperty_)
+    , contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.contentLocation_) : 0)
     {
       if (label_.get ()) label_->container (this);
       if (UUID_.get ()) UUID_->container (this);
@@ -443,7 +439,7 @@ namespace DAnCE
 
     ComponentPackageImport::
     ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);
@@ -469,7 +465,7 @@ namespace DAnCE
 
     PackageConfiguration::
     PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);

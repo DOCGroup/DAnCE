@@ -10,9 +10,9 @@
  */
 #include "ccd.hpp"
 
+#include "ace/ace_wchar.h"
 #include "ace/Null_Mutex.h"
 #include "ace/TSS_T.h"
-#include "ace/ace_wchar.h"
 #include "ace/Singleton.h"
 
 namespace DAnCE
@@ -21,26 +21,24 @@ namespace DAnCE
   {
     // ComponentInterfaceDescription
 
-    ComponentInterfaceDescription::ComponentInterfaceDescription () :
-    ::XSCRT::Type (),
-    regulator__ ()
+    ComponentInterfaceDescription::ComponentInterfaceDescription ()
+    : ::XSCRT::Type ()
     {
     }
 
     ComponentInterfaceDescription::ComponentInterfaceDescription (ComponentInterfaceDescription const& s) :
-    ::XSCRT::Type (s),
-    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
-    specificType_ (s.specificType_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.specificType_) : 0),
-    supportedType_ (s.supportedType_),
-    idlFile_ (s.idlFile_),
-    configProperty_ (s.configProperty_),
-    port_ (s.port_),
-    property_ (s.property_),
-    infoProperty_ (s.infoProperty_),
-    contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.contentLocation_) : 0),
-    href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0)
+    , UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0)
+    , specificType_ (s.specificType_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.specificType_) : 0)
+    , supportedType_ (s.supportedType_)
+    , idlFile_ (s.idlFile_)
+    , configProperty_ (s.configProperty_)
+    , port_ (s.port_)
+    , property_ (s.property_)
+    , infoProperty_ (s.infoProperty_)
+    , contentLocation_ (s.contentLocation_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.contentLocation_) : 0)
+    , href_ (s.href_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.href_) : 0)
     {
       if (label_.get ()) label_->container (this);
       if (UUID_.get ()) UUID_->container (this);
@@ -472,7 +470,7 @@ namespace DAnCE
 
     ComponentInterfaceDescription::
     ComponentInterfaceDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);

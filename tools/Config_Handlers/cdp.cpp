@@ -10,9 +10,9 @@
  */
 #include "cdp.hpp"
 
+#include "ace/ace_wchar.h"
 #include "ace/Null_Mutex.h"
 #include "ace/TSS_T.h"
-#include "ace/ace_wchar.h"
 #include "ace/Singleton.h"
 
 namespace DAnCE
@@ -22,21 +22,19 @@ namespace DAnCE
     // PlanSubcomponentPropertyReference
 
     PlanSubcomponentPropertyReference::PlanSubcomponentPropertyReference (::XMLSchema::string<ACE_TCHAR> const& propertyName__,
-                                                                          ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& instance__) :
-    ::XSCRT::Type (),
-    propertyName_ (new ::XMLSchema::string<ACE_TCHAR> (propertyName__)),
-    instance_ (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (instance__)),
-    regulator__ ()
+                                                                          ::DAnCE::Config_Handlers::InstanceDeploymentDescription const& instance__)
+    : ::XSCRT::Type ()
+    , propertyName_ (new ::XMLSchema::string<ACE_TCHAR> (propertyName__))
+    , instance_ (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (instance__))
     {
       propertyName_->container (this);
       instance_->container (this);
     }
 
     PlanSubcomponentPropertyReference::PlanSubcomponentPropertyReference (PlanSubcomponentPropertyReference const& s) :
-    ::XSCRT::Type (s),
-    propertyName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.propertyName_)),
-    instance_ (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (*s.instance_)),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , propertyName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.propertyName_))
+    , instance_ (new ::DAnCE::Config_Handlers::InstanceDeploymentDescription (*s.instance_))
     {
       propertyName_->container (this);
       instance_->container (this);
@@ -87,24 +85,22 @@ namespace DAnCE
 
     PlanPropertyMapping::PlanPropertyMapping (::XMLSchema::string<ACE_TCHAR> const& name__,
                                               ::XMLSchema::string<ACE_TCHAR> const& externalName__,
-                                              delegatesTo_container_type const& delegatesTo__) :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
-    externalName_ (new ::XMLSchema::string<ACE_TCHAR> (externalName__)),
-    delegatesTo_ (delegatesTo__),
-    regulator__ ()
+                                              delegatesTo_container_type const& delegatesTo__)
+    : ::XSCRT::Type ()
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (name__))
+    , externalName_ (new ::XMLSchema::string<ACE_TCHAR> (externalName__))
+    , delegatesTo_ (delegatesTo__)
     {
       name_->container (this);
       externalName_->container (this);
     }
 
     PlanPropertyMapping::PlanPropertyMapping (PlanPropertyMapping const& s) :
-    ::XSCRT::Type (s),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
-    source_ (s.source_),
-    externalName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.externalName_)),
-    delegatesTo_ (s.delegatesTo_),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_))
+    , source_ (s.source_)
+    , externalName_ (new ::XMLSchema::string<ACE_TCHAR> (*s.externalName_))
+    , delegatesTo_ (s.delegatesTo_)
     {
       name_->container (this);
       externalName_->container (this);
@@ -231,26 +227,24 @@ namespace DAnCE
 
     // deploymentPlan
 
-    deploymentPlan::deploymentPlan () :
-    ::XSCRT::Type (),
-    regulator__ ()
+    deploymentPlan::deploymentPlan ()
+    : ::XSCRT::Type ()
     {
     }
 
     deploymentPlan::deploymentPlan (deploymentPlan const& s) :
-    ::XSCRT::Type (s),
-    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
-    realizes_ (s.realizes_.get () ? new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (*s.realizes_) : 0),
-    implementation_ (s.implementation_),
-    instance_ (s.instance_),
-    connection_ (s.connection_),
-    externalProperty_ (s.externalProperty_),
-    dependsOn_ (s.dependsOn_),
-    artifact_ (s.artifact_),
-    infoProperty_ (s.infoProperty_),
-    localityConstraint_ (s.localityConstraint_),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0)
+    , UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0)
+    , realizes_ (s.realizes_.get () ? new ::DAnCE::Config_Handlers::ComponentInterfaceDescription (*s.realizes_) : 0)
+    , implementation_ (s.implementation_)
+    , instance_ (s.instance_)
+    , connection_ (s.connection_)
+    , externalProperty_ (s.externalProperty_)
+    , dependsOn_ (s.dependsOn_)
+    , artifact_ (s.artifact_)
+    , infoProperty_ (s.infoProperty_)
+    , localityConstraint_ (s.localityConstraint_)
     {
       if (label_.get ()) label_->container (this);
       if (UUID_.get ()) UUID_->container (this);
@@ -688,7 +682,7 @@ namespace DAnCE
 
     PlanSubcomponentPropertyReference::
     PlanSubcomponentPropertyReference (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);
@@ -720,7 +714,7 @@ namespace DAnCE
 
     PlanPropertyMapping::
     PlanPropertyMapping (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);
@@ -764,7 +758,7 @@ namespace DAnCE
 
     deploymentPlan::
     deploymentPlan (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);

@@ -65,9 +65,6 @@ namespace DAnCE
       explicit TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       TopLevelPackageDescription (TopLevelPackageDescription const& s);
       TopLevelPackageDescription& operator= (TopLevelPackageDescription const& s);
-
-      private:
-      char regulator__;
     };
   }
 }

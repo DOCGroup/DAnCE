@@ -68,9 +68,6 @@ namespace DAnCE
       explicit ComponentPackageImport (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPackageImport (ComponentPackageImport const& s);
       ComponentPackageImport& operator= (ComponentPackageImport const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -189,9 +186,6 @@ namespace DAnCE
       explicit PackageConfiguration (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PackageConfiguration (PackageConfiguration const& s);
       PackageConfiguration& operator= (PackageConfiguration const& s);
-
-      private:
-      char regulator__;
     };
   }
 }

@@ -10,9 +10,9 @@
  */
 #include "toplevel.hpp"
 
+#include "ace/ace_wchar.h"
 #include "ace/Null_Mutex.h"
 #include "ace/TSS_T.h"
-#include "ace/ace_wchar.h"
 #include "ace/Singleton.h"
 
 namespace DAnCE
@@ -21,16 +21,14 @@ namespace DAnCE
   {
     // TopLevelPackageDescription
 
-    TopLevelPackageDescription::TopLevelPackageDescription () :
-    ::XSCRT::Type (),
-    regulator__ ()
+    TopLevelPackageDescription::TopLevelPackageDescription ()
+    : ::XSCRT::Type ()
     {
     }
 
     TopLevelPackageDescription::TopLevelPackageDescription (TopLevelPackageDescription const& s) :
-    ::XSCRT::Type (s),
-    package_ (s.package_),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , package_ (s.package_)
     {
     }
 
@@ -93,7 +91,7 @@ namespace DAnCE
 
     TopLevelPackageDescription::
     TopLevelPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);

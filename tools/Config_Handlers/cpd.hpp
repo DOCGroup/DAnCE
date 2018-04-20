@@ -70,9 +70,6 @@ namespace DAnCE
       explicit PackagedComponentImplementation (::XSCRT::XML::Element<ACE_TCHAR> const&);
       PackagedComponentImplementation (PackagedComponentImplementation const& s);
       PackagedComponentImplementation& operator= (PackagedComponentImplementation const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -178,9 +175,6 @@ namespace DAnCE
       explicit ComponentPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ComponentPackageDescription (ComponentPackageDescription const& s);
       ComponentPackageDescription& operator= (ComponentPackageDescription const& s);
-
-      private:
-      char regulator__;
     };
 
 
@@ -286,9 +280,6 @@ namespace DAnCE
       explicit ConnectorPackageDescription (::XSCRT::XML::Element<ACE_TCHAR> const&);
       ConnectorPackageDescription (ConnectorPackageDescription const& s);
       ConnectorPackageDescription& operator= (ConnectorPackageDescription const& s);
-
-      private:
-      char regulator__;
     };
   }
 }

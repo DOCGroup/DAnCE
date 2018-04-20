@@ -10,9 +10,9 @@
  */
 #include "cdd.hpp"
 
+#include "ace/ace_wchar.h"
 #include "ace/Null_Mutex.h"
 #include "ace/TSS_T.h"
-#include "ace/ace_wchar.h"
 #include "ace/Singleton.h"
 
 namespace DAnCE
@@ -21,23 +21,21 @@ namespace DAnCE
   {
     // Domain
 
-    Domain::Domain (node_container_type const& node__) :
-    ::XSCRT::Type (),
-    node_ (node__),
-    regulator__ ()
+    Domain::Domain (node_container_type const& node__)
+    : ::XSCRT::Type ()
+    , node_ (node__)
     {
     }
 
     Domain::Domain (Domain const& s) :
-    ::XSCRT::Type (s),
-    UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0),
-    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
-    node_ (s.node_),
-    interconnect_ (s.interconnect_),
-    bridge_ (s.bridge_),
-    sharedResource_ (s.sharedResource_),
-    infoProperty_ (s.infoProperty_),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , UUID_ (s.UUID_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.UUID_) : 0)
+    , label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0)
+    , node_ (s.node_)
+    , interconnect_ (s.interconnect_)
+    , bridge_ (s.bridge_)
+    , sharedResource_ (s.sharedResource_)
+    , infoProperty_ (s.infoProperty_)
     {
       if (UUID_.get ()) UUID_->container (this);
       if (label_.get ()) label_->container (this);
@@ -318,22 +316,20 @@ namespace DAnCE
     // Bridge
 
     Bridge::Bridge (::XMLSchema::string<ACE_TCHAR> const& name__,
-                    connect_container_type const& connect__) :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
-    connect_ (connect__),
-    regulator__ ()
+                    connect_container_type const& connect__)
+    : ::XSCRT::Type ()
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (name__))
+    , connect_ (connect__)
     {
       name_->container (this);
     }
 
     Bridge::Bridge (Bridge const& s) :
-    ::XSCRT::Type (s),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
-    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
-    connect_ (s.connect_),
-    resource_ (s.resource_),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_))
+    , label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0)
+    , connect_ (s.connect_)
+    , resource_ (s.resource_)
     {
       name_->container (this);
       if (label_.get ()) label_->container (this);
@@ -479,23 +475,21 @@ namespace DAnCE
     // Interconnect
 
     Interconnect::Interconnect (::XMLSchema::string<ACE_TCHAR> const& name__,
-                                connect_container_type const& connect__) :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
-    connect_ (connect__),
-    regulator__ ()
+                                connect_container_type const& connect__)
+    : ::XSCRT::Type ()
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (name__))
+    , connect_ (connect__)
     {
       name_->container (this);
     }
 
     Interconnect::Interconnect (Interconnect const& s) :
-    ::XSCRT::Type (s),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
-    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
-    connection_ (s.connection_),
-    connect_ (s.connect_),
-    resource_ (s.resource_),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_))
+    , label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0)
+    , connection_ (s.connection_)
+    , connect_ (s.connect_)
+    , resource_ (s.resource_)
     {
       name_->container (this);
       if (label_.get ()) label_->container (this);
@@ -679,22 +673,20 @@ namespace DAnCE
 
     // Node
 
-    Node::Node (::XMLSchema::string<ACE_TCHAR> const& name__) :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
-    regulator__ ()
+    Node::Node (::XMLSchema::string<ACE_TCHAR> const& name__)
+    : ::XSCRT::Type ()
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (name__))
     {
       name_->container (this);
     }
 
     Node::Node (Node const& s) :
-    ::XSCRT::Type (s),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
-    label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0),
-    connection_ (s.connection_),
-    sharedResource_ (s.sharedResource_),
-    resource_ (s.resource_),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_))
+    , label_ (s.label_.get () ? new ::XMLSchema::string<ACE_TCHAR> (*s.label_) : 0)
+    , connection_ (s.connection_)
+    , sharedResource_ (s.sharedResource_)
+    , resource_ (s.resource_)
     {
       name_->container (this);
       if (label_.get ()) label_->container (this);
@@ -881,13 +873,12 @@ namespace DAnCE
     SharedResource::SharedResource (::XMLSchema::string<ACE_TCHAR> const& name__,
                                     ::XMLSchema::string<ACE_TCHAR> const& resourceType__,
                                     ::DAnCE::Config_Handlers::Node const& node__,
-                                    ::DAnCE::Config_Handlers::SatisfierProperty const& property__) :
-    ::XSCRT::Type (),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (name__)),
-    resourceType_ (new ::XMLSchema::string<ACE_TCHAR> (resourceType__)),
-    node_ (new ::DAnCE::Config_Handlers::Node (node__)),
-    property_ (new ::DAnCE::Config_Handlers::SatisfierProperty (property__)),
-    regulator__ ()
+                                    ::DAnCE::Config_Handlers::SatisfierProperty const& property__)
+    : ::XSCRT::Type ()
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (name__))
+    , resourceType_ (new ::XMLSchema::string<ACE_TCHAR> (resourceType__))
+    , node_ (new ::DAnCE::Config_Handlers::Node (node__))
+    , property_ (new ::DAnCE::Config_Handlers::SatisfierProperty (property__))
     {
       name_->container (this);
       resourceType_->container (this);
@@ -896,12 +887,11 @@ namespace DAnCE
     }
 
     SharedResource::SharedResource (SharedResource const& s) :
-    ::XSCRT::Type (s),
-    name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_)),
-    resourceType_ (new ::XMLSchema::string<ACE_TCHAR> (*s.resourceType_)),
-    node_ (new ::DAnCE::Config_Handlers::Node (*s.node_)),
-    property_ (new ::DAnCE::Config_Handlers::SatisfierProperty (*s.property_)),
-    regulator__ ()
+    ::XSCRT::Type (s)
+    , name_ (new ::XMLSchema::string<ACE_TCHAR> (*s.name_))
+    , resourceType_ (new ::XMLSchema::string<ACE_TCHAR> (*s.resourceType_))
+    , node_ (new ::DAnCE::Config_Handlers::Node (*s.node_))
+    , property_ (new ::DAnCE::Config_Handlers::SatisfierProperty (*s.property_))
     {
       name_->container (this);
       resourceType_->container (this);
@@ -989,7 +979,7 @@ namespace DAnCE
 
     Domain::
     Domain (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);
@@ -1051,7 +1041,7 @@ namespace DAnCE
 
     Bridge::
     Bridge (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);
@@ -1095,7 +1085,7 @@ namespace DAnCE
 
     Interconnect::
     Interconnect (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);
@@ -1145,7 +1135,7 @@ namespace DAnCE
 
     Node::
     Node (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);
@@ -1195,7 +1185,7 @@ namespace DAnCE
 
     SharedResource::
     SharedResource (::XSCRT::XML::Element<ACE_TCHAR> const& e)
-    :Base (e), regulator__ ()
+    :Base (e)
     {
 
       ::XSCRT::Parser<ACE_TCHAR> p (e);
