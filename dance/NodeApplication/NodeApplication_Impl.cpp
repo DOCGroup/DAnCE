@@ -404,7 +404,6 @@ NodeApplication_Impl::remove_instances (void)
 
           i->second->destroyApplication (0);
 
-          Remove_Instance *event (0);
           Event_Future result;
 
           PLAN_MAP::iterator sub_plan;
@@ -412,6 +411,7 @@ NodeApplication_Impl::remove_instances (void)
           if ((sub_plan = this->sub_plans_.find (i->first)) !=
               this->sub_plans_.end ())
             {
+              Remove_Instance *event (0);
               ACE_NEW (event,
                        Remove_Instance (sub_plan->second.second,
                                         sub_plan->second.first,
