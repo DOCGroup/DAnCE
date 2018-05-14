@@ -236,7 +236,7 @@ namespace XMI
   ::XSCRT::Type* Extension::get_idref_ptr ()
   {
     std::basic_string<ACE_TCHAR> temp (idref().id());
-    return this->get_idref(temp.c_str ());
+    return this->get_idref(temp);
   }
 
 
