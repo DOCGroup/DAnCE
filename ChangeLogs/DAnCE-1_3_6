@@ -1,0 +1,837 @@
+commit 64fce407c562aa1d503d0ffdb6a88fe70241e54e
+Merge: 439508babd6 632d21eae8e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue May 29 10:46:10 2018 +0200
+
+    Merge pull request #57 from jwillemsen/master
+    
+    List changes latest release
+
+commit 632d21eae8e3777dbecf991d5b91f06a62287667
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue May 29 08:28:28 2018 +0200
+
+    List changes latest release
+    
+        * NEWS:
+
+commit 439508babd6cd8f3bdf81104e8cb40fbad958e04
+Merge: d07114c33a6 aa193d2c0f6
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed May 16 07:58:30 2018 +0200
+
+    Merge pull request #55 from jwillemsen/jwi-extend-travis
+    
+    Extend travis configurations and use gcc8
+
+commit aa193d2c0f63c6f2b98bee488adff2611d881649
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue May 15 21:09:18 2018 +0200
+
+    Extend travis configurations and use gcc8
+    
+        * .travis.yml:
+
+commit d07114c33a6a5895f7995cff59cd4b473734e1fd
+Merge: e694122760b cc5f9fd9722
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon May 14 19:58:37 2018 +0200
+
+    Merge pull request #54 from jwillemsen/jwi-xscref
+    
+    Changed usage of get_idref
+
+commit cc5f9fd97223f4f4d7f51b8f05c59e7ce9c9c92a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon May 14 18:46:06 2018 +0200
+
+    Changed usage of get_idref
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/XMI.cpp:
+
+commit e694122760b7b589bb8b1827ed432c0eaf0edd23
+Merge: d4a3d71197d 859904a2cc7
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 20 14:28:44 2018 +0200
+
+    Merge pull request #53 from jwillemsen/master
+    
+    Fixed typo and reduced scope of a variable
+
+commit 859904a2cc76e088b0e79c2bda28914fc881f396
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 20 13:18:23 2018 +0200
+
+    Reduced scope of variable
+    
+        * dance/NodeApplication/NodeApplication_Impl.cpp:
+
+commit c1c53aed04bccea52b898e1e02b4c746a304f300
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 20 13:18:01 2018 +0200
+
+    Fixed typo in error message
+    
+        * tools/Config_Handlers/Package_Handlers/PCD_Handler.cpp:
+
+commit d4a3d71197dd9117ac0e75db7d6e6af7eaeb01ed
+Merge: 71e216aea53 ee9a4dabad1
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 20 13:11:56 2018 +0200
+
+    Merge pull request #52 from jwillemsen/master
+    
+    Fix issues in release script
+
+commit ee9a4dabad1b31babaa811a2777163cbbd30dc60
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 20 12:28:44 2018 +0200
+
+    Fix issues in release script
+    
+        * bin/make_release.py:
+
+commit 71e216aea53d3a387d0e7dd1e722b71e74cbdeff
+Merge: 061165fdf49 e4cafa1fdcb
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 20 11:42:03 2018 +0200
+
+    Merge pull request #51 from jwillemsen/jwi-noregulator
+    
+    Get rid of the regulator member, was just there to simplify code gene…
+
+commit e4cafa1fdcb24164ab57379572221d0896e2de9e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 20 10:54:17 2018 +0200
+
+    Get rid of the regulator member, was just there to simplify code generation code
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/Deployment.cpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.cpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit 061165fdf494a2a34725f910826fa882c56e7098
+Merge: 1917c4f74e1 2f1a7cec114
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 13 14:58:36 2018 +0200
+
+    Merge pull request #50 from jwillemsen/master
+    
+    Fixed typo and removed old cvs tag
+
+commit 2f1a7cec1148d00f5909a886473444806ba4fe1f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 13 14:09:07 2018 +0200
+
+    Fixed typo
+    
+        * dance/RepositoryManager/ZIP_Wrapper.h:
+
+commit 12bb28cd2057c1148d041cb985a85c430b34ca1b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Apr 13 14:08:58 2018 +0200
+
+    Removed old cvs tag
+    
+        * docs/releasenotes/dance.html:
+
+commit 1917c4f74e18ff442627b839c61b5db2e3ff6b62
+Merge: 7f840582509 d8387340e93
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Mar 23 11:35:58 2018 +0100
+
+    Merge pull request #49 from jwillemsen/jwi-removeextractoutany-4507
+    
+    Remove extract_out_of_any, not implemented in any of these classes
+
+commit d8387340e93a2824ed35fe8303114ac58d69c9ed
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Mar 23 08:22:00 2018 +0100
+
+    Remove extract_out_of_any, not implemented in any of these classes
+    
+        * tools/Config_Handlers/DynAny_Handler/DataType_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DataType_Handler.h:
+          Deleted.
+    
+        * tools/Config_Handlers/DynAny_Handler/DynAlias_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynAlias_Handler.h:
+        * tools/Config_Handlers/DynAny_Handler/DynArray_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynArray_Handler.h:
+        * tools/Config_Handlers/DynAny_Handler/DynEnum_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynEnum_Handler.h:
+        * tools/Config_Handlers/DynAny_Handler/DynSequence_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynSequence_Handler.h:
+        * tools/Config_Handlers/DynAny_Handler/DynString_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynString_Handler.h:
+        * tools/Config_Handlers/DynAny_Handler/DynStruct_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynStruct_Handler.h:
+
+commit 7f8405825099f0c706a66f2749000bf39759d2ed
+Merge: 6650bb34e35 9369382a116
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 21 10:31:15 2018 +0100
+
+    Merge pull request #48 from jwillemsen/jwi-regenwithxsc
+    
+    Don't generate writers
+
+commit 9369382a1166ee2d76f38dd8805b6eb1bac2f6b3
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 21 08:50:09 2018 +0100
+
+    Don't generate writers
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/Config_Handlers.mpc:
+        * tools/Config_Handlers/Deployment.cpp:
+        * tools/Config_Handlers/Deployment.hpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.cpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit 6650bb34e3572a2feb28808057384ca4e14a3f8c
+Merge: 226518ac169 915f553e914
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 19 20:14:30 2018 +0100
+
+    Merge pull request #47 from jwillemsen/jwi-regenwithxsc
+    
+    Regenerated all config handlers with the latest version of xsc
+
+commit 915f553e9140585c29a646ece58e5a817f138765
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 19 18:31:20 2018 +0100
+
+    Reduce include in headers
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/Deployment.cpp:
+        * tools/Config_Handlers/Deployment.hpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.cpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit 8960a6660dd1f69188eefd710821d79732df4c73
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 19 18:08:47 2018 +0100
+
+    cbegin/cend are since C++11
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/toplevel.cpp:
+
+commit a77e6ef377c5bc72f73552733c9cce9b6f8d1823
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 19 17:27:03 2018 +0100
+
+    Regenerated all config handlers with the latest version of xsc
+    
+        * tools/Config_Handlers/Deployment.cpp:
+        * tools/Config_Handlers/Deployment.hpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.cpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit 226518ac169c1e5d56f3388e6ee88f757f63db01
+Merge: df3b61ac4cd d313381b819
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 19 08:43:27 2018 +0100
+
+    Merge pull request #46 from jwillemsen/jwi-std-confighandlerscleanup
+    
+    Removed STD config handlers, not used at all
+
+commit d313381b8199281b8a98227e78e847ee57e118bd
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 19 07:49:06 2018 +0100
+
+    Removed STD config handlers, not used at all
+    
+        * tools/Config_Handlers/STD_CID_Handler.cpp:
+        * tools/Config_Handlers/STD_CID_Handler.h:
+        * tools/Config_Handlers/STD_CPD_Handler.cpp:
+        * tools/Config_Handlers/STD_CPD_Handler.h:
+        * tools/Config_Handlers/STD_IAD_Handler.cpp:
+        * tools/Config_Handlers/STD_IAD_Handler.h:
+        * tools/Config_Handlers/STD_PCD_Handler.cpp:
+        * tools/Config_Handlers/STD_PCD_Handler.h:
+        * tools/Config_Handlers/STD_PC_Intf.cpp:
+        * tools/Config_Handlers/STD_PC_Intf.h:
+          Deleted.
+
+commit df3b61ac4cd1638a1ec06a5889cd1a0b800c94ec
+Merge: 58e6e84963b 324c8d0fd49
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sun Mar 18 12:53:10 2018 +0100
+
+    Merge pull request #45 from jwillemsen/master
+    
+    Updated xsc banners and fixed typo in error message
+
+commit 324c8d0fd490d22e820f31f723e31bfc5893471d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sun Mar 18 10:56:28 2018 +0100
+
+    Fixed typo in error message
+    
+        * dance/Plan_Launcher/Plan_Launcher_Base_Impl_T.cpp:
+
+commit eb208071f2fb36aa926552a60da9c7f3ab602535
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sun Mar 18 10:56:03 2018 +0100
+
+    Link to xsc repo for when users want to submit improvements to the generated code
+    
+        * docs/schema/xsc-banner.cpp:
+        * docs/schema/xsc-banner.h:
+
+commit 58e6e84963b403134e47d6614ce2ca6583165548
+Merge: 76dae0c03ba 3ea20e154c4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 7 09:36:15 2018 +0100
+
+    Merge pull request #44 from jwillemsen/master
+    
+    Added issue template
+
+commit 3ea20e154c46a245a4a96141d10becaec0d83511
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 7 09:35:01 2018 +0100
+
+    Added issue template
+    
+        * .github/issue_template.md:
+          Added.
+
+commit 76dae0c03ba702363b3e25818c96095098b2f5e2
+Merge: 2b6b6b245f8 1dad650a0f5
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 18:08:25 2018 +0100
+
+    Merge pull request #43 from jwillemsen/master
+    
+    Improve generated code
+
+commit 1dad650a0f509dae07efb46ce47dc36fbc73d6ba
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 16:06:52 2018 +0100
+
+    Add some more typedefs to make the generated code easier
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit 17decd935375e7bb591d7eaa904cec2f82a9b068
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 15:24:31 2018 +0100
+
+    Regenerated
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.cpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit 37635e3d88476a779ab80bd68c7e624d58ed3bc6
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 15:03:28 2018 +0100
+
+    Regenerated with latest xsc
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.cpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit bf5325508ac57b38bbd7b5d5d4f362758b852fab
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 14:39:54 2018 +0100
+
+    More dense code
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit 0b540eced681e7d7fa663ee5c7f5887ec0ff2153
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 14:35:41 2018 +0100
+
+    Regenerated with latest xsc
+    
+        * README.md:
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/Deployment.cpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.cpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit 2b6b6b245f8a2c95907f245734fdbce997b1f81f
+Merge: 953fcc3d368 07829adae3b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 12:34:44 2018 +0100
+
+    Merge pull request #42 from jwillemsen/master
+    
+    Added codacy badge and regenerated with xsc several files
+
+commit 07829adae3bce108cd1bd9789ac07daee1402b43
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 11:23:40 2018 +0100
+
+    Regenerated
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit df2ba7fbb04067061bb0ccee5b856e261842aa0c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 11:14:19 2018 +0100
+
+    Regenerated with latest xsc
+    
+        * bin/update_package.py:
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit c15ff30e9c97b266ffe34afc382c5f828c0b465c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 10:49:30 2018 +0100
+
+    Removed trailing whitespaces
+    
+        * bin/PythonDAnCE/generator/__init__.py:
+        * bin/PythonDAnCE/generator/artifact.py:
+        * bin/PythonDAnCE/generator/comp_inst.py:
+        * bin/PythonDAnCE/generator/deploy_requirement.py:
+        * bin/PythonDAnCE/generator/footer.py:
+        * bin/PythonDAnCE/generator/homed_comp_impl.py:
+        * bin/generate_plan.py:
+
+commit cfc48c742d3081f026f91c48472cfcb1a01f69b2
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 10:44:01 2018 +0100
+
+    Generate single argument constructors as explicit
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/Deployment.cpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.cpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit 35bea0d99b410a7c8b7a93e0a7452091ae8a8140
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Jan 27 10:25:35 2018 +0100
+
+    Added codacy badge
+    
+        * README.md:
+
+commit 953fcc3d3680c672efe92c58690b34df25ca6890
+Merge: d1748c49bd3 16f8b1c73d0
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Jan 26 21:33:06 2018 +0100
+
+    Merge pull request #41 from jwillemsen/master
+    
+    Fixed xsc generation flags and regenerated these files
+
+commit 16f8b1c73d0f41238191bf486adf5c6edcfcfa71
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Jan 26 18:44:05 2018 +0100
+
+    Some minor simplifications to the generated xsc code
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/Deployment.cpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+
+commit 065d04a9838f1f8edc708a36071501532285e12d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Jan 26 16:40:17 2018 +0100
+
+    Fixed xsc generation flags and regenerated these files
+    
+        * tools/Config_Handlers/Basic_Deployment_Data.cpp:
+        * tools/Config_Handlers/Basic_Deployment_Data.hpp:
+        * tools/Config_Handlers/Config_Handlers.mpc:
+        * tools/Config_Handlers/Deployment.cpp:
+        * tools/Config_Handlers/Deployment.hpp:
+        * tools/Config_Handlers/XMI.cpp:
+        * tools/Config_Handlers/XMI.hpp:
+        * tools/Config_Handlers/ccd.cpp:
+        * tools/Config_Handlers/ccd.hpp:
+        * tools/Config_Handlers/cdd.cpp:
+        * tools/Config_Handlers/cdd.hpp:
+        * tools/Config_Handlers/cdp.cpp:
+        * tools/Config_Handlers/cdp.hpp:
+        * tools/Config_Handlers/cid.cpp:
+        * tools/Config_Handlers/cid.hpp:
+        * tools/Config_Handlers/cpd.cpp:
+        * tools/Config_Handlers/cpd.hpp:
+        * tools/Config_Handlers/iad.cpp:
+        * tools/Config_Handlers/iad.hpp:
+        * tools/Config_Handlers/pcd.cpp:
+        * tools/Config_Handlers/pcd.hpp:
+        * tools/Config_Handlers/toplevel.cpp:
+        * tools/Config_Handlers/toplevel.hpp:
+
+commit d1748c49bd3084d43f959163b7ef69ce0ac1d426
+Merge: 9e273bd11ea f5429911f71
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Jan 2 12:26:22 2018 +0100
+
+    Merge pull request #40 from jwillemsen/master
+    
+    Updated copyright year
+
+commit f5429911f718d721aa068ef5694da255ff07aa5d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Jan 1 11:24:48 2018 +0100
+
+    Updated copyright year
+    
+        * COPYING:
+
+commit 9e273bd11ea380b95a8f1d2cad4441f03e1c34bb
+Merge: 69492886e3a aa93b4f1622
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Dec 12 08:26:28 2017 +0100
+
+    Merge pull request #39 from jwillemsen/master
+    
+    Use travis_latest
+
+commit aa93b4f1622aae7e48237caecdd377aeddd72982
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Dec 11 21:00:33 2017 +0100
+
+    Use travis_latest
+
+commit 69492886e3a206a2b895ee65241a63ec842255c4
+Merge: 62f79d49136 f20feb53547
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 11 11:05:58 2017 +0100
+
+    Merge pull request #38 from codacy-badger/codacy-badge
+    
+    Add a Codacy badge to README.md
+
+commit f20feb53547b2df1bd157cef6c3cbb6d8d9f47b6
+Author: The Codacy Badger <badger@codacy.com>
+Date:   Sat Nov 11 10:01:18 2017 +0000
+
+    Add Codacy badge
+
+commit 62f79d491360b817df6766dff8d4c7d33b6d9567
+Merge: 511a24ee3ff b2d51593abf
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Oct 21 18:49:48 2017 +0200
+
+    Merge pull request #37 from jwillemsen/jwi-travisclang5
+    
+    Upgrade to clang5
+
+commit b2d51593abf7c32ebe8a4d7668e71da6cba784af
+Merge: 7f1b245daf2 511a24ee3ff
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Oct 21 15:45:07 2017 +0200
+
+    Merge
+
+commit 7f1b245daf236b9a7adbbf4da2cef8df87894c12
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Oct 21 15:39:43 2017 +0200
+
+    More parallel make
+    
+        * .travis.yml:
+
+commit 74a684cd748a9c7b43ec60e7370fe4a7d2aaa032
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Oct 21 15:39:23 2017 +0200
+
+    Disabling inlining and optimization to try to reduce the build time on travis
+    
+        * .travis.yml:
+
+commit 6b47915e6c4e9009c6ba87411a43c7e5454001a4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Oct 21 09:48:15 2017 +0200
+
+    Upgrade to clang5
+
+commit 511a24ee3ff4312f436c1c33acd912686ae0bc77
+Merge: 2e08d0e3e00 7bd0b0ec331
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Sep 8 19:23:29 2017 +0200
+
+    Merge pull request #36 from jwillemsen/jwi-gcc7
+    
+    Use gcc7 on travis-ci
+
+commit 7bd0b0ec33112edce7a485e076519def1597c65d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Sep 8 16:05:33 2017 +0200
+
+    More parallel make
+
+commit d51009b55d437a043696a13d784f375bc1e57953
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Sep 7 12:57:03 2017 +0200
+
+    Use make -j 3
+    
+        * .travis.yml:
+
+commit 090285449fae811691e3ad66d87687ab9a81a915
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 5 16:36:41 2017 +0200
+
+    Use gcc7 on travis-ci
+
+commit 2e08d0e3e005ed6e157d0275d834fc2de2708ea9
+Merge: 230f1759d44 0e94e4f751e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Aug 21 10:23:25 2017 +0200
+
+    Merge pull request #35 from jwillemsen/master
+    
+    Updated links to point to Vanderbilt pages
+
+commit 0e94e4f751e34f3745f24f795045ba8d7d8b5b6e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Aug 21 10:17:28 2017 +0200
+
+    Updated links to point to Vanderbilt pages
+    
+        * COPYING:
+
+commit 230f1759d44a6a49054163beaf00c1dfe00bb50d
+Merge: d3751cb5d5d 5821f1739bc
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Aug 14 14:10:42 2017 +0200
+
+    Merge pull request #34 from jwillemsen/jwi-doxygen
+    
+    Upgrade to latest doxygen
+
+commit 5821f1739bc1b2264066e9a0772e02e51dc808a6
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Aug 14 14:04:43 2017 +0200
+
+    Upgrade to latest doxygen
+    
+        * etc/DAnCE.doxygen:
+
+commit d3751cb5d5d748f05125fac2ad1a25142702bf58
+Merge: 7abddc4fead fc68873b8cb
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Aug 14 10:34:52 2017 +0200
+
+    Merge pull request #33 from jwillemsen/master
+    
+    Update for next release
+
+commit fc68873b8cba5a2b3c289e2a179e3da7e722c13c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Aug 14 10:30:26 2017 +0200
+
+    Update for next release
+    
+        * NEWS:
