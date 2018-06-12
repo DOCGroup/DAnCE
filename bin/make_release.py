@@ -438,8 +438,11 @@ def tag ():
             # Update latest tag
             if opts.release_type == "major":
                 update_latest_tag ("Major")
+                update_latest_tag ("Minor")
+                update_latest_tag ("Micro")
             elif opts.release_type == "minor":
                 update_latest_tag ("Minor")
+                update_latest_tag ("Micro")
             elif opts.release_type == "micro":
                 update_latest_tag ("Micro")
         else:
