@@ -14,6 +14,7 @@ queue:
   - msbuild
   - visualstudio
 
+steps:
 - powershell: |
    $client = new-object System.Net.WebClient
    $client.DownloadFile("http://strawberryperl.com/download/5.28.0.1/strawberry-perl-5.28.0.1-64bit.zip","strawberry-perl.zip");
@@ -37,13 +38,11 @@ queue:
     RepositoryUrl: 'git://github.com/DOCGroup/MPC.git'
     RepositoryPath: '$(Build.SourcesDirectory)\ACE_TAO\ACE\MPC'
 
-steps:
 - task: eliostruyf.build-task.custom-build-task.file-creator@2
   displayName: 'File Creator'
   inputs:
     filepath: '$(Build.SourcesDirectory)\ACE_TAO\ACE\ace\config.h'
     filecontent: '#include "ace/config-win32.h"'
-
 
 - task: BatchScript@1
   displayName: 'Run script perl\perl\bin\perl'
@@ -57,10 +56,3 @@ steps:
   inputs:
     solution: 'DAnCE_TAO.sln'
     maximumCpuCount: true
-
-
-
-
-
-
-
