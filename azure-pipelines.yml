@@ -2,6 +2,7 @@ variables:
    ACE_ROOT: $(Build.SourcesDirectory)\ACE_TAO\ACE
    TAO_ROOT: $(Build.SourcesDirectory)\ACE_TAO\TAO
    DAnCE_ROOT: $(Build.SourcesDirectory)
+   system.prefergit: true
 
 resources:
 - repo: self
@@ -26,17 +27,11 @@ steps:
     archiveFilePatterns: 'strawberry-perl.zip'
     destinationFolder: perl
 
-- task: fakhrulhilal-maktum.GitDownloader.git-downloader.GitDownloader@0
-  displayName: 'Fetch git: git://github.com/DOCGroup/ACE_TAO.git'
-  inputs:
-    RepositoryUrl: 'git://github.com/DOCGroup/ACE_TAO.git'
-    RepositoryPath: '$(Build.SourcesDirectory)\ACE_TAO'
+- powershell: git clone --depth 1 git://github.com/DOCGroup/ACE_TAO.git $(Build.SourcesDirectory)\ACE_TAO
+  displayName: 'git clone ACE_TAO'
 
-- task: fakhrulhilal-maktum.GitDownloader.git-downloader.GitDownloader@0
-  displayName: 'Fetch git: git://github.com/DOCGroup/MPC.git'
-  inputs:
-    RepositoryUrl: 'git://github.com/DOCGroup/MPC.git'
-    RepositoryPath: '$(Build.SourcesDirectory)\ACE_TAO\ACE\MPC'
+- powershell: git clone --depth 1 git://github.com/DOCGroup/MPC.git $(Build.SourcesDirectory)\ACE_TAO\ACE\MPC
+  displayName: 'git clone MPC'
 
 - powershell: |
    '#include "ace/config-win32.h"' > $(Build.SourcesDirectory)\ACE_TAO\ACE\ace\config.h
