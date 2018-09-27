@@ -189,7 +189,7 @@ project(Deployment_NodeApplication_IDL) : install, dancelib_with_idl, dance_outp
 
 // Valuetype library must be linked for this project.
 // Please don't remove.
-project(Deployment_stub) : install, dancelib_with_idl, dance_output, valuetype, ifr_client, messaging, dance_lib, dance_logger, gen_ostream, ami, amh {
+project(Deployment_stub) : install, dancelib_with_idl, dance_output, valuetype, messaging, dance_lib, dance_logger, gen_ostream, ami, amh {
   sharedname   =  DAnCE_Deployment_stub
   after += Deployment_IDL
 
@@ -654,7 +654,7 @@ project(Deployment_NodeApplication_skel) : install, dance_output, dance_deployme
 }
 
 project(Deployment_skel) : install, dance_deployment_stub, dance_output, dancelib_with_idl, portableserver, valuetype, \
-                           ifr_client, naming, dance_lib, dance_logger, messaging, gen_ostream, ami, amh {
+                           naming, dance_lib, dance_logger, messaging, gen_ostream, ami, amh {
   sharedname   =  DAnCE_Deployment_skel
   dynamicflags +=  DEPLOYMENT_SKEL_BUILD_DLL
   after += Deployment_IDL
