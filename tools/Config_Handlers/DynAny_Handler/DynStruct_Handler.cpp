@@ -5,8 +5,8 @@
 #include "Common.h"
 
 #include "ace/Null_Mutex.h"
-#include "tao/IFR_Client/IFR_BasicC.h"
 #include "tao/AnyTypeCode/Struct_TypeCode.h"
+#include "tao/IFR_Client/IFR_BasicC.h"
 
 namespace DAnCE
 {

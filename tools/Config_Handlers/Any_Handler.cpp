@@ -48,7 +48,7 @@ namespace DAnCE
           throw Config_Error (ACE_TEXT (""),
                               ACE_TEXT ("CORBA Exception while extracting into dynany"));
         }
-      catch (Config_Error &ex)
+      catch (const Config_Error &ex)
         {
           throw ex;
         }

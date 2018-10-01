@@ -85,7 +85,7 @@ namespace DAnCE
           throw Config_Error (this->file_,
                               ex._info ().c_str ());
         }
-      catch (Config_Error &ex)
+      catch (const Config_Error &ex)
         {
           throw ex;
         }
@@ -159,7 +159,7 @@ namespace DAnCE
           throw Config_Error (this->file_,
                               ex._info ().c_str ());
         }
-      catch (Config_Error &ex)
+      catch (const Config_Error &ex)
         {
           throw ex;
         }

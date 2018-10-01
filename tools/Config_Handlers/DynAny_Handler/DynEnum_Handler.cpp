@@ -41,7 +41,7 @@ namespace DAnCE
 
           return retval._retn ();
         }
-      catch (DynamicAny::DynAny::InvalidValue)
+      catch (const DynamicAny::DynAny::InvalidValue&)
         {
           DANCE_DEBUG (DANCE_LOG_TERMINAL_ERROR,
             (LM_ERROR,
