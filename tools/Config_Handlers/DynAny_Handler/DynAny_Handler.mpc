@@ -1,5 +1,5 @@
 project (XSC_DynAny_Handler) : install, xerces, dynamicany, typecodefactory, dance_deployment_stub, \
-  dance_config_handlers_base, dance_lib, dance, ifr_client {
+  dance_config_handlers_base, dance_lib, dance {
   after += XSC_XML_Handlers
   libs += XSC_XML_Handlers
   dynamicflags += DYNANY_HANDLER_BUILD_DLL

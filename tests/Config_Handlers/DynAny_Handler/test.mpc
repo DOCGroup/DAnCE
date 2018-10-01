@@ -1,4 +1,4 @@
-project (XSC_DynAny_Test) : dance_config_handlers, ifr_client, danceidldefaults {
+project (XSC_DynAny_Test) : dance_config_handlers, danceidldefaults {
   requires += dummy_label
   exename = test
   macros   += XML_USE_PTHREADS
