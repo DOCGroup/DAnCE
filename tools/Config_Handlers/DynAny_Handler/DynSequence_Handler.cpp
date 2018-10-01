@@ -86,7 +86,7 @@ namespace DAnCE
               retval->set_elements_as_dyn_any (dynseq);
               return retval._retn ();
             }
-          catch (DynamicAny::DynAny::InvalidValue)
+          catch (const DynamicAny::DynAny::InvalidValue&)
             {
               DANCE_DEBUG (DANCE_LOG_TERMINAL_ERROR, (LM_ERROR, ACE_TEXT ("Invalid value provided in XML when trying to ")
                           ACE_TEXT ("populate %ith element of a sequence\n"),

@@ -8,6 +8,7 @@
 #include "tao/TypeCodeFactory/TypeCodeFactory_Adapter_Impl.h"
 #include "tao/AnyTypeCode/AnyTypeCode_methods.h"
 #include "tao/AnyTypeCode/Enum_TypeCode.h"
+#include "tao/IFR_Client/IFR_BasicC.h"
 
 namespace DAnCE
 {
@@ -40,7 +41,7 @@ namespace DAnCE
 
           return retval._retn ();
         }
-      catch (DynamicAny::DynAny::InvalidValue)
+      catch (const DynamicAny::DynAny::InvalidValue&)
         {
           DANCE_DEBUG (DANCE_LOG_TERMINAL_ERROR,
             (LM_ERROR,
