@@ -32,7 +32,7 @@ namespace Deployment
 
       const CORBA::Any &val = Dump_Obj::desc (root);
 
-      ROOT *t = 0;
+      const ROOT *t = 0;
 
       val >>= t;
 
@@ -63,7 +63,7 @@ namespace Deployment
         {
           const CORBA::Any &val = Dump_Obj::desc (root);
 
-          ROOT *t = 0;
+          const ROOT *t = 0;
 
           val >>= t;
 

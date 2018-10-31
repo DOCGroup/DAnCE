@@ -130,21 +130,17 @@ namespace Deployment
     dump ("name", node.name);
     dump ("label", node.label);
 
-#if (_MSC_VER)
     ::Deployment::DnC_Dump_T::dump_ref_seq<Deployment::Domain> (
                                       "sharedResourceRef",
                                       node.sharedResourceRef,
                                       "Domain",
                                       &Domain::sharedResource);
-#endif
 
-#if (_MSC_VER)
     ::Deployment::DnC_Dump_T::dump_ref_seq<Deployment::Domain> (
                                       "connectionRef",
                                       node.connectionRef,
                                       "Domain",
                                       &Domain::interconnect);
-#endif
 
     ::Deployment::DnC_Dump_T::dump_sequence ("resource",
                    node.resource);
@@ -159,20 +155,18 @@ namespace Deployment
     dump ("name", conn.name);
     dump ("label", conn.label);
 
-#if (_MSC_VER)
     ::Deployment::DnC_Dump_T::dump_ref_seq<Deployment::Domain> (
                                       "connectionRef",
                                       conn.connectionRef,
                                       "Domain",
                                       &Domain::bridge);
-#endif
-#if (_MSC_VER)
+
     ::Deployment::DnC_Dump_T::dump_ref_seq<Deployment::Domain> (
                                       "connectRef",
                                       conn.connectRef,
                                       "Domain",
                                       &Domain::node);
-#endif
+
     ::Deployment::DnC_Dump_T::dump_sequence ("resource",
                    conn.resource);
   }
@@ -186,13 +180,11 @@ namespace Deployment
     dump ("name", bridge.name);
     dump ("label", bridge.label);
 
-#if (_MSC_VER)
     ::Deployment::DnC_Dump_T::dump_ref_seq<Deployment::Domain> (
                                       "connectRef",
                                       bridge.connectRef,
                                       "Domain",
                                       &Domain::interconnect);
-#endif
 
     ::Deployment::DnC_Dump_T::dump_sequence ("resource", bridge.resource);
   }
@@ -441,11 +433,9 @@ namespace Deployment
     dump ("name", mdd.name);
     dump ("source", mdd.source);
 
-#if (_MSC_VER)
     ::Deployment::DnC_Dump_T::dump_ref_seq<Deployment::DeploymentPlan> ("artifactRef", mdd.artifactRef,
                                               "DeploymentPlan",
                                               &DeploymentPlan::artifact);
-#endif
     ::Deployment::DnC_Dump_T::dump_sequence ("execParameter", mdd.execParameter);
     ::Deployment::DnC_Dump_T::dump_sequence ("deployRequirement", mdd.deployRequirement);
   }
@@ -508,13 +498,11 @@ namespace Deployment
     dump ("node", idd.node);
     dump ("source", idd.source);
 
-#if (_MSC_VER)
     ::Deployment::DnC_Dump_T::dump_ref<Deployment::DeploymentPlan>
       ("implementationRef",
        idd.implementationRef,
        "DeploymentPlan",
        &DeploymentPlan::implementation);
-#endif
     ::Deployment::DnC_Dump_T::dump_sequence ("configProperty", idd.configProperty);
     ::Deployment::DnC_Dump_T::dump_sequence ("deployedResource", idd.deployedResource);
     ::Deployment::DnC_Dump_T::dump_sequence ("deployedSharedResource", idd.deployedSharedResource);
@@ -570,12 +558,10 @@ namespace Deployment
         (LM_DEBUG, "Unknown port kind\n"));
       break;
     }
-#if (_MSC_VER)
     ::Deployment::DnC_Dump_T::dump_ref<Deployment::DeploymentPlan>
       ("instanceRef", pspe.instanceRef,
        "DeploymentPlan",
        &DeploymentPlan::instance);
-#endif
   }
 
   // ExternalReferenceEndpoint
@@ -624,12 +610,10 @@ namespace Deployment
 
     dump ("propertyName", pspr.propertyName);
 
-#if (_MSC_VER)
     ::Deployment::DnC_Dump_T::dump_ref<Deployment::DeploymentPlan>
       ("instanceRef", pspr.instanceRef,
        "DeploymentPlan",
        &DeploymentPlan::instance);
-#endif
   }
 
   // PlanPropertyMapping
