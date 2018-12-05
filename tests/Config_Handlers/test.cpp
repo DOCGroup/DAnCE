@@ -94,7 +94,6 @@ int ACE_TMAIN (int argc, ACE_TCHAR *argv[])
   return 0;
 }
 
-
 void check_srd (const Deployment::DeploymentPlan &dp)
 {
   for (CORBA::ULong i = 0;
@@ -114,4 +113,3 @@ void check_srd (const Deployment::DeploymentPlan &dp)
     }
 
 }
-
