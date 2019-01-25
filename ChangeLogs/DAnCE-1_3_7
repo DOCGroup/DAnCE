@@ -1,0 +1,527 @@
+commit fdd759db149f5b3c462365b10364e1e0a1098207
+Merge: 24762886229 99395acaf8a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jan 24 13:35:58 2019 +0100
+
+    Merge pull request #84 from jwillemsen/master
+    
+    Fixed old email address
+
+commit 99395acaf8ad99b5ee8b247ecdf7083b85d45055
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jan 24 13:27:26 2019 +0100
+
+    Link to github for reporting issues
+
+commit b4a6c4409524c7e9a180cd16eaeff0ae79391543
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jan 24 13:12:54 2019 +0100
+
+    List changes for next release
+    
+        * NEWS:
+
+commit a24e5eb1022287657f7b175b3dfa9b7720e4d6a4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jan 24 12:59:24 2019 +0100
+
+    Fixed old email address
+
+commit 247628862295ad0d5d852b79f824bc334f9ca9ba
+Merge: ab5a9ee1ad4 7d320f8e6ea
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jan 24 11:15:37 2019 +0100
+
+    Merge pull request #83 from jwillemsen/master
+    
+    Removed reference to comp.soft-sys.ace, not used really anymore
+
+commit 7d320f8e6ea005aa85cf8f9b2de7ba25a69736b4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jan 24 10:43:38 2019 +0100
+
+    Removed reference to comp.soft-sys.ace, not used really anymore
+    
+        * DAnCE-INSTALL.html:
+
+commit ab5a9ee1ad431deac0f491994b3d4b7662cf4e71
+Merge: 07e18872bbc 585f3ad9be6
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jan 3 15:51:47 2019 +0100
+
+    Merge pull request #82 from jwillemsen/master
+    
+    Add latest release badge
+
+commit 585f3ad9be60a0a08af34de1fb0a949fcc1bdf43
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jan 3 12:47:52 2019 +0100
+
+    Add latest release badge
+    
+        * README.md:
+
+commit 07e18872bbcd123265753c131c6e351b2e282f1d
+Merge: ffcce038a93 83c9657108a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Dec 31 13:53:07 2018 +0100
+
+    Merge pull request #81 from jwillemsen/master
+    
+    Updated copyright year
+
+commit 83c9657108a8ef8dae4a927ed2e1ee8e1f34504f
+Merge: 317da60d06d ffcce038a93
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Dec 31 10:11:33 2018 +0100
+
+    Merge branch 'master' of https://github.com/DOCGroup/DAnCE
+
+commit 317da60d06db4eebe144ec81ecf13c569f5d661f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Dec 31 10:11:23 2018 +0100
+
+    Updated copyright year
+
+commit ffcce038a939b03647080ae77ad2d128eea50f77
+Merge: 2b65e156709 b1a342be9c9
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Dec 7 10:27:33 2018 +0100
+
+    Merge pull request #80 from jwillemsen/master
+    
+    Updated travis-ci badge
+
+commit b1a342be9c9faadec287052f1d6081a1326718fd
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Dec 7 08:49:16 2018 +0100
+
+    Updated travis-ci badge
+    
+        * README.md:
+
+commit 2b65e15670903c8cb549db51de9406a4bc0bfbdc
+Merge: 4aa81febeb7 22d8022aa3d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Dec 5 21:32:07 2018 +0100
+
+    Merge pull request #79 from jwillemsen/jwi-azuretest
+    
+    Layout change to test azure
+
+commit 22d8022aa3de7c390f0b2b88624fb2712cd28b70
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Dec 5 16:21:11 2018 +0100
+
+    Layout change to test azure
+    
+        * tests/Config_Handlers/test.cpp:
+
+commit 4aa81febeb7ff5b500543d69239ee24c6f07860c
+Merge: 71da80748d0 b9b75fc0803
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Nov 29 13:32:38 2018 +0100
+
+    Merge pull request #78 from jwillemsen/jwi-azureclang
+    
+    Migrate clang5/6/7 builds to run on azure-devops
+
+commit b9b75fc080384a6674de991b292cbdd964271ae6
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Nov 29 09:08:44 2018 +0100
+
+    Migrate clang5/6/7 builds to run on azure-devops
+    
+        * .travis.yml:
+        * azure-pipelines.yml:
+
+commit 71da80748d0fb0ca7e2427c7e2290b372c46d313
+Merge: 33ce9fa1594 0e999e1ca4a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Nov 5 19:01:10 2018 +0100
+
+    Merge pull request #77 from jwillemsen/jwi-travisci-nosudo
+    
+    Don't use sudo anymore as described in https://blog.travis-ci.com/201…
+
+commit 0e999e1ca4a79337bd04ffa230234fa21c0ff960
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Nov 5 16:43:55 2018 +0100
+
+    Don't use sudo anymore as described in https://blog.travis-ci.com/2018-10-04-combining-linux-infrastructures
+
+commit 33ce9fa15943ad88c30dfd60594694a2859d4222
+Merge: 5aa30501392 af095d3a9b8
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Nov 2 12:49:13 2018 +0100
+
+    Merge pull request #76 from jwillemsen/jwi-azuredevopsxercesc
+    
+    Add vcpkg with xercesc/openssl to Windows jobs
+
+commit af095d3a9b85a6011ec2c3cb69c524eb5c3d7cb9
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Nov 2 10:47:50 2018 +0100
+
+    Add vcpkg with xercesc/openssl to Windows jobs
+
+commit 5aa305013924145915ea40b5bf8ffabd076307fa
+Merge: 9ebb7b84dfe 13df1ee0386
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Nov 1 22:41:05 2018 +0100
+
+    Merge pull request #75 from jwillemsen/jwi-nodeprecatedtravis
+    
+    Disable deprecated warnings with clang on travisci
+
+commit 13df1ee03865d11e86a780ad4cf2726d93ad3381
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Nov 1 11:36:03 2018 +0100
+
+    Disable deprecated warnings with clang on travisci
+    
+        * .travis.yml:
+
+commit 9ebb7b84dfe0b95396f5a5440cef1985b52e19eb
+Merge: 772d163e9fc 411eaebe8ee
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Nov 1 09:50:25 2018 +0100
+
+    Merge pull request #74 from jwillemsen/jwi-dumpalways
+    
+    Always dump the content when requested, not only with msvc
+
+commit 411eaebe8eeeff9200586d41870ca0d6cfc599e9
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Oct 31 19:50:09 2018 +0100
+
+    Always dump the content when requested, not only with msvc
+    
+        * tools/Config_Handlers/DnC_Dump.cpp:
+        * tools/Config_Handlers/DnC_Dump_T.cpp:
+
+commit 772d163e9fc6e9a519c116178c20377a3b1ad04f
+Merge: 855096ffcb8 dbb7b15cab4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Oct 31 19:11:25 2018 +0100
+
+    Merge pull request #73 from jwillemsen/jwi-extendedazuredevops
+    
+    Test with gcc4/6/7/8 on azure-devops
+
+commit dbb7b15cab49283527fb2c458f482785d64d3d26
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Oct 31 15:39:44 2018 +0100
+
+    No clang compilation for the moment on azure, not working yet
+
+commit 47c0bca27f368390419c499be97435e8bca01aea
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Oct 31 15:23:06 2018 +0100
+
+    Changed optional repo usage
+
+commit 8cdd2b37f68469946bd0dc2de476092090863e3e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Oct 31 15:13:29 2018 +0100
+
+    Fixed indent
+
+commit 7a065c08cfa4e5d7a7d0b5f33a16b440848f273b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Oct 31 15:05:37 2018 +0100
+
+    Add necessary clang repo
+    
+        * azure-pipelines.yml:
+
+commit e6433b25146234599eec0dd3e62ff10798b22d34
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Oct 31 13:31:07 2018 +0100
+
+    Add gcc6/7/8 and clang5/6/7 to azure devops
+    
+        * azure-pipelines.yml:
+
+commit 855096ffcb83ad531f02ffdea340a60a0fe81336
+Merge: 86a33b5fce7 db357029f2e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Oct 23 13:44:18 2018 +0200
+
+    Merge pull request #72 from jwillemsen/master
+    
+    Add clang7 to travis-ci configuration
+
+commit db357029f2eaae5038dc9218a27f59d3d610e2bc
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Oct 23 10:46:32 2018 +0200
+
+    Add clang7 to travis-ci configuration
+
+commit 86a33b5fce705744d96aa51b7f82232a922c940e
+Merge: 678e849a0f9 666b1e1b65f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Oct 20 19:42:21 2018 +0100
+
+    Merge pull request #71 from jwillemsen/master
+    
+    Add xerces3 and ssl to azure linux job
+
+commit 666b1e1b65fb4909e53b161d49bcdb85a5f55705
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Oct 20 19:01:20 2018 +0200
+
+    Add xerces3 and ssl to azure linux job
+
+commit 678e849a0f921e0e22c6609372444b07b12a545b
+Merge: 793328e96d2 a07d2f1d02c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Oct 5 10:48:05 2018 +0100
+
+    Merge pull request #70 from jwillemsen/jwi-azuredevopsmacosx
+    
+    Compile more msvc2017 configurations and simplified quoting
+
+commit a07d2f1d02cb5a3f4503cbc384b2f6f297ac6a2b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Oct 5 08:53:27 2018 +0200
+
+    Compile more msvc2017 configurations and simplified quoting
+
+commit 793328e96d248a74a856709ac9e5bd2ac3f4633e
+Merge: 7690b1b5acc a4a47660b05
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 1 13:28:52 2018 +0100
+
+    Merge pull request #69 from jwillemsen/jwi-azuredevopsmacosx
+    
+    Added MacOSX job
+
+commit a4a47660b0507267dd35830739eb82be929545d4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 1 13:30:15 2018 +0200
+
+    Added MacOSX job
+    
+        * azure-pipelines.yml:
+
+commit 7690b1b5acc834dc0c9aa9c7ee535509972364b5
+Merge: a8d0b4a5061 c8bbeb0e85f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 1 12:17:18 2018 +0100
+
+    Merge pull request #68 from jwillemsen/jwi-ifrclient
+    
+    Removed some IFR Client includes and catch some more exceptions as const&
+
+commit c8bbeb0e85f2e25f6c09fbcdca55a1ea93631804
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 1 11:59:06 2018 +0200
+
+    ifr client is partly used but reduced includes, catch exceptions by const&
+    
+        * tests/Config_Handlers/Config_Handlers.mpc:
+        * tests/Config_Handlers/DynAny_Handler/test.mpc:
+        * tests/Config_Handlers/Package_Handlers/Package_Handlers.mpc:
+        * tools/Config_Handlers/Any_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynAny_Handler.mpc:
+        * tools/Config_Handlers/DynAny_Handler/DynArray_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynEnum_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynSequence_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynStruct_Handler.cpp:
+        * tools/Config_Handlers/XML_File_Intf.cpp:
+
+commit c5bb5519e580f1efb217ffc590515b48195887c2
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 1 11:51:22 2018 +0200
+
+    Removed not used references to ifr_client
+    
+        * tests/Config_Handlers/Config_Handlers.mpc:
+        * tests/Config_Handlers/DynAny_Handler/test.mpc:
+        * tests/Config_Handlers/Package_Handlers/Package_Handlers.mpc:
+        * tools/Config_Handlers/DynAny_Handler/DynAlias_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynAny_Handler.mpc:
+        * tools/Config_Handlers/DynAny_Handler/DynArray_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynEnum_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynSequence_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynString_Handler.cpp:
+        * tools/Config_Handlers/DynAny_Handler/DynStruct_Handler.cpp:
+
+commit a8d0b4a506199049ac62e33d8c860d3b0bdd1993
+Merge: ee4e4e756b8 0c0b1cad645
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sun Sep 30 10:21:22 2018 +0100
+
+    Merge pull request #67 from mitza-oci/master
+    
+    DAnCE_Deployment_stub depends on TAO's ifr_client
+
+commit 0c0b1cad6459415990774c16f684f67ef43fdc4a
+Author: Adam Mitz <mitza@ociweb.com>
+Date:   Thu Sep 27 12:52:25 2018 -0500
+
+    Deployment_Core: removed dependency on ifr_client
+
+commit b7360932e27e163415a071454c76b5d08e014723
+Author: Adam Mitz <mitza@ociweb.com>
+Date:   Thu Sep 27 12:51:02 2018 -0500
+
+    Revert "DAnCE_Deployment_stub depends on TAO's ifr_client"
+    
+    This reverts commit 2c137605314e687c5f078184997c725813b313c3.
+
+commit 2c137605314e687c5f078184997c725813b313c3
+Author: Adam Mitz <mitza@ociweb.com>
+Date:   Wed Sep 26 17:37:02 2018 -0500
+
+    DAnCE_Deployment_stub depends on TAO's ifr_client
+
+commit ee4e4e756b82dd966d5593fd31c3298eabe7e01a
+Merge: 4c2dd4264db 6729ad6f2ad
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 25 16:05:42 2018 +0100
+
+    Merge pull request #66 from jwillemsen/jwi-azurepipelines
+    
+    Use more platforms on azure
+
+commit 6729ad6f2adbf6747aef39ccbe4ba3f8fc7de32a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 25 14:28:39 2018 +0200
+
+    Use more platforms on azure
+    
+        * azure-pipelines.yml:
+
+commit 4c2dd4264dbd8ef2ba1cc47bc36b18cb1182522f
+Merge: 6798e75ce1c 6ded62e8ea2
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 18 13:37:50 2018 +0100
+
+    Merge pull request #65 from jwillemsen/master
+    
+    Upgraded to latest doxygen file version format
+
+commit 6ded62e8ea260d49cf18c1f630c3cef5a45532be
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 18 14:37:26 2018 +0200
+
+    Upgraded to latest doxygen file version format
+    
+        * etc/DAnCE.doxygen:
+
+commit 6798e75ce1ca84a903da4eb1c3ab93e7fb09bb3a
+Merge: 3451a81ac18 95e37782584
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Sep 13 11:06:15 2018 +0100
+
+    Merge pull request #64 from jwillemsen/master
+    
+    Use powershel for the additional git clones we need
+
+commit 95e37782584bb35e43ee97961df95325808e1cec
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Sep 13 11:26:34 2018 +0200
+
+    Use powershel for the additional git clones we need
+
+commit 3451a81ac1817b654f0acb7938715d145997e48a
+Merge: 1926ca9d163 c741fa07c1b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Sep 13 09:54:51 2018 +0100
+
+    Merge pull request #63 from jwillemsen/master
+    
+    Use powershell to create config.h
+
+commit c741fa07c1b5002af32e99a33859861b5544f946
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Sep 13 09:45:17 2018 +0200
+
+    Use powershell to create config.h
+
+commit 98ab39af552f3817cc391c49d1a83d91765138a8
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Sep 13 09:43:51 2018 +0200
+
+    Use powershell to create config.h
+
+commit 1926ca9d163e93bd85ff0eee1a8e11ca0653490c
+Merge: a68d800eb6e f14ba6498b1
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 11 17:47:19 2018 +0100
+
+    Merge pull request #62 from jwillemsen/master
+    
+    Fixed mwc invocation
+
+commit f14ba6498b1182bb3586b95f598fcb37c492873c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 11 18:46:46 2018 +0200
+
+    Fixed mwc invocation
+
+commit a68d800eb6e4cc00f546c5b2d42b65c7bbb32746
+Merge: b0d6b747257 e55f206c7bc
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 11 17:42:16 2018 +0100
+
+    Merge pull request #61 from jwillemsen/master
+    
+    Added Azure badge
+
+commit e55f206c7bcd80f03aa6219ed378187679b7ad32
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 11 18:41:22 2018 +0200
+
+    Added Azure badge
+
+commit b0d6b7472570eaa2c5a8a08066b258a75d8cdded
+Merge: 47c3fd6126a 8c61e5f822c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 11 17:37:32 2018 +0100
+
+    Merge pull request #60 from jwillemsen/master
+    
+    Fixed pipeline
+
+commit 8c61e5f822cbfbe11254f5c98e02c70b8dcc440a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 11 18:35:44 2018 +0200
+
+    Fixed pipeline
+    
+        * azure-pipelines.yml:
+
+commit 47c3fd6126a3bed20d6fcecd2a915ad2a5f25c3e
+Merge: 515eba4fc2b 4bcb8866662
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 11 17:30:47 2018 +0100
+
+    Merge pull request #59 from jwillemsen/master
+    
+    Starter file for Azure Devops
+
+commit 4bcb8866662f21b28147d2f7683544f84629003d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Sep 11 18:30:19 2018 +0200
+
+    Starter file for Azure Devops
+
+commit 515eba4fc2bf77b14a44f4ebc9a7b09b4b0d33ef
+Merge: c322ae3de1c 5e9d5005f7e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Jun 12 11:01:39 2018 +0200
+
+    Merge pull request #58 from jwillemsen/master
+    
+    When making a new minor also update micro tag
+
+commit 5e9d5005f7eeb8c04e3341d797941d34071f3460
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Jun 12 10:06:29 2018 +0200
+
+    When making a new minor also update micro tag
+    
+        * bin/make_release.py:
