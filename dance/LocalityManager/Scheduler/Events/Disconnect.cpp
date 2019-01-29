@@ -86,6 +86,5 @@ namespace DAnCE
   Disconnect_Instance::create_valid_result (Event_Result &)
   {
     DANCE_TRACE ("Disconnect_Instance::create_valid_result");
-    // no-op
   }
 }

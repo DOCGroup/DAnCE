@@ -88,6 +88,5 @@ namespace DAnCE
   Remove_Instance::create_valid_result (Event_Result &)
   {
     DANCE_TRACE ("Remove_Instance::create_valid_result");
-    // no-op
   }
 }

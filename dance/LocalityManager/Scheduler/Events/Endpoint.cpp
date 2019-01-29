@@ -39,8 +39,6 @@ namespace DAnCE
   Endpoint_Reference::invoke_pre_interceptor (Plugin_Manager::INTERCEPTORS::const_iterator &)
   {
     DANCE_TRACE ("Endpoint_Reference::invoke_pre_interceptor");
-
-    // no-op
   }
 
 
@@ -93,6 +91,5 @@ namespace DAnCE
   {
     DANCE_TRACE ("Endpoint_Reference::create_valid_result");
     result.contents_ = this->ref_._retn ();
-    // no-op
   }
 }

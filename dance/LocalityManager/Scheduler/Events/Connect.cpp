@@ -92,6 +92,5 @@ namespace DAnCE
   Connect_Instance::create_valid_result (Event_Result &)
   {
     DANCE_TRACE ("Connect_Instance::create_valid_result");
-    // no-op
   }
 }

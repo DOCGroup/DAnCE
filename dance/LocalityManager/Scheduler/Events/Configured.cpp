@@ -86,6 +86,5 @@ namespace DAnCE
   Instance_Configured::create_valid_result (Event_Result &)
   {
     DANCE_TRACE ("Instance_Configured::create_valid_result");
-    // no-op
   }
 }
