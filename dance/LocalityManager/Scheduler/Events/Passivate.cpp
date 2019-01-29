@@ -89,6 +89,5 @@ namespace DAnCE
   Passivate_Instance::create_valid_result (Event_Result &)
   {
     DANCE_TRACE ("Passivate_Instance::create_valid_result");
-    // no-op
   }
 }
