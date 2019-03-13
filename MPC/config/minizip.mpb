@@ -2,5 +2,5 @@
 project {
   after    += minizip
   libs     += minizip
-  includes += $(ACE_ROOT)/contrib
+  includes += $(DANCE_ROOT)/contrib
 }
