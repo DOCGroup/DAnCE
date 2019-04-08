@@ -1,0 +1,154 @@
+commit 5089e4183cd557a3775ec14fac21ee4bad6ea5ee
+Merge: 8dd42d8590f 40152964a48
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 13 16:13:54 2019 +0000
+
+    Merge pull request #90 from jwillemsen/jwi-minizip
+    
+    Add minizip coming from ACE, only used by DAnCE
+
+commit 40152964a48e937da8ebbd1dc934d0aa4c10650c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 13 15:52:13 2019 +0100
+
+    Add remark about minizip
+
+commit 7085fa7fbf1937abc4699762a60f8ce782f426cb
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 13 15:36:40 2019 +0100
+
+    Updated includes for minizip
+    
+        * MPC/config/minizip.mpb:
+
+commit 4c0848732d3cfe4614c985169742bcef77d9e651
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 13 15:33:49 2019 +0100
+
+    Moved minizip from ACE to DAnCE
+
+commit 8dd42d8590f435352c8c336d20caf75298e4a02c
+Merge: f005f9d4198 5596f713cd1
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Mar 5 16:58:28 2019 +0100
+
+    Merge pull request #89 from jwillemsen/jwi-azurevcpkg
+    
+    vcpkg is pre installed on vs2017-win2016
+
+commit 5596f713cd165e0d15dd0f090254ca89e447bb22
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Mar 5 08:53:00 2019 +0100
+
+    Fixed libdir
+    
+        * azure-pipelines.yml:
+
+commit dc45fe3641f064f5deff78582a7266794c3eb9de
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 4 21:35:05 2019 +0100
+
+    Add vcpkg root
+
+commit 6fabf55d5c62cd50354cc26b4985e50d11d35afb
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 4 19:00:49 2019 +0100
+
+    Fixes SSL_INCDIR
+
+commit f4d841ba4f11b149b94ab342139577bfd773b1a1
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 4 18:39:29 2019 +0100
+
+    vcpkg is pre installed on vs2017-win2016
+
+commit f005f9d41984b91d941228d1fb8433eeca20b205
+Merge: 104ee4a90c7 fda3173663e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Feb 6 18:23:06 2019 +0100
+
+    Merge pull request #88 from jwillemsen/master
+    
+    Use one script for vcpkg and add openssl/xercesc to Visual Studio 2015
+
+commit fda3173663ee721e1dd7ed9f7f002b9616e49d95
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Feb 6 12:54:57 2019 +0100
+
+    Add missing platform and configuration
+
+commit c11bbbf1ebebeb3bb875c843a07fbd7779583ab4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Feb 6 11:15:29 2019 +0100
+
+    Add missing variables for Visual Studio 2015
+
+commit 73914af9f5c66c1be1237b48317c2730cd587028
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Feb 6 09:03:51 2019 +0100
+
+    Added strategy section
+    
+        * azure-pipelines.yml:
+
+commit da12c6087b756d8b079556f188209feaf93a0e47
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Feb 6 08:59:15 2019 +0100
+
+    Use one script for vcpkg and add openssl/xercesc to Visual Studio 2015
+    
+        * azure-pipelines.yml:
+
+commit 104ee4a90c7284a2f8b8a2db5efc7e33381b78b2
+Merge: 0bd3ab73d38 5a55a4624d7
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 30 11:35:30 2019 +0100
+
+    Merge pull request #87 from jwillemsen/master
+    
+    Point to github for the latest MPC documentation
+
+commit 5a55a4624d7499d6967edf196fdf8391600b2354
+Merge: 7c1bf8b5d75 0bd3ab73d38
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 30 11:29:20 2019 +0100
+
+    Merge branch 'master' of https://github.com/DOCGroup/DAnCE
+
+commit 7c1bf8b5d75d4ec00114d09765dae95fad033e31
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 30 11:29:15 2019 +0100
+
+    Point to github for the latest MPC documentation
+
+commit 0bd3ab73d3800690a2489b4043e84295ed4c09a2
+Merge: 155f5325fbe 1840cd90dad
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Jan 29 13:37:09 2019 +0100
+
+    Merge pull request #86 from jwillemsen/master
+    
+    Removed some unncessary noop comments
+
+commit 1840cd90dadfcf3e45fe11263432b5f0de94d962
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Jan 29 11:12:22 2019 +0100
+
+    Removed some unncessary noop comments
+
+commit 155f5325fbef6eca4c821ee9fa1a596a7ac5a43e
+Merge: 9caf29175a8 aa74d62c85f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Jan 25 10:42:52 2019 +0100
+
+    Merge pull request #85 from jwillemsen/master
+    
+    Prepare for next micro release
+
+commit aa74d62c85ff4021730a0dcb1b638413096055cb
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Jan 25 10:13:54 2019 +0100
+
+    Prepare for next micro release
+    
+        * NEWS:
