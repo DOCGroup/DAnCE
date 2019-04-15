@@ -52,9 +52,9 @@ jobs:
       $(VCPKG_ROOT)\bootstrap-vcpkg.bat
       $(VCPKG_ROOT)\vcpkg install --recurse --triplet $(vcpkgarch) $(vcpkgpackages)
     displayName: Install additional packages using vcpkg
-  - powershell: git clone --depth 1 git://github.com/DOCGroup/ACE_TAO.git $(Build.SourcesDirectory)\ACE_TAO
+  - powershell: git clone -q --depth 1 git://github.com/DOCGroup/ACE_TAO.git $(Build.SourcesDirectory)\ACE_TAO
     displayName: git clone ACE_TAO
-  - powershell: git clone --depth 1 git://github.com/DOCGroup/MPC.git $(MPC_ROOT)
+  - powershell: git clone -q --depth 1 git://github.com/DOCGroup/MPC.git $(MPC_ROOT)
     displayName: git clone MPC
   - powershell: |
       '#include "ace/config-win32.h"' > $(ACE_ROOT)\ace\config.h
@@ -102,9 +102,9 @@ jobs:
       $(VCPKG_ROOT)\bootstrap-vcpkg.bat
       $(VCPKG_ROOT)\vcpkg install --recurse --triplet $(vcpkgarch) $(vcpkgpackages)
     displayName: Install additional packages using vcpkg
-  - powershell: git clone --depth 1 git://github.com/DOCGroup/ACE_TAO.git $(Build.SourcesDirectory)\ACE_TAO
+  - powershell: git clone -q --depth 1 git://github.com/DOCGroup/ACE_TAO.git $(Build.SourcesDirectory)\ACE_TAO
     displayName: git clone ACE_TAO
-  - powershell: git clone --depth 1 git://github.com/DOCGroup/MPC.git $(MPC_ROOT)
+  - powershell: git clone -q --depth 1 git://github.com/DOCGroup/MPC.git $(MPC_ROOT)
     displayName: git clone MPC
   - powershell: |
       '#include "ace/config-win32.h"' > $(ACE_ROOT)\ace\config.h
