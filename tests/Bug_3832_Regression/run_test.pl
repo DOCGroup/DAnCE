@@ -1,10 +1,10 @@
-
-
 eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}'
      & eval 'exec perl -S $0 $argv:q'
      if 0;
 
 # -*- perl -*-
+
+$DANCE_ROOT = "$ENV{'DANCE_ROOT'}";
 
 use lib "$ENV{ACE_ROOT}/bin";
 use PerlACE::TestTarget;
@@ -22,7 +22,7 @@ $server->DeleteFile($TestCaseC_i);
 $ENV {'DANCE_LOG_LEVEL'} = 10;
 $ENV {'DANCE_LOG_FILE'} = 'test.log';
 
-$SV = $server->CreateProcess ("../../bin/dance_node_manager", "");
+$SV = $server->CreateProcess ("$DANCE_ROOT/bin/dance_locality_manager", "");
 
 $server_status = $SV->Spawn ();
 
@@ -38,7 +38,7 @@ if ($server->WaitForFileTimed ($TestCaseC_i,
     exit 1;
 }
 
-$server_status = $SV->TerminateWaitKill ($server->ProcessStopWaitInterval());
+$server_status = $SV->Kill ($server->ProcessStopWaitInterval());
 
 # Test for the presence of LM_ERROR
 $found = 0 ;
