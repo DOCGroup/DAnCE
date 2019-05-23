@@ -219,9 +219,7 @@ namespace DAnCE
   ssize_t
   NDDS_Log_Backend::log (ACE_Log_Record  &log_record)
   {
-    Log_Record *instance (0);
-
-    instance = Log_RecordTypeSupport::create_data_ex (DDS_BOOLEAN_FALSE);
+    Log_Record *instance = Log_RecordTypeSupport::create_data_ex (DDS_BOOLEAN_FALSE);
 
     if (instance == 0)
       {
@@ -230,7 +228,6 @@ namespace DAnCE
       }
 
     instance->node = this->node_.c_str ();
-    instance->pid = log_record.pid ();
     instance->pid = log_record.pid ();
     instance->message = ACE_TEXT_ALWAYS_CHAR (log_record.msg_data ());
 
