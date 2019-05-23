@@ -7,7 +7,6 @@
 
 module DAnCE
 {
-
   struct Log_Record
   {
     /// The name of the node this originates from, if available
