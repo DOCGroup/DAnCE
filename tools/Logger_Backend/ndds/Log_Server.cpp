@@ -62,7 +62,7 @@ ACE_TMAIN (int argc, ACE_TCHAR **argv)
 
   if (!parse_args (argc, argv))
     {
-      ACE_ERROR ((LM_EMERGENCY, ACE_TEXT ("Unable to parse commad line options\n")));
+      ACE_ERROR ((LM_EMERGENCY, ACE_TEXT ("Unable to parse command line options\n")));
       return -1;
     }
 

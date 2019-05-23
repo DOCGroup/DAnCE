@@ -71,6 +71,4 @@ namespace DAnCE
   ACE_FACTORY_DECLARE (DAnCE_NDDS_Log, NDDS_Log_Backend);
 }
 
-
-
 #endif
