@@ -70,6 +70,14 @@ namespace DAnCE
 #include "ace/Null_Mutex.h"
 #include "ace/ace_wchar.h"
 
+#if !defined(XML_XSC_SMART_PTR)
+# if defined(ACE_HAS_CPP11)
+#   define XML_XSC_SMART_PTR(X) std::unique_ptr<X>
+# else
+#   define XML_XSC_SMART_PTR(X) std::auto_ptr<X>
+# endif
+#endif
+
 #include "XMI.hpp"
 
 namespace DAnCE
@@ -91,7 +99,7 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) href_auto_ptr_type;
       href_auto_ptr_type href_;
 
       // idref
@@ -105,7 +113,7 @@ namespace DAnCE
       void set_idref_ptr (const std::basic_string<ACE_TCHAR>& idref);
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::IDREF<ACE_TCHAR> ) idref_auto_ptr_type;
       idref_auto_ptr_type idref_;
 
       public:
@@ -200,7 +208,7 @@ namespace DAnCE
       void kind (::DAnCE::Config_Handlers::TCKind const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::TCKind > kind_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::TCKind ) kind_auto_ptr_type;
       kind_auto_ptr_type kind_;
 
       // enum
@@ -210,7 +218,7 @@ namespace DAnCE
       void enum_ (::DAnCE::Config_Handlers::EnumType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::EnumType > enum__auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::EnumType ) enum__auto_ptr_type;
       enum__auto_ptr_type enum__;
 
       // struct
@@ -220,7 +228,7 @@ namespace DAnCE
       void struct_ (::DAnCE::Config_Handlers::StructType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::StructType > struct__auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::StructType ) struct__auto_ptr_type;
       struct__auto_ptr_type struct__;
 
       // value
@@ -230,7 +238,7 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::ValueType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ValueType > value_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ValueType ) value_auto_ptr_type;
       value_auto_ptr_type value_;
 
       // sequence
@@ -240,7 +248,7 @@ namespace DAnCE
       void sequence (::DAnCE::Config_Handlers::SequenceType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::SequenceType > sequence_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::SequenceType ) sequence_auto_ptr_type;
       sequence_auto_ptr_type sequence_;
 
       // alias
@@ -250,7 +258,7 @@ namespace DAnCE
       void alias (::DAnCE::Config_Handlers::AliasType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::AliasType > alias_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::AliasType ) alias_auto_ptr_type;
       alias_auto_ptr_type alias_;
 
       // array
@@ -260,7 +268,7 @@ namespace DAnCE
       void array (::DAnCE::Config_Handlers::ArrayType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ArrayType > array_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ArrayType ) array_auto_ptr_type;
       array_auto_ptr_type array_;
 
       // boundedString
@@ -270,7 +278,7 @@ namespace DAnCE
       void boundedString (::DAnCE::Config_Handlers::BoundedStringType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::BoundedStringType > boundedString_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::BoundedStringType ) boundedString_auto_ptr_type;
       boundedString_auto_ptr_type boundedString_;
 
       // id
@@ -281,7 +289,7 @@ namespace DAnCE
       void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::ID<ACE_TCHAR> ) id_auto_ptr_type;
       id_auto_ptr_type id_;
 
       public:
@@ -562,7 +570,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // typeId
@@ -571,7 +579,7 @@ namespace DAnCE
       void typeId (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) typeId_auto_ptr_type;
       typeId_auto_ptr_type typeId_;
 
       // elementType
@@ -580,7 +588,7 @@ namespace DAnCE
       void elementType (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > elementType_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataType ) elementType_auto_ptr_type;
       elementType_auto_ptr_type elementType_;
 
       public:
@@ -607,7 +615,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // typeId
@@ -616,7 +624,7 @@ namespace DAnCE
       void typeId (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) typeId_auto_ptr_type;
       typeId_auto_ptr_type typeId_;
 
       // member
@@ -691,7 +699,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // typeId
@@ -700,7 +708,7 @@ namespace DAnCE
       void typeId (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) typeId_auto_ptr_type;
       typeId_auto_ptr_type typeId_;
 
       // member
@@ -742,7 +750,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // type
@@ -751,7 +759,7 @@ namespace DAnCE
       void type (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataType ) type_auto_ptr_type;
       type_auto_ptr_type type_;
 
       public:
@@ -777,7 +785,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // typeId
@@ -786,7 +794,7 @@ namespace DAnCE
       void typeId (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > typeId_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) typeId_auto_ptr_type;
       typeId_auto_ptr_type typeId_;
 
       // modifier
@@ -795,7 +803,7 @@ namespace DAnCE
       void modifier (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > modifier_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) modifier_auto_ptr_type;
       modifier_auto_ptr_type modifier_;
 
       // baseType
@@ -804,7 +812,7 @@ namespace DAnCE
       void baseType (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > baseType_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataType ) baseType_auto_ptr_type;
       baseType_auto_ptr_type baseType_;
 
       // member
@@ -848,7 +856,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // visibility
@@ -857,7 +865,7 @@ namespace DAnCE
       void visibility (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > visibility_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) visibility_auto_ptr_type;
       visibility_auto_ptr_type visibility_;
 
       // type
@@ -866,7 +874,7 @@ namespace DAnCE
       void type (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataType ) type_auto_ptr_type;
       type_auto_ptr_type type_;
 
       public:
@@ -893,7 +901,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // value
@@ -902,7 +910,7 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::DataValue const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > value_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataValue ) value_auto_ptr_type;
       value_auto_ptr_type value_;
 
       public:
@@ -928,7 +936,7 @@ namespace DAnCE
       void length (::XMLSchema::unsignedInt const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::unsignedInt > length_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::unsignedInt ) length_auto_ptr_type;
       length_auto_ptr_type length_;
 
       // elementType
@@ -937,7 +945,7 @@ namespace DAnCE
       void elementType (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > elementType_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataType ) elementType_auto_ptr_type;
       elementType_auto_ptr_type elementType_;
 
       public:
@@ -964,7 +972,7 @@ namespace DAnCE
       void bound (::XMLSchema::unsignedInt const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::unsignedInt > bound_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::unsignedInt ) bound_auto_ptr_type;
       bound_auto_ptr_type bound_;
 
       // elementType
@@ -973,7 +981,7 @@ namespace DAnCE
       void elementType (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > elementType_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataType ) elementType_auto_ptr_type;
       elementType_auto_ptr_type elementType_;
 
       public:
@@ -998,7 +1006,7 @@ namespace DAnCE
       void type (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataType ) type_auto_ptr_type;
       type_auto_ptr_type type_;
 
       // value
@@ -1007,7 +1015,7 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::DataValue const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataValue > value_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataValue ) value_auto_ptr_type;
       value_auto_ptr_type value_;
 
       public:
@@ -1033,7 +1041,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // value
@@ -1042,7 +1050,7 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::Any const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::Any > value_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::Any ) value_auto_ptr_type;
       value_auto_ptr_type value_;
 
       public:
@@ -1107,7 +1115,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // kind
@@ -1116,7 +1124,7 @@ namespace DAnCE
       void kind (::DAnCE::Config_Handlers::SatisfierPropertyKind const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::SatisfierPropertyKind > kind_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::SatisfierPropertyKind ) kind_auto_ptr_type;
       kind_auto_ptr_type kind_;
 
       // dynamic
@@ -1125,7 +1133,7 @@ namespace DAnCE
       void dynamic (::XMLSchema::boolean const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::boolean > dynamic_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::boolean ) dynamic_auto_ptr_type;
       dynamic_auto_ptr_type dynamic_;
 
       // value
@@ -1134,7 +1142,7 @@ namespace DAnCE
       void value (::DAnCE::Config_Handlers::Any const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::Any > value_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::Any ) value_auto_ptr_type;
       value_auto_ptr_type value_;
 
       public:
@@ -1162,7 +1170,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // resourceType
@@ -1220,7 +1228,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // resourceType
@@ -1229,7 +1237,7 @@ namespace DAnCE
       void resourceType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) resourceType_auto_ptr_type;
       resourceType_auto_ptr_type resourceType_;
 
       // property
@@ -1271,7 +1279,7 @@ namespace DAnCE
       void requirementName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requirementName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) requirementName_auto_ptr_type;
       requirementName_auto_ptr_type requirementName_;
 
       // resourceName
@@ -1280,7 +1288,7 @@ namespace DAnCE
       void resourceName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) resourceName_auto_ptr_type;
       resourceName_auto_ptr_type resourceName_;
 
       // property
@@ -1322,7 +1330,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // source
@@ -1347,7 +1355,7 @@ namespace DAnCE
       void node (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > node_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) node_auto_ptr_type;
       node_auto_ptr_type node_;
 
       // location
@@ -1422,7 +1430,7 @@ namespace DAnCE
       void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::ID<ACE_TCHAR> ) id_auto_ptr_type;
       id_auto_ptr_type id_;
 
       public:
@@ -1448,7 +1456,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // source
@@ -1523,7 +1531,7 @@ namespace DAnCE
       void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::ID<ACE_TCHAR> ) id_auto_ptr_type;
       id_auto_ptr_type id_;
 
       public:
@@ -1586,7 +1594,7 @@ namespace DAnCE
       void resourceUsage (::DAnCE::Config_Handlers::ResourceUsageKind const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > resourceUsage_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ResourceUsageKind ) resourceUsage_auto_ptr_type;
       resourceUsage_auto_ptr_type resourceUsage_;
 
       // requirementName
@@ -1595,7 +1603,7 @@ namespace DAnCE
       void requirementName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requirementName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) requirementName_auto_ptr_type;
       requirementName_auto_ptr_type requirementName_;
 
       // resourceName
@@ -1604,7 +1612,7 @@ namespace DAnCE
       void resourceName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) resourceName_auto_ptr_type;
       resourceName_auto_ptr_type resourceName_;
 
       // property
@@ -1647,7 +1655,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // node
@@ -1656,7 +1664,7 @@ namespace DAnCE
       void node (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > node_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) node_auto_ptr_type;
       node_auto_ptr_type node_;
 
       // source
@@ -1665,7 +1673,7 @@ namespace DAnCE
       void source (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > source_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) source_auto_ptr_type;
       source_auto_ptr_type source_;
 
       // implementation
@@ -1674,7 +1682,7 @@ namespace DAnCE
       void implementation (::DAnCE::Config_Handlers::IdRef const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > implementation_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::IdRef ) implementation_auto_ptr_type;
       implementation_auto_ptr_type implementation_;
 
       // configProperty
@@ -1716,7 +1724,7 @@ namespace DAnCE
       void deployedSharedResource (::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription > deployedSharedResource_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::InstanceResourceDeploymentDescription ) deployedSharedResource_auto_ptr_type;
       deployedSharedResource_auto_ptr_type deployedSharedResource_;
 
       // id
@@ -1727,7 +1735,7 @@ namespace DAnCE
       void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::ID<ACE_TCHAR> ) id_auto_ptr_type;
       id_auto_ptr_type id_;
 
       public:
@@ -1796,7 +1804,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // specificType
@@ -1806,7 +1814,7 @@ namespace DAnCE
       void specificType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > specificType_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) specificType_auto_ptr_type;
       specificType_auto_ptr_type specificType_;
 
       // supportedType
@@ -1831,7 +1839,7 @@ namespace DAnCE
       void provider (::XMLSchema::boolean const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::boolean > provider_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::boolean ) provider_auto_ptr_type;
       provider_auto_ptr_type provider_;
 
       // exclusiveProvider
@@ -1840,7 +1848,7 @@ namespace DAnCE
       void exclusiveProvider (::XMLSchema::boolean const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::boolean > exclusiveProvider_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::boolean ) exclusiveProvider_auto_ptr_type;
       exclusiveProvider_auto_ptr_type exclusiveProvider_;
 
       // exclusiveUser
@@ -1849,7 +1857,7 @@ namespace DAnCE
       void exclusiveUser (::XMLSchema::boolean const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::boolean > exclusiveUser_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::boolean ) exclusiveUser_auto_ptr_type;
       exclusiveUser_auto_ptr_type exclusiveUser_;
 
       // optional
@@ -1858,7 +1866,7 @@ namespace DAnCE
       void optional (::XMLSchema::boolean const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::boolean > optional_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::boolean ) optional_auto_ptr_type;
       optional_auto_ptr_type optional_;
 
       // kind
@@ -1867,7 +1875,7 @@ namespace DAnCE
       void kind (::DAnCE::Config_Handlers::CCMComponentPortKind const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > kind_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::CCMComponentPortKind ) kind_auto_ptr_type;
       kind_auto_ptr_type kind_;
 
       // templateParam
@@ -1913,7 +1921,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // type
@@ -1922,7 +1930,7 @@ namespace DAnCE
       void type (::DAnCE::Config_Handlers::DataType const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::DataType > type_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::DataType ) type_auto_ptr_type;
       type_auto_ptr_type type_;
 
       public:
@@ -1948,7 +1956,7 @@ namespace DAnCE
       void portName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) portName_auto_ptr_type;
       portName_auto_ptr_type portName_;
 
       public:
@@ -1973,7 +1981,7 @@ namespace DAnCE
       void portName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) portName_auto_ptr_type;
       portName_auto_ptr_type portName_;
 
       // provider
@@ -1983,7 +1991,7 @@ namespace DAnCE
       void provider (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > provider_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) provider_auto_ptr_type;
       provider_auto_ptr_type provider_;
 
       // kind
@@ -1992,7 +2000,7 @@ namespace DAnCE
       void kind (::DAnCE::Config_Handlers::CCMComponentPortKind const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::CCMComponentPortKind > kind_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::CCMComponentPortKind ) kind_auto_ptr_type;
       kind_auto_ptr_type kind_;
 
       // instance
@@ -2001,7 +2009,7 @@ namespace DAnCE
       void instance (::DAnCE::Config_Handlers::IdRef const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > instance_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::IdRef ) instance_auto_ptr_type;
       instance_auto_ptr_type instance_;
 
       public:
@@ -2028,7 +2036,7 @@ namespace DAnCE
       void location (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > location_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) location_auto_ptr_type;
       location_auto_ptr_type location_;
 
       // provider
@@ -2037,7 +2045,7 @@ namespace DAnCE
       void provider (::XMLSchema::boolean const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::boolean > provider_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::boolean ) provider_auto_ptr_type;
       provider_auto_ptr_type provider_;
 
       // portName
@@ -2047,7 +2055,7 @@ namespace DAnCE
       void portName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) portName_auto_ptr_type;
       portName_auto_ptr_type portName_;
 
       // supportedType
@@ -2089,7 +2097,7 @@ namespace DAnCE
       void targetName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > targetName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) targetName_auto_ptr_type;
       targetName_auto_ptr_type targetName_;
 
       // requirementName
@@ -2098,7 +2106,7 @@ namespace DAnCE
       void requirementName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requirementName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) requirementName_auto_ptr_type;
       requirementName_auto_ptr_type requirementName_;
 
       // resourceName
@@ -2107,7 +2115,7 @@ namespace DAnCE
       void resourceName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) resourceName_auto_ptr_type;
       resourceName_auto_ptr_type resourceName_;
 
       // property
@@ -2150,7 +2158,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // source
@@ -2160,7 +2168,7 @@ namespace DAnCE
       void source (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > source_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) source_auto_ptr_type;
       source_auto_ptr_type source_;
 
       // deployRequirement
@@ -2265,7 +2273,7 @@ namespace DAnCE
       void requiredType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > requiredType_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) requiredType_auto_ptr_type;
       requiredType_auto_ptr_type requiredType_;
 
       public:
@@ -2290,7 +2298,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // resourceType
@@ -2348,7 +2356,7 @@ namespace DAnCE
       void resourceUsage (::DAnCE::Config_Handlers::ResourceUsageKind const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ResourceUsageKind > resourceUsage_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ResourceUsageKind ) resourceUsage_auto_ptr_type;
       resourceUsage_auto_ptr_type resourceUsage_;
 
       // resourcePort
@@ -2358,7 +2366,7 @@ namespace DAnCE
       void resourcePort (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourcePort_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) resourcePort_auto_ptr_type;
       resourcePort_auto_ptr_type resourcePort_;
 
       // componentPort
@@ -2368,7 +2376,7 @@ namespace DAnCE
       void componentPort (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > componentPort_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) componentPort_auto_ptr_type;
       componentPort_auto_ptr_type componentPort_;
 
       // resourceType
@@ -2377,7 +2385,7 @@ namespace DAnCE
       void resourceType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > resourceType_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) resourceType_auto_ptr_type;
       resourceType_auto_ptr_type resourceType_;
 
       // name
@@ -2386,7 +2394,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // property
@@ -2428,7 +2436,7 @@ namespace DAnCE
       void portName (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > portName_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) portName_auto_ptr_type;
       portName_auto_ptr_type portName_;
 
       // instance
@@ -2437,7 +2445,7 @@ namespace DAnCE
       void instance (::DAnCE::Config_Handlers::IdRef const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::IdRef > instance_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::IdRef ) instance_auto_ptr_type;
       instance_auto_ptr_type instance_;
 
       public:
@@ -2463,7 +2471,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // deployRequirement
@@ -2588,7 +2596,7 @@ namespace DAnCE
       void constraint (::DAnCE::Config_Handlers::PlanLocalityKind const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::PlanLocalityKind > constraint_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::PlanLocalityKind ) constraint_auto_ptr_type;
       constraint_auto_ptr_type constraint_;
 
       // constrainedInstance

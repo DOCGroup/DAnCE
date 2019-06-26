@@ -27,6 +27,14 @@ namespace XMI
 #include "ace/Null_Mutex.h"
 #include "ace/ace_wchar.h"
 
+#if !defined(XML_XSC_SMART_PTR)
+# if defined(ACE_HAS_CPP11)
+#   define XML_XSC_SMART_PTR(X) std::unique_ptr<X>
+# else
+#   define XML_XSC_SMART_PTR(X) std::auto_ptr<X>
+# endif
+#endif
+
 namespace XMI
 {
   class XSC_XML_Handlers_Export Extension : public ::XSCRT::Type
@@ -44,7 +52,7 @@ namespace XMI
     void id (::XMLSchema::ID<ACE_TCHAR> const& );
 
     protected:
-    typedef std::auto_ptr< ::XMLSchema::ID<ACE_TCHAR> > id_auto_ptr_type;
+    typedef XML_XSC_SMART_PTR( ::XMLSchema::ID<ACE_TCHAR> ) id_auto_ptr_type;
     id_auto_ptr_type id_;
 
     // label
@@ -55,7 +63,7 @@ namespace XMI
     void label (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+    typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) label_auto_ptr_type;
     label_auto_ptr_type label_;
 
     // uuid
@@ -66,7 +74,7 @@ namespace XMI
     void uuid (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > uuid_auto_ptr_type;
+    typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) uuid_auto_ptr_type;
     uuid_auto_ptr_type uuid_;
 
     // href
@@ -77,7 +85,7 @@ namespace XMI
     void href (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_auto_ptr_type;
+    typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) href_auto_ptr_type;
     href_auto_ptr_type href_;
 
     // idref
@@ -91,7 +99,7 @@ namespace XMI
     void set_idref_ptr (const std::basic_string<ACE_TCHAR>& idref);
 
     protected:
-    typedef std::auto_ptr< ::XMLSchema::IDREF<ACE_TCHAR> > idref_auto_ptr_type;
+    typedef XML_XSC_SMART_PTR( ::XMLSchema::IDREF<ACE_TCHAR> ) idref_auto_ptr_type;
     idref_auto_ptr_type idref_;
 
     // version
@@ -102,7 +110,7 @@ namespace XMI
     void version (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > version_auto_ptr_type;
+    typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) version_auto_ptr_type;
     version_auto_ptr_type version_;
 
     // extender
@@ -113,7 +121,7 @@ namespace XMI
     void extender (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > extender_auto_ptr_type;
+    typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) extender_auto_ptr_type;
     extender_auto_ptr_type extender_;
 
     // extenderID
@@ -124,7 +132,7 @@ namespace XMI
     void extenderID (::XMLSchema::string<ACE_TCHAR> const& );
 
     protected:
-    typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > extenderID_auto_ptr_type;
+    typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) extenderID_auto_ptr_type;
     extenderID_auto_ptr_type extenderID_;
 
     public:

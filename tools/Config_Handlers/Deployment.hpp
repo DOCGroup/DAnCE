@@ -29,6 +29,14 @@ namespace DAnCE
 #include "ace/Null_Mutex.h"
 #include "ace/ace_wchar.h"
 
+#if !defined(XML_XSC_SMART_PTR)
+# if defined(ACE_HAS_CPP11)
+#   define XML_XSC_SMART_PTR(X) std::unique_ptr<X>
+# else
+#   define XML_XSC_SMART_PTR(X) std::auto_ptr<X>
+# endif
+#endif
+
 #include "Basic_Deployment_Data.hpp"
 
 #include "cpd.hpp"

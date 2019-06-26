@@ -31,6 +31,14 @@ namespace DAnCE
 #include "ace/Null_Mutex.h"
 #include "ace/ace_wchar.h"
 
+#if !defined(XML_XSC_SMART_PTR)
+# if defined(ACE_HAS_CPP11)
+#   define XML_XSC_SMART_PTR(X) std::unique_ptr<X>
+# else
+#   define XML_XSC_SMART_PTR(X) std::auto_ptr<X>
+# endif
+#endif
+
 #include "Basic_Deployment_Data.hpp"
 
 #include "cpd.hpp"
@@ -85,7 +93,7 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) label_auto_ptr_type;
       label_auto_ptr_type label_;
 
       // UUID
@@ -95,7 +103,7 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) UUID_auto_ptr_type;
       UUID_auto_ptr_type UUID_;
 
       // basePackage
@@ -105,7 +113,7 @@ namespace DAnCE
       void basePackage (::DAnCE::Config_Handlers::ComponentPackageDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageDescription > basePackage_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ComponentPackageDescription ) basePackage_auto_ptr_type;
       basePackage_auto_ptr_type basePackage_;
 
       // specializedConfig
@@ -115,7 +123,7 @@ namespace DAnCE
       void specializedConfig (::DAnCE::Config_Handlers::PackageConfiguration const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::PackageConfiguration > specializedConfig_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::PackageConfiguration ) specializedConfig_auto_ptr_type;
       specializedConfig_auto_ptr_type specializedConfig_;
 
       // importedPackage
@@ -125,7 +133,7 @@ namespace DAnCE
       void importedPackage (::DAnCE::Config_Handlers::ComponentPackageImport const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageImport > importedPackage_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ComponentPackageImport ) importedPackage_auto_ptr_type;
       importedPackage_auto_ptr_type importedPackage_;
 
       // referencedPackage
@@ -135,7 +143,7 @@ namespace DAnCE
       void referencedPackage (::DAnCE::Config_Handlers::ComponentPackageReference const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentPackageReference > referencedPackage_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ComponentPackageReference ) referencedPackage_auto_ptr_type;
       referencedPackage_auto_ptr_type referencedPackage_;
 
       // selectRequirement
@@ -177,7 +185,7 @@ namespace DAnCE
       void contentLocation (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) contentLocation_auto_ptr_type;
       contentLocation_auto_ptr_type contentLocation_;
 
       public:

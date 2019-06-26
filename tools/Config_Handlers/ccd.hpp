@@ -30,6 +30,14 @@ namespace DAnCE
 #include "ace/Null_Mutex.h"
 #include "ace/ace_wchar.h"
 
+#if !defined(XML_XSC_SMART_PTR)
+# if defined(ACE_HAS_CPP11)
+#   define XML_XSC_SMART_PTR(X) std::unique_ptr<X>
+# else
+#   define XML_XSC_SMART_PTR(X) std::auto_ptr<X>
+# endif
+#endif
+
 #include "Basic_Deployment_Data.hpp"
 
 namespace DAnCE
@@ -50,7 +58,7 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) label_auto_ptr_type;
       label_auto_ptr_type label_;
 
       // UUID
@@ -60,7 +68,7 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) UUID_auto_ptr_type;
       UUID_auto_ptr_type UUID_;
 
       // specificType
@@ -70,7 +78,7 @@ namespace DAnCE
       void specificType (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > specificType_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) specificType_auto_ptr_type;
       specificType_auto_ptr_type specificType_;
 
       // supportedType
@@ -176,7 +184,7 @@ namespace DAnCE
       void contentLocation (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > contentLocation_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) contentLocation_auto_ptr_type;
       contentLocation_auto_ptr_type contentLocation_;
 
       // href
@@ -187,7 +195,7 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) href_auto_ptr_type;
       href_auto_ptr_type href_;
 
       public:
