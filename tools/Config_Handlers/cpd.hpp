@@ -32,6 +32,14 @@ namespace DAnCE
 #include "ace/Null_Mutex.h"
 #include "ace/ace_wchar.h"
 
+#if !defined(XML_XSC_SMART_PTR)
+# if defined(ACE_HAS_CPP11)
+#   define XML_XSC_SMART_PTR(X) std::unique_ptr<X>
+# else
+#   define XML_XSC_SMART_PTR(X) std::auto_ptr<X>
+# endif
+#endif
+
 #include "cid.hpp"
 
 namespace DAnCE
@@ -51,7 +59,7 @@ namespace DAnCE
       void name (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > name_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) name_auto_ptr_type;
       name_auto_ptr_type name_;
 
       // referencedImplementation
@@ -60,7 +68,7 @@ namespace DAnCE
       void referencedImplementation (::DAnCE::Config_Handlers::ComponentImplementationDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentImplementationDescription > referencedImplementation_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ComponentImplementationDescription ) referencedImplementation_auto_ptr_type;
       referencedImplementation_auto_ptr_type referencedImplementation_;
 
       public:
@@ -87,7 +95,7 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) label_auto_ptr_type;
       label_auto_ptr_type label_;
 
       // UUID
@@ -97,7 +105,7 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) UUID_auto_ptr_type;
       UUID_auto_ptr_type UUID_;
 
       // realizes
@@ -107,7 +115,7 @@ namespace DAnCE
       void realizes (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ComponentInterfaceDescription ) realizes_auto_ptr_type;
       realizes_auto_ptr_type realizes_;
 
       // configProperty
@@ -166,7 +174,7 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) href_auto_ptr_type;
       href_auto_ptr_type href_;
 
       public:
@@ -192,7 +200,7 @@ namespace DAnCE
       void label (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > label_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) label_auto_ptr_type;
       label_auto_ptr_type label_;
 
       // UUID
@@ -202,7 +210,7 @@ namespace DAnCE
       void UUID (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > UUID_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) UUID_auto_ptr_type;
       UUID_auto_ptr_type UUID_;
 
       // realizes
@@ -212,7 +220,7 @@ namespace DAnCE
       void realizes (::DAnCE::Config_Handlers::ComponentInterfaceDescription const& );
 
       protected:
-      typedef std::auto_ptr< ::DAnCE::Config_Handlers::ComponentInterfaceDescription > realizes_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::DAnCE::Config_Handlers::ComponentInterfaceDescription ) realizes_auto_ptr_type;
       realizes_auto_ptr_type realizes_;
 
       // configProperty
@@ -271,7 +279,7 @@ namespace DAnCE
       void href (::XMLSchema::string<ACE_TCHAR> const& );
 
       protected:
-      typedef std::auto_ptr< ::XMLSchema::string<ACE_TCHAR> > href_auto_ptr_type;
+      typedef XML_XSC_SMART_PTR( ::XMLSchema::string<ACE_TCHAR> ) href_auto_ptr_type;
       href_auto_ptr_type href_;
 
       public:
