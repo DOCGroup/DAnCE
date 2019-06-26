@@ -4,6 +4,7 @@
 [![Build Status](https://ci.appveyor.com/api/projects/status/2v1dv1gy3xrd404u/branch/master?svg=true)](https://ci.appveyor.com/project/jwillemsen/dance)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/1/badge.svg)](https://scan.coverity.com/projects/1)
 [![Azure DevOps](https://dev.azure.com/docgroup/DAnCE/_apis/build/status/DOCGroup.DAnCE)](https://dev.azure.com/docgroup/DAnCE/_build/latest?definitionId=1)
+[![Azure DevOps](https://dev.azure.com/docgroup/DAnCE/_apis/build/status/DOCGroup.DAnCE?branchName=master)](https://dev.azure.com/docgroup/DAnCE/_build/latest?definitionId=3&branchName=master)
 
 # DAnCE #
 
