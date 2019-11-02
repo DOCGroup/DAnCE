@@ -184,9 +184,9 @@ jobs:
   strategy:
     matrix:
       GCC49:
-        CC: gcc-4.9
-        CXX: g++-4.9
-        PackageDeps: g++-4.9
+        CC: gcc-4.8
+        CXX: g++-4.8
+        PackageDeps: g++-4.8
         platform_file: include $(ACE_ROOT)/include/makeinclude/platform_linux.GNU
       GCC6:
         CC: gcc-6
