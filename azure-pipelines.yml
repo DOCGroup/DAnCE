@@ -241,7 +241,6 @@ jobs:
     displayName: Add repository ($(Repo))
     condition: and(succeeded(), ne(variables['Repo'], ''))
   - script: |
-      sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
       sudo apt-get --yes update
       sudo apt-get --yes install libxerces-c-dev libssl-dev $(PackageDeps)
     displayName: install system package dependencies
