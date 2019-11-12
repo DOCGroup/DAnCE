@@ -180,7 +180,7 @@ jobs:
 
 - job: Linux
   pool:
-    vmImage: ubuntu-latest
+    vmImage: ubuntu-18.04
   strategy:
     matrix:
       GCC48:
