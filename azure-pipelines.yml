@@ -70,6 +70,7 @@ jobs:
   - powershell: |
       echo "xerces3=1" | out-file -encoding ASCII $(ACE_ROOT)\bin\MakeProjectCreator\config\default.features
       echo "ssl=1" | out-file -append -encoding ASCII $(ACE_ROOT)\bin\MakeProjectCreator\config\default.features
+      echo "openssl11=1" | out-file -append -encoding ASCII $(ACE_ROOT)\bin\MakeProjectCreator\config\default.features
   - powershell: perl $(ACE_ROOT)/bin/mwc.pl -type vs2019 DAnCE_TAO.mwc -workers 4
     displayName: Run script mwc.pl on DAnCE_TAO.mwc
   - task: VSBuild@1
@@ -120,6 +121,7 @@ jobs:
   - powershell: |
       echo "xerces3=1" | out-file -encoding ASCII $(ACE_ROOT)\bin\MakeProjectCreator\config\default.features
       echo "ssl=1" | out-file -append -encoding ASCII $(ACE_ROOT)\bin\MakeProjectCreator\config\default.features
+      echo "openssl11=1" | out-file -append -encoding ASCII $(ACE_ROOT)\bin\MakeProjectCreator\config\default.features
   - powershell: perl $(ACE_ROOT)/bin/mwc.pl -type vs2017 DAnCE_TAO.mwc -workers 4
     displayName: Run script mwc.pl on DAnCE_TAO.mwc
   - task: VSBuild@1
@@ -168,6 +170,7 @@ jobs:
   - powershell: |
       echo "xerces3=1" | out-file -encoding ASCII $(ACE_ROOT)\bin\MakeProjectCreator\config\default.features
       echo "ssl=1" | out-file -append -encoding ASCII $(ACE_ROOT)\bin\MakeProjectCreator\config\default.features
+      echo "openssl11=1" | out-file -append -encoding ASCII $(ACE_ROOT)\bin\MakeProjectCreator\config\default.features
   - powershell: perl $(ACE_ROOT)/bin/mwc.pl -type vc14 DAnCE_TAO.mwc -workers 4
     displayName: Run script mwc.pl on DAnCE_TAO
   - task: VSBuild@1
