@@ -92,7 +92,7 @@ apply only to an individual locality instance, (2) will apply to ALL
 locality instances spawned by the node manager.
 
 The open_mode is the mode as passed to the ACE_DLL::open call. When not
-specified  we default to ACE_DEFAULT_SHLIB_MODE
+specified we default to ACE_DEFAULT_SHLIB_MODE
 
 The dance_node_manager currently loads plug-ins by default from the
 nodemanager.localityconfig file, which contains the following:
