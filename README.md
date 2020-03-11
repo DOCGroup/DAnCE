@@ -7,6 +7,6 @@
 
 # DAnCE #
 
-See [Douglas C. Schmidt website](http://www.dre.vanderbilt.edu/~schmidt)  for more information about DAnCE. The quality of DAnCE is monitored through our distributed [scoreboard](http://www.dre.vanderbilt.edu/scoreboard/)
+See [Douglas C. Schmidt website](https://www.dre.vanderbilt.edu/~schmidt)  for more information about DAnCE. The quality of DAnCE is monitored through our distributed [scoreboard](https://www.dre.vanderbilt.edu/scoreboard/)
 
-DAnCE is a C++ implementation of the OMG's [Deployment and Configuration](http://www.omg.org/spec/DEPL/) standard.
+DAnCE is a C++ implementation of the OMG's [Deployment and Configuration](https://www.omg.org/spec/DEPL/) standard.
