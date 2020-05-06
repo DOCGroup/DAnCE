@@ -1,0 +1,511 @@
+commit cbeab33237040ef6b056f4378c7cb6e9b18e331d
+Merge: ac18f42cce0 b5593efb66c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed May 6 11:07:29 2020 +0200
+
+    Merge pull request #112 from jwillemsen/master
+    
+    List major change
+
+commit b5593efb66ce0cc8289a763b0e13d321b0725749
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed May 6 11:07:07 2020 +0200
+
+    List major change
+    
+        * NEWS:
+
+commit ac18f42cce05d17ae1ef91196e6bef1faa9c50fa
+Merge: b4298816157 198e2ee3d7d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 25 20:17:01 2020 +0100
+
+    Merge pull request #111 from jwillemsen/master
+    
+    Add clang10
+
+commit 198e2ee3d7d332d89beb4dbfec3af16b687bfda5
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 25 15:53:49 2020 +0100
+
+    Add clang10
+    
+        * azure-pipelines.yml:
+
+commit b42988161573193d54ecf567483a3b1c2e6d1326
+Merge: 2fc990dc8a8 bdb16744ad4
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Mar 19 16:46:47 2020 +0100
+
+    Merge pull request #110 from jwillemsen/jwi-githubactionfuzz
+    
+    Move fuzz from travis to github actions
+
+commit bdb16744ad424c9d8c24cbf6a4a3ca1c57b4f6e5
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Mar 19 13:57:41 2020 +0100
+
+    Remove fuzz from travis
+    
+        * .travis.yml:
+
+commit d6918efed6da7bddf1dd08d7b07da50cb0f06521
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Mar 19 13:56:50 2020 +0100
+
+    Move fuzz from travis to github actions
+
+commit 2fc990dc8a880120bac89f880d52fe1840501078
+Merge: 58911e3adc6 c1a5e72bf43
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Mar 12 07:59:34 2020 +0100
+
+    Merge pull request #109 from jwillemsen/jwi-azurevs2015removal
+    
+    Removed vs2015, will not be supported from azure pipelines soon
+
+commit c1a5e72bf439a7de51e2930b3f87de94126bdadb
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 11 17:16:44 2020 +0100
+
+    Use https links
+    
+        * README.md:
+
+commit 8fb5df87fe1f777780174125bd0dc697d7dd3eaa
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 11 17:15:53 2020 +0100
+
+    Removed appveyor badge
+    
+        * README.md:
+
+commit 12c996325fcf8f05eb2145a6a28b86760e1e90b2
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 11 17:07:37 2020 +0100
+
+    Removed appveyor, taking too long and azure/github are much better
+
+commit b29aedeb7e73117974ba65def299ff1e61408da7
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Mar 11 15:48:18 2020 +0100
+
+    Removed vs2015, will not be supported from azure pipelines soon
+
+commit 0ce7434e36bc655de7e7f3f3dd2e7645dcc93603
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Mar 9 11:41:22 2020 +0100
+
+    Remove redundant space
+    
+        * docs/LocalityManager-Plugins.txt:
+
+commit 58911e3adc6515f928a2ce089838b6f9879b7ae5
+Merge: cfb6c4771dc 50442365df3
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 29 12:54:58 2020 +0100
+
+    Merge pull request #108 from jwillemsen/master
+    
+    Add CodeFactor badge
+
+commit 50442365df364ccb0a7700578655d897bb5b1e8f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 29 09:52:09 2020 +0100
+
+    Add CodeFactor badge
+
+commit cfb6c4771dc421d3538e14766debff470e519226
+Merge: ce36b1dc4f0 d0e1ec0e0b5
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 22 14:25:34 2020 +0100
+
+    Merge pull request #107 from jwillemsen/jwi-openssl11
+    
+    Add openssl11=1 to Windows, vcpkg now has openssl 1.1.1
+
+commit d0e1ec0e0b5a27092dbb1fb06b3ac308b5f7819f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jan 22 08:39:38 2020 +0100
+
+    Add openssl11=1 to Windows, vcpkg now has openssl 1.1.1
+
+commit ce36b1dc4f078fcd96ca8a3576a686388a971b61
+Merge: bfa9b52aff1 2a0a804ef76
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Nov 13 17:48:34 2019 +0000
+
+    Merge pull request #106 from jwillemsen/master
+    
+    Use one step for all dependent git clones
+
+commit 2a0a804ef76d4f60b955bdfa03f9febb350e1d84
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Nov 13 13:36:46 2019 +0100
+
+    Use one step for all dependent git clones
+    
+        * azure-pipelines.yml:
+
+commit bfa9b52aff1a77baa64cb83612a929e591cacfb3
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Nov 12 17:31:05 2019 +0100
+
+    Use ubuntu 18.04
+
+commit 48048247c3cd4d13880db7cfe02ab394db344355
+Merge: f375d255ad7 c18f6c55b84
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sun Nov 3 10:47:26 2019 +0000
+
+    Merge pull request #105 from jwillemsen/jwi-travisbionic
+    
+    Use bionic release on travis with gcc9 as default
+
+commit c18f6c55b84425011399d2ed6d5c47bb87601669
+Merge: cadabbce46d f375d255ad7
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 18:27:41 2019 +0100
+
+    Merge branch 'master' of https://github.com/DOCGroup/DAnCE into jwi-travisbionic
+
+commit f375d255ad70cbaa753af0a9ecf76011207309ea
+Merge: 98b26228795 8029c52fb49
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 17:27:00 2019 +0000
+
+    Merge pull request #104 from jwillemsen/master
+    
+    Use ubuntu-latest which is now 18.04 and add clang9 and gcc9
+
+commit cadabbce46dd4b38162617d5fdd113276e42d6d1
+Merge: 3172f4c4c6e 8029c52fb49
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 18:03:38 2019 +0100
+
+    Merge branch 'master' into jwi-travisbionic
+
+commit 8029c52fb49b5bbc837b2a97d03f6040ea20b5d8
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 16:00:44 2019 +0100
+
+    Fixed generation platform_macros.GNU
+    
+        * azure-pipelines.yml:
+
+commit 3172f4c4c6e1a1ba44d2df5a7a3e7e68e8030e88
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 14:33:58 2019 +0100
+
+    Use g++8
+    
+        * .travis.yml:
+
+commit 055163162edfa4462d75b8f47f6b8e115d899e5d
+Merge: 4dd8bddd443 806cb4bb12a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 14:32:57 2019 +0100
+
+    Merge branch 'master' into jwi-travisbionic
+
+commit 806cb4bb12a2da95f53dca6dd7ff8da58e16e049
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 14:31:54 2019 +0100
+
+    Enable c++11 and add clang5 back, maybe it required c++11
+    
+        * azure-pipelines.yml:
+
+commit 4dd8bddd443b89cefc18a36d53225cb465a30bc3
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 13:01:17 2019 +0100
+
+    Use bionic release on travis and switch to gcc9
+    
+        * .travis.yml:
+
+commit a4b7ec865832a5c0ebf73db44b4cb2f4cd95494f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 12:54:39 2019 +0100
+
+    gcc 4.8 is available for ubuntu bionic, 4.9 doesn't seem to
+    
+        * azure-pipelines.yml:
+
+commit f343dd7ac3aef5a3cbb3d68c6462ec53119f49b0
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 11:45:33 2019 +0100
+
+    Removed clang5, old and has issues when we try to compile xercesc with it
+    
+        * azure-pipelines.yml:
+
+commit 48c0d95bfb6e8805f4177b9c08be31c99c4c48c5
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 11:34:27 2019 +0100
+
+    Removed repo
+    
+        * azure-pipelines.yml:
+
+commit 1cfdc2eb5cfa2753820abfb6324506aa926eca9b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 11:24:32 2019 +0100
+
+    clang 5/6/7/8 should be available through ubuntu
+    
+        * azure-pipelines.yml:
+
+commit 8722a16a2c754b1d626c444bba6d383a716e559c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 11:14:40 2019 +0100
+
+    Fix error, use gcc9
+    
+        * azure-pipelines.yml:
+
+commit 0a9688df797f50957cd7c2bc9034f46d7b68557d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Nov 2 11:13:33 2019 +0100
+
+    Use ubuntu-latest which is now 18.04 and add clang9 and gcc9
+    
+        * azure-pipelines.yml:
+
+commit 98b2622879592248b1e05c6174ed539726a19396
+Merge: da15f1552ad 9f91d9ddb38
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Oct 29 07:24:01 2019 +0000
+
+    Merge pull request #103 from jwillemsen/master
+    
+    Update github issue template
+
+commit 9f91d9ddb38ca08c596ba9b2e533bc6253d518e0
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Oct 29 08:23:34 2019 +0100
+
+    Update github issue template
+    
+        * .github/issue_template.md -> .github/ISSUE_TEMPLATE/bug_report.md:
+          Moved.
+
+commit da15f1552adf810da22fb64adb208c0d875f84d6
+Merge: 7e9290f88e1 047097c9b9a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jun 27 12:21:47 2019 +0200
+
+    Merge pull request #102 from jwillemsen/master
+    
+    Make clear which badge is for what
+
+commit 047097c9b9a1089aca4de78fd58152ed0e819e16
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jun 27 12:20:24 2019 +0200
+
+    Make clear which badge is for what
+
+commit 7e9290f88e117acad3ebc356305cbde6ac071dd2
+Merge: aaac234d72a 2db865ba8c9
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jun 27 12:16:30 2019 +0200
+
+    Merge pull request #101 from jwillemsen/master
+    
+    Remove double badge
+
+commit 2db865ba8c976cbd6b955a7b943ae6628ae3f6a3
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Jun 27 12:15:49 2019 +0200
+
+    Remove double badge
+
+commit aaac234d72afcf3bb7ecedadcda42c6c0e1fd5ca
+Merge: 64f0e23be41 9e4bb547177
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jun 26 20:00:48 2019 +0200
+
+    Merge pull request #100 from ocielliottc/master
+    
+    Regenerated with the latest XSC.
+
+commit 64f0e23be4166d8aac908ed226fb12c559af925a
+Merge: c0d21e0c3b3 33e3e7c496c
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jun 26 20:00:31 2019 +0200
+
+    Merge pull request #99 from jwillemsen/jwi-azuredevopscron
+    
+    Add weekly crontab on Sunday for azure devops
+
+commit 33e3e7c496c52c624f0691a16761f4f503cf61be
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jun 26 14:31:13 2019 +0200
+
+    Put vcpkg under build.sourcesdirectory
+
+commit 9e4bb54717744d6039563afc7524f0bfe2ade3fe
+Author: Chad Elliott <elliott_c@ociweb.com>
+Date:   Wed Jun 26 07:10:51 2019 -0500
+
+    Regenerated with the latest XSC.
+
+commit 0a94bc8a55ef6f5ecc2451dbc2d9542055925bcc
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jun 26 13:36:32 2019 +0200
+
+    Updated azure devops badge
+
+commit 96a871f9765befb29956efa6d0a2fa7ceea203e5
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jun 26 11:37:47 2019 +0200
+
+    Add weekly crontab on Sunday for azure devops
+
+commit c0d21e0c3b34ba8c92f1b859807a951698e9a2da
+Merge: 36d9f691d38 81f0c1f95d7
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu May 23 11:56:56 2019 +0200
+
+    Merge pull request #98 from jwillemsen/jwi-3832
+    
+    NDDS logger backend changes
+
+commit 81f0c1f95d7ad52144db55ea3cbcbed23173b8c5
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu May 23 09:21:35 2019 +0200
+
+    Layout changes
+    
+        * tools/Logger_Backend/ndds/Log_Backend.h:
+        * tools/Logger_Backend/ndds/Log_Record.idl:
+
+commit b48eeffd9aaf6762f080754205b7944f4a4411fd
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu May 23 09:21:19 2019 +0200
+
+    Fix typo in output message
+    
+        * tools/Logger_Backend/ndds/Log_Server.cpp:
+
+commit 32d64fdb1f6d384569fa47712db911f79a16f5dd
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu May 23 09:20:57 2019 +0200
+
+    Simplify code
+    
+        * tools/Logger_Backend/ndds/Log_Backend.cpp:
+
+commit 36d9f691d38cd75d49a31613a3e9af7d09600be8
+Merge: 4baaa9784b2 b807428979a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon May 20 12:30:21 2019 +0200
+
+    Merge pull request #97 from jwillemsen/jwi-3832
+    
+    Fix for test failure when an architecture subdirectory is used
+
+commit b807428979ae910fed31f7fed34291ca785dcc78
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon May 20 11:02:10 2019 +0200
+
+    Fix for test failure when an architecture subdirectory is used
+    
+        * tests/Bug_3832_Regression/run_test.pl:
+
+commit 4baaa9784b27407e12b69a35ddc943156d17c1f4
+Merge: 3cac608edc6 73fce708cfe
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu May 9 08:39:20 2019 +0200
+
+    Merge pull request #96 from jwillemsen/jwi-macosx1014
+    
+    Use MacOSX 10.14
+
+commit 73fce708cfe5ee0d2dd51d48b7b5eff04d3d93fa
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed May 8 16:33:02 2019 +0200
+
+    No gcc9 yet
+    
+        * azure-pipelines.yml:
+
+commit d318869996aaa50b772e24af84e105b6aceec021
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed May 8 16:31:58 2019 +0200
+
+    Use MacOSX 10.14
+
+commit 977561ed24aac113121e3b881919a071104a8335
+Merge: 97cd747e165 3cac608edc6
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed May 8 16:31:36 2019 +0200
+
+    Merge branch 'master' of https://github.com/DOCGroup/DAnCE into jwi-gcc9
+
+commit 97cd747e1655b56f7bb48651ce70dd0eb5674f47
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Apr 30 18:50:56 2019 +0200
+
+    Add gcc9 to azure pipelines
+    
+        * azure-pipelines.yml:
+
+commit 3cac608edc6d585ebfb0d493c9b29f563560ce68
+Merge: b6d5c212d42 7acb6636d16
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Apr 15 16:31:46 2019 +0200
+
+    Merge pull request #94 from jwillemsen/jwi-azurevs2019
+    
+    Add vs2019 on azure
+
+commit b6d5c212d426d85b72f7867ef69b4a1244b1e6b8
+Merge: 25f3d58f7e0 660bb808b7f
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Apr 15 15:03:59 2019 +0200
+
+    Merge pull request #93 from jwillemsen/jwi-clang8
+    
+    Added clang8 to azure pipelines
+
+commit 7acb6636d168e01473160e49c7d85f807a99f6d7
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Apr 15 13:50:28 2019 +0200
+
+    Use -q with git clone
+    
+        * azure-pipelines.yml:
+
+commit 58e01243f71cb271b8222b79cdeedcbda6b449d1
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Apr 15 13:40:06 2019 +0200
+
+    Add vs2019 on azure
+    
+        * azure-pipelines.yml:
+
+commit 660bb808b7f35d0bb0eef32737049fbb0abbab54
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Apr 15 13:35:25 2019 +0200
+
+    Added clang8 to azure pipelines
+    
+        * azure-pipelines.yml:
+
+commit 25f3d58f7e07a2d8f63c365d31f93f6a46276c36
+Merge: 82b5e561065 76a20f052d2
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Apr 8 09:52:42 2019 +0200
+
+    Merge pull request #91 from jwillemsen/master
+    
+    Prepare for next release
+
+commit 76a20f052d22bccb1f85bfc6b528723afe4ecf7a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Apr 8 09:22:09 2019 +0200
+
+    Prepare for next release
+    
+        * NEWS:
