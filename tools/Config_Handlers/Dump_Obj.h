@@ -47,7 +47,7 @@ class Config_Handlers_Export Dump_Obj
   Dump_Obj (const char* caption, CORBA::Any &val);
 
   /// Destructor
-  ~Dump_Obj (void);
+  ~Dump_Obj (void) ACE_NOEXCEPT_FALSE;
 
   /// return the indent string
   static const char* indent()
