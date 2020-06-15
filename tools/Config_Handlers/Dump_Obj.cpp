@@ -44,7 +44,7 @@ namespace Deployment
       }
   }
 
-  Dump_Obj::~Dump_Obj()
+  Dump_Obj::~Dump_Obj() ACE_NOEXCEPT_FALSE
   {
     DANCE_TRACE ("Dump_Obj::destructor");
 
