@@ -4,6 +4,7 @@
 [![Azure DevOps](https://dev.azure.com/docgroup/DAnCE/_apis/build/status/DOCGroup.DAnCE?branchName=master)](https://dev.azure.com/docgroup/DAnCE/_build/latest?definitionId=3&branchName=master)
 [![CodeFactor](https://www.codefactor.io/repository/github/docgroup/dance/badge)](https://www.codefactor.io/repository/github/docgroup/dance)
 [![Linux CI](https://github.com/DOCGroup/DAnCE/workflows/linux/badge.svg)](https://github.com/DOCGroup/DAnCE/actions?query=workflow%3Alinux)
+[![Linux CI](https://github.com/DOCGroup/DAnCE/workflows/macosx/badge.svg)](https://github.com/DOCGroup/DAnCE/actions?query=workflow%3Amacosx)
 
 # DAnCE #
 
