@@ -80,17 +80,17 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: DOCGroup/ACE_TAO
-        path: ACE_TAO
+        path: ${{ env.DOC_ROOT }}
     - name: checkout MPC
       uses: actions/checkout@v2
       with:
         repository: DOCGroup/MPC
-        path: ACE_TAO/MPC
+        path: ${{ env.MPC_ROOT }}
     - name: checkout CIAO
       uses: actions/checkout@v2
       with:
         repository: DOCGroup/CIAO
-        path: CIAO
+        path: ${{ env.CIAO_ROOT }}
     - name: Install vcpkg
       uses: lukka/run-vcpkg@v3
       with:
