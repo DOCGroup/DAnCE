@@ -115,7 +115,7 @@ ACE_TMAIN (int argc, ACE_TCHAR **argv)
 
       if (subscriber_ == 0)
         {
-          ACE_ERROR ((LM_ERROR, ACE_TEXT ("NDDS_Log_Backend::open - Failed to create publisher\n")));
+          ACE_ERROR ((LM_ERROR, ACE_TEXT ("NDDS_Log_Backend::open - Failed to create subscriber\n")));
           throw 1;
         }
 
@@ -125,7 +125,7 @@ ACE_TMAIN (int argc, ACE_TCHAR **argv)
                                                    DDS_STATUS_MASK_NONE);
       if (datareader_ == 0)
         {
-          ACE_ERROR ((LM_ERROR, ACE_TEXT ("NDDS_Log_Backend::open - Failed to open the datawriter\n")));
+          ACE_ERROR ((LM_ERROR, ACE_TEXT ("NDDS_Log_Backend::open - Failed to open the datareader\n")));
           throw 1;
         }
 
