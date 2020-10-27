@@ -1,0 +1,325 @@
+commit 4ca9baa0520c251828bac03368ce432b940b1e7d
+Merge: 5b366b80ed6 82e33372d68
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Oct 24 12:48:26 2020 +0200
+
+    Merge pull request #128 from jwillemsen/master
+    
+    List changes
+
+commit 82e33372d68bed2e9c5729e79076fa78a0e3fdf2
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat Oct 24 10:47:25 2020 +0200
+
+    List changes
+    
+        * NEWS:
+        * docs/releasenotes/dance.html:
+        * docs/releasenotes/index.html:
+
+commit 5b366b80ed63b89065aef0d14a18b1287f270dcd
+Merge: 663f4183eb7 20f31d85586
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 12 15:03:22 2020 +0200
+
+    Merge pull request #127 from jwillemsen/jwillemsen-patch-1
+    
+    Change to use microsoft/setup-msbuild@v1
+
+commit 20f31d855866d634e1b8815aa192c524f82bb5bd
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 12 14:08:38 2020 +0200
+
+    Change to use microsoft/setup-msbuild@v1
+
+commit 663f4183eb75637ba96eb5d79787dd8579098d8d
+Merge: c363baf16fd d02bda07ab7
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 12 10:29:44 2020 +0200
+
+    Merge pull request #126 from jwillemsen/jwillemsen-patch-1
+    
+    Upgrade to lukka/run-vcpkg@v4
+
+commit d02bda07ab71f843d89400c3558f970802f02390
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 12 09:17:37 2020 +0200
+
+    Upgrade to lukka/run-vcpkg@v4
+
+commit c363baf16fd33678a56ddac122ff21673072d2a0
+Merge: e411792d1a3 1b03b3ba286
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 5 13:09:02 2020 +0200
+
+    Merge pull request #125 from jwillemsen/jwi-doxygenup
+    
+    Upgrade to latest doxygen
+
+commit 1b03b3ba2866b80caa9d983322fb6524e9deeb12
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Oct 5 12:09:19 2020 +0200
+
+    Upgrade to latest doxygen
+    
+        * etc/DAnCE.doxygen:
+
+commit e411792d1a35381cccb34016851a990f00b5182c
+Merge: 5cd2639337a eb837e03c67
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Oct 2 18:15:49 2020 +0200
+
+    Merge pull request #124 from jwillemsen/jwi-pythonshebang
+    
+    Python shebang changes
+
+commit eb837e03c676350cc2b040a561f3c38ffae36e52
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri Oct 2 16:50:25 2020 +0200
+
+    Python shebang changes
+    
+        * bin/generate_plan.py:
+        * bin/make_release.py:
+
+commit 5cd2639337aa08b96527675ded9b55c1ba62a8f1
+Merge: ad64869303a 0874ba212af
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Sep 3 20:41:15 2020 +0200
+
+    Merge pull request #123 from DOCGroup/jwillemsen-patch-1
+    
+    Upgrade to vcpkg 2020.07 release
+
+commit 0874ba212af04b45a914142650d646d6cd9bc20b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu Sep 3 18:55:56 2020 +0200
+
+    Update windows.yml
+
+commit ad64869303a638265c167fe2d55ce7ab1039941d
+Merge: 968ad2fa7c6 d0f7681fad8
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Sep 2 18:15:27 2020 +0200
+
+    Merge pull request #122 from jwillemsen/master
+    
+    Fixed incorrect logging messages
+
+commit d0f7681fad8533e34d95860fc8df90dcc195d898
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Sep 2 17:10:02 2020 +0200
+
+    Fixed incorrect logging messages
+    
+        * tools/Logger_Backend/ndds/Log_Server.cpp:
+
+commit 968ad2fa7c61e060ea01d2a8548077a5e35e9860
+Merge: ba4d3222cac 3bf97a5424d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Aug 26 13:46:58 2020 +0200
+
+    Merge pull request #121 from jwillemsen/jwi-windowsgithubaction
+    
+    Use environment variables for checkout paths
+
+commit 3bf97a5424d2be1e5ac5a7f667af4d566b387490
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Aug 26 12:56:01 2020 +0200
+
+    Use environment variables for checkout paths
+    
+        * .github/workflows/linux.yml:
+        * .github/workflows/macosx.yml:
+        * .github/workflows/windows.yml:
+
+commit ba4d3222cacd189a0221cb9b767c35bc2dbd7e57
+Merge: 3eeee1888ed c2a9fc6947e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Aug 26 09:58:14 2020 +0200
+
+    Merge pull request #120 from jwillemsen/jwi-windowsgithubaction
+    
+    Move windows CI from azure pipelines to github actions
+
+commit c2a9fc6947e2cd47a8c68b3d08494ab24c3da9c3
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Aug 26 09:03:08 2020 +0200
+
+    Fixed MPC location
+    
+        * .github/workflows/windows.yml:
+
+commit dfb47659c2634e1264736d649a127b2c3cdf444b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Aug 26 08:47:27 2020 +0200
+
+    Move windows CI from azure pipelines to github actions
+    
+        * azure-pipelines.yml:
+          Deleted.
+    
+        * .github/workflows/windows.yml:
+          Added.
+    
+        * README.md:
+
+commit 3eeee1888ede15d5bbf80853302d896d9f04ea65
+Merge: 8f9171500b6 c52a6baadd1
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Aug 25 13:26:23 2020 +0200
+
+    Merge pull request #119 from jwillemsen/jwi-githubactions
+    
+    Moved all linux/macosx CI builds from travis/azure to github actions
+
+commit c52a6baadd1cf3d194edd8851df8d03d0f34274b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Aug 25 08:43:50 2020 +0200
+
+    Cleanup macosx
+    
+        * README.md:
+        * azure-pipelines.yml:
+
+commit bce8a9acc2ced0adbd623fa458278efd112a3d8c
+Merge: bc9763c28cb be36f647d6e
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Aug 25 08:43:22 2020 +0200
+
+    Merge branch 'jwi-githubactionsmacosx' into jwi-githubactions
+
+commit be36f647d6edde8a8cc1224f998956dc73c7ea79
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Aug 25 08:42:57 2020 +0200
+
+    Add github CI for MacOSX
+
+commit bc9763c28cb56e2e52f061f7ff74db5cff77e534
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Tue Aug 25 08:29:05 2020 +0200
+
+    Moved all linux CI builds from travis/azure to github actions
+    
+        * .travis.yml:
+          Deleted.
+    
+        * .github/workflows/linux.yml:
+          Added.
+    
+        * README.md:
+        * azure-pipelines.yml:
+
+commit 8f9171500b63d3aad4dfee22bfcff1c3b64e98ce
+Merge: 8805632dead 282443fdca8
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jul 1 11:13:34 2020 +0200
+
+    Merge pull request #118 from jwillemsen/jwi-doxygen2
+    
+    Upgrade all doxygen files
+
+commit 282443fdca860facd2fe63a8a7c5337d5186326d
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed Jul 1 10:40:00 2020 +0200
+
+    Upgrade all doxygen files
+
+commit 8805632dead40bfd2b0692d8194eb8358bd9caff
+Merge: 36486410646 fb7e08b3cdd
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Jun 15 14:57:08 2020 +0200
+
+    Merge pull request #117 from jwillemsen/jwi-noexcept
+    
+    Mark destructor with ACE_NOEXCEPT_FALSE
+
+commit fb7e08b3cddacb1893b441167cbbe4a71133b82a
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Jun 15 12:51:54 2020 +0200
+
+    Switch to checkout v2
+    
+        * .github/workflows/fuzz.yml:
+
+commit c4ac0a656eb919eac6d0f0aa3f84967feea43212
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon Jun 15 12:51:43 2020 +0200
+
+    Mark destructor with ACE_NOEXCEPT_FALSE
+    
+        * tools/Config_Handlers/Dump_Obj.cpp:
+        * tools/Config_Handlers/Dump_Obj.h:
+
+commit 36486410646fc4f6758be5e0549203bd13c5e8ed
+Merge: e5abee30211 33956e66957
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon May 11 19:05:13 2020 +0200
+
+    Merge pull request #116 from jwillemsen/jwi-nocpp11
+    
+    Use the compile default c++ compliance level
+
+commit 33956e66957c5b44295f502962169c564c984788
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon May 11 15:46:50 2020 +0200
+
+    Updated matrix to use ubuntu 16.04 for gcc48/clang5, on 18.04 the xercesc installation requires c++11 which is not enabled by default with gcc48/clang5
+    
+        * azure-pipelines.yml:
+
+commit cb4069fee4e2529e581946b5c5c23c34e781e67b
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Mon May 11 12:09:19 2020 +0200
+
+    Use the compile default c++ compliance level
+
+commit e5abee3021121288fcac661bc9e9a8e695b060ef
+Merge: 337a2b50f1b be5ed408cf3
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat May 9 13:18:08 2020 +0200
+
+    Merge pull request #115 from jwillemsen/jwi-azureci-gcc10
+    
+    Add gcc10 to CI
+
+commit be5ed408cf3fc377511dcc0fa58a9ea3bc657f31
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Sat May 9 09:46:35 2020 +0200
+
+    Add gcc10 to CI
+
+commit 337a2b50f1b1247716946e3d6645da665294544b
+Merge: ff6b3efa751 8c5755714cc
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Fri May 8 11:03:18 2020 +0200
+
+    Merge pull request #114 from jwillemsen/master
+    
+    Update various links and point to github issues
+
+commit 8c5755714cc874f04593edca85dde6745fc974a7
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Thu May 7 14:20:44 2020 +0200
+
+    Update various links and point to github issues
+    
+        * COPYING:
+        * PROBLEM-REPORT-FORM:
+
+commit ff6b3efa751d7a4b1196c5a7b2ba9bf16e7d407f
+Merge: f9069933ae6 a14daadabfe
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed May 6 11:17:42 2020 +0200
+
+    Merge pull request #113 from jwillemsen/master
+    
+    Prepare for next release
+
+commit a14daadabfe700f325db07ad6648aef389a0a126
+Author: Johnny Willemsen <jwillemsen@remedy.nl>
+Date:   Wed May 6 11:17:22 2020 +0200
+
+    Prepare for next release
+    
+        * NEWS:
